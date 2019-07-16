@@ -15,6 +15,11 @@
 		E450331222DCE2C60016EA09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E450331022DCE2C60016EA09 /* LaunchScreen.storyboard */; };
 		E450334522DD11AE0016EA09 /* Calendario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450334422DD11AE0016EA09 /* Calendario.swift */; };
 		E450334722DD1ABE0016EA09 /* DiarioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450334622DD1ABE0016EA09 /* DiarioVC.swift */; };
+		E450335122DE4B880016EA09 /* NotasTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335022DE4B880016EA09 /* NotasTVCell.swift */; };
+		E450335822DE61920016EA09 /* NovaNotaTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335722DE61920016EA09 /* NovaNotaTVController.swift */; };
+		E450335C22DE61CC0016EA09 /* lmroman10-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E450335B22DE61C20016EA09 /* lmroman10-regular.otf */; };
+		E450335E22DE69BB0016EA09 /* ListasTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335D22DE69BB0016EA09 /* ListasTVController.swift */; };
+		E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		E450331322DCE2C60016EA09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E450334422DD11AE0016EA09 /* Calendario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendario.swift; sourceTree = "<group>"; };
 		E450334622DD1ABE0016EA09 /* DiarioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiarioVC.swift; sourceTree = "<group>"; };
+		E450335022DE4B880016EA09 /* NotasTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasTVCell.swift; sourceTree = "<group>"; };
+		E450335722DE61920016EA09 /* NovaNotaTVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovaNotaTVController.swift; sourceTree = "<group>"; };
+		E450335B22DE61C20016EA09 /* lmroman10-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lmroman10-regular.otf"; sourceTree = "<group>"; };
+		E450335D22DE69BB0016EA09 /* ListasTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListasTVController.swift; sourceTree = "<group>"; };
+		E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicosTVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,7 @@
 		E450330322DCE2C40016EA09 /* DiarioDeOracao */ = {
 			isa = PBXGroup;
 			children = (
+				E450335B22DE61C20016EA09 /* lmroman10-regular.otf */,
 				E450330422DCE2C40016EA09 /* AppDelegate.swift */,
 				E450330E22DCE2C60016EA09 /* Assets.xcassets */,
 				E450331322DCE2C60016EA09 /* Info.plist */,
@@ -82,6 +93,8 @@
 		E450333C22DD08BB0016EA09 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E450335022DE4B880016EA09 /* NotasTVCell.swift */,
+				E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */,
 				E450330822DCE2C40016EA09 /* Main.storyboard */,
 				E450331022DCE2C60016EA09 /* LaunchScreen.storyboard */,
 			);
@@ -93,6 +106,8 @@
 			children = (
 				E450330622DCE2C40016EA09 /* ViewController.swift */,
 				E450334622DD1ABE0016EA09 /* DiarioVC.swift */,
+				E450335722DE61920016EA09 /* NovaNotaTVController.swift */,
+				E450335D22DE69BB0016EA09 /* ListasTVController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -158,6 +173,7 @@
 				E450331222DCE2C60016EA09 /* LaunchScreen.storyboard in Resources */,
 				E450330F22DCE2C60016EA09 /* Assets.xcassets in Resources */,
 				E450330A22DCE2C40016EA09 /* Main.storyboard in Resources */,
+				E450335C22DE61CC0016EA09 /* lmroman10-regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,9 +185,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E450330722DCE2C40016EA09 /* ViewController.swift in Sources */,
+				E450335E22DE69BB0016EA09 /* ListasTVController.swift in Sources */,
+				E450335822DE61920016EA09 /* NovaNotaTVController.swift in Sources */,
 				E450330D22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld in Sources */,
 				E450334522DD11AE0016EA09 /* Calendario.swift in Sources */,
 				E450330522DCE2C40016EA09 /* AppDelegate.swift in Sources */,
+				E450335122DE4B880016EA09 /* NotasTVCell.swift in Sources */,
+				E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */,
 				E450334722DD1ABE0016EA09 /* DiarioVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

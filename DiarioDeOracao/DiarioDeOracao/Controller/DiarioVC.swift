@@ -8,48 +8,97 @@
 
 import UIKit
 
-class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    
     
     @IBOutlet weak var diaLabel: UILabel!
     
-    @IBOutlet weak var tableView: UITableView!
-    
+    // dados provisorios para teste
     let titulos = ["Leitura bíblica diária","Lista de oração diária","Nota pessoal"]
     let textos = ["3/3 concluídos","4/5 concluídos","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
+    
+    let topicosLeitura = ["Gênesis 1","I Crônicas 1","Salmo 1"]
+    let topicosOracao = ["Família","Saúde","Trabalho"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         diaLabel.text = Calendario.shared.retornaDiaAtual()
-        
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 126
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titulos.count
+        if tableView.tag == 1 {
+            return topicosLeitura.count
+        } else {
+            return topicosOracao.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "notas") as! NotasTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TopicosTVCell") as! TopicosTVCell
         
-        cell.tituloLabel.text = titulos[indexPath.row]
-        cell.corpoLabel.text = textos[indexPath.row]
+        if tableView.tag == 1 {
+            cell.tituloLabel.text = topicosLeitura[indexPath.row]
+        } else {
+            cell.tituloLabel.text = topicosOracao[indexPath.row]
+        }
         
+
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var id:String
-        if indexPath.row == 0 || indexPath.row == 1 {
-            id = "cardFixoSegue"
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return titulos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.row == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardFixoCVCell", for: indexPath) as! CardFixoCVCell
+            cell.topicosTableView.tag = 1
+            cell.tituloLabel.text = titulos[0]
+            cell.adicionarButton.isHidden = true
+            
+            return cell
+            
+        } else if indexPath.row == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardFixoCVCell", for: indexPath) as! CardFixoCVCell
+            cell.topicosTableView.tag = 2
+            cell.tituloLabel.text = titulos[1]
+            
+            return cell
+            
         } else {
-            id = "editarNotaSegue"
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotasCVCell", for: indexPath) as! NotasCVCell
+            cell.tituloLabel.text = titulos[indexPath.row]
+            cell.corpoLabel.text = textos[indexPath.row]
+            
+            return cell
         }
-        performSegue(withIdentifier: id, sender: self)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row > 1 {
+            performSegue(withIdentifier: "editarNota", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let lista = segue.destination as? ListasTVController {
+//            if segue.identifier == "leituraBiblicaSegue" {
+//                lista.navigationItem.title = "Leitura bíblica"
+//                lista.navigationItem.rightBarButtonItem = .none
+//                lista.dados = topicosLeitura
+//            } else {
+//                lista.navigationItem.title = "Lista de oração"
+//                lista.dados = topicosOracao
+//            }
+//        } else
+        if let nota = segue.destination as? NovaNotaTVController {
+            if segue.identifier == "editarNota" {
+                nota.nota = [titulos[2],textos[2]]
+            }
+        }
     }
 
     @IBAction func voltarDia(_ sender: Any) {
@@ -69,4 +118,5 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
+
 }

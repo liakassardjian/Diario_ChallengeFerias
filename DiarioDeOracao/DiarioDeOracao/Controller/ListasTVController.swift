@@ -10,6 +10,8 @@ import UIKit
 
 class ListasTVController: UITableViewController {
 
+    var dados:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,15 +24,13 @@ class ListasTVController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return dados.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "topicos", for: indexPath) as! TopicosTVCell
 
-        cell.tituloLabel.text = "Titulo"
-        
-        
+        cell.tituloLabel.text = dados[indexPath.row]
 
         return cell
     }

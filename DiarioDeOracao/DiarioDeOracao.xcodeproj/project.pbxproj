@@ -21,6 +21,8 @@
 		E450335C22DE61CC0016EA09 /* lmroman10-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E450335B22DE61C20016EA09 /* lmroman10-regular.otf */; };
 		E450335E22DE69BB0016EA09 /* ListasTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335D22DE69BB0016EA09 /* ListasTVController.swift */; };
 		E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */; };
+		E48E137C22DFAABB001A4CA2 /* CardFixoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E137B22DFAABB001A4CA2 /* CardFixoCVCell.swift */; };
+		E48E137E22DFAC98001A4CA2 /* NotasCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E137D22DFAC98001A4CA2 /* NotasCVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		E450335B22DE61C20016EA09 /* lmroman10-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lmroman10-regular.otf"; sourceTree = "<group>"; };
 		E450335D22DE69BB0016EA09 /* ListasTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListasTVController.swift; sourceTree = "<group>"; };
 		E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicosTVCell.swift; sourceTree = "<group>"; };
+		E48E137B22DFAABB001A4CA2 /* CardFixoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFixoCVCell.swift; sourceTree = "<group>"; };
+		E48E137D22DFAC98001A4CA2 /* NotasCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasCVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 				E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */,
 				E450330822DCE2C40016EA09 /* Main.storyboard */,
 				E450331022DCE2C60016EA09 /* LaunchScreen.storyboard */,
+				E48E137B22DFAABB001A4CA2 /* CardFixoCVCell.swift */,
+				E48E137D22DFAC98001A4CA2 /* NotasCVCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,6 +163,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 				"pt-BR",
 			);
@@ -191,9 +198,11 @@
 			files = (
 				E450330722DCE2C40016EA09 /* ViewController.swift in Sources */,
 				E450335E22DE69BB0016EA09 /* ListasTVController.swift in Sources */,
+				E48E137E22DFAC98001A4CA2 /* NotasCVCell.swift in Sources */,
 				E413095E22DE9CE200D1BD4F /* NovaOracaoTVController.swift in Sources */,
 				E450335822DE61920016EA09 /* NovaNotaTVController.swift in Sources */,
 				E450330D22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld in Sources */,
+				E48E137C22DFAABB001A4CA2 /* CardFixoCVCell.swift in Sources */,
 				E450334522DD11AE0016EA09 /* Calendario.swift in Sources */,
 				E450330522DCE2C40016EA09 /* AppDelegate.swift in Sources */,
 				E450335122DE4B880016EA09 /* NotasTVCell.swift in Sources */,

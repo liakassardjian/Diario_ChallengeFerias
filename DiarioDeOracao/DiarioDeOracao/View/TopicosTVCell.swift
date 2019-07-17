@@ -13,7 +13,7 @@ class TopicosTVCell: UITableViewCell {
     @IBOutlet weak var checkView: UIView! {
         didSet {
             self.checkView.layer.borderWidth = 2
-            self.checkView.layer.borderColor = #colorLiteral(red: 0.2888143063, green: 0.3528535366, blue: 0.1741557121, alpha: 1)
+            self.checkView.layer.borderColor = #colorLiteral(red: 0.2812142968, green: 0.1408810616, blue: 0.2105534375, alpha: 1)
             self.checkView.layer.cornerRadius = 0.5 * checkView.frame.width
             self.checkView.backgroundColor = UIColor.clear
         }

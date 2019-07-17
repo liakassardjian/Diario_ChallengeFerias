@@ -34,6 +34,14 @@ class ListasTVController: UITableViewController {
 
         return cell
     }
+    
+    @IBAction func salvarNota(_ sender: UIStoryboardSegue){
+        if sender.source is NovaOracaoTVController {
+            if let senderAdd = sender.source as? NovaOracaoTVController {
+                // adiciona pedido de oracao
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -95,4 +95,8 @@ class Calendario {
         return "\(diasDaSemana[diaDaSemana - 1]), \(dia) de \(meses[mes - 1]) de \(ano)"
     }
     
+    public func retornaDataAtual() -> Date {
+        return data
+    }
+    
 }

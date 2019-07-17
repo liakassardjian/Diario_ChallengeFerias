@@ -260,7 +260,7 @@
         <!--Nova oração-->
         <scene sceneID="vnl-st-6eb">
             <objects>
-                <tableViewController id="S1S-xS-s16" sceneMemberID="viewController">
+                <tableViewController id="S1S-xS-s16" customClass="NovaOracaoTVController" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qNu-DU-3xA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -278,7 +278,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Título" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NV3-3r-q8m">
                                                     <rect key="frame" x="20" y="6" width="374" height="30"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -338,7 +338,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Notas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mhm-QW-YGv">
                                                     <rect key="frame" x="20" y="6" width="374" height="30"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -367,12 +367,43 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="31/12/2019" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiC-fc-8rh">
+                                                    <rect key="frame" x="113" y="10" width="281" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="R9V-aK-ig3" secondAttribute="bottom" constant="1" id="4Be-zg-BhT"/>
+                                                <constraint firstAttribute="trailing" secondItem="QiC-fc-8rh" secondAttribute="trailing" constant="20" id="7H9-Mx-xwu"/>
                                                 <constraint firstItem="R9V-aK-ig3" firstAttribute="top" secondItem="oe6-fv-YbP" secondAttribute="topMargin" id="JTF-Vq-CH0"/>
                                                 <constraint firstItem="R9V-aK-ig3" firstAttribute="leading" secondItem="oe6-fv-YbP" secondAttribute="leadingMargin" id="KWd-aQ-9ND"/>
+                                                <constraint firstItem="QiC-fc-8rh" firstAttribute="leading" secondItem="R9V-aK-ig3" secondAttribute="trailing" id="gBD-Ta-7Of"/>
+                                                <constraint firstAttribute="bottom" secondItem="QiC-fc-8rh" secondAttribute="bottom" constant="12.5" id="s5P-9X-g24"/>
+                                                <constraint firstItem="QiC-fc-8rh" firstAttribute="top" secondItem="oe6-fv-YbP" secondAttribute="top" constant="10" id="to7-SS-eUr"/>
                                             </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="2sf-xb-87x">
+                                        <rect key="frame" x="0.0" y="260" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2sf-xb-87x" id="HKQ-Nu-zNU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="25I-o7-aRC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="585014168.72844601">
+                                                        <!--2019-07-16 23:56:08 +0000-->
+                                                    </date>
+                                                    <locale key="locale" localeIdentifier="pt_BR"/>
+                                                    <connections>
+                                                        <action selector="valorPickerAlterado:" destination="S1S-xS-s16" eventType="valueChanged" id="dIF-Li-Xc4"/>
+                                                    </connections>
+                                                </datePicker>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -385,10 +416,22 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Nova oração" id="dAt-aL-vBk">
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="p0N-hM-MNW"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="clu-sX-0xe"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="clu-sX-0xe">
+                            <connections>
+                                <segue destination="47P-yU-ozz" kind="unwind" unwindAction="salvarNota:" id="4xQ-Gq-pK9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dataDatePicker" destination="25I-o7-aRC" id="O2p-98-s8V"/>
+                        <outlet property="dataLabel" destination="QiC-fc-8rh" id="hja-BW-BOO"/>
+                        <outlet property="notasTextField" destination="Mhm-QW-YGv" id="UTE-fZ-dNP"/>
+                        <outlet property="tituloTextField" destination="NV3-3r-q8m" id="W8n-pO-ayZ"/>
+                        <outlet property="urgenciaSegmentedControl" destination="oMd-T1-1BG" id="xbu-E8-UZD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2kp-GW-YSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="47P-yU-ozz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1759.4202898550725" y="2086.6071428571427"/>
         </scene>

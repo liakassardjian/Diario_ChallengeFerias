@@ -1,0 +1,87 @@
+
+/* Class = "UITableViewController"; title = "Nova nota"; ObjectID = "0rC-c6-fcf"; */
+"0rC-c6-fcf.title" = "Nova nota";
+
+/* Class = "UITextView"; text = "Escreva aqui sua nota"; ObjectID = "6nL-lO-8gx"; */
+"6nL-lO-8gx.text" = "Escreva aqui sua nota";
+
+/* Class = "UILabel"; text = "Urgência"; ObjectID = "CsW-qG-2CD"; */
+"CsW-qG-2CD.text" = "Urgência";
+
+/* Class = "UINavigationItem"; title = "Nova nota"; ObjectID = "E5L-sX-lty"; */
+"E5L-sX-lty.title" = "Nova nota";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Etw-Fv-YzW"; */
+"Etw-Fv-YzW.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "MVt-VB-vJK"; */
+"MVt-VB-vJK.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Notas"; ObjectID = "Mhm-QW-YGv"; */
+"Mhm-QW-YGv.placeholder" = "Notas";
+
+/* Class = "UITextField"; placeholder = "Título"; ObjectID = "NV3-3r-q8m"; */
+"NV3-3r-q8m.placeholder" = "Título";
+
+/* Class = "UIButton"; normalTitle = " "; ObjectID = "Oly-o6-qOE"; */
+"Oly-o6-qOE.normalTitle" = " ";
+
+/* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "PSi-Ql-tfe"; */
+"PSi-Ql-tfe.headerTitle" = " ";
+
+/* Class = "UILabel"; text = "31/12/2019"; ObjectID = "QiC-fc-8rh"; */
+"QiC-fc-8rh.text" = "31/12/2019";
+
+/* Class = "UILabel"; text = "Lembrar até"; ObjectID = "R9V-aK-ig3"; */
+"R9V-aK-ig3.text" = "Lembrar até";
+
+/* Class = "UINavigationItem"; title = "Lista de oração"; ObjectID = "SEM-lg-Vs9"; */
+"SEM-lg-Vs9.title" = "Lista de oração";
+
+/* Class = "UINavigationItem"; title = "Diário"; ObjectID = "TKy-M6-JHI"; */
+"TKy-M6-JHI.title" = "Diário";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "TZe-0Y-nc7"; */
+"TZe-0Y-nc7.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "ZJP-ab-6rE"; */
+"ZJP-ab-6rE.title" = "Title";
+
+/* Class = "UINavigationItem"; title = "Nova oração"; ObjectID = "dAt-aL-vBk"; */
+"dAt-aL-vBk.title" = "Nova oração";
+
+/* Class = "UIButton"; normalTitle = " "; ObjectID = "jBH-Hd-TmL"; */
+"jBH-Hd-TmL.normalTitle" = " ";
+
+/* Class = "UISegmentedControl"; oMd-T1-1BG.segmentTitles[0] = "Nenhuma"; ObjectID = "oMd-T1-1BG"; */
+"oMd-T1-1BG.segmentTitles[0]" = "Nenhuma";
+
+/* Class = "UISegmentedControl"; oMd-T1-1BG.segmentTitles[1] = "!"; ObjectID = "oMd-T1-1BG"; */
+"oMd-T1-1BG.segmentTitles[1]" = "!";
+
+/* Class = "UISegmentedControl"; oMd-T1-1BG.segmentTitles[2] = "!!"; ObjectID = "oMd-T1-1BG"; */
+"oMd-T1-1BG.segmentTitles[2]" = "!!";
+
+/* Class = "UISegmentedControl"; oMd-T1-1BG.segmentTitles[3] = "!!!"; ObjectID = "oMd-T1-1BG"; */
+"oMd-T1-1BG.segmentTitles[3]" = "!!!";
+
+/* Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "p0N-hM-MNW"; */
+"p0N-hM-MNW.title" = "Voltar";
+
+/* Class = "UITabBarItem"; title = "Meu diário"; ObjectID = "q6x-VZ-Wpi"; */
+"q6x-VZ-Wpi.title" = "Meu diário";
+
+/* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "qEA-RL-58U"; */
+"qEA-RL-58U.headerTitle" = " ";
+
+/* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "qwW-yQ-6rf"; */
+"qwW-yQ-6rf.headerTitle" = " ";
+
+/* Class = "UITextField"; text = "Nova nota"; ObjectID = "rcR-bh-rj7"; */
+"rcR-bh-rj7.text" = "Nova nota";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "sFx-0A-Zfd"; */
+"sFx-0A-Zfd.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Lista de oração"; ObjectID = "weR-Ng-aX2"; */
+"weR-Ng-aX2.title" = "Lista de oração";

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E413095E22DE9CE200D1BD4F /* NovaOracaoTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413095D22DE9CE200D1BD4F /* NovaOracaoTVController.swift */; };
 		E450330522DCE2C40016EA09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450330422DCE2C40016EA09 /* AppDelegate.swift */; };
 		E450330722DCE2C40016EA09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450330622DCE2C40016EA09 /* ViewController.swift */; };
 		E450330A22DCE2C40016EA09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E450330822DCE2C40016EA09 /* Main.storyboard */; };
@@ -23,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E413095D22DE9CE200D1BD4F /* NovaOracaoTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaOracaoTVController.swift; sourceTree = "<group>"; };
+		E413095F22DE9ED700D1BD4F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		E413096022DE9ED700D1BD4F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		E450330122DCE2C40016EA09 /* DiarioDeOracao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiarioDeOracao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E450330422DCE2C40016EA09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E450330622DCE2C40016EA09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 				E450334622DD1ABE0016EA09 /* DiarioVC.swift */,
 				E450335722DE61920016EA09 /* NovaNotaTVController.swift */,
 				E450335D22DE69BB0016EA09 /* ListasTVController.swift */,
+				E413095D22DE9CE200D1BD4F /* NovaOracaoTVController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,8 +157,8 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = E45032F822DCE2C40016EA09;
 			productRefGroup = E450330222DCE2C40016EA09 /* Products */;
@@ -186,6 +191,7 @@
 			files = (
 				E450330722DCE2C40016EA09 /* ViewController.swift in Sources */,
 				E450335E22DE69BB0016EA09 /* ListasTVController.swift in Sources */,
+				E413095E22DE9CE200D1BD4F /* NovaOracaoTVController.swift in Sources */,
 				E450335822DE61920016EA09 /* NovaNotaTVController.swift in Sources */,
 				E450330D22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld in Sources */,
 				E450334522DD11AE0016EA09 /* Calendario.swift in Sources */,
@@ -203,6 +209,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E450330922DCE2C40016EA09 /* Base */,
+				E413095F22DE9ED700D1BD4F /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -211,6 +218,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E450331122DCE2C60016EA09 /* Base */,
+				E413096022DE9ED700D1BD4F /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -283,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

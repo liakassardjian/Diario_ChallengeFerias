@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Inm-8g-vIh">
-                                <rect key="frame" x="0.0" y="88" width="414" height="72"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="72"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWy-zG-axB">
                                         <rect key="frame" x="0.0" y="16" width="40" height="40"/>
@@ -70,17 +70,17 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dzY-yb-3iG">
-                                <rect key="frame" x="0.0" y="175" width="414" height="638"/>
+                                <rect key="frame" x="0.0" y="212" width="414" height="601"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="L1j-OY-wG5">
                                     <size key="itemSize" width="384" height="220"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="0.0" height="15"/>
+                                    <size key="footerReferenceSize" width="0.0" height="15"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardFixoCVCell" id="llf-FV-SMh" customClass="CardFixoCVCell" customModule="DiarioDeOracao" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="0.0" width="384" height="220"/>
+                                        <rect key="frame" x="15" y="15" width="384" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="220"/>
@@ -90,11 +90,10 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="220"/>
                                                     <color key="backgroundColor" red="0.3291075826" green="0.22652959819999999" blue="0.27843627329999998" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" estimatedRowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-Ts-0j9">
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" estimatedRowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-Ts-0j9" customClass="TopicosTableView" customModule="DiarioDeOracao" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="56" width="384" height="164"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="164" id="cFq-kx-LCT"/>
                                                         <constraint firstAttribute="width" constant="384" id="wOw-1U-lqq"/>
                                                     </constraints>
                                                     <prototypes>
@@ -167,7 +166,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="eea-HX-ZFu" secondAttribute="bottom" id="4Un-m5-pWe"/>
-                                            <constraint firstAttribute="bottom" secondItem="fYa-Ts-0j9" secondAttribute="bottom" id="7ff-xf-uAu"/>
+                                            <constraint firstItem="eea-HX-ZFu" firstAttribute="bottom" secondItem="fYa-Ts-0j9" secondAttribute="bottom" id="7ff-xf-uAu"/>
                                             <constraint firstItem="fYa-Ts-0j9" firstAttribute="leading" secondItem="llf-FV-SMh" secondAttribute="leading" id="E6o-Pl-3pJ"/>
                                             <constraint firstItem="eea-HX-ZFu" firstAttribute="leading" secondItem="llf-FV-SMh" secondAttribute="leading" id="HpE-4c-FAb"/>
                                             <constraint firstItem="eea-HX-ZFu" firstAttribute="top" secondItem="llf-FV-SMh" secondAttribute="top" id="N8q-ur-8hb"/>
@@ -184,11 +183,11 @@
                                             <outlet property="adicionarButton" destination="Ce2-rN-eeU" id="Ntm-cg-fUB"/>
                                             <outlet property="cardView" destination="eea-HX-ZFu" id="cPb-Ro-FLt"/>
                                             <outlet property="tituloLabel" destination="9Ma-SC-5nI" id="Fp0-qt-5Gv"/>
-                                            <outlet property="topicosTableView" destination="fYa-Ts-0j9" id="wjv-7G-ZDZ"/>
+                                            <outlet property="topicosTableView" destination="fYa-Ts-0j9" id="Hok-qJ-PWc"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NotasCVCell" id="sCP-6A-D5f" customClass="NotasCVCell" customModule="DiarioDeOracao" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="235" width="384" height="97"/>
+                                        <rect key="frame" x="15" y="250" width="384" height="97"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="97"/>
@@ -234,6 +233,14 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ThN-zq-LaK">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="l16-bw-H3Y">
+                                    <rect key="frame" x="0.0" y="347" width="414" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="7sS-j4-dyO" id="c7b-ir-tai"/>
                                     <outlet property="delegate" destination="7sS-j4-dyO" id="vAN-7L-hrJ"/>
@@ -246,7 +253,7 @@
                             <constraint firstItem="Inm-8g-vIh" firstAttribute="trailing" secondItem="Y6m-d6-VPF" secondAttribute="trailing" id="4kv-Ab-vd2"/>
                             <constraint firstItem="dzY-yb-3iG" firstAttribute="centerX" secondItem="8lu-ck-1SF" secondAttribute="centerX" id="9fD-lt-VAL"/>
                             <constraint firstItem="Inm-8g-vIh" firstAttribute="leading" secondItem="Y6m-d6-VPF" secondAttribute="leading" id="EBF-We-wDo"/>
-                            <constraint firstItem="dzY-yb-3iG" firstAttribute="top" secondItem="Inm-8g-vIh" secondAttribute="bottom" constant="15" id="Eb9-hd-hth"/>
+                            <constraint firstItem="dzY-yb-3iG" firstAttribute="top" secondItem="Inm-8g-vIh" secondAttribute="bottom" id="Eb9-hd-hth"/>
                             <constraint firstItem="dzY-yb-3iG" firstAttribute="bottom" secondItem="Y6m-d6-VPF" secondAttribute="bottom" id="LhE-7w-n9Q"/>
                             <constraint firstItem="Y6m-d6-VPF" firstAttribute="trailing" secondItem="dzY-yb-3iG" secondAttribute="trailing" id="MGd-fR-Gx4"/>
                             <constraint firstItem="dzY-yb-3iG" firstAttribute="leading" secondItem="Y6m-d6-VPF" secondAttribute="leading" id="OEo-Zf-vkJ"/>
@@ -265,11 +272,173 @@
                         <outlet property="collectionView" destination="dzY-yb-3iG" id="pky-DX-Rl6"/>
                         <outlet property="diaLabel" destination="1CH-R4-USH" id="Q1G-Sm-jFd"/>
                         <segue destination="0rC-c6-fcf" kind="show" identifier="editarNota" id="gFP-vq-nVL"/>
+                        <segue destination="rom-n0-ebQ" kind="show" identifier="novaLembranca" id="Apw-Hm-mTh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9E-ew-arz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3575.36231884058" y="1272.9910714285713"/>
+        </scene>
+        <!--Lembranças-->
+        <scene sceneID="Sm9-9Q-j1O">
+            <objects>
+                <collectionViewController id="pJd-Nz-nXq" customClass="LembrancasCVController" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7b2-4k-oYv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="hT4-AQ-vLW">
+                            <size key="itemSize" width="384" height="142"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="50" height="50"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="lembranca" id="l2Y-4B-4IP" customClass="LembrancaCVCell" customModule="DiarioDeOracao" customModuleProvider="target">
+                                <rect key="frame" x="15" y="50" width="384" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="384" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qw-vA-9cB">
+                                            <rect key="frame" x="30" y="5" width="324" height="130"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título da memória" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OO-Xn-GHA">
+                                                    <rect key="frame" x="15" y="20" width="299" height="33"/>
+                                                    <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
+                                                    <color key="textColor" red="0.2468030155" green="0.155987978" blue="0.2039259672" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Descrição da memória" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L68-j5-vfC">
+                                                    <rect key="frame" x="15" y="53" width="299" height="57"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.69019607843137254" green="0.75294117647058822" blue="0.24705882352941178" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="L68-j5-vfC" secondAttribute="bottom" constant="20" id="6JB-qg-yiq"/>
+                                                <constraint firstItem="3OO-Xn-GHA" firstAttribute="leading" secondItem="4qw-vA-9cB" secondAttribute="leading" constant="15" id="Cdd-Lv-1Gw"/>
+                                                <constraint firstAttribute="trailing" secondItem="L68-j5-vfC" secondAttribute="trailing" constant="10" id="Gst-YT-uBY"/>
+                                                <constraint firstItem="L68-j5-vfC" firstAttribute="top" secondItem="3OO-Xn-GHA" secondAttribute="bottom" id="IwP-I3-HRn"/>
+                                                <constraint firstAttribute="trailing" secondItem="3OO-Xn-GHA" secondAttribute="trailing" constant="10" id="SrO-dx-36O"/>
+                                                <constraint firstItem="L68-j5-vfC" firstAttribute="leading" secondItem="4qw-vA-9cB" secondAttribute="leading" constant="15" id="Swh-tV-bSj"/>
+                                                <constraint firstItem="3OO-Xn-GHA" firstAttribute="top" secondItem="4qw-vA-9cB" secondAttribute="top" constant="20" id="UHG-Ut-Zl8"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0X-3A-wwb">
+                                            <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwO-zn-TfE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="6fP-gM-mKw"/>
+                                                <constraint firstItem="HwO-zn-TfE" firstAttribute="leading" secondItem="E0X-3A-wwb" secondAttribute="leading" id="GRj-0c-DhE"/>
+                                                <constraint firstItem="HwO-zn-TfE" firstAttribute="top" secondItem="E0X-3A-wwb" secondAttribute="top" id="M3G-EW-H1F"/>
+                                                <constraint firstAttribute="width" constant="40" id="gu1-uK-xcc"/>
+                                                <constraint firstAttribute="trailing" secondItem="HwO-zn-TfE" secondAttribute="trailing" id="kO5-2Q-8V0"/>
+                                                <constraint firstAttribute="bottom" secondItem="HwO-zn-TfE" secondAttribute="bottom" id="y8A-VH-ObS"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4qw-vA-9cB" secondAttribute="bottom" constant="5" id="F1G-JK-kEF"/>
+                                    <constraint firstItem="4qw-vA-9cB" firstAttribute="top" secondItem="l2Y-4B-4IP" secondAttribute="top" constant="5" id="NwW-1Y-mMc"/>
+                                    <constraint firstAttribute="trailing" secondItem="4qw-vA-9cB" secondAttribute="trailing" constant="30" id="SD4-uH-bNX"/>
+                                    <constraint firstItem="4qw-vA-9cB" firstAttribute="leading" secondItem="l2Y-4B-4IP" secondAttribute="leading" constant="30" id="TGc-UN-wzv"/>
+                                    <constraint firstItem="E0X-3A-wwb" firstAttribute="leading" secondItem="l2Y-4B-4IP" secondAttribute="leading" constant="5" id="kZg-lo-M1O"/>
+                                    <constraint firstItem="E0X-3A-wwb" firstAttribute="top" secondItem="l2Y-4B-4IP" secondAttribute="top" constant="5" id="wdX-av-NFU"/>
+                                </constraints>
+                                <size key="customSize" width="384" height="140"/>
+                                <connections>
+                                    <outlet property="cardView" destination="4qw-vA-9cB" id="GbJ-FG-uH3"/>
+                                    <outlet property="circuloView" destination="E0X-3A-wwb" id="10o-Zk-gAC"/>
+                                    <outlet property="corpoLabel" destination="L68-j5-vfC" id="jA4-jc-oJR"/>
+                                    <outlet property="dataLabel" destination="HwO-zn-TfE" id="IUi-36-pNs"/>
+                                    <outlet property="tituloLabel" destination="3OO-Xn-GHA" id="cHy-uD-bCD"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cabecalho" id="Lp0-Zu-ExN" customClass="CabecalhoCollectionReusableView" customModule="DiarioDeOracao" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT8-ax-UTH">
+                                    <rect key="frame" x="20" y="8" width="373" height="33"/>
+                                    <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
+                                    <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="LT8-ax-UTH" firstAttribute="top" secondItem="Lp0-Zu-ExN" secondAttribute="topMargin" id="4JQ-6h-TeU"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="LT8-ax-UTH" secondAttribute="bottom" constant="1" id="FV0-0w-NW5"/>
+                                <constraint firstItem="LT8-ax-UTH" firstAttribute="leading" secondItem="Lp0-Zu-ExN" secondAttribute="leadingMargin" constant="12" id="iT8-7x-M9F"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="LT8-ax-UTH" secondAttribute="trailing" constant="13" id="vCH-sn-Cy0"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="tituloLabel" destination="LT8-ax-UTH" id="erg-Ze-n7K"/>
+                            </connections>
+                        </collectionReusableView>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="rodape" id="n4a-YB-EAO" customClass="RodapeCollectionReusableView" customModule="DiarioDeOracao" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="190" width="414" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wG-be-fh5">
+                                    <rect key="frame" x="20" y="24" width="375" height="1"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="0wG-be-fh5" firstAttribute="leading" secondItem="n4a-YB-EAO" secondAttribute="leadingMargin" constant="12" id="2l2-RQ-1Ws"/>
+                                <constraint firstItem="0wG-be-fh5" firstAttribute="top" secondItem="n4a-YB-EAO" secondAttribute="topMargin" constant="16" id="ECo-7B-wGa"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="0wG-be-fh5" secondAttribute="trailing" constant="11" id="ZI1-Yh-Ige"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="0wG-be-fh5" secondAttribute="bottom" constant="17" id="dhl-WH-y7v"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="linhaView" destination="0wG-be-fh5" id="pLh-9H-cr6"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="pJd-Nz-nXq" id="FNG-WG-w12"/>
+                            <outlet property="delegate" destination="pJd-Nz-nXq" id="CBl-HD-7YU"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Lembranças" id="qkR-9l-97r"/>
+                    <connections>
+                        <outlet property="collectionLayout" destination="hT4-AQ-vLW" id="CfC-7h-4sU"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aur-wI-OBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2162.3188405797105" y="1272.9910714285713"/>
+        </scene>
+        <!--Lembranças-->
+        <scene sceneID="qTx-yv-l0r">
+            <objects>
+                <navigationController id="VMv-aO-O4H" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Lembranças" id="irN-l0-CzO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gGk-zu-OSG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pJd-Nz-nXq" kind="relationship" relationship="rootViewController" id="P1K-5Q-OwI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gti-eL-NAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2162" y="522"/>
         </scene>
         <!--Nova nota-->
         <scene sceneID="Wud-1d-JEV">
@@ -326,7 +495,7 @@
                             <outlet property="delegate" destination="0rC-c6-fcf" id="rH2-Eu-iDp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Nova nota" id="E5L-sX-lty">
+                    <navigationItem key="navigationItem" title="Nova nota" largeTitleDisplayMode="never" id="E5L-sX-lty">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="3jo-GX-YQ2">
                             <connections>
                                 <segue destination="fbP-2D-AFn" kind="unwind" unwindAction="salvarNota:" id="4A7-ny-svY"/>
@@ -341,7 +510,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbx-Tx-tfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fbP-2D-AFn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-4136" y="2087"/>
+            <point key="canvasLocation" x="-4309" y="2087"/>
         </scene>
         <!--Nova oração-->
         <scene sceneID="vnl-st-6eb">
@@ -500,7 +669,7 @@
                             <outlet property="delegate" destination="S1S-xS-s16" id="6iA-FC-Ntx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Nova oração" id="dAt-aL-vBk">
+                    <navigationItem key="navigationItem" title="Nova oração" largeTitleDisplayMode="never" id="dAt-aL-vBk">
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="p0N-hM-MNW"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="clu-sX-0xe">
                             <connections>
@@ -519,7 +688,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2kp-GW-YSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="47P-yU-ozz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3081" y="2087"/>
+            <point key="canvasLocation" x="-3575" y="2087"/>
         </scene>
         <!--Meu diário-->
         <scene sceneID="uWi-1Q-OIe">
@@ -528,8 +697,8 @@
                     <tabBarItem key="tabBarItem" title="Meu diário" id="q6x-VZ-Wpi">
                         <color key="badgeColor" red="0.30140957239999999" green="0.35093072060000002" blue="0.1960498393" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Pe-cY-LgE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0Pe-cY-LgE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -539,65 +708,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8x-mP-L2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3575" y="522"/>
-        </scene>
-        <!--Lista de oração-->
-        <scene sceneID="VBZ-G6-yTx">
-            <objects>
-                <tableViewController id="UhZ-ep-an7" customClass="ListasTVController" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" estimatedRowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rd6-qo-TVc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="topicos" rowHeight="68" id="FGR-SU-rxy" customClass="TopicosTVCell" customModule="DiarioDeOracao" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FGR-SU-rxy" id="o6t-8A-aUI">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nxm-7C-4QI">
-                                            <rect key="frame" x="20" y="19" width="30" height="30"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="30Z-h6-INu"/>
-                                                <constraint firstAttribute="height" constant="30" id="ZQx-xX-hhE"/>
-                                            </constraints>
-                                        </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZe-0Y-nc7">
-                                            <rect key="frame" x="70" y="22" width="324" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="TZe-0Y-nc7" firstAttribute="leading" secondItem="Nxm-7C-4QI" secondAttribute="trailing" constant="20" id="AgL-XU-V4m"/>
-                                        <constraint firstItem="Nxm-7C-4QI" firstAttribute="centerY" secondItem="o6t-8A-aUI" secondAttribute="centerY" id="GlU-63-Ulh"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="TZe-0Y-nc7" secondAttribute="bottom" constant="11" id="R8d-NN-y9l"/>
-                                        <constraint firstItem="Nxm-7C-4QI" firstAttribute="leading" secondItem="o6t-8A-aUI" secondAttribute="leading" constant="20" id="ndE-uu-16x"/>
-                                        <constraint firstItem="TZe-0Y-nc7" firstAttribute="top" secondItem="o6t-8A-aUI" secondAttribute="topMargin" constant="11" id="oYj-Ma-siF"/>
-                                        <constraint firstAttribute="trailing" secondItem="TZe-0Y-nc7" secondAttribute="trailing" constant="20" id="vdI-zq-EnA"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="checkView" destination="Nxm-7C-4QI" id="n0O-Zc-vxT"/>
-                                    <outlet property="tituloLabel" destination="TZe-0Y-nc7" id="jUu-Hn-HOt"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="UhZ-ep-an7" id="xO3-QL-RUv"/>
-                            <outlet property="delegate" destination="UhZ-ep-an7" id="Cdw-G9-RUB"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Lista de oração" id="SEM-lg-Vs9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zXO-wA-uOX"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zhe-D0-9OL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-5312" y="1915"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bon-8u-6DG">
@@ -610,11 +720,85 @@
                     </tabBar>
                     <connections>
                         <segue destination="Nzu-Qi-oat" kind="relationship" relationship="viewControllers" id="bqg-wB-c5g"/>
+                        <segue destination="VMv-aO-O4H" kind="relationship" relationship="viewControllers" id="Mk7-np-M3o"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y7z-rk-jUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3575" y="-265"/>
+            <point key="canvasLocation" x="-2883" y="-277"/>
+        </scene>
+        <!--Nova nota-->
+        <scene sceneID="VUi-tY-K7q">
+            <objects>
+                <tableViewController title="Nova nota" id="rom-n0-ebQ" customClass="NovaLembrancaTVController" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RGK-og-haa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94481176137924194" green="0.95381206274032593" blue="0.89803284406661987" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <sections>
+                            <tableViewSection id="QX4-YS-OcA">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Cv5-Y3-7p7">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cv5-Y3-7p7" id="lIw-WU-Nss">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Título da sua lembrança" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bjQ-fu-4Jt">
+                                                    <rect key="frame" x="20" y="7" width="374" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" red="0.26242613790000002" green="0.1478836536" blue="0.20784831049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="681" id="gv7-sk-m27">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="681"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gv7-sk-m27" id="DUb-KW-cuL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="681"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Descreva aqui o acontecimento" translatesAutoresizingMaskIntoConstraints="NO" id="F1e-6p-Ic0">
+                                                    <rect key="frame" x="15" y="0.0" width="379" height="689"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="rom-n0-ebQ" id="zaV-j4-Dyx"/>
+                            <outlet property="delegate" destination="rom-n0-ebQ" id="xAR-KQ-VlV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Oração respondida" largeTitleDisplayMode="never" id="rtu-qo-D2k">
+                        <barButtonItem key="backBarButtonItem" title="Cancelar" id="5hP-Qx-Ymo"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="bdK-ut-0v7">
+                            <connections>
+                                <segue destination="W21-dB-xe8" kind="unwind" unwindAction="salvarNota:" id="hf0-HY-B62"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="corpoTextView" destination="F1e-6p-Ic0" id="0Zh-Io-u2w"/>
+                        <outlet property="tituloTextField" destination="bjQ-fu-4Jt" id="EE7-ZV-f9O"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YrN-Ud-D3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="W21-dB-xe8" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-2833" y="2087"/>
         </scene>
     </scenes>
     <resources>

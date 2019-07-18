@@ -1,23 +1,25 @@
 //
-//  CardFixoCVCell.swift
+//  LembrancaCVCell.swift
 //  DiarioDeOracao
 //
-//  Created by Lia Kassardjian on 17/07/19.
+//  Created by Lia Kassardjian on 18/07/19.
 //  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 
 import UIKit
 
-class CardFixoCVCell: UICollectionViewCell {
+class LembrancaCVCell: UICollectionViewCell {
     
+    @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var tituloLabel: UILabel!
-    @IBOutlet weak var adicionarButton: UIButton!
+    @IBOutlet weak var corpoLabel: UILabel!
     
-    @IBOutlet weak var topicosTableView: TopicosTableView! {
+    @IBOutlet weak var circuloView: UIView! {
         didSet {
-            self.topicosTableView.alturaMaxima = 362
+            self.circuloView.layer.cornerRadius = 0.5 * self.circuloView.frame.width
         }
     }
+    
     
     @IBOutlet weak var cardView: UIView! {
         didSet {
@@ -34,18 +36,6 @@ class CardFixoCVCell: UICollectionViewCell {
         layoutAttributes.frame = frame
         return layoutAttributes
     }
-}
-
-
-
-extension CardFixoCVCell {
-    func setTableViewDataSourceDelegate
-        <D: UITableViewDelegate & UITableViewDataSource>
-        (_ dataSourceDelegate: D, forRow row: Int)
-    {
-        topicosTableView.delegate = dataSourceDelegate
-        topicosTableView.dataSource = dataSourceDelegate
-        
-        topicosTableView.reloadData()
-    }
+    
+    
 }

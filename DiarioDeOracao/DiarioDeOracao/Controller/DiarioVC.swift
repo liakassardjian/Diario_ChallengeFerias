@@ -21,7 +21,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     let textos = ["3/3 concluídos","4/5 concluídos","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
     
     let topicosLeitura = ["Gênesis 1","I Crônicas 1","Salmo 1"]
-    let topicosOracao = ["Família","Saúde","Trabalho"]
+    var topicosOracao = ["Família","Saúde"]
     
     var atributoString:NSMutableAttributedString?
     
@@ -32,7 +32,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         
         if let flowLayout = collectionLayout {
             let w = collectionView.frame.width - 20
-            flowLayout.estimatedItemSize = CGSize(width: w, height: 200)
+            flowLayout.estimatedItemSize = CGSize(width: w, height: 220)
         }
     }
     
@@ -75,6 +75,24 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             atributoString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, atributoString!.length))
             cell.tituloLabel.attributedText = atributoString!
         }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if tableView.tag == 2 {
+            let exluir = UITableViewRowAction(style: .destructive, title: "Excluir", handler: {(action,indexPath) in
+                self.topicosOracao.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            })
+            
+            let concluir = UITableViewRowAction(style: .normal, title: "Marcar como concluído", handler: {(action, indexPath) in
+                self.performSegue(withIdentifier: "novaLembranca", sender: self)
+            })
+            
+            concluir.backgroundColor = #colorLiteral(red: 0.2888143063, green: 0.3528535366, blue: 0.1741557121, alpha: 1)
+            
+            return [exluir,concluir]
+        }
+        return []
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

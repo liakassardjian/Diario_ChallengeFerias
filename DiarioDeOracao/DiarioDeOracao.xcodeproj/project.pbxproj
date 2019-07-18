@@ -9,20 +9,24 @@
 /* Begin PBXBuildFile section */
 		E413095E22DE9CE200D1BD4F /* NovaOracaoTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413095D22DE9CE200D1BD4F /* NovaOracaoTVController.swift */; };
 		E450330522DCE2C40016EA09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450330422DCE2C40016EA09 /* AppDelegate.swift */; };
-		E450330722DCE2C40016EA09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450330622DCE2C40016EA09 /* ViewController.swift */; };
 		E450330A22DCE2C40016EA09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E450330822DCE2C40016EA09 /* Main.storyboard */; };
 		E450330D22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E450330B22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld */; };
 		E450330F22DCE2C60016EA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E450330E22DCE2C60016EA09 /* Assets.xcassets */; };
 		E450331222DCE2C60016EA09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E450331022DCE2C60016EA09 /* LaunchScreen.storyboard */; };
 		E450334522DD11AE0016EA09 /* Calendario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450334422DD11AE0016EA09 /* Calendario.swift */; };
 		E450334722DD1ABE0016EA09 /* DiarioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450334622DD1ABE0016EA09 /* DiarioVC.swift */; };
-		E450335122DE4B880016EA09 /* NotasTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335022DE4B880016EA09 /* NotasTVCell.swift */; };
 		E450335822DE61920016EA09 /* NovaNotaTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335722DE61920016EA09 /* NovaNotaTVController.swift */; };
 		E450335C22DE61CC0016EA09 /* lmroman10-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E450335B22DE61C20016EA09 /* lmroman10-regular.otf */; };
 		E450335E22DE69BB0016EA09 /* ListasTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335D22DE69BB0016EA09 /* ListasTVController.swift */; };
 		E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */; };
 		E48E137C22DFAABB001A4CA2 /* CardFixoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E137B22DFAABB001A4CA2 /* CardFixoCVCell.swift */; };
 		E48E137E22DFAC98001A4CA2 /* NotasCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E137D22DFAC98001A4CA2 /* NotasCVCell.swift */; };
+		E48E138022E0A791001A4CA2 /* LembrancasCVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E137F22E0A791001A4CA2 /* LembrancasCVController.swift */; };
+		E48E138222E0A83B001A4CA2 /* LembrancaCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E138122E0A83B001A4CA2 /* LembrancaCVCell.swift */; };
+		E48E138622E0D8B5001A4CA2 /* TopicosTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E138522E0D8B5001A4CA2 /* TopicosTableView.swift */; };
+		E48E138A22E10010001A4CA2 /* CabecalhoCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E138922E10010001A4CA2 /* CabecalhoCollectionReusableView.swift */; };
+		E48E138C22E10511001A4CA2 /* RodapeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E138B22E10511001A4CA2 /* RodapeCollectionReusableView.swift */; };
+		E48E138E22E10E16001A4CA2 /* NovaLembrancaTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E138D22E10E16001A4CA2 /* NovaLembrancaTVController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +35,6 @@
 		E413096022DE9ED700D1BD4F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		E450330122DCE2C40016EA09 /* DiarioDeOracao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiarioDeOracao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E450330422DCE2C40016EA09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E450330622DCE2C40016EA09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E450330922DCE2C40016EA09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E450330C22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiarioDeOracao.xcdatamodel; sourceTree = "<group>"; };
 		E450330E22DCE2C60016EA09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,13 +42,18 @@
 		E450331322DCE2C60016EA09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E450334422DD11AE0016EA09 /* Calendario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendario.swift; sourceTree = "<group>"; };
 		E450334622DD1ABE0016EA09 /* DiarioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiarioVC.swift; sourceTree = "<group>"; };
-		E450335022DE4B880016EA09 /* NotasTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasTVCell.swift; sourceTree = "<group>"; };
 		E450335722DE61920016EA09 /* NovaNotaTVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovaNotaTVController.swift; sourceTree = "<group>"; };
 		E450335B22DE61C20016EA09 /* lmroman10-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lmroman10-regular.otf"; sourceTree = "<group>"; };
 		E450335D22DE69BB0016EA09 /* ListasTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListasTVController.swift; sourceTree = "<group>"; };
 		E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicosTVCell.swift; sourceTree = "<group>"; };
 		E48E137B22DFAABB001A4CA2 /* CardFixoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFixoCVCell.swift; sourceTree = "<group>"; };
 		E48E137D22DFAC98001A4CA2 /* NotasCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasCVCell.swift; sourceTree = "<group>"; };
+		E48E137F22E0A791001A4CA2 /* LembrancasCVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LembrancasCVController.swift; sourceTree = "<group>"; };
+		E48E138122E0A83B001A4CA2 /* LembrancaCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LembrancaCVCell.swift; sourceTree = "<group>"; };
+		E48E138522E0D8B5001A4CA2 /* TopicosTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicosTableView.swift; sourceTree = "<group>"; };
+		E48E138922E10010001A4CA2 /* CabecalhoCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabecalhoCollectionReusableView.swift; sourceTree = "<group>"; };
+		E48E138B22E10511001A4CA2 /* RodapeCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RodapeCollectionReusableView.swift; sourceTree = "<group>"; };
+		E48E138D22E10E16001A4CA2 /* NovaLembrancaTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaLembrancaTVController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +109,15 @@
 		E450333C22DD08BB0016EA09 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E450335022DE4B880016EA09 /* NotasTVCell.swift */,
-				E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */,
 				E450330822DCE2C40016EA09 /* Main.storyboard */,
 				E450331022DCE2C60016EA09 /* LaunchScreen.storyboard */,
 				E48E137B22DFAABB001A4CA2 /* CardFixoCVCell.swift */,
 				E48E137D22DFAC98001A4CA2 /* NotasCVCell.swift */,
+				E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */,
+				E48E138122E0A83B001A4CA2 /* LembrancaCVCell.swift */,
+				E48E138522E0D8B5001A4CA2 /* TopicosTableView.swift */,
+				E48E138922E10010001A4CA2 /* CabecalhoCollectionReusableView.swift */,
+				E48E138B22E10511001A4CA2 /* RodapeCollectionReusableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,11 +125,12 @@
 		E450333D22DD08C10016EA09 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E450330622DCE2C40016EA09 /* ViewController.swift */,
 				E450334622DD1ABE0016EA09 /* DiarioVC.swift */,
 				E450335722DE61920016EA09 /* NovaNotaTVController.swift */,
 				E450335D22DE69BB0016EA09 /* ListasTVController.swift */,
 				E413095D22DE9CE200D1BD4F /* NovaOracaoTVController.swift */,
+				E48E137F22E0A791001A4CA2 /* LembrancasCVController.swift */,
+				E48E138D22E10E16001A4CA2 /* NovaLembrancaTVController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,18 +208,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E450330722DCE2C40016EA09 /* ViewController.swift in Sources */,
 				E450335E22DE69BB0016EA09 /* ListasTVController.swift in Sources */,
+				E48E138E22E10E16001A4CA2 /* NovaLembrancaTVController.swift in Sources */,
 				E48E137E22DFAC98001A4CA2 /* NotasCVCell.swift in Sources */,
+				E48E138222E0A83B001A4CA2 /* LembrancaCVCell.swift in Sources */,
 				E413095E22DE9CE200D1BD4F /* NovaOracaoTVController.swift in Sources */,
 				E450335822DE61920016EA09 /* NovaNotaTVController.swift in Sources */,
 				E450330D22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld in Sources */,
 				E48E137C22DFAABB001A4CA2 /* CardFixoCVCell.swift in Sources */,
+				E48E138C22E10511001A4CA2 /* RodapeCollectionReusableView.swift in Sources */,
+				E48E138022E0A791001A4CA2 /* LembrancasCVController.swift in Sources */,
 				E450334522DD11AE0016EA09 /* Calendario.swift in Sources */,
 				E450330522DCE2C40016EA09 /* AppDelegate.swift in Sources */,
-				E450335122DE4B880016EA09 /* NotasTVCell.swift in Sources */,
+				E48E138A22E10010001A4CA2 /* CabecalhoCollectionReusableView.swift in Sources */,
 				E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */,
 				E450334722DD1ABE0016EA09 /* DiarioVC.swift in Sources */,
+				E48E138622E0D8B5001A4CA2 /* TopicosTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

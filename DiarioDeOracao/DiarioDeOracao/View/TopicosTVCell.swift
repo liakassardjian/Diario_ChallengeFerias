@@ -10,6 +10,8 @@ import UIKit
 
 class TopicosTVCell: UITableViewCell {
 
+    @IBOutlet weak var checkImageView: UIImageView!
+    
     @IBOutlet weak var checkView: UIView! {
         didSet {
             self.checkView.layer.borderWidth = 2

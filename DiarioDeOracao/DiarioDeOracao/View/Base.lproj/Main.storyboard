@@ -98,7 +98,7 @@
                                                         <constraint firstAttribute="width" constant="384" id="wOw-1U-lqq"/>
                                                     </constraints>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TopicosTVCell" id="rTS-kg-OvA" customClass="TopicosTVCell" customModule="DiarioDeOracao" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TopicosTVCell" id="rTS-kg-OvA" customClass="TopicosTVCell" customModule="DiarioDeOracao" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="384" height="55"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rTS-kg-OvA" id="T0b-4N-FFJ">
@@ -114,24 +114,31 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufc-Gv-5oP">
-                                                                        <rect key="frame" x="58" y="17" width="306" height="26"/>
+                                                                        <rect key="frame" x="60" y="17" width="304" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EPJ-xY-BwY">
+                                                                        <rect key="frame" x="20" y="12.5" width="30" height="30"/>
+                                                                    </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="bottomMargin" secondItem="ufc-Gv-5oP" secondAttribute="bottom" constant="1" id="3aa-xV-v5u"/>
-                                                                    <constraint firstItem="ufc-Gv-5oP" firstAttribute="top" secondItem="T0b-4N-FFJ" secondAttribute="topMargin" constant="6" id="CNp-es-DQT"/>
+                                                                    <constraint firstItem="ufc-Gv-5oP" firstAttribute="centerY" secondItem="T0b-4N-FFJ" secondAttribute="centerY" id="1TO-IT-cUA"/>
+                                                                    <constraint firstItem="EPJ-xY-BwY" firstAttribute="width" secondItem="ZVM-tP-veJ" secondAttribute="width" id="1i2-2Y-ehh"/>
+                                                                    <constraint firstItem="EPJ-xY-BwY" firstAttribute="centerY" secondItem="ZVM-tP-veJ" secondAttribute="centerY" id="BAK-YZ-hul"/>
+                                                                    <constraint firstItem="EPJ-xY-BwY" firstAttribute="height" secondItem="ZVM-tP-veJ" secondAttribute="height" id="Dug-61-7ff"/>
                                                                     <constraint firstItem="ZVM-tP-veJ" firstAttribute="centerY" secondItem="T0b-4N-FFJ" secondAttribute="centerY" id="PTn-yx-9fo"/>
                                                                     <constraint firstItem="ufc-Gv-5oP" firstAttribute="trailing" secondItem="T0b-4N-FFJ" secondAttribute="trailingMargin" id="T72-Wl-fBN"/>
                                                                     <constraint firstItem="ZVM-tP-veJ" firstAttribute="leading" secondItem="T0b-4N-FFJ" secondAttribute="leading" constant="20" id="iTw-4D-B5n"/>
-                                                                    <constraint firstItem="ufc-Gv-5oP" firstAttribute="leading" secondItem="ZVM-tP-veJ" secondAttribute="trailing" constant="8" id="j69-1P-pdn"/>
+                                                                    <constraint firstItem="ufc-Gv-5oP" firstAttribute="leading" secondItem="ZVM-tP-veJ" secondAttribute="trailing" constant="10" id="j69-1P-pdn"/>
+                                                                    <constraint firstItem="EPJ-xY-BwY" firstAttribute="centerX" secondItem="ZVM-tP-veJ" secondAttribute="centerX" id="xAM-29-1qJ"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <connections>
+                                                                <outlet property="checkImageView" destination="EPJ-xY-BwY" id="OE4-vO-Pp3"/>
                                                                 <outlet property="checkView" destination="ZVM-tP-veJ" id="TbA-Yu-blg"/>
                                                                 <outlet property="tituloLabel" destination="ufc-Gv-5oP" id="DNf-0c-8lo"/>
                                                             </connections>
@@ -262,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9E-ew-arz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3575" y="1273"/>
+            <point key="canvasLocation" x="-3575.36231884058" y="1272.9910714285713"/>
         </scene>
         <!--Nova nota-->
         <scene sceneID="Wud-1d-JEV">

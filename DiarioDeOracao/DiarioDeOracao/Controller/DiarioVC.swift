@@ -23,6 +23,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     let topicosLeitura = ["Gênesis 1","I Crônicas 1","Salmo 1"]
     let topicosOracao = ["Família","Saúde","Trabalho"]
     
+    var atributoString:NSMutableAttributedString?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +55,26 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! TopicosTVCell
+        if let image = cell.checkImageView.image {
+            cell.checkImageView.image = nil
+            cell.tituloLabel.textColor = UIColor.black
+            
+            atributoString = NSMutableAttributedString(string: cell.tituloLabel.text!)
+            atributoString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, 0))
+            cell.tituloLabel.attributedText = atributoString!
+            
+        } else {
+            cell.checkImageView.image = UIImage(named: "Check")
+            cell.tituloLabel.textColor = #colorLiteral(red: 0.2625154257, green: 0.150888145, blue: 0.2062340677, alpha: 1)
+            
+            atributoString = NSMutableAttributedString(string: cell.tituloLabel.text!)
+            atributoString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, atributoString!.length))
+            cell.tituloLabel.attributedText = atributoString!
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -10,7 +10,9 @@ import UIKit
 
 class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!
     
     @IBOutlet weak var diaLabel: UILabel!
     
@@ -25,6 +27,11 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         super.viewDidLoad()
         
         diaLabel.text = Calendario.shared.retornaDiaAtual()
+        
+        if let flowLayout = collectionLayout {
+            let w = collectionView.frame.width - 20
+            flowLayout.estimatedItemSize = CGSize(width: w, height: 200)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

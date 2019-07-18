@@ -93,6 +93,10 @@
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" estimatedRowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fYa-Ts-0j9">
                                                     <rect key="frame" x="0.0" y="56" width="384" height="164"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="164" id="cFq-kx-LCT"/>
+                                                        <constraint firstAttribute="width" constant="384" id="wOw-1U-lqq"/>
+                                                    </constraints>
                                                     <prototypes>
                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TopicosTVCell" id="rTS-kg-OvA" customClass="TopicosTVCell" customModule="DiarioDeOracao" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="384" height="55"/>
@@ -110,7 +114,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufc-Gv-5oP">
-                                                                        <rect key="frame" x="58" y="17" width="307" height="26"/>
+                                                                        <rect key="frame" x="58" y="17" width="306" height="26"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -193,7 +197,7 @@
                                                     <color key="textColor" red="0.3291075826" green="0.22652959819999999" blue="0.27843627329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCX-L5-idV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCX-L5-idV">
                                                     <rect key="frame" x="20" y="58" width="356" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -250,6 +254,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionLayout" destination="L1j-OY-wG5" id="9J8-7d-ITU"/>
+                        <outlet property="collectionView" destination="dzY-yb-3iG" id="pky-DX-Rl6"/>
                         <outlet property="diaLabel" destination="1CH-R4-USH" id="Q1G-Sm-jFd"/>
                         <segue destination="0rC-c6-fcf" kind="show" identifier="editarNota" id="gFP-vq-nVL"/>
                     </connections>

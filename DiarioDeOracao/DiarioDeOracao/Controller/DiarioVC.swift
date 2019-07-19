@@ -34,6 +34,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             let w = collectionView.frame.width - 20
             flowLayout.estimatedItemSize = CGSize(width: w, height: 220)
         }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,6 +86,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             })
             
             let concluir = UITableViewRowAction(style: .normal, title: "Marcar como concluído", handler: {(action, indexPath) in
+                self.topicosOracao.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
                 self.performSegue(withIdentifier: "novaLembranca", sender: self)
             })
             

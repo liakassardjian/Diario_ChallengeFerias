@@ -26,12 +26,6 @@ class LembrancasCVController: UICollectionViewController {
             let w = self.collectionView.frame.width - 20
             flowLayout.estimatedItemSize = CGSize(width: w, height: 142)
         }
-        
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.8092197776, green: 0.7550323009, blue: 0.7731201649, alpha: 1)
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        
     }
 
     /*

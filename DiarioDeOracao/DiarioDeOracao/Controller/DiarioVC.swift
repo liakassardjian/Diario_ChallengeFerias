@@ -17,6 +17,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     @IBOutlet weak var diaLabel: UILabel!
     
     // dados provisorios para teste
+    var acesso:Bool = false
+    
     let titulos = ["Leitura bíblica diária","Lista de oração diária","Nota pessoal"]
     let textos = ["3/3 concluídos","4/5 concluídos","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
     
@@ -35,6 +37,16 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             flowLayout.estimatedItemSize = CGSize(width: w, height: 220)
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !acesso {
+            let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
+            if let tutorialViewController = storyboard.instantiateViewController(withIdentifier: "tutorialVC") as? TutorialVC {
+                present(tutorialViewController, animated: true, completion: nil)
+            }
+            acesso = true
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

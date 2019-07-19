@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../NovaNotaTVController.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../../../../Downloads/Latin-Modern-Roman/lmroman10-regular.otf">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lmroman10-regular.otf">
+            <string>LMRoman10-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--TutorialVC-->
+        <scene sceneID="Acm-RJ-yBO">
+            <objects>
+                <viewController storyboardIdentifier="tutorialVC" id="cxT-jd-gZP" customClass="TutorialVC" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z0L-BQ-m8K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBN-hR-Wge">
+                                <rect key="frame" x="0.0" y="44" width="414" height="613.5"/>
+                                <connections>
+                                    <segue destination="LbA-4b-rgV" kind="embed" id="EmF-A7-omm"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nvs-gy-qeN">
+                                <rect key="frame" x="0.0" y="657.5" width="414" height="204.5"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Nm2-RN-xAb">
+                                        <rect key="frame" x="187.5" y="8" width="39" height="37"/>
+                                        <color key="pageIndicatorTintColor" red="0.80000000000000004" green="0.75686274509999996" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </pageControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHo-wm-xzE">
+                                        <rect key="frame" x="139.5" y="69" width="135" height="53"/>
+                                        <color key="backgroundColor" red="0.69019607839999997" green="0.74901960779999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="53" id="K04-lQ-HVL"/>
+                                            <constraint firstAttribute="width" constant="135" id="vGU-YP-XfR"/>
+                                        </constraints>
+                                        <state key="normal" title="Próximo">
+                                            <color key="titleColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="avancarPagina:" destination="cxT-jd-gZP" eventType="touchUpInside" id="FRH-wW-U57"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owN-Tj-kqK">
+                                        <rect key="frame" x="139.5" y="130" width="135" height="53"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Pular">
+                                            <color key="titleColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pularTutorial:" destination="cxT-jd-gZP" eventType="touchUpInside" id="IpU-bf-M3K"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="owN-Tj-kqK" firstAttribute="top" secondItem="CHo-wm-xzE" secondAttribute="bottom" constant="8" id="6nE-H9-OHm"/>
+                                    <constraint firstItem="Nm2-RN-xAb" firstAttribute="centerX" secondItem="Nvs-gy-qeN" secondAttribute="centerX" id="7PT-te-nrj"/>
+                                    <constraint firstItem="CHo-wm-xzE" firstAttribute="top" secondItem="Nm2-RN-xAb" secondAttribute="bottom" constant="24" id="9Zc-3u-4a7"/>
+                                    <constraint firstItem="Nm2-RN-xAb" firstAttribute="top" secondItem="Nvs-gy-qeN" secondAttribute="top" constant="8" id="FH3-ls-BV5"/>
+                                    <constraint firstItem="owN-Tj-kqK" firstAttribute="width" secondItem="CHo-wm-xzE" secondAttribute="width" id="T8Q-LB-BP2"/>
+                                    <constraint firstItem="CHo-wm-xzE" firstAttribute="centerX" secondItem="Nvs-gy-qeN" secondAttribute="centerX" id="ewJ-0J-C3U"/>
+                                    <constraint firstItem="owN-Tj-kqK" firstAttribute="height" secondItem="CHo-wm-xzE" secondAttribute="height" id="gGG-YE-B0S"/>
+                                    <constraint firstItem="owN-Tj-kqK" firstAttribute="centerX" secondItem="Nvs-gy-qeN" secondAttribute="centerX" id="tYb-vj-2xP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pBN-hR-Wge" firstAttribute="trailing" secondItem="m1N-i1-FFP" secondAttribute="trailing" id="81L-Hz-Gam"/>
+                            <constraint firstItem="Nvs-gy-qeN" firstAttribute="trailing" secondItem="m1N-i1-FFP" secondAttribute="trailing" id="DnL-9a-JM4"/>
+                            <constraint firstItem="Nvs-gy-qeN" firstAttribute="bottom" secondItem="m1N-i1-FFP" secondAttribute="bottom" id="Onr-a3-GJU"/>
+                            <constraint firstItem="Nvs-gy-qeN" firstAttribute="leading" secondItem="m1N-i1-FFP" secondAttribute="leading" id="Whh-3V-7NI"/>
+                            <constraint firstItem="pBN-hR-Wge" firstAttribute="top" secondItem="m1N-i1-FFP" secondAttribute="top" id="Wih-aA-4pC"/>
+                            <constraint firstItem="pBN-hR-Wge" firstAttribute="leading" secondItem="m1N-i1-FFP" secondAttribute="leading" id="elb-xC-pSe"/>
+                            <constraint firstItem="Nvs-gy-qeN" firstAttribute="top" secondItem="pBN-hR-Wge" secondAttribute="bottom" id="uow-2f-xXS"/>
+                            <constraint firstItem="Nvs-gy-qeN" firstAttribute="height" secondItem="m1N-i1-FFP" secondAttribute="height" multiplier="1:4" id="vxJ-ye-Bw6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m1N-i1-FFP"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="Nm2-RN-xAb" id="Veh-fN-fp3"/>
+                        <outlet property="proximoButton" destination="CHo-wm-xzE" id="ce9-cE-fbe"/>
+                        <outlet property="pularButton" destination="owN-Tj-kqK" id="yN2-cY-19q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8c-sK-PCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-349.27536231884062" y="-47.544642857142854"/>
+        </scene>
+        <!--TutorialPV Controller-->
+        <scene sceneID="Zue-xj-NqZ">
+            <objects>
+                <pageViewController storyboardIdentifier="tutorialPVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="LbA-4b-rgV" customClass="TutorialPVController" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mjQ-7a-d3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="-47"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FoA-lW-1jR">
+            <objects>
+                <viewController storyboardIdentifier="tela1" id="FIJ-pV-4Xr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ROj-29-qQ5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="38l-H5-Qap">
+                                <rect key="frame" x="0.0" y="249" width="414" height="398"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem-vindo ao (nome do app)!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jH9-VC-9y3">
+                                        <rect key="frame" x="56" y="8" width="302" height="33"/>
+                                        <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
+                                        <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Oq-VP-Xon">
+                                        <rect key="frame" x="0.0" y="182" width="414" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="585259022.91446304">
+                                            <!--2019-07-19 19:57:02 +0000-->
+                                        </date>
+                                        <locale key="locale" localeIdentifier="pt_BR"/>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para começar, selecione a melhor hora do dia para fazer sua devocional diária." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzX-gN-GMI">
+                                        <rect key="frame" x="20" y="76" width="374" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="URs-i3-tbR"/>
+                                            <constraint firstAttribute="width" constant="374" id="gOe-Ck-onx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="9Oq-VP-Xon" firstAttribute="leading" secondItem="38l-H5-Qap" secondAttribute="leading" id="DZP-qU-2nH"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Oq-VP-Xon" secondAttribute="bottom" id="Dgt-mU-vyf"/>
+                                    <constraint firstItem="jH9-VC-9y3" firstAttribute="centerX" secondItem="38l-H5-Qap" secondAttribute="centerX" id="aF2-JB-zlg"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Oq-VP-Xon" secondAttribute="trailing" id="cmE-qb-ei2"/>
+                                    <constraint firstItem="fzX-gN-GMI" firstAttribute="centerX" secondItem="38l-H5-Qap" secondAttribute="centerX" id="czT-UK-A5l"/>
+                                    <constraint firstItem="jH9-VC-9y3" firstAttribute="top" secondItem="38l-H5-Qap" secondAttribute="top" constant="8" id="d6M-R3-G1Y"/>
+                                    <constraint firstItem="fzX-gN-GMI" firstAttribute="top" secondItem="jH9-VC-9y3" secondAttribute="bottom" constant="35" id="ead-DR-7VT"/>
+                                    <constraint firstAttribute="height" constant="398" id="fnd-Iy-WNs"/>
+                                    <constraint firstItem="9Oq-VP-Xon" firstAttribute="top" secondItem="fzX-gN-GMI" secondAttribute="bottom" constant="60" id="fo8-5K-2le"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="38l-H5-Qap" firstAttribute="centerX" secondItem="ROj-29-qQ5" secondAttribute="centerX" id="9hX-Jc-BVS"/>
+                            <constraint firstItem="38l-H5-Qap" firstAttribute="leading" secondItem="fC1-Le-ilf" secondAttribute="leading" id="P24-Km-XQ0"/>
+                            <constraint firstItem="38l-H5-Qap" firstAttribute="trailing" secondItem="fC1-Le-ilf" secondAttribute="trailing" id="o9C-cC-kJ5"/>
+                            <constraint firstItem="38l-H5-Qap" firstAttribute="centerY" secondItem="ROj-29-qQ5" secondAttribute="centerY" id="sg0-lA-Oye"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fC1-Le-ilf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wUr-e0-T92" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1611.5942028985507" y="-48.214285714285715"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kMm-tE-OHO">
+            <objects>
+                <viewController storyboardIdentifier="tela2" id="kxF-8y-aHr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DC2-UY-gFT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Leitura bíblica diária" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYQ-hI-WoY">
+                                <rect key="frame" x="26" y="496" width="213" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
+                                <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YzY-OW-o83">
+                                <rect key="frame" x="0.0" y="44" width="414" height="436"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="O (nome do app) fornece um plano de leitura bíblica anual para você. Controle diariamente os capítulos já lidos." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJw-mK-lEK">
+                                <rect key="frame" x="20" y="537" width="350" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Z6n-3z-Wo1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewY-AJ-NKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2347.826086956522" y="-62.276785714285708"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nA5-05-Zb4">
+            <objects>
+                <viewController storyboardIdentifier="tela3" id="r55-R9-naU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hh0-2O-mTD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ign-z8-6AA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="436"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lista de oração" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNh-aj-RWS">
+                                <rect key="frame" x="20" y="488" width="154" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
+                                <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crie pedidos de oração para que o (nome do app) te lembre todos os dias de orar por cada um deles. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVa-QU-SNN">
+                                <rect key="frame" x="20" y="529" width="374" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="tgu-e6-qCU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z3X-i8-JO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3069.5652173913045" y="-62.276785714285708"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="p3i-os-VHr">
+            <objects>
+                <viewController storyboardIdentifier="tela4" id="5lR-VJ-aY9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XtG-pN-Oh3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VoU-ZQ-z82">
+                                <rect key="frame" x="0.0" y="44" width="414" height="436"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marque as orações respondidas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6da-Un-94p">
+                                <rect key="frame" x="20" y="488" width="313" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
+                                <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arraste o pedido de oração para a esquerda para deletar ou marcar um pedido como respondido." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBw-MB-ICE">
+                                <rect key="frame" x="20" y="529" width="742" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="flz-Qr-U97"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VK0-tN-0ha" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3777" y="-62"/>
+        </scene>
+    </scenes>
+</document>

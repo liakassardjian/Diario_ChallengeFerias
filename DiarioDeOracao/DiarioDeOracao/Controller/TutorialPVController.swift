@@ -14,7 +14,9 @@ class TutorialPVController: UIPageViewController, UIPageViewControllerDelegate, 
     lazy var ordemViewControllers: [UIViewController] = {
         return [self.novaVC(viewController: "tela1"),
                 self.novaVC(viewController: "tela2"),
-                self.novaVC(viewController: "tela3")]
+                self.novaVC(viewController: "tela3"),
+                self.novaVC(viewController: "tela4"),
+                self.novaVC(viewController: "tela5")]
     }()
     
     var indexAtual = 0

@@ -14,7 +14,7 @@ class TutorialVC: UIViewController {
     @IBOutlet weak var pularButton: UIButton!
     @IBOutlet weak var proximoButton: UIButton! {
         didSet {
-            self.proximoButton.layer.cornerRadius = 25
+            self.proximoButton.layer.cornerRadius = 22
             self.proximoButton.layer.masksToBounds = true
         }
     }
@@ -35,9 +35,9 @@ class TutorialVC: UIViewController {
     @IBAction func avancarPagina(_ sender: Any) {
         if let index = pageViewController?.indexAtual {
             switch index {
-            case 0...1:
+            case 0...3:
                 pageViewController?.avancarPagina()
-            case 2:
+            case 4:
                 dismiss(animated: true, completion: nil)
                 
             default:
@@ -54,11 +54,11 @@ class TutorialVC: UIViewController {
                 proximoButton.setTitle("Próximo", for: .normal)
                 pularButton.isHidden = true
                 
-            case 1:
+            case 1...3:
                 proximoButton.setTitle("Próximo", for: .normal)
                 pularButton.isHidden = false
                 
-            case 2:
+            case 4:
                 proximoButton.setTitle("Começar", for: .normal)
                 pularButton.isHidden = true
                 
@@ -70,8 +70,8 @@ class TutorialVC: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination
-        if let pVC = destination as? TutorialPVController {
+        let destino = segue.destination
+        if let pVC = destino as? TutorialPVController {
             pageViewController = pVC
             pVC.tutorialViewController = self
         }

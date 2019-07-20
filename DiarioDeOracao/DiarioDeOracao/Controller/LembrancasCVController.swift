@@ -96,7 +96,6 @@ class LembrancasCVController: UICollectionViewController {
     }
     
     
-    
 
     // MARK: UICollectionViewDelegate
 

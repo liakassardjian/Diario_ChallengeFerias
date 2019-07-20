@@ -20,9 +20,9 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     var acesso:Bool = false
     
     let titulos = ["Leitura bíblica diária","Lista de oração diária","Nota pessoal"]
-    let textos = ["3/3 concluídos","4/5 concluídos","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
+    var textos = ["3/3 concluídos","4/5 concluídos","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
     
-    let topicosLeitura = ["Gênesis 1","I Crônicas 1","Salmo 1"]
+    var topicosLeitura = ["Gênesis 1","I Crônicas 1","Salmo 1"]
     var topicosOracao = ["Família","Saúde"]
     
     var atributoString:NSMutableAttributedString?
@@ -82,7 +82,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             
         } else {
             cell.checkImageView.image = UIImage(named: "Check")
-            cell.tituloLabel.textColor = #colorLiteral(red: 0.2625154257, green: 0.150888145, blue: 0.2062340677, alpha: 1)
+            cell.tituloLabel.textColor = #colorLiteral(red: 0.6901960784, green: 0.7490196078, blue: 0.2470588235, alpha: 1)
             
             atributoString = NSMutableAttributedString(string: cell.tituloLabel.text!)
             atributoString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, atributoString!.length))
@@ -97,7 +97,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 tableView.deleteRows(at: [indexPath], with: .fade)
             })
             
-            let concluir = UITableViewRowAction(style: .normal, title: "Marcar como concluído", handler: {(action, indexPath) in
+            let concluir = UITableViewRowAction(style: .normal, title: "Marcar como respondido", handler: {(action, indexPath) in
                 self.topicosOracao.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 self.performSegue(withIdentifier: "novaLembranca", sender: self)
@@ -118,6 +118,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardFixoCVCell", for: indexPath) as! CardFixoCVCell
             cell.topicosTableView.tag = 1
+            cell.topicosTableView.reloadData()
             cell.tituloLabel.text = titulos[0]
             cell.adicionarButton.isHidden = true
             
@@ -126,6 +127,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         } else if indexPath.row == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardFixoCVCell", for: indexPath) as! CardFixoCVCell
             cell.topicosTableView.tag = 2
+            cell.topicosTableView.reloadData()
             cell.tituloLabel.text = titulos[1]
             
             return cell
@@ -166,11 +168,19 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     @IBAction func voltarDia(_ sender: Any) {
         Calendario.shared.decrementaDia()
         diaLabel.text = Calendario.shared.retornaDiaAtual()
+        topicosLeitura = ["Gênesis 1","I Crônicas 1"]
+        topicosOracao = ["Família"]
+        textos[2] = "Retrocedeu"
+        collectionView.reloadData()
     }
     
     @IBAction func avancarDia(_ sender: Any) {
         Calendario.shared.incrementaDia()
         diaLabel.text = Calendario.shared.retornaDiaAtual()
+        topicosLeitura = ["Gênesis 1","I Crônicas 1","Salmo 1","João 1"]
+        topicosOracao = ["Trabalho","Família","Saúde"]
+        textos[2] = "Avançou"
+        collectionView.reloadData()
     }
     
     @IBAction func salvarNota(_ sender: UIStoryboardSegue){

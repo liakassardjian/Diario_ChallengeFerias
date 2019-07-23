@@ -7,28 +7,33 @@
 //
 
 import UIKit
+import CoreData
 
 class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!
-    
     @IBOutlet weak var diaLabel: UILabel!
+    @IBOutlet weak var voltarButton: UIButton!
     
-    // dados provisorios para teste
-    var acesso:Bool = false
+    var anosPassados:Int = 0
     
-    let titulos = ["Leitura bíblica diária","Lista de oração diária","Nota pessoal"]
-    var textos = ["3/3 concluídos","4/5 concluídos","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
+    var diaObj:Dia?
+    var contagemDias:Int = 0
     
-    var topicosLeitura = ["Gênesis 1","I Crônicas 1","Salmo 1"]
-    var topicosOracao = ["Família","Saúde"]
+    let titulos = ["Leitura bíblica diária","Lista de oração diária"]
+    
+    var capitulos:[Capitulo] = []
+    var topicosOracao:[String] = []
+    var textos:[String] = []
     
     var atributoString:NSMutableAttributedString?
     
+    var context:NSManagedObjectContext?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         diaLabel.text = Calendario.shared.retornaDiaAtual()
         
@@ -37,21 +42,125 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             flowLayout.estimatedItemSize = CGSize(width: w, height: 220)
         }
         
+        contagemDias = UserDefaults().integer(forKey: "dia")
+        diaObj = carregaDia()
+        
+        if contagemDias <= 1 {
+            voltarButton.isHidden = true
+        }
+    
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if !acesso {
+        let defaults = UserDefaults()
+        let tutorial = defaults.bool(forKey: "tutorial")
+        if !tutorial {
             let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
             if let tutorialViewController = storyboard.instantiateViewController(withIdentifier: "tutorialVC") as? TutorialVC {
                 present(tutorialViewController, animated: true, completion: nil)
             }
-            acesso = true
+            defaults.set(true, forKey: "tutorial")
         }
     }
     
+    func recuperaCapitulos(dia: Dia) -> [Capitulo]? {
+        do{
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Capitulo")
+            fetchRequest.predicate = NSPredicate(format: "dia = %d", contagemDias)
+            
+            if let context = context {
+                var capitulos = try context.fetch(fetchRequest) as! [Capitulo]
+                if capitulos.count <= 0 {
+                    recomecaLeitura()
+                    capitulos = try context.fetch(fetchRequest) as! [Capitulo]
+                }
+                return capitulos
+            }
+            
+        } catch {
+            print("Erro ao carregar capitulo")
+            return nil
+        }
+        return nil
+    }
+    
+    func recuperaDias(data: Date) -> Dia? {
+        do{
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Dia")
+            fetchRequest.predicate = NSPredicate(format: "data = %@", data as NSDate)
+            
+            if let context = context {
+                let dia = try context.fetch(fetchRequest) as! [Dia]
+                if dia.count > 0 {
+                    return dia.first
+                }
+            }
+            return nil
+            
+        } catch {
+            print("Erro ao carregar dia")
+            return nil
+        }
+    }
+    
+    func carregaDia() -> Dia? {
+       guard let diaObj = recuperaDias(data: Calendario.shared.retornaDataCalendario()) else {
+            if let context = context {
+                let diaObj = NSEntityDescription.insertNewObject(forEntityName: "Dia", into: context) as! Dia
+                diaObj.data = Calendario.shared.retornaDataCalendario() as NSDate
+                
+                if let cap = recuperaCapitulos(dia: diaObj) {
+                    for c in cap {
+                        diaObj.addToPossui(c)
+                    }
+                    capitulos = cap
+                }
+                
+                return diaObj
+            }
+            return nil
+        }
+        
+        if let cap = recuperaCapitulos(dia: diaObj) {
+            capitulos = cap
+        }
+        return diaObj
+    }
+    
+    func recomecaLeitura() {
+        do {
+            if let path = Bundle.main.path(forResource: "capitulos", ofType: "json", inDirectory: nil)
+            {
+                let url = URL(fileURLWithPath: path)
+                let jsonData = try Data(contentsOf: url)
+                let aulas = try JSONDecoder().decode(Capitulos.self, from: jsonData)
+                
+                for i in 0...aulas.count-1{
+                    if let context = context {
+                        let registro = NSEntityDescription.insertNewObject(forEntityName: "Capitulo", into: context) as! Capitulo
+                        
+                        registro.titulo = aulas[i].titulo
+                        registro.lido = false
+                        registro.dia = aulas[i].dia + Int32(anosPassados*2)
+                        
+                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    }
+                }
+                
+                print("Inserido com sucesso")
+            }
+        } catch {
+            print("Erro ao inserir os dados dos capitulos")
+        }
+    }
+    
+    
+    // Table View
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 1 {
-            return topicosLeitura.count
+            return capitulos.count
         } else {
             return topicosOracao.count
         }
@@ -61,7 +170,14 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "TopicosTVCell") as! TopicosTVCell
         
         if tableView.tag == 1 {
-            cell.tituloLabel.text = topicosLeitura[indexPath.row]
+            cell.tituloLabel.text = capitulos[indexPath.row].titulo
+            
+            if capitulos[indexPath.row].lido {
+                marcarConcluido(celula: cell)
+            } else {
+                desmarcarConcluido(celula: cell)
+            }
+            
         } else {
             cell.tituloLabel.text = topicosOracao[indexPath.row]
         }
@@ -72,21 +188,15 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TopicosTVCell
-        if let image = cell.checkImageView.image {
-            cell.checkImageView.image = nil
-            cell.tituloLabel.textColor = UIColor.black
-            
-            atributoString = NSMutableAttributedString(string: cell.tituloLabel.text!)
-            atributoString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, 0))
-            cell.tituloLabel.attributedText = atributoString!
-            
+        if !capitulos[indexPath.row].lido {
+            capitulos[indexPath.row].lido = true
+            marcarConcluido(celula: cell)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+
         } else {
-            cell.checkImageView.image = UIImage(named: "Check")
-            cell.tituloLabel.textColor = #colorLiteral(red: 0.6901960784, green: 0.7490196078, blue: 0.2470588235, alpha: 1)
-            
-            atributoString = NSMutableAttributedString(string: cell.tituloLabel.text!)
-            atributoString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, atributoString!.length))
-            cell.tituloLabel.attributedText = atributoString!
+            capitulos[indexPath.row].lido = false
+            desmarcarConcluido(celula: cell)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
     }
     
@@ -109,6 +219,25 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         }
         return []
     }
+    
+    func desmarcarConcluido(celula: TopicosTVCell) {
+        celula.checkImageView.image = nil
+        
+        atributoString = NSMutableAttributedString(string: celula.tituloLabel.text!)
+        atributoString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, 0))
+        celula.tituloLabel.attributedText = atributoString!
+    }
+    
+    func marcarConcluido(celula: TopicosTVCell) {
+        celula.checkImageView.image = UIImage(named: "Check")
+        
+        atributoString = NSMutableAttributedString(string: celula.tituloLabel.text!)
+        atributoString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, atributoString!.length))
+        celula.tituloLabel.attributedText = atributoString!
+    }
+    
+    
+    // Collection View
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return titulos.count
@@ -147,17 +276,10 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         }
     }
     
+    
+    // Navegação
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let lista = segue.destination as? ListasTVController {
-//            if segue.identifier == "leituraBiblicaSegue" {
-//                lista.navigationItem.title = "Leitura bíblica"
-//                lista.navigationItem.rightBarButtonItem = .none
-//                lista.dados = topicosLeitura
-//            } else {
-//                lista.navigationItem.title = "Lista de oração"
-//                lista.dados = topicosOracao
-//            }
-//        } else
         if let nota = segue.destination as? NovaNotaTVController {
             if segue.identifier == "editarNota" {
                 nota.nota = [titulos[2],textos[2]]
@@ -168,18 +290,35 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     @IBAction func voltarDia(_ sender: Any) {
         Calendario.shared.decrementaDia()
         diaLabel.text = Calendario.shared.retornaDiaAtual()
-        topicosLeitura = ["Gênesis 1","I Crônicas 1"]
-        topicosOracao = ["Família"]
-        textos[2] = "Retrocedeu"
+        
+        contagemDias -= 1
+        if contagemDias <= 1 {
+            voltarButton.isHidden = true
+        }
+        
+        if contagemDias%2 == 0 {
+            anosPassados -= 1
+        }
+        
+        diaObj = carregaDia()
         collectionView.reloadData()
     }
     
     @IBAction func avancarDia(_ sender: Any) {
         Calendario.shared.incrementaDia()
         diaLabel.text = Calendario.shared.retornaDiaAtual()
-        topicosLeitura = ["Gênesis 1","I Crônicas 1","Salmo 1","João 1"]
-        topicosOracao = ["Trabalho","Família","Saúde"]
-        textos[2] = "Avançou"
+        
+        contagemDias += 1
+        
+        if contagemDias%2 == 0 {
+            anosPassados += 1
+        }
+        
+        if contagemDias > 1 {
+            voltarButton.isHidden = false
+        }
+        
+        diaObj = carregaDia()
         collectionView.reloadData()
     }
     

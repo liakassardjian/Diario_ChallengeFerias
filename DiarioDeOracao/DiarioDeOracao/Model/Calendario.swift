@@ -19,6 +19,8 @@ class Calendario {
     public var mes:Int
     public var ano:Int
     
+    public var anosPassados:Int
+    
     public let meses = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"]
     
     public let diasDaSemana = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"]
@@ -32,6 +34,7 @@ class Calendario {
         diaDaSemana = calendario.component(.weekday, from: data)
         mes = calendario.component(.month, from: data)
         ano = calendario.component(.year, from: data)
+        anosPassados = 0
     }
     
     public func incrementaDia() {
@@ -40,6 +43,7 @@ class Calendario {
             case 12:
                 mes = 1
                 ano += 1
+                anosPassados += 1
                 verificaAnoBissexto()
             default:
                 mes += 1
@@ -65,6 +69,7 @@ class Calendario {
             case 1:
                 mes = 12
                 ano -= 1
+                anosPassados -= 1
                 verificaAnoBissexto()
             default:
                 mes -= 1
@@ -96,6 +101,18 @@ class Calendario {
     }
     
     public func retornaDataAtual() -> Date {
+        return data
+    }
+    
+    public func retornaDataCalendario() -> Date {
+        var components = DateComponents()
+        components.year = ano
+        components.month = mes
+        components.day = dia
+        
+        if let date = calendario.date(from: components) {
+            return date
+        }
         return data
     }
     

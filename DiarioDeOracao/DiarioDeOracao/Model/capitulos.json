@@ -1,0 +1,32 @@
+[
+    {
+        "titulo": "Gênesis 1",
+        "lido": false,
+        "dia": 1
+    },
+    {
+        "titulo": "1 Crônicas 1",
+        "lido": false,
+        "dia": 1
+    },
+    {
+        "titulo": "Salmo 1",
+        "lido": false,
+        "dia": 1
+    },
+    {
+        "titulo": "Gênesis 2",
+        "lido": false,
+        "dia": 2
+    },
+    {
+        "titulo": "1 Crônicas 2",
+        "lido": false,
+        "dia": 2
+    },
+    {
+        "titulo": "Salmo 2",
+        "lido": false,
+        "dia": 2
+    }
+]

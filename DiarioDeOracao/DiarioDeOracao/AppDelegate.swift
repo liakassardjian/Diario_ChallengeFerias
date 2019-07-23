@@ -16,7 +16,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let defaults = UserDefaults()
+        let aberto = defaults.bool(forKey: "aberto")
+        let dia = defaults.integer(forKey: "dia")
+        
+        if !aberto{
+            
+            do {
+                if let path = Bundle.main.path(forResource: "capitulos", ofType: "json", inDirectory: nil)
+                {
+                    let url = URL(fileURLWithPath: path)
+                    let jsonData = try Data(contentsOf: url)
+                    let aulas = try JSONDecoder().decode(Capitulos.self, from: jsonData)
+                    
+                    for i in 0...aulas.count-1{
+                        let registro = NSEntityDescription.insertNewObject(forEntityName: "Capitulo", into: self.persistentContainer.viewContext) as! Capitulo
+                        
+                        registro.titulo = aulas[i].titulo
+                        registro.lido = aulas[i].lido
+                        registro.dia = aulas[i].dia
+                        
+                        self.saveContext()
+                    }
+                    
+                    print("Inserido com sucesso")
+                }
+            } catch {
+                print("Erro ao inserir os dados dos capitulos")
+            }
+            
+            defaults.set(true, forKey: "aberto")
+            defaults.set(1, forKey: "dia")
+            
+        } 
+        
         return true
     }
 

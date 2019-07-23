@@ -272,6 +272,7 @@
                         <outlet property="collectionLayout" destination="L1j-OY-wG5" id="9J8-7d-ITU"/>
                         <outlet property="collectionView" destination="dzY-yb-3iG" id="pky-DX-Rl6"/>
                         <outlet property="diaLabel" destination="1CH-R4-USH" id="Q1G-Sm-jFd"/>
+                        <outlet property="voltarButton" destination="OWy-zG-axB" id="9G3-ro-WuC"/>
                         <segue destination="0rC-c6-fcf" kind="show" identifier="editarNota" id="gFP-vq-nVL"/>
                         <segue destination="rom-n0-ebQ" kind="show" identifier="novaLembranca" id="Apw-Hm-mTh"/>
                     </connections>

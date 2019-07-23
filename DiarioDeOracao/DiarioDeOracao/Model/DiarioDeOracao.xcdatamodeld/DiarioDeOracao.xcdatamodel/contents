@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Capitulo" representedClassName=".Capitulo" syncable="YES">
+        <attribute name="dia" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lido" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="titulo" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Dia" representedClassName=".Dia" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="possui" optional="YES" toMany="YES" minCount="3" maxCount="4" deletionRule="Nullify" ordered="YES" destinationEntity="Capitulo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Capitulo" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="Dia" positionX="-36" positionY="27" width="128" height="75"/>
+    </elements>
+</model>

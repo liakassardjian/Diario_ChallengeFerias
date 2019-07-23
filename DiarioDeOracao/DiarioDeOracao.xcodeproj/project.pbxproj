@@ -19,6 +19,12 @@
 		E450335C22DE61CC0016EA09 /* lmroman10-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E450335B22DE61C20016EA09 /* lmroman10-regular.otf */; };
 		E450335E22DE69BB0016EA09 /* ListasTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335D22DE69BB0016EA09 /* ListasTVController.swift */; };
 		E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */; };
+		E46369F522E627C500E455A1 /* Capitulo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46369F422E627C500E455A1 /* Capitulo.swift */; };
+		E46369FF22E62C7600E455A1 /* capitulos.json in Resources */ = {isa = PBXBuildFile; fileRef = E46369FE22E62C7600E455A1 /* capitulos.json */; };
+		E4636A0222E6318D00E455A1 /* Capitulo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4636A0022E6318D00E455A1 /* Capitulo+CoreDataClass.swift */; };
+		E4636A0322E6318D00E455A1 /* Capitulo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4636A0122E6318D00E455A1 /* Capitulo+CoreDataProperties.swift */; };
+		E4636A0622E6573E00E455A1 /* Dia+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4636A0422E6573E00E455A1 /* Dia+CoreDataClass.swift */; };
+		E4636A0722E6573E00E455A1 /* Dia+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4636A0522E6573E00E455A1 /* Dia+CoreDataProperties.swift */; };
 		E46A69F222E24F7F002B545A /* TutorialPVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46A69F122E24F7F002B545A /* TutorialPVController.swift */; };
 		E46A69F422E24FA9002B545A /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46A69F322E24FA9002B545A /* TutorialVC.swift */; };
 		E48E137C22DFAABB001A4CA2 /* CardFixoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E137B22DFAABB001A4CA2 /* CardFixoCVCell.swift */; };
@@ -49,6 +55,12 @@
 		E450335B22DE61C20016EA09 /* lmroman10-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lmroman10-regular.otf"; sourceTree = "<group>"; };
 		E450335D22DE69BB0016EA09 /* ListasTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListasTVController.swift; sourceTree = "<group>"; };
 		E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicosTVCell.swift; sourceTree = "<group>"; };
+		E46369F422E627C500E455A1 /* Capitulo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capitulo.swift; sourceTree = "<group>"; };
+		E46369FE22E62C7600E455A1 /* capitulos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = capitulos.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		E4636A0022E6318D00E455A1 /* Capitulo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capitulo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E4636A0122E6318D00E455A1 /* Capitulo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capitulo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E4636A0422E6573E00E455A1 /* Dia+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dia+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E4636A0522E6573E00E455A1 /* Dia+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dia+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E46A69F122E24F7F002B545A /* TutorialPVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPVController.swift; sourceTree = "<group>"; };
 		E46A69F322E24FA9002B545A /* TutorialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
 		E48E137B22DFAABB001A4CA2 /* CardFixoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFixoCVCell.swift; sourceTree = "<group>"; };
@@ -96,7 +108,6 @@
 				E450330422DCE2C40016EA09 /* AppDelegate.swift */,
 				E450330E22DCE2C60016EA09 /* Assets.xcassets */,
 				E450331322DCE2C60016EA09 /* Info.plist */,
-				E450330B22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld */,
 				E450333D22DD08C10016EA09 /* Controller */,
 				E450333C22DD08BB0016EA09 /* View */,
 				E450333B22DD08B60016EA09 /* Model */,
@@ -107,7 +118,14 @@
 		E450333B22DD08B60016EA09 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E4636A0422E6573E00E455A1 /* Dia+CoreDataClass.swift */,
+				E4636A0522E6573E00E455A1 /* Dia+CoreDataProperties.swift */,
+				E4636A0022E6318D00E455A1 /* Capitulo+CoreDataClass.swift */,
+				E4636A0122E6318D00E455A1 /* Capitulo+CoreDataProperties.swift */,
+				E46369F422E627C500E455A1 /* Capitulo.swift */,
 				E450334422DD11AE0016EA09 /* Calendario.swift */,
+				E450330B22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld */,
+				E46369FE22E62C7600E455A1 /* capitulos.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,7 +202,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 				"pt-BR",
 			);
@@ -207,6 +224,7 @@
 				E450331222DCE2C60016EA09 /* LaunchScreen.storyboard in Resources */,
 				E450330F22DCE2C60016EA09 /* Assets.xcassets in Resources */,
 				E450330A22DCE2C40016EA09 /* Main.storyboard in Resources */,
+				E46369FF22E62C7600E455A1 /* capitulos.json in Resources */,
 				E450335C22DE61CC0016EA09 /* lmroman10-regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +240,9 @@
 				E48E138E22E10E16001A4CA2 /* NovaLembrancaTVController.swift in Sources */,
 				E48E137E22DFAC98001A4CA2 /* NotasCVCell.swift in Sources */,
 				E48E138222E0A83B001A4CA2 /* LembrancaCVCell.swift in Sources */,
+				E4636A0622E6573E00E455A1 /* Dia+CoreDataClass.swift in Sources */,
+				E4636A0722E6573E00E455A1 /* Dia+CoreDataProperties.swift in Sources */,
+				E4636A0322E6318D00E455A1 /* Capitulo+CoreDataProperties.swift in Sources */,
 				E413095E22DE9CE200D1BD4F /* NovaOracaoTVController.swift in Sources */,
 				E450335822DE61920016EA09 /* NovaNotaTVController.swift in Sources */,
 				E46A69F422E24FA9002B545A /* TutorialVC.swift in Sources */,
@@ -229,10 +250,12 @@
 				E48E137C22DFAABB001A4CA2 /* CardFixoCVCell.swift in Sources */,
 				E48E138C22E10511001A4CA2 /* RodapeCollectionReusableView.swift in Sources */,
 				E48E138022E0A791001A4CA2 /* LembrancasCVController.swift in Sources */,
+				E46369F522E627C500E455A1 /* Capitulo.swift in Sources */,
 				E450334522DD11AE0016EA09 /* Calendario.swift in Sources */,
 				E46A69F222E24F7F002B545A /* TutorialPVController.swift in Sources */,
 				E450330522DCE2C40016EA09 /* AppDelegate.swift in Sources */,
 				E48E138A22E10010001A4CA2 /* CabecalhoCollectionReusableView.swift in Sources */,
+				E4636A0222E6318D00E455A1 /* Capitulo+CoreDataClass.swift in Sources */,
 				E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */,
 				E450334722DD1ABE0016EA09 /* DiarioVC.swift in Sources */,
 				E48E138622E0D8B5001A4CA2 /* TopicosTableView.swift in Sources */,

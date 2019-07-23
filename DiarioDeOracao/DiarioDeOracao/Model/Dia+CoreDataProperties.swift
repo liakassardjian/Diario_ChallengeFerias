@@ -2,7 +2,7 @@
 //  Dia+CoreDataProperties.swift
 //  DiarioDeOracao
 //
-//  Created by Lia Kassardjian on 22/07/19.
+//  Created by Lia Kassardjian on 23/07/19.
 //  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 //
@@ -18,7 +18,43 @@ extension Dia {
     }
 
     @NSManaged public var data: NSDate?
+    @NSManaged public var lista: NSOrderedSet?
     @NSManaged public var possui: NSOrderedSet?
+
+}
+
+// MARK: Generated accessors for lista
+extension Dia {
+
+    @objc(insertObject:inListaAtIndex:)
+    @NSManaged public func insertIntoLista(_ value: Pedido, at idx: Int)
+
+    @objc(removeObjectFromListaAtIndex:)
+    @NSManaged public func removeFromLista(at idx: Int)
+
+    @objc(insertLista:atIndexes:)
+    @NSManaged public func insertIntoLista(_ values: [Pedido], at indexes: NSIndexSet)
+
+    @objc(removeListaAtIndexes:)
+    @NSManaged public func removeFromLista(at indexes: NSIndexSet)
+
+    @objc(replaceObjectInListaAtIndex:withObject:)
+    @NSManaged public func replaceLista(at idx: Int, with value: Pedido)
+
+    @objc(replaceListaAtIndexes:withLista:)
+    @NSManaged public func replaceLista(at indexes: NSIndexSet, with values: [Pedido])
+
+    @objc(addListaObject:)
+    @NSManaged public func addToLista(_ value: Pedido)
+
+    @objc(removeListaObject:)
+    @NSManaged public func removeFromLista(_ value: Pedido)
+
+    @objc(addLista:)
+    @NSManaged public func addToLista(_ values: NSOrderedSet)
+
+    @objc(removeLista:)
+    @NSManaged public func removeFromLista(_ values: NSOrderedSet)
 
 }
 

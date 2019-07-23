@@ -1,5 +1,5 @@
 //
-//  Dia+CoreDataClass.swift
+//  Pedido+CoreDataClass.swift
 //  DiarioDeOracao
 //
 //  Created by Lia Kassardjian on 23/07/19.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-
-public class Dia: NSManagedObject {
+@objc(Pedido)
+public class Pedido: NSManagedObject {
 
 }

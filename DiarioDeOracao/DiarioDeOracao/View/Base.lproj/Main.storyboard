@@ -502,7 +502,7 @@
                     <navigationItem key="navigationItem" title="Nova nota" largeTitleDisplayMode="never" id="E5L-sX-lty">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="3jo-GX-YQ2">
                             <connections>
-                                <segue destination="fbP-2D-AFn" kind="unwind" unwindAction="salvarNota:" id="4A7-ny-svY"/>
+                                <segue destination="fbP-2D-AFn" kind="unwind" unwindAction="salvarEntrada:" id="x9t-Zs-yp8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -680,7 +680,7 @@
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="p0N-hM-MNW"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="clu-sX-0xe">
                             <connections>
-                                <segue destination="47P-yU-ozz" kind="unwind" unwindAction="salvarNota:" id="4xQ-Gq-pK9"/>
+                                <segue destination="47P-yU-ozz" kind="unwind" unwindAction="salvarEntrada:" id="CtC-jT-a7w"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -803,7 +803,7 @@
                         <barButtonItem key="backBarButtonItem" title="Cancelar" id="5hP-Qx-Ymo"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="bdK-ut-0v7">
                             <connections>
-                                <segue destination="W21-dB-xe8" kind="unwind" unwindAction="salvarNota:" id="hf0-HY-B62"/>
+                                <segue destination="W21-dB-xe8" kind="unwind" unwindAction="salvarEntrada:" id="Xkx-E9-Qcd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

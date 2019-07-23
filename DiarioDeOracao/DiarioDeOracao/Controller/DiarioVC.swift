@@ -16,15 +16,15 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     @IBOutlet weak var diaLabel: UILabel!
     @IBOutlet weak var voltarButton: UIButton!
     
-    var anosPassados:Int = 0
     
     var diaObj:Dia?
     var contagemDias:Int = 0
+    var anosPassados:Int = 0
     
     let titulos = ["Leitura bíblica diária","Lista de oração diária"]
     
     var capitulos:[Capitulo] = []
-    var topicosOracao:[String] = []
+    var pedidos:[Pedido] = []
     var textos:[String] = []
     
     var atributoString:NSMutableAttributedString?
@@ -64,7 +64,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         }
     }
     
-    func recuperaCapitulos(dia: Dia) -> [Capitulo]? {
+    func recuperaCapitulos() -> [Capitulo]? {
         do{
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Capitulo")
             fetchRequest.predicate = NSPredicate(format: "dia = %d", contagemDias)
@@ -76,6 +76,23 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                     capitulos = try context.fetch(fetchRequest) as! [Capitulo]
                 }
                 return capitulos
+            }
+            
+        } catch {
+            print("Erro ao carregar capitulo")
+            return nil
+        }
+        return nil
+    }
+    
+    func recuperaPedidos() -> [Pedido]? {
+        do{
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pedido")
+            fetchRequest.predicate = NSPredicate(format: "dataFinal >= %@", Calendario.shared.retornaDataCalendario() as CVarArg)
+            
+            if let context = context {
+                var pedidos = try context.fetch(fetchRequest) as! [Pedido]
+                return pedidos
             }
             
         } catch {
@@ -110,20 +127,32 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 let diaObj = NSEntityDescription.insertNewObject(forEntityName: "Dia", into: context) as! Dia
                 diaObj.data = Calendario.shared.retornaDataCalendario() as NSDate
                 
-                if let cap = recuperaCapitulos(dia: diaObj) {
+                if let cap = recuperaCapitulos() {
                     for c in cap {
                         diaObj.addToPossui(c)
                     }
                     capitulos = cap
                 }
                 
+                if let ped = recuperaPedidos() {
+                    for p in ped {
+                        diaObj.addToLista(p)
+                        p.addToPertence(diaObj)
+                    }
+                    pedidos = ped
+                }
+                
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 return diaObj
             }
             return nil
         }
         
-        if let cap = recuperaCapitulos(dia: diaObj) {
+        if let cap = recuperaCapitulos() {
             capitulos = cap
+        }
+        if let ped = recuperaPedidos() {
+            pedidos = ped
         }
         return diaObj
     }
@@ -162,7 +191,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         if tableView.tag == 1 {
             return capitulos.count
         } else {
-            return topicosOracao.count
+            return pedidos.count
         }
     }
     
@@ -179,7 +208,13 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             }
             
         } else {
-            cell.tituloLabel.text = topicosOracao[indexPath.row]
+            cell.tituloLabel.text = pedidos[indexPath.row].nome
+            
+            if pedidos[indexPath.row].orado {
+                marcarConcluido(celula: cell)
+            } else {
+                desmarcarConcluido(celula: cell)
+            }
         }
         
 
@@ -203,12 +238,14 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         if tableView.tag == 2 {
             let exluir = UITableViewRowAction(style: .destructive, title: "Excluir", handler: {(action,indexPath) in
-                self.topicosOracao.remove(at: indexPath.row)
+                self.pedidos.remove(at: indexPath.row)
+                // deletar do CoreData
                 tableView.deleteRows(at: [indexPath], with: .fade)
             })
             
             let concluir = UITableViewRowAction(style: .normal, title: "Marcar como respondido", handler: {(action, indexPath) in
-                self.topicosOracao.remove(at: indexPath.row)
+                self.pedidos.remove(at: indexPath.row)
+                // deletar do CoreData
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 self.performSegue(withIdentifier: "novaLembranca", sender: self)
             })
@@ -322,10 +359,27 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         collectionView.reloadData()
     }
     
-    @IBAction func salvarNota(_ sender: UIStoryboardSegue){
+    @IBAction func salvarEntrada(_ sender: UIStoryboardSegue){
         if sender.source is NovaNotaTVController {
             if let senderAdd = sender.source as? NovaNotaTVController {
                 // adiciona nota
+            }
+        }
+        
+        if sender.source is NovaOracaoTVController {
+            if let senderAdd = sender.source as? NovaOracaoTVController {
+                if let pedido = senderAdd.novoPedido {
+                    diaObj?.addToLista(pedido)
+                    if let dia = diaObj {
+                        pedido.addToPertence(dia)
+                    }
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    
+                    if let ped = recuperaPedidos() {
+                        pedidos = ped
+                    }
+                    collectionView.reloadData()
+                }
             }
         }
     }

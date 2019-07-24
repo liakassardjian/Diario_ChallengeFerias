@@ -64,6 +64,9 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         }
     }
     
+    
+    // Core Data
+    
     func recuperaCapitulos() -> [Capitulo]? {
         do{
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Capitulo")
@@ -251,14 +254,14 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         if tableView.tag == 2 {
             let exluir = UITableViewRowAction(style: .destructive, title: "Excluir", handler: {(action,indexPath) in
+                self.context?.delete(self.pedidos[indexPath.row])
                 self.pedidos.remove(at: indexPath.row)
-                // deletar do CoreData
                 tableView.deleteRows(at: [indexPath], with: .fade)
             })
             
             let concluir = UITableViewRowAction(style: .normal, title: "Marcar como respondido", handler: {(action, indexPath) in
+                self.context?.delete(self.pedidos[indexPath.row])
                 self.pedidos.remove(at: indexPath.row)
-                // deletar do CoreData
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 self.performSegue(withIdentifier: "novaLembranca", sender: self)
             })

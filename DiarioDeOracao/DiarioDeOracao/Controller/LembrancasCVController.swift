@@ -17,7 +17,8 @@ class LembrancasCVController: UICollectionViewController {
     
     var context:NSManagedObjectContext?
     
-    var lembrancas:[Lembranca] = []
+    var lembrancas:[[Lembranca]] = []
+    var anos:[Int] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,44 @@ class LembrancasCVController: UICollectionViewController {
             let w = self.collectionView.frame.width - 20
             flowLayout.estimatedItemSize = CGSize(width: w, height: 142)
         }
+        
+//        carregaLembrancas()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        carregaLembrancas()
+        collectionView.reloadData()
+    }
+    
+    func carregaLembrancas() {
         do {
+            var lem:[Lembranca] = []
             if let context = context {
-                lembrancas = try context.fetch(Lembranca.fetchRequest())
+                lem = try context.fetch(Lembranca.fetchRequest())
+            }
+            
+            for l in lem {
+                let data = l.data?.data as! Date
+                let ano = Calendario.shared.retornaAno(date: data)
+                if !anos.contains(ano) {
+                    anos.append(ano)
+                }
+            }
+            anos.sort(by: >)
+            
+            for _ in anos {
+                let novoVetor:[Lembranca] = []
+                lembrancas.append(novoVetor)
+            }
+            
+            for l in lem {
+                let data = l.data?.data as! Date
+                let ano = Calendario.shared.retornaAno(date: data)
+                if let i = anos.firstIndex(of: ano) {
+                    if !lembrancas[i].contains(l) {
+                        lembrancas[i].insert(l, at: 0) 
+                    }
+                }
             }
         } catch {
             print("Erro ao carregar lembranças")
@@ -41,20 +74,22 @@ class LembrancasCVController: UICollectionViewController {
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return anos.count
     }
 
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return lembrancas.count
+        return lembrancas[section].count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! LembrancaCVCell
         
-        cell.dataLabel.text = Calendario.shared.retornaDiaMesString(date: lembrancas[indexPath.row].data?.data as! Date) 
-        cell.tituloLabel.text = lembrancas[indexPath.row].titulo
-        cell.corpoLabel.text = lembrancas[indexPath.row].corpo
+        let data = lembrancas[indexPath.section][indexPath.row].data?.data as! Date
+
+        cell.dataLabel.text = Calendario.shared.retornaDiaMesString(date: data)
+        cell.tituloLabel.text = lembrancas[indexPath.section][indexPath.row].titulo
+        cell.corpoLabel.text = lembrancas[indexPath.section][indexPath.row].corpo
+        
         return cell
     }
     
@@ -70,12 +105,7 @@ class LembrancasCVController: UICollectionViewController {
                     fatalError("Invalid view type")
             }
             
-            
-            if indexPath.section == 0 {
-                cabecalho.tituloLabel.text = "2019"
-            } else {
-                cabecalho.tituloLabel.text = "2018"
-            }
+            cabecalho.tituloLabel.text = "\(anos[indexPath.section])"
             
             return cabecalho
             

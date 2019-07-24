@@ -136,4 +136,7 @@ class Calendario {
         return "\(String(describing: diaLembranca))\n\(mesesAbrev[mesLembranca])"
     }
     
+    public func retornaAno(date: Date) -> Int {
+        return calendario.component(.year, from: date)
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  Dia+CoreDataClass.swift
+//  Nota+CoreDataClass.swift
 //  DiarioDeOracao
 //
 //  Created by Lia Kassardjian on 24/07/19.
@@ -11,6 +11,6 @@ import Foundation
 import CoreData
 
 
-public class Dia: NSManagedObject {
+public class Nota: NSManagedObject {
 
 }

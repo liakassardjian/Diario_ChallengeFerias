@@ -25,7 +25,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
     var capitulos:[Capitulo] = []
     var pedidos:[Pedido] = []
-    var textos:[String] = []
+    var notas:[Nota] = []
     
     var atributoString:NSMutableAttributedString?
     
@@ -105,6 +105,20 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         return nil
     }
     
+    func recuperaNotas(dia: Dia) -> [Nota] {
+        var notasTemp:[Nota] = []
+        do{
+            for i in 0..<(dia.tem!.count) {
+                let n = dia.tem![i]
+                notasTemp.append(n as! Nota)
+            }
+        } catch {
+            print("Erro ao carregar capitulo")
+            return notasTemp
+        }
+        return notasTemp
+    }
+    
     func recuperaDias(data: Date) -> Dia? {
         do{
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Dia")
@@ -132,7 +146,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 
                 if let cap = recuperaCapitulos() {
                     for c in cap {
-                        diaObj.addToPossui(c)
+                        diaObj.addToLeitura(c)
+                        
                     }
                     capitulos = cap
                 }
@@ -156,6 +171,9 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         if let ped = recuperaPedidos() {
             pedidos = ped
         }
+        
+        notas = recuperaNotas(dia: diaObj)
+        
         return diaObj
     }
     
@@ -293,7 +311,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     // Collection View
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return titulos.count
+        return notas.count + 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -311,13 +329,14 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             cell.topicosTableView.tag = 2
             cell.topicosTableView.reloadData()
             cell.tituloLabel.text = titulos[1]
+            cell.adicionarButton.isHidden = false
             
             return cell
             
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotasCVCell", for: indexPath) as! NotasCVCell
-            cell.tituloLabel.text = titulos[indexPath.row]
-            cell.corpoLabel.text = textos[indexPath.row]
+            cell.tituloLabel.text = notas[indexPath.row - 2].titulo
+            cell.corpoLabel.text = notas[indexPath.row - 2].corpo
             
             return cell
         }
@@ -335,7 +354,18 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nota = segue.destination as? NovaNotaTVController {
             if segue.identifier == "editarNota" {
-                nota.nota = [titulos[2],textos[2]]
+                if let item = collectionView.indexPathsForSelectedItems?.first {
+                    let titulo = notas[item.row - 2].titulo
+                    let corpo = notas[item.row - 2].corpo
+                    nota.conteudo = [titulo,corpo] as! [String]
+                    nota.novaNota = notas[item.row - 2]
+                    nota.modoEdicao = true
+                }
+            }
+            
+            if segue.identifier == "novaNota" {
+                nota.conteudo = nota.modeloNota
+                nota.modoEdicao = false
             }
         }
     }
@@ -378,7 +408,15 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     @IBAction func salvarEntrada(_ sender: UIStoryboardSegue){
         if sender.source is NovaNotaTVController {
             if let senderAdd = sender.source as? NovaNotaTVController {
-                // adiciona nota
+                if let nota = senderAdd.novaNota {
+                    dia?.addToTem(nota)
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    
+                    if let dia = dia {
+                        notas = recuperaNotas(dia: dia)
+                    }
+                    collectionView.reloadData()
+                }
             }
         }
         

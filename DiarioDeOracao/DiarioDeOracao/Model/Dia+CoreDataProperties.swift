@@ -2,7 +2,7 @@
 //  Dia+CoreDataProperties.swift
 //  DiarioDeOracao
 //
-//  Created by Lia Kassardjian on 23/07/19.
+//  Created by Lia Kassardjian on 24/07/19.
 //  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 //
@@ -19,7 +19,8 @@ extension Dia {
 
     @NSManaged public var data: NSDate?
     @NSManaged public var lista: NSOrderedSet?
-    @NSManaged public var possui: NSOrderedSet?
+    @NSManaged public var leitura: NSOrderedSet?
+    @NSManaged public var tem: NSOrderedSet?
 
 }
 
@@ -58,37 +59,72 @@ extension Dia {
 
 }
 
-// MARK: Generated accessors for possui
+// MARK: Generated accessors for leitura
 extension Dia {
 
-    @objc(insertObject:inPossuiAtIndex:)
-    @NSManaged public func insertIntoPossui(_ value: Capitulo, at idx: Int)
+    @objc(insertObject:inLeituraAtIndex:)
+    @NSManaged public func insertIntoLeitura(_ value: Capitulo, at idx: Int)
 
-    @objc(removeObjectFromPossuiAtIndex:)
-    @NSManaged public func removeFromPossui(at idx: Int)
+    @objc(removeObjectFromLeituraAtIndex:)
+    @NSManaged public func removeFromLeitura(at idx: Int)
 
-    @objc(insertPossui:atIndexes:)
-    @NSManaged public func insertIntoPossui(_ values: [Capitulo], at indexes: NSIndexSet)
+    @objc(insertLeitura:atIndexes:)
+    @NSManaged public func insertIntoLeitura(_ values: [Capitulo], at indexes: NSIndexSet)
 
-    @objc(removePossuiAtIndexes:)
-    @NSManaged public func removeFromPossui(at indexes: NSIndexSet)
+    @objc(removeLeituraAtIndexes:)
+    @NSManaged public func removeFromLeitura(at indexes: NSIndexSet)
 
-    @objc(replaceObjectInPossuiAtIndex:withObject:)
-    @NSManaged public func replacePossui(at idx: Int, with value: Capitulo)
+    @objc(replaceObjectInLeituraAtIndex:withObject:)
+    @NSManaged public func replaceLeitura(at idx: Int, with value: Capitulo)
 
-    @objc(replacePossuiAtIndexes:withPossui:)
-    @NSManaged public func replacePossui(at indexes: NSIndexSet, with values: [Capitulo])
+    @objc(replaceLeituraAtIndexes:withLeitura:)
+    @NSManaged public func replaceLeitura(at indexes: NSIndexSet, with values: [Capitulo])
 
-    @objc(addPossuiObject:)
-    @NSManaged public func addToPossui(_ value: Capitulo)
+    @objc(addLeituraObject:)
+    @NSManaged public func addToLeitura(_ value: Capitulo)
 
-    @objc(removePossuiObject:)
-    @NSManaged public func removeFromPossui(_ value: Capitulo)
+    @objc(removeLeituraObject:)
+    @NSManaged public func removeFromLeitura(_ value: Capitulo)
 
-    @objc(addPossui:)
-    @NSManaged public func addToPossui(_ values: NSOrderedSet)
+    @objc(addLeitura:)
+    @NSManaged public func addToLeitura(_ values: NSOrderedSet)
 
-    @objc(removePossui:)
-    @NSManaged public func removeFromPossui(_ values: NSOrderedSet)
+    @objc(removeLeitura:)
+    @NSManaged public func removeFromLeitura(_ values: NSOrderedSet)
+
+}
+
+// MARK: Generated accessors for tem
+extension Dia {
+
+    @objc(insertObject:inTemAtIndex:)
+    @NSManaged public func insertIntoTem(_ value: Nota, at idx: Int)
+
+    @objc(removeObjectFromTemAtIndex:)
+    @NSManaged public func removeFromTem(at idx: Int)
+
+    @objc(insertTem:atIndexes:)
+    @NSManaged public func insertIntoTem(_ values: [Nota], at indexes: NSIndexSet)
+
+    @objc(removeTemAtIndexes:)
+    @NSManaged public func removeFromTem(at indexes: NSIndexSet)
+
+    @objc(replaceObjectInTemAtIndex:withObject:)
+    @NSManaged public func replaceTem(at idx: Int, with value: Nota)
+
+    @objc(replaceTemAtIndexes:withTem:)
+    @NSManaged public func replaceTem(at indexes: NSIndexSet, with values: [Nota])
+
+    @objc(addTemObject:)
+    @NSManaged public func addToTem(_ value: Nota)
+
+    @objc(removeTemObject:)
+    @NSManaged public func removeFromTem(_ value: Nota)
+
+    @objc(addTem:)
+    @NSManaged public func addToTem(_ values: NSOrderedSet)
+
+    @objc(removeTem:)
+    @NSManaged public func removeFromTem(_ values: NSOrderedSet)
 
 }

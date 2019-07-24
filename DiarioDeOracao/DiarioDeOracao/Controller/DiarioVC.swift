@@ -107,15 +107,11 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
     func recuperaNotas(dia: Dia) -> [Nota] {
         var notasTemp:[Nota] = []
-        do{
-            for i in 0..<(dia.tem!.count) {
-                let n = dia.tem![i]
-                notasTemp.append(n as! Nota)
-            }
-        } catch {
-            print("Erro ao carregar capitulo")
-            return notasTemp
+        for i in 0..<(dia.tem!.count) {
+            let n = dia.tem![i]
+            notasTemp.append(n as! Nota)
         }
+        
         return notasTemp
     }
     
@@ -366,6 +362,12 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             if segue.identifier == "novaNota" {
                 nota.conteudo = nota.modeloNota
                 nota.modoEdicao = false
+            }
+        }
+        
+        if let lembranca = segue.destination as? NovaLembrancaTVController {
+            if segue.identifier == "novaLembranca" {
+                lembranca.data = dia
             }
         }
     }

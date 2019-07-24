@@ -31,6 +31,8 @@
 		E48A046E22E87D880039D847 /* Nota+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A046C22E87D880039D847 /* Nota+CoreDataProperties.swift */; };
 		E48A047522E87F470039D847 /* Dia+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A047322E87F470039D847 /* Dia+CoreDataClass.swift */; };
 		E48A047622E87F470039D847 /* Dia+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A047422E87F470039D847 /* Dia+CoreDataProperties.swift */; };
+		E48A047922E89B0A0039D847 /* Lembranca+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A047722E89B0A0039D847 /* Lembranca+CoreDataClass.swift */; };
+		E48A047A22E89B0A0039D847 /* Lembranca+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A047822E89B0A0039D847 /* Lembranca+CoreDataProperties.swift */; };
 		E48E137C22DFAABB001A4CA2 /* CardFixoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E137B22DFAABB001A4CA2 /* CardFixoCVCell.swift */; };
 		E48E137E22DFAC98001A4CA2 /* NotasCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E137D22DFAC98001A4CA2 /* NotasCVCell.swift */; };
 		E48E138022E0A791001A4CA2 /* LembrancasCVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E137F22E0A791001A4CA2 /* LembrancasCVController.swift */; };
@@ -71,6 +73,8 @@
 		E48A046C22E87D880039D847 /* Nota+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nota+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E48A047322E87F470039D847 /* Dia+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dia+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E48A047422E87F470039D847 /* Dia+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dia+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E48A047722E89B0A0039D847 /* Lembranca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lembranca+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E48A047822E89B0A0039D847 /* Lembranca+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lembranca+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E48E137B22DFAABB001A4CA2 /* CardFixoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFixoCVCell.swift; sourceTree = "<group>"; };
 		E48E137D22DFAC98001A4CA2 /* NotasCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasCVCell.swift; sourceTree = "<group>"; };
 		E48E137F22E0A791001A4CA2 /* LembrancasCVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LembrancasCVController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 		E450333B22DD08B60016EA09 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E48A047722E89B0A0039D847 /* Lembranca+CoreDataClass.swift */,
+				E48A047822E89B0A0039D847 /* Lembranca+CoreDataProperties.swift */,
 				E48A047322E87F470039D847 /* Dia+CoreDataClass.swift */,
 				E48A047422E87F470039D847 /* Dia+CoreDataProperties.swift */,
 				E48A046B22E87D880039D847 /* Nota+CoreDataClass.swift */,
@@ -259,6 +265,7 @@
 				E450335822DE61920016EA09 /* NovaNotaTVController.swift in Sources */,
 				E46A69F422E24FA9002B545A /* TutorialVC.swift in Sources */,
 				E450330D22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld in Sources */,
+				E48A047A22E89B0A0039D847 /* Lembranca+CoreDataProperties.swift in Sources */,
 				E48E137C22DFAABB001A4CA2 /* CardFixoCVCell.swift in Sources */,
 				E48A047522E87F470039D847 /* Dia+CoreDataClass.swift in Sources */,
 				E4636A2C22E7EE8E00E455A1 /* Pedido+CoreDataClass.swift in Sources */,
@@ -274,6 +281,7 @@
 				E4636A0222E6318D00E455A1 /* Capitulo+CoreDataClass.swift in Sources */,
 				E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */,
 				E450334722DD1ABE0016EA09 /* DiarioVC.swift in Sources */,
+				E48A047922E89B0A0039D847 /* Lembranca+CoreDataClass.swift in Sources */,
 				E48A046E22E87D880039D847 /* Nota+CoreDataProperties.swift in Sources */,
 				E48E138622E0D8B5001A4CA2 /* TopicosTableView.swift in Sources */,
 			);

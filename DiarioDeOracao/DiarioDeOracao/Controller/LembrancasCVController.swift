@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "lembranca"
 
@@ -14,46 +15,46 @@ class LembrancasCVController: UICollectionViewController {
     
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!
     
-    // dados provisorios para teste
-    let datas = ["17\nJul","18\nJul","19\nMai"]
-    let titulos = ["Título dessa memória","Outra memória","Mais uma memória"]
-    let textos = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "purus viverra accumsan in nisl","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Varius quam quisque id diam vel. Mauris vitae ultricies leo integer malesuada nunc vel. Vitae tortor condimentum lacinia quis vel eros. Egestas pretium aenean pharetra magna ac placerat vestibulum."]
+    var context:NSManagedObjectContext?
+    
+    var lembrancas:[Lembranca] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         if let flowLayout = collectionLayout {
             let w = self.collectionView.frame.width - 20
             flowLayout.estimatedItemSize = CGSize(width: w, height: 142)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
     
+    override func viewWillAppear(_ animated: Bool) {
+        do {
+            if let context = context {
+                lembrancas = try context.fetch(Lembranca.fetchRequest())
+            }
+        } catch {
+            print("Erro ao carregar lembranças")
+            return
+        }
+    }
+
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return titulos.count
+        return lembrancas.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! LembrancaCVCell
         
-        cell.dataLabel.text = datas[indexPath.row]
-        cell.tituloLabel.text = titulos[indexPath.row]
-        cell.corpoLabel.text = textos[indexPath.row]
-    
+        cell.dataLabel.text = Calendario.shared.retornaDiaMesString(date: lembrancas[indexPath.row].data?.data as! Date) 
+        cell.tituloLabel.text = lembrancas[indexPath.row].titulo
+        cell.corpoLabel.text = lembrancas[indexPath.row].corpo
         return cell
     }
     

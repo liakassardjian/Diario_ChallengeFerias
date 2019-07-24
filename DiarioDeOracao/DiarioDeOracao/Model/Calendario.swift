@@ -23,6 +23,8 @@ class Calendario {
     
     public let meses = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"]
     
+    public let mesesAbrev = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"]
+    
     public let diasDaSemana = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"]
     
     public var diasNoMes = [31,28,31,30,31,30,31,31,30,31,30,31]
@@ -124,8 +126,14 @@ class Calendario {
             dia += 1
             primeiroComp += 1
         }
-        
         return dia
+    }
+    
+    public func retornaDiaMesString(date: Date) -> String {
+        let mesLembranca = calendario.component(.month, from: date)
+        let diaLembranca = calendario.component(.day, from: date)
+        
+        return "\(String(describing: diaLembranca))\n\(mesesAbrev[mesLembranca])"
     }
     
 }

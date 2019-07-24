@@ -11,6 +11,11 @@
         <relationship name="lista" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Pedido" syncable="YES"/>
         <relationship name="tem" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Nota" syncable="YES"/>
     </entity>
+    <entity name="Lembranca" representedClassName=".Lembranca" syncable="YES">
+        <attribute name="corpo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titulo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="data" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dia" syncable="YES"/>
+    </entity>
     <entity name="Nota" representedClassName=".Nota" syncable="YES">
         <attribute name="corpo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="titulo" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,5 +31,6 @@
         <element name="Dia" positionX="-36" positionY="27" width="128" height="103"/>
         <element name="Pedido" positionX="258.58203125" positionY="39.02734375" width="128" height="103"/>
         <element name="Nota" positionX="131.1328125" positionY="176.2890625" width="128" height="73"/>
+        <element name="Lembranca" positionX="117" positionY="144" width="128" height="90"/>
     </elements>
 </model>

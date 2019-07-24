@@ -20,42 +20,41 @@ extension Pedido {
     @NSManaged public var nome: String?
     @NSManaged public var urgencia: Int32
     @NSManaged public var dataFinal: NSDate?
-    @NSManaged public var orado: Bool
-    @NSManaged public var pertence: NSOrderedSet?
+    @NSManaged public var concluiu: NSOrderedSet?
 
 }
 
-// MARK: Generated accessors for pertence
+// MARK: Generated accessors for concluiu
 extension Pedido {
 
-    @objc(insertObject:inPertenceAtIndex:)
-    @NSManaged public func insertIntoPertence(_ value: Dia, at idx: Int)
+    @objc(insertObject:inConcluiuAtIndex:)
+    @NSManaged public func insertIntoConcluiu(_ value: Dia, at idx: Int)
 
-    @objc(removeObjectFromPertenceAtIndex:)
-    @NSManaged public func removeFromPertence(at idx: Int)
+    @objc(removeObjectFromConcluiuAtIndex:)
+    @NSManaged public func removeFromConcluiu(at idx: Int)
 
-    @objc(insertPertence:atIndexes:)
-    @NSManaged public func insertIntoPertence(_ values: [Dia], at indexes: NSIndexSet)
+    @objc(insertConcluiu:atIndexes:)
+    @NSManaged public func insertIntoConcluiu(_ values: [Dia], at indexes: NSIndexSet)
 
-    @objc(removePertenceAtIndexes:)
-    @NSManaged public func removeFromPertence(at indexes: NSIndexSet)
+    @objc(removeConcluiuAtIndexes:)
+    @NSManaged public func removeFromConcluiu(at indexes: NSIndexSet)
 
-    @objc(replaceObjectInPertenceAtIndex:withObject:)
-    @NSManaged public func replacePertence(at idx: Int, with value: Dia)
+    @objc(replaceObjectInConcluiuAtIndex:withObject:)
+    @NSManaged public func replaceConcluiu(at idx: Int, with value: Dia)
 
-    @objc(replacePertenceAtIndexes:withPertence:)
-    @NSManaged public func replacePertence(at indexes: NSIndexSet, with values: [Dia])
+    @objc(replaceConcluiuAtIndexes:withConcluiu:)
+    @NSManaged public func replaceConcluiu(at indexes: NSIndexSet, with values: [Dia])
 
-    @objc(addPertenceObject:)
-    @NSManaged public func addToPertence(_ value: Dia)
+    @objc(addConcluiuObject:)
+    @NSManaged public func addToConcluiu(_ value: Dia)
 
-    @objc(removePertenceObject:)
-    @NSManaged public func removeFromPertence(_ value: Dia)
+    @objc(removeConcluiuObject:)
+    @NSManaged public func removeFromConcluiu(_ value: Dia)
 
-    @objc(addPertence:)
-    @NSManaged public func addToPertence(_ values: NSOrderedSet)
+    @objc(addConcluiu:)
+    @NSManaged public func addToConcluiu(_ values: NSOrderedSet)
 
-    @objc(removePertence:)
-    @NSManaged public func removeFromPertence(_ values: NSOrderedSet)
+    @objc(removeConcluiu:)
+    @NSManaged public func removeFromConcluiu(_ values: NSOrderedSet)
 
 }

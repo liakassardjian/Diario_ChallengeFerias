@@ -116,4 +116,16 @@ class Calendario {
         return data
     }
     
+    public func contaDiasEntre(primeiro: Date, ultimo: Date) -> Int {
+        var dia = 0
+        var primeiroComp = primeiro
+        
+        while primeiroComp != ultimo {
+            dia += 1
+            primeiroComp += 1
+        }
+        
+        return dia
+    }
+    
 }

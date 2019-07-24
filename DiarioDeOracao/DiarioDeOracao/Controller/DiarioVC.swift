@@ -17,7 +17,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     @IBOutlet weak var voltarButton: UIButton!
     
     
-    var diaObj:Dia?
+    var dia:Dia?
     var contagemDias:Int = 0
     var anosPassados:Int = 0
     
@@ -43,7 +43,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         }
         
         contagemDias = UserDefaults().integer(forKey: "dia")
-        diaObj = carregaDia()
+        dia = carregaDia()
         
         if contagemDias <= 1 {
             voltarButton.isHidden = true
@@ -91,7 +91,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             fetchRequest.predicate = NSPredicate(format: "dataFinal >= %@", Calendario.shared.retornaDataCalendario() as CVarArg)
             
             if let context = context {
-                var pedidos = try context.fetch(fetchRequest) as! [Pedido]
+                let pedidos = try context.fetch(fetchRequest) as! [Pedido]
                 return pedidos
             }
             
@@ -137,7 +137,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 if let ped = recuperaPedidos() {
                     for p in ped {
                         diaObj.addToLista(p)
-                        p.addToPertence(diaObj)
                     }
                     pedidos = ped
                 }
@@ -210,10 +209,12 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         } else {
             cell.tituloLabel.text = pedidos[indexPath.row].nome
             
-            if pedidos[indexPath.row].orado {
-                marcarConcluido(celula: cell)
-            } else {
-                desmarcarConcluido(celula: cell)
+            if let dia = dia {
+                if (pedidos[indexPath.row].concluiu?.contains(dia))! {
+                    marcarConcluido(celula: cell)
+                } else {
+                    desmarcarConcluido(celula: cell)
+                }                
             }
         }
         
@@ -223,16 +224,28 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! TopicosTVCell
-        if !capitulos[indexPath.row].lido {
-            capitulos[indexPath.row].lido = true
-            marcarConcluido(celula: cell)
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-
+        
+        if tableView.tag == 1{
+            if !capitulos[indexPath.row].lido {
+                marcarConcluido(celula: cell)
+            } else {
+                desmarcarConcluido(celula: cell)
+            }
+            capitulos[indexPath.row].lido.toggle()
+            
         } else {
-            capitulos[indexPath.row].lido = false
-            desmarcarConcluido(celula: cell)
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            if let dia = dia {
+                if !(pedidos[indexPath.row].concluiu?.contains(dia))! {
+                    marcarConcluido(celula: cell)
+                    pedidos[indexPath.row].addToConcluiu(dia)
+                } else {
+                    desmarcarConcluido(celula: cell)
+                    pedidos[indexPath.row].removeFromConcluiu(dia)
+                }
+            }
         }
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -337,7 +350,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             anosPassados -= 1
         }
         
-        diaObj = carregaDia()
+        dia = carregaDia()
         collectionView.reloadData()
     }
     
@@ -355,7 +368,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             voltarButton.isHidden = false
         }
         
-        diaObj = carregaDia()
+        dia = carregaDia()
         collectionView.reloadData()
     }
     
@@ -369,10 +382,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         if sender.source is NovaOracaoTVController {
             if let senderAdd = sender.source as? NovaOracaoTVController {
                 if let pedido = senderAdd.novoPedido {
-                    diaObj?.addToLista(pedido)
-                    if let dia = diaObj {
-                        pedido.addToPertence(dia)
-                    }
+                    dia?.addToLista(pedido)
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     
                     if let ped = recuperaPedidos() {

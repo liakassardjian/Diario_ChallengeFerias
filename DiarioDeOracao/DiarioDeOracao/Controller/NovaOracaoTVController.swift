@@ -46,6 +46,7 @@ class NovaOracaoTVController: UITableViewController {
             novoPedido?.nome = leTextField(textField: tituloTextField)
             novoPedido?.urgencia = Int32(urgenciaSegmentedControl.selectedSegmentIndex)
             novoPedido?.dataFinal = dataDatePicker.date as NSDate
+            
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
             return true

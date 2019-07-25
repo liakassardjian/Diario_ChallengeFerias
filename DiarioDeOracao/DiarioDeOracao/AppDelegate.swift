@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dia = defaults.integer(forKey: "dia")
         
         if !aberto{
-            
             do {
                 if let path = Bundle.main.path(forResource: "capitulos", ofType: "json", inDirectory: nil)
                 {
@@ -45,11 +45,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } catch {
                 print("Erro ao inserir os dados dos capitulos")
             }
-            
             defaults.set(true, forKey: "aberto")
             defaults.set(1, forKey: "dia")
-            
-        } 
+        }
+        
+        let options: UNAuthorizationOptions = [.alert,.sound,.badge]
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.requestAuthorization(options: options) {
+            (didAllow, error) in
+            if !didAllow {
+                print("Notifications not allowed by user")
+            }
+        }
         
         return true
     }
@@ -69,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

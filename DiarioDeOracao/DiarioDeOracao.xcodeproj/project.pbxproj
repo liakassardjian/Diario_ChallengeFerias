@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E413095E22DE9CE200D1BD4F /* NovaOracaoTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413095D22DE9CE200D1BD4F /* NovaOracaoTVController.swift */; };
+		E41A582122E9E7B100C6272F /* TutorialTela1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41A582022E9E7B100C6272F /* TutorialTela1VC.swift */; };
 		E450330522DCE2C40016EA09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450330422DCE2C40016EA09 /* AppDelegate.swift */; };
 		E450330A22DCE2C40016EA09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E450330822DCE2C40016EA09 /* Main.storyboard */; };
 		E450330D22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E450330B22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld */; };
@@ -48,6 +49,7 @@
 		E413095D22DE9CE200D1BD4F /* NovaOracaoTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaOracaoTVController.swift; sourceTree = "<group>"; };
 		E413095F22DE9ED700D1BD4F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		E413096022DE9ED700D1BD4F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		E41A582022E9E7B100C6272F /* TutorialTela1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTela1VC.swift; sourceTree = "<group>"; };
 		E450330122DCE2C40016EA09 /* DiarioDeOracao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiarioDeOracao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E450330422DCE2C40016EA09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E450330922DCE2C40016EA09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				E48E138D22E10E16001A4CA2 /* NovaLembrancaTVController.swift */,
 				E46A69F322E24FA9002B545A /* TutorialVC.swift */,
 				E46A69F122E24F7F002B545A /* TutorialPVController.swift */,
+				E41A582022E9E7B100C6272F /* TutorialTela1VC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				E4636A0222E6318D00E455A1 /* Capitulo+CoreDataClass.swift in Sources */,
 				E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */,
 				E450334722DD1ABE0016EA09 /* DiarioVC.swift in Sources */,
+				E41A582122E9E7B100C6272F /* TutorialTela1VC.swift in Sources */,
 				E48A047922E89B0A0039D847 /* Lembranca+CoreDataClass.swift in Sources */,
 				E48A046E22E87D880039D847 /* Nota+CoreDataProperties.swift in Sources */,
 				E48E138622E0D8B5001A4CA2 /* TopicosTableView.swift in Sources */,

@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="543" y="-47"/>
         </scene>
-        <!--View Controller-->
+        <!--Tutorial Tela1VC-->
         <scene sceneID="FoA-lW-1jR">
             <objects>
-                <viewController storyboardIdentifier="tela1" id="FIJ-pV-4Xr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tela1" id="FIJ-pV-4Xr" customClass="TutorialTela1VC" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ROj-29-qQ5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,6 +154,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fC1-Le-ilf"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="9Oq-VP-Xon" id="UOH-fv-0xB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUr-e0-T92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

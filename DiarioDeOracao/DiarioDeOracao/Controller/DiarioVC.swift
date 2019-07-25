@@ -31,8 +31,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
     var context:NSManagedObjectContext?
     
-    var tutorial = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -45,6 +43,14 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         }
         
         contagemDias = UserDefaults().integer(forKey: "dia")
+        let ultimoDia = UserDefaults().integer(forKey: "ultimoDia")
+        let num = Calendario.shared.retornaDiaNumero()
+        if ultimoDia != num {
+            contagemDias += 1
+            UserDefaults().set(contagemDias, forKey: "dia")
+            UserDefaults().set(num, forKey: "ultimoDia")
+        }
+        
         dia = carregaDia()
         
         if contagemDias <= 1 {
@@ -56,14 +62,13 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
     override func viewDidAppear(_ animated: Bool) {
         let defaults = UserDefaults()
-//        let tutorial = defaults.bool(forKey: "tutorial")
+        let tutorial = defaults.bool(forKey: "tutorial")
         if !tutorial {
             let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
             if let tutorialViewController = storyboard.instantiateViewController(withIdentifier: "tutorialVC") as? TutorialVC {
                 present(tutorialViewController, animated: true, completion: nil)
             }
-//            defaults.set(true, forKey: "tutorial")
-            tutorial = true
+            defaults.set(true, forKey: "tutorial")
         }
     }
     

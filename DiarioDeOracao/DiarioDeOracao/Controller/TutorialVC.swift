@@ -21,7 +21,7 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     var pageViewController: TutorialPVController?
-    var horario:Double = 0
+    var horario:DateComponents?
     
     let tituloNotificacao = "Hora da sua devocional"
     let descricaoNotificacao = "Lembre-se de reservar um tempo para meditar na Bíblia e orar"
@@ -41,9 +41,11 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
             switch index {
             case 0:
                 let tela1:TutorialTela1VC = pageViewController?.ordemViewControllers[0] as! TutorialTela1VC
-                horario = tela1.datePicker.date.timeIntervalSinceNow
-                
-                enviaNotificacao(tempo: horario)
+                horario = Calendario.shared.retornaDateComponents(date: tela1.datePicker.date)
+
+                if let h = horario {
+                    enviaNotificacao(data: h)
+                }
                 
                 pageViewController?.avancarPagina()
             case 1...3:
@@ -105,8 +107,7 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
         return categoriaLembrete
     }
     
-    
-    func enviaNotificacao(tempo: Double) {
+    private func repeteNotificacao(tempo: Double) {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.getNotificationSettings { (settings) in
             if settings.authorizationStatus == .authorized {
@@ -117,7 +118,7 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
                 content.title = NSString.localizedUserNotificationString(forKey: self.tituloNotificacao, arguments: nil)
                 content.body = NSString.localizedUserNotificationString(forKey: self.descricaoNotificacao, arguments: nil)
                 content.sound = UNNotificationSound.default
-                content.badge = 1 
+                content.badge = 1
                 content.categoryIdentifier = "DIARIO_NOTIFICACOES"
                 
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: tempo, repeats: false)
@@ -137,7 +138,39 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
                 print("Impossível mandar notificação - permissão negada")
             }
         }
-        
+    }
+    
+    public func enviaNotificacao(data: DateComponents) {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .authorized {
+                
+                let categoria = self.configuraAcoesNotificacao()
+                
+                let content = UNMutableNotificationContent()
+                content.title = NSString.localizedUserNotificationString(forKey: self.tituloNotificacao, arguments: nil)
+                content.body = NSString.localizedUserNotificationString(forKey: self.descricaoNotificacao, arguments: nil)
+                content.sound = UNNotificationSound.default
+                content.badge = 1
+                content.categoryIdentifier = "DIARIO_NOTIFICACOES"
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: data, repeats: true)
+                
+                let request = UNNotificationRequest(identifier: "lembrete", content: content, trigger: trigger)
+                
+                let center = UNUserNotificationCenter.current()
+                center.delegate = self
+                center.setNotificationCategories([categoria])
+                center.add(request) { (error : Error?) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
+                
+            } else {
+                print("Impossível mandar notificação - permissão negada")
+            }
+        }
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -145,7 +178,7 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
         if content.categoryIdentifier == "DIARIO_NOTIFICACOES" {
             switch response.actionIdentifier {
             case "ADIAR":
-                chamaNotificacao()
+                repeteNotificacao(tempo: 10)
                 break
                 
             case "CONCLUIR":
@@ -157,12 +190,6 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
         }
         
         completionHandler()
-    }
-    
-    func chamaNotificacao() {
-        let tempo:Double = 300
-        
-        enviaNotificacao(tempo: tempo)
     }
 
 }

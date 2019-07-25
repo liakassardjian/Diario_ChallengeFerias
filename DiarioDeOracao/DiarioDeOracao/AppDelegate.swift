@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = UserDefaults()
         let aberto = defaults.bool(forKey: "aberto")
         let dia = defaults.integer(forKey: "dia")
+        let ultimoDia = defaults.integer(forKey: "ultimoDia")
         
         if !aberto{
             do {
@@ -47,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             defaults.set(true, forKey: "aberto")
             defaults.set(1, forKey: "dia")
+            defaults.set(Calendario.shared.retornaDiaNumero(), forKey: "ultimoDia")
         }
         
         let options: UNAuthorizationOptions = [.alert,.sound,.badge]

@@ -139,4 +139,17 @@ class Calendario {
     public func retornaAno(date: Date) -> Int {
         return calendario.component(.year, from: date)
     }
+    
+    public func retornaDateComponents(date: Date) -> DateComponents {
+        var dateComponents = DateComponents()
+        
+        dateComponents.hour = calendario.component(.hour, from: date)
+        dateComponents.minute = calendario.component(.minute, from: date)
+        
+        return dateComponents
+    }
+    
+    public func retornaDiaNumero() -> Int {
+        return calendario.component(.day, from: data)
+    }
 }

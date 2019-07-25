@@ -63,7 +63,7 @@ class LembrancasCVController: UICollectionViewController {
                 let ano = Calendario.shared.retornaAno(date: data)
                 if let i = anos.firstIndex(of: ano) {
                     if !lembrancas[i].contains(l) {
-                        lembrancas[i].insert(l, at: 0) 
+                        lembrancas[i].insert(l, at: 0)
                     }
                 }
             }
@@ -144,12 +144,12 @@ class LembrancasCVController: UICollectionViewController {
     }
     */
 
-    /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
+        return true
     }
 
+    /*
     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
         return false
     }

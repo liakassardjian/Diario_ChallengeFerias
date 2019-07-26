@@ -195,7 +195,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                         
                         registro.titulo = aulas[i].titulo
                         registro.lido = false
-                        registro.dia = aulas[i].dia + Int32(anosPassados*2)
+                        registro.dia = aulas[i].dia + Int32(anosPassados*60)
                         
                         (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     }
@@ -389,7 +389,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             voltarButton.isHidden = true
         }
         
-        if contagemDias%2 == 0 {
+        if contagemDias%60 == 0 {
             anosPassados -= 1
         }
         
@@ -403,7 +403,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         
         contagemDias += 1
         
-        if contagemDias%2 == 0 {
+        if contagemDias%60 == 0 {
             anosPassados += 1
         }
         

@@ -5,12 +5,12 @@
         "dia": 1
     },
     {
-        "titulo": "1 Crônicas 1",
+        "titulo": "Salmo 1",
         "lido": false,
         "dia": 1
     },
     {
-        "titulo": "Salmo 1",
+        "titulo": "I Crônicas 1",
         "lido": false,
         "dia": 1
     },
@@ -20,13 +20,1099 @@
         "dia": 2
     },
     {
-        "titulo": "1 Crônicas 2",
+        "titulo": "Salmo 2",
         "lido": false,
         "dia": 2
     },
     {
-        "titulo": "Salmo 2",
+        "titulo": "I Crônicas 2",
         "lido": false,
         "dia": 2
+    },
+    {
+        "titulo": "Gênesis 3",
+        "lido": false,
+        "dia": 3
+    },
+    {
+        "titulo": "Salmo 3",
+        "lido": false,
+        "dia": 3
+    },
+    {
+        "titulo": "I Crônicas 3",
+        "lido": false,
+        "dia": 3
+    },
+    {
+        "titulo": "Gênesis 4",
+        "lido": false,
+        "dia": 4
+    },
+    {
+        "titulo": "Salmo 4",
+        "lido": false,
+        "dia": 4
+    },
+    {
+        "titulo": "I Crônicas 4",
+        "lido": false,
+        "dia": 4
+    },
+    {
+        "titulo": "Gênesis 5",
+        "lido": false,
+        "dia": 5
+    },
+    {
+        "titulo": "Salmo 5",
+        "lido": false,
+        "dia": 5
+    },
+    {
+        "titulo": "I Crônicas 5",
+        "lido": false,
+        "dia": 5
+    },
+    {
+        "titulo": "Gênesis 6",
+        "lido": false,
+        "dia": 6
+    },
+    {
+        "titulo": "Salmo 6",
+        "lido": false,
+        "dia": 6
+    },
+    {
+        "titulo": "I Crônicas 6",
+        "lido": false,
+        "dia": 6
+    },
+    {
+        "titulo": "Gênesis 7",
+        "lido": false,
+        "dia": 7
+    },
+    {
+        "titulo": "Salmo 7",
+        "lido": false,
+        "dia": 7
+    },
+    {
+        "titulo": "I Crônicas 7",
+        "lido": false,
+        "dia": 7
+    },
+    {
+        "titulo": "Gênesis 8",
+        "lido": false,
+        "dia": 8
+    },
+    {
+        "titulo": "Salmo 8",
+        "lido": false,
+        "dia": 8
+    },
+    {
+        "titulo": "I Crônicas 8",
+        "lido": false,
+        "dia": 8
+    },
+    {
+        "titulo": "Gênesis 9",
+        "lido": false,
+        "dia": 9
+    },
+    {
+        "titulo": "Salmo 9",
+        "lido": false,
+        "dia": 9
+    },
+    {
+        "titulo": "I Crônicas 9",
+        "lido": false,
+        "dia": 9
+    },
+    {
+        "titulo": "Gênesis 10",
+        "lido": false,
+        "dia": 10
+    },
+    {
+        "titulo": "Salmo 10",
+        "lido": false,
+        "dia": 10
+    },
+    {
+        "titulo": "II Samuel 1",
+        "lido": false,
+        "dia": 10
+    },
+    {
+        "titulo": "I Crônicas 10",
+        "lido": false,
+        "dia": 10
+    },
+    {
+        "titulo": "Gênesis 11",
+        "lido": false,
+        "dia": 11
+    },
+    {
+        "titulo": "Salmo 11",
+        "lido": false,
+        "dia": 11
+    },
+    {
+        "titulo": "II Samuel 2",
+        "lido": false,
+        "dia": 11
+    },
+    {
+        "titulo": "I Crônicas 11",
+        "lido": false,
+        "dia": 11
+    },
+    {
+        "titulo": "Gênesis 12",
+        "lido": false,
+        "dia": 12
+    },
+    {
+        "titulo": "Salmo 12",
+        "lido": false,
+        "dia": 12
+    },
+    {
+        "titulo": "II Samuel 3",
+        "lido": false,
+        "dia": 12
+    },
+    {
+        "titulo": "I Crônicas 12",
+        "lido": false,
+        "dia": 12
+    },
+    {
+        "titulo": "Gênesis 13",
+        "lido": false,
+        "dia": 13
+    },
+    {
+        "titulo": "Salmo 13",
+        "lido": false,
+        "dia": 13
+    },
+    {
+        "titulo": "II Samuel 4",
+        "lido": false,
+        "dia": 13
+    },
+    {
+        "titulo": "I Crônicas 13",
+        "lido": false,
+        "dia": 13
+    },
+    {
+        "titulo": "Gênesis 14",
+        "lido": false,
+        "dia": 14
+    },
+    {
+        "titulo": "Salmo 14",
+        "lido": false,
+        "dia": 14
+    },
+    {
+        "titulo": "II Samuel 5",
+        "lido": false,
+        "dia": 14
+    },
+    {
+        "titulo": "I Crônicas 14",
+        "lido": false,
+        "dia": 14
+    },
+    {
+        "titulo": "Gênesis 15",
+        "lido": false,
+        "dia": 15
+    },
+    {
+        "titulo": "Salmo 15",
+        "lido": false,
+        "dia": 15
+    },
+    {
+        "titulo": "II Samuel 6",
+        "lido": false,
+        "dia": 15
+    },
+    {
+        "titulo": "I Crônicas 15",
+        "lido": false,
+        "dia": 15
+    },
+    {
+        "titulo": "Gênesis 16",
+        "lido": false,
+        "dia": 16
+    },
+    {
+        "titulo": "Salmo 16",
+        "lido": false,
+        "dia": 16
+    },
+    {
+        "titulo": "I Crônicas 16",
+        "lido": false,
+        "dia": 16
+    },
+    {
+        "titulo": "Gênesis 17",
+        "lido": false,
+        "dia": 17
+    },
+    {
+        "titulo": "Salmo 17",
+        "lido": false,
+        "dia": 17
+    },
+    {
+        "titulo": "II Samuel 7",
+        "lido": false,
+        "dia": 17
+    },
+    {
+        "titulo": "I Crônicas 17",
+        "lido": false,
+        "dia": 17
+    },
+    {
+        "titulo": "Gênesis 18",
+        "lido": false,
+        "dia": 18
+    },
+    {
+        "titulo": "Salmo 18",
+        "lido": false,
+        "dia": 18
+    },
+    {
+        "titulo": "II Samuel 8",
+        "lido": false,
+        "dia": 18
+    },
+    {
+        "titulo": "I Crônicas 18",
+        "lido": false,
+        "dia": 18
+    },
+    {
+        "titulo": "Gênesis 19",
+        "lido": false,
+        "dia": 19
+    },
+    {
+        "titulo": "Salmo 19",
+        "lido": false,
+        "dia": 19
+    },
+    {
+        "titulo": "II Samuel 9",
+        "lido": false,
+        "dia": 19
+    },
+    {
+        "titulo": "João 1",
+        "lido": false,
+        "dia": 19
+    },
+    {
+        "titulo": "Gênesis 20",
+        "lido": false,
+        "dia": 20
+    },
+    {
+        "titulo": "Salmo 20",
+        "lido": false,
+        "dia": 20
+    },
+    {
+        "titulo": "II Samuel 10",
+        "lido": false,
+        "dia": 20
+    },
+    {
+        "titulo": "I Crônicas 19",
+        "lido": false,
+        "dia": 20
+    },
+    {
+        "titulo": "Gênesis 21",
+        "lido": false,
+        "dia": 21
+    },
+    {
+        "titulo": "Salmo 21",
+        "lido": false,
+        "dia": 21
+    },
+    {
+        "titulo": "II Samuel 11",
+        "lido": false,
+        "dia": 21
+    },
+    {
+        "titulo": "João 2",
+        "lido": false,
+        "dia": 21
+    },
+    {
+        "titulo": "Gênesis 22",
+        "lido": false,
+        "dia": 22
+    },
+    {
+        "titulo": "Salmo 22",
+        "lido": false,
+        "dia": 22
+    },
+    {
+        "titulo": "II Samuel 12",
+        "lido": false,
+        "dia": 22
+    },
+    {
+        "titulo": "I Crônicas 20",
+        "lido": false,
+        "dia": 22
+    },
+    {
+        "titulo": "Gênesis 23",
+        "lido": false,
+        "dia": 23
+    },
+    {
+        "titulo": "Salmo 23",
+        "lido": false,
+        "dia": 23
+    },
+    {
+        "titulo": "II Samuel 13",
+        "lido": false,
+        "dia": 23
+    },
+    {
+        "titulo": "João 3",
+        "lido": false,
+        "dia": 23
+    },
+    {
+        "titulo": "Gênesis 24",
+        "lido": false,
+        "dia": 24
+    },
+    {
+        "titulo": "Salmo 24",
+        "lido": false,
+        "dia": 24
+    },
+    {
+        "titulo": "II Samuel 14",
+        "lido": false,
+        "dia": 24
+    },
+    {
+        "titulo": "João 4",
+        "lido": false,
+        "dia": 24
+    },
+    {
+        "titulo": "Gênesis 25",
+        "lido": false,
+        "dia": 25
+    },
+    {
+        "titulo": "Salmo 25",
+        "lido": false,
+        "dia": 25
+    },
+    {
+        "titulo": "II Samuel 15",
+        "lido": false,
+        "dia": 25
+    },
+    {
+        "titulo": "João 5",
+        "lido": false,
+        "dia": 25
+    },
+    {
+        "titulo": "Gênesis 26",
+        "lido": false,
+        "dia": 26
+    },
+    {
+        "titulo": "Salmo 26",
+        "lido": false,
+        "dia": 26
+    },
+    {
+        "titulo": "II Samuel 16",
+        "lido": false,
+        "dia": 26
+    },
+    {
+        "titulo": "João 6",
+        "lido": false,
+        "dia": 26
+    },
+    {
+        "titulo": "Gênesis 27",
+        "lido": false,
+        "dia": 27
+    },
+    {
+        "titulo": "Salmo 27",
+        "lido": false,
+        "dia": 27
+    },
+    {
+        "titulo": "II Samuel 17",
+        "lido": false,
+        "dia": 27
+    },
+    {
+        "titulo": "João 7",
+        "lido": false,
+        "dia": 27
+    },
+    {
+        "titulo": "Gênesis 28",
+        "lido": false,
+        "dia": 28
+    },
+    {
+        "titulo": "Salmo 28",
+        "lido": false,
+        "dia": 28
+    },
+    {
+        "titulo": "II Samuel 18",
+        "lido": false,
+        "dia": 28
+    },
+    {
+        "titulo": "João 8",
+        "lido": false,
+        "dia": 28
+    },
+    {
+        "titulo": "Gênesis 29",
+        "lido": false,
+        "dia": 29
+    },
+    {
+        "titulo": "Salmo 29",
+        "lido": false,
+        "dia": 29
+    },
+    {
+        "titulo": "II Samuel 19",
+        "lido": false,
+        "dia": 29
+    },
+    {
+        "titulo": "João 9",
+        "lido": false,
+        "dia": 29
+    },
+    {
+        "titulo": "Gênesis 30",
+        "lido": false,
+        "dia": 30
+    },
+    {
+        "titulo": "Salmo 30",
+        "lido": false,
+        "dia": 30
+    },
+    {
+        "titulo": "II Samuel 20",
+        "lido": false,
+        "dia": 30
+    },
+    {
+        "titulo": "João 10",
+        "lido": false,
+        "dia": 30
+    },
+    {
+        "titulo": "Gênesis 31",
+        "lido": false,
+        "dia": 31
+    },
+    {
+        "titulo": "Salmo 31",
+        "lido": false,
+        "dia": 31
+    },
+    {
+        "titulo": "II Samuel 21",
+        "lido": false,
+        "dia": 31
+    },
+    {
+        "titulo": "João 11",
+        "lido": false,
+        "dia": 31
+    },
+    {
+        "titulo": "Gênesis 32",
+        "lido": false,
+        "dia": 32
+    },
+    {
+        "titulo": "Salmo 32",
+        "lido": false,
+        "dia": 32
+    },
+    {
+        "titulo": "II Samuel 22",
+        "lido": false,
+        "dia": 32
+    },
+    {
+        "titulo": "João 12",
+        "lido": false,
+        "dia": 32
+    },
+    {
+        "titulo": "Gênesis 33",
+        "lido": false,
+        "dia": 33
+    },
+    {
+        "titulo": "Salmo 33",
+        "lido": false,
+        "dia": 33
+    },
+    {
+        "titulo": "II Samuel 23",
+        "lido": false,
+        "dia": 33
+    },
+    {
+        "titulo": "João 13",
+        "lido": false,
+        "dia": 33
+    },
+    {
+        "titulo": "Gênesis 34",
+        "lido": false,
+        "dia": 34
+    },
+    {
+        "titulo": "Salmo 34",
+        "lido": false,
+        "dia": 34
+    },
+    {
+        "titulo": "II Samuel 24",
+        "lido": false,
+        "dia": 34
+    },
+    {
+        "titulo": "I Crônicas 21",
+        "lido": false,
+        "dia": 34
+    },
+    {
+        "titulo": "Gênesis 35",
+        "lido": false,
+        "dia": 35
+    },
+    {
+        "titulo": "Salmo 35",
+        "lido": false,
+        "dia": 35
+    },
+    {
+        "titulo": "I Crônicas 22",
+        "lido": false,
+        "dia": 35
+    },
+    {
+        "titulo": "João 14",
+        "lido": false,
+        "dia": 35
+    },
+    {
+        "titulo": "Gênesis 36",
+        "lido": false,
+        "dia": 36
+    },
+    {
+        "titulo": "Salmo 36",
+        "lido": false,
+        "dia": 36
+    },
+    {
+        "titulo": "I Crônicas 23",
+        "lido": false,
+        "dia": 36
+    },
+    {
+        "titulo": "João 15",
+        "lido": false,
+        "dia": 36
+    },
+    {
+        "titulo": "Jó 1",
+        "lido": false,
+        "dia": 37
+    },
+    {
+        "titulo": "Salmo 37",
+        "lido": false,
+        "dia": 37
+    },
+    {
+        "titulo": "I Crônicas 24",
+        "lido": false,
+        "dia": 37
+    },
+    {
+        "titulo": "João 16",
+        "lido": false,
+        "dia": 37
+    },
+    {
+        "titulo": "Jó 2",
+        "lido": false,
+        "dia": 38
+    },
+    {
+        "titulo": "Salmo 38",
+        "lido": false,
+        "dia": 38
+    },
+    {
+        "titulo": "I Crônicas 25",
+        "lido": false,
+        "dia": 38
+    },
+    {
+        "titulo": "João 17",
+        "lido": false,
+        "dia": 38
+    },
+    {
+        "titulo": "Jó 3",
+        "lido": false,
+        "dia": 39
+    },
+    {
+        "titulo": "Salmo 39",
+        "lido": false,
+        "dia": 39
+    },
+    {
+        "titulo": "I Crônicas 26",
+        "lido": false,
+        "dia": 39
+    },
+    {
+        "titulo": "João 18",
+        "lido": false,
+        "dia": 39
+    },
+    {
+        "titulo": "Jó 4",
+        "lido": false,
+        "dia": 40
+    },
+    {
+        "titulo": "Salmo 40",
+        "lido": false,
+        "dia": 40
+    },
+    {
+        "titulo": "I Crônicas 27",
+        "lido": false,
+        "dia": 40
+    },
+    {
+        "titulo": "João 19",
+        "lido": false,
+        "dia": 40
+    },
+    {
+        "titulo": "Jó 5",
+        "lido": false,
+        "dia": 41
+    },
+    {
+        "titulo": "Salmo 41",
+        "lido": false,
+        "dia": 41
+    },
+    {
+        "titulo": "I Crônicas 28",
+        "lido": false,
+        "dia": 41
+    },
+    {
+        "titulo": "João 20",
+        "lido": false,
+        "dia": 41
+    },
+    {
+        "titulo": "Jó 6",
+        "lido": false,
+        "dia": 42
+    },
+    {
+        "titulo": "Salmo 42",
+        "lido": false,
+        "dia": 42
+    },
+    {
+        "titulo": "I Reis 1",
+        "lido": false,
+        "dia": 42
+    },
+    {
+        "titulo": "I Crônicas 29",
+        "lido": false,
+        "dia": 42
+    },
+    {
+        "titulo": "Jó 7",
+        "lido": false,
+        "dia": 43
+    },
+    {
+        "titulo": "Salmo 43",
+        "lido": false,
+        "dia": 43
+    },
+    {
+        "titulo": "I Reis 2",
+        "lido": false,
+        "dia": 43
+    },
+    {
+        "titulo": "João 21",
+        "lido": false,
+        "dia": 43
+    },
+    {
+        "titulo": "Jó 8",
+        "lido": false,
+        "dia": 44
+    },
+    {
+        "titulo": "Salmo 44",
+        "lido": false,
+        "dia": 44
+    },
+    {
+        "titulo": "I Reis 3",
+        "lido": false,
+        "dia": 44
+    },
+    {
+        "titulo": "II Crônicas 1",
+        "lido": false,
+        "dia": 44
+    },
+    {
+        "titulo": "Jó 9",
+        "lido": false,
+        "dia": 45
+    },
+    {
+        "titulo": "Salmo 45",
+        "lido": false,
+        "dia": 45
+    },
+    {
+        "titulo": "I Reis 4",
+        "lido": false,
+        "dia": 45
+    },
+    {
+        "titulo": "Jó 10",
+        "lido": false,
+        "dia": 46
+    },
+    {
+        "titulo": "Salmo 46",
+        "lido": false,
+        "dia": 46
+    },
+    {
+        "titulo": "I Reis 5",
+        "lido": false,
+        "dia": 46
+    },
+    {
+        "titulo": "II Crônicas 2",
+        "lido": false,
+        "dia": 46
+    },
+    {
+        "titulo": "Jó 11",
+        "lido": false,
+        "dia": 47
+    },
+    {
+        "titulo": "Salmo 47",
+        "lido": false,
+        "dia": 47
+    },
+    {
+        "titulo": "I Reis 6",
+        "lido": false,
+        "dia": 47
+    },
+    {
+        "titulo": "II Crônicas 3",
+        "lido": false,
+        "dia": 47
+    },
+    {
+        "titulo": "Jó 12",
+        "lido": false,
+        "dia": 48
+    },
+    {
+        "titulo": "Salmo 48",
+        "lido": false,
+        "dia": 48
+    },
+    {
+        "titulo": "I Reis 7",
+        "lido": false,
+        "dia": 48
+    },
+    {
+        "titulo": "II Crônicas 4",
+        "lido": false,
+        "dia": 48
+    },
+    {
+        "titulo": "Jó 13",
+        "lido": false,
+        "dia": 49
+    },
+    {
+        "titulo": "Salmo 49",
+        "lido": false,
+        "dia": 49
+    },
+    {
+        "titulo": "I Reis 8",
+        "lido": false,
+        "dia": 49
+    },
+    {
+        "titulo": "II Crônicas 5",
+        "lido": false,
+        "dia": 49
+    },
+    {
+        "titulo": "Jó 14",
+        "lido": false,
+        "dia": 50
+    },
+    {
+        "titulo": "Salmo 50",
+        "lido": false,
+        "dia": 50
+    },
+    {
+        "titulo": "II Crônicas 6",
+        "lido": false,
+        "dia": 50
+    },
+    {
+        "titulo": "Jó 15",
+        "lido": false,
+        "dia": 51
+    },
+    {
+        "titulo": "Salmo 51",
+        "lido": false,
+        "dia": 51
+    },
+    {
+        "titulo": "I Reis 9",
+        "lido": false,
+        "dia": 51
+    },
+    {
+        "titulo": "II Crônicas 7",
+        "lido": false,
+        "dia": 51
+    },
+    {
+        "titulo": "Jó 16",
+        "lido": false,
+        "dia": 52
+    },
+    {
+        "titulo": "Salmo 52",
+        "lido": false,
+        "dia": 52
+    },
+    {
+        "titulo": "II Crônicas 8",
+        "lido": false,
+        "dia": 52
+    },
+    {
+        "titulo": "Jó 17",
+        "lido": false,
+        "dia": 53
+    },
+    {
+        "titulo": "Salmo 53",
+        "lido": false,
+        "dia": 53
+    },
+    {
+        "titulo": "I Reis 10",
+        "lido": false,
+        "dia": 53
+    },
+    {
+        "titulo": "Jó 18",
+        "lido": false,
+        "dia": 54
+    },
+    {
+        "titulo": "Salmo 54",
+        "lido": false,
+        "dia": 54
+    },
+    {
+        "titulo": "I Reis 11",
+        "lido": false,
+        "dia": 54
+    },
+    {
+        "titulo": "II Crônicas 9",
+        "lido": false,
+        "dia": 54
+    },
+    {
+        "titulo": "Jó 19",
+        "lido": false,
+        "dia": 55
+    },
+    {
+        "titulo": "Salmo 55",
+        "lido": false,
+        "dia": 55
+    },
+    {
+        "titulo": "I Reis 12",
+        "lido": false,
+        "dia": 55
+    },
+    {
+        "titulo": "II Crônicas 10",
+        "lido": false,
+        "dia": 55
+    },
+    {
+        "titulo": "Jó 20",
+        "lido": false,
+        "dia": 56
+    },
+    {
+        "titulo": "Salmo 56",
+        "lido": false,
+        "dia": 56
+    },
+    {
+        "titulo": "II Crônicas 11",
+        "lido": false,
+        "dia": 56
+    },
+    {
+        "titulo": "Jó 21",
+        "lido": false,
+        "dia": 57
+    },
+    {
+        "titulo": "Salmo 57",
+        "lido": false,
+        "dia": 57
+    },
+    {
+        "titulo": "I Reis 13",
+        "lido": false,
+        "dia": 57
+    },
+    {
+        "titulo": "Jó 22",
+        "lido": false,
+        "dia": 58
+    },
+    {
+        "titulo": "Salmo 58",
+        "lido": false,
+        "dia": 58
+    },
+    {
+        "titulo": "I Reis 14",
+        "lido": false,
+        "dia": 58
+    },
+    {
+        "titulo": "II Crônicas 12",
+        "lido": false,
+        "dia": 58
+    },
+    {
+        "titulo": "Jó 23",
+        "lido": false,
+        "dia": 59
+    },
+    {
+        "titulo": "Salmo 59",
+        "lido": false,
+        "dia": 59
+    },
+    {
+        "titulo": "I Reis 15",
+        "lido": false,
+        "dia": 59
+    },
+    {
+        "titulo": "II Crônicas 13",
+        "lido": false,
+        "dia": 59
+    },
+    {
+        "titulo": "Jó 24",
+        "lido": false,
+        "dia": 60
+    },
+    {
+        "titulo": "Salmo 60",
+        "lido": false,
+        "dia": 60
+    },
+    {
+        "titulo": "II Crônicas 14",
+        "lido": false,
+        "dia": 60
     }
+    
 ]

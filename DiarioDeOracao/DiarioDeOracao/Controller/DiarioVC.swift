@@ -21,6 +21,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     var contagemDias:Int = 0
     var anosPassados:Int = 0
     
+    let totalDias:Int = 180
+    
     let titulos = ["Leitura bíblica diária","Lista de oração diária"]
     
     var capitulos:[Capitulo] = []
@@ -195,7 +197,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                         
                         registro.titulo = aulas[i].titulo
                         registro.lido = false
-                        registro.dia = aulas[i].dia + Int32(anosPassados*60)
+                        registro.dia = aulas[i].dia + Int32(anosPassados*totalDias)
                         
                         (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     }
@@ -389,7 +391,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             voltarButton.isHidden = true
         }
         
-        if contagemDias%60 == 0 {
+        if contagemDias%totalDias == 0 {
             anosPassados -= 1
         }
         
@@ -403,7 +405,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         
         contagemDias += 1
         
-        if contagemDias%60 == 0 {
+        if contagemDias%totalDias == 0 {
             anosPassados += 1
         }
         

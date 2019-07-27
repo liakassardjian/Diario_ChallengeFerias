@@ -23,13 +23,22 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
     var pageViewController: TutorialPVController?
     var horario:DateComponents?
     
-    let tituloNotificacao = "Hora da sua devocional"
-    let descricaoNotificacao = "Lembre-se de reservar um tempo para meditar na Bíblia e orar"
+//    let tituloNotificacao = "Hora da sua devocional"
+//    let descricaoNotificacao = "Lembre-se de reservar um tempo para meditar na Bíblia e orar"
+//
+//    let content = UNMutableNotificationContent()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.pularButton.isHidden = true
+        
+//        content.title = NSString.localizedUserNotificationString(forKey: self.tituloNotificacao, arguments: nil)
+//        content.body = NSString.localizedUserNotificationString(forKey: self.descricaoNotificacao, arguments: nil)
+//        content.sound = UNNotificationSound.default
+//        content.badge = 1
+//        content.categoryIdentifier = "DIARIO_NOTIFICACOES"
     }
     
     @IBAction func pularTutorial(_ sender: Any) {
@@ -44,7 +53,7 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
                 horario = Calendario.shared.retornaDateComponents(date: tela1.datePicker.date)
 
                 if let h = horario {
-                    enviaNotificacao(data: h)
+                     (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
                 }
                 
                 pageViewController?.avancarPagina()
@@ -90,106 +99,97 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
         }
     }
     
-    func configuraAcoesNotificacao() -> UNNotificationCategory {
-        let adiar = UNNotificationAction(identifier: "ADIAR",
-                                         title: "Lembre-me em 5 minutos",
-                                         options: UNNotificationActionOptions(rawValue: 0))
-        
-        let concluir = UNNotificationAction(identifier: "CONCLUIR",
-                                            title: "Ver agora",
-                                            options: [.foreground])
-        
-        let categoriaLembrete = UNNotificationCategory(identifier: "DIARIO_NOTIFICACOES",
-                                                       actions: [adiar, concluir],
-                                                       intentIdentifiers: [],
-                                                       options: .customDismissAction)
-        
-        return categoriaLembrete
-    }
-    
-    private func repeteNotificacao(tempo: Double) {
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.getNotificationSettings { (settings) in
-            if settings.authorizationStatus == .authorized {
-                
-                let categoria = self.configuraAcoesNotificacao()
-                
-                let content = UNMutableNotificationContent()
-                content.title = NSString.localizedUserNotificationString(forKey: self.tituloNotificacao, arguments: nil)
-                content.body = NSString.localizedUserNotificationString(forKey: self.descricaoNotificacao, arguments: nil)
-                content.sound = UNNotificationSound.default
-                content.badge = 1
-                content.categoryIdentifier = "DIARIO_NOTIFICACOES"
-                
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: tempo, repeats: false)
-                
-                let request = UNNotificationRequest(identifier: "lembrete", content: content, trigger: trigger)
-                
-                let center = UNUserNotificationCenter.current()
-                center.delegate = self
-                center.setNotificationCategories([categoria])
-                center.add(request) { (error : Error?) in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    }
-                }
-                
-            } else {
-                print("Impossível mandar notificação - permissão negada")
-            }
-        }
-    }
-    
-    public func enviaNotificacao(data: DateComponents) {
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.getNotificationSettings { (settings) in
-            if settings.authorizationStatus == .authorized {
-                
-                let categoria = self.configuraAcoesNotificacao()
-                
-                let content = UNMutableNotificationContent()
-                content.title = NSString.localizedUserNotificationString(forKey: self.tituloNotificacao, arguments: nil)
-                content.body = NSString.localizedUserNotificationString(forKey: self.descricaoNotificacao, arguments: nil)
-                content.sound = UNNotificationSound.default
-                content.badge = 1
-                content.categoryIdentifier = "DIARIO_NOTIFICACOES"
-                
-                let trigger = UNCalendarNotificationTrigger(dateMatching: data, repeats: true)
-                
-                let request = UNNotificationRequest(identifier: "lembrete", content: content, trigger: trigger)
-                
-                let center = UNUserNotificationCenter.current()
-                center.delegate = self
-                center.setNotificationCategories([categoria])
-                center.add(request) { (error : Error?) in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    }
-                }
-                
-            } else {
-                print("Impossível mandar notificação - permissão negada")
-            }
-        }
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let content = response.notification.request.content
-        if content.categoryIdentifier == "DIARIO_NOTIFICACOES" {
-            switch response.actionIdentifier {
-            case "ADIAR":
-                repeteNotificacao(tempo: 10)
-                break
-                
-            case "CONCLUIR":
-                break
-                
-            default:
-                break
-            }
-        }
-        
-        completionHandler()
-    }
+//    func configuraAcoesNotificacao() -> UNNotificationCategory {
+//        let adiar = UNNotificationAction(identifier: "ADIAR",
+//                                         title: "Lembre-me em 5 minutos",
+//                                         options: UNNotificationActionOptions(rawValue: 0))
+//
+//        let concluir = UNNotificationAction(identifier: "CONCLUIR",
+//                                            title: "Ver agora",
+//                                            options: [.foreground])
+//
+//        let categoriaLembrete = UNNotificationCategory(identifier: "DIARIO_NOTIFICACOES",
+//                                                       actions: [adiar, concluir],
+//                                                       intentIdentifiers: [],
+//                                                       options: .customDismissAction)
+//
+//        return categoriaLembrete
+//    }
+//
+//    public func repeteNotificacao(tempo: Double) {
+//        let notificationCenter = UNUserNotificationCenter.current()
+//        notificationCenter.getNotificationSettings { (settings) in
+//            if settings.authorizationStatus == .authorized {
+//
+//                let categoria = self.configuraAcoesNotificacao()
+//
+//                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: tempo, repeats: false)
+//
+//                let request = UNNotificationRequest(identifier: "repeticao", content: self.content, trigger: trigger)
+//
+//                let center = UNUserNotificationCenter.current()
+//                center.delegate = self
+//                center.setNotificationCategories([categoria])
+//                center.add(request) { (error : Error?) in
+//                    if let error = error {
+//                        print(error.localizedDescription)
+//                    }
+//                }
+//
+//            } else {
+//                print("Impossível mandar notificação - permissão negada")
+//            }
+//        }
+//    }
+//
+//    public func enviaNotificacao(data: DateComponents) {
+//        let notificationCenter = UNUserNotificationCenter.current()
+//        notificationCenter.getNotificationSettings { (settings) in
+//            if settings.authorizationStatus == .authorized {
+//
+//                let categoria = self.configuraAcoesNotificacao()
+//
+//
+//                let trigger = UNCalendarNotificationTrigger(dateMatching: data, repeats: true)
+//
+//                let request = UNNotificationRequest(identifier: "lembrete", content: self.content, trigger: trigger)
+//
+//                let center = UNUserNotificationCenter.current()
+//                center.delegate = self
+//                center.setNotificationCategories([categoria])
+//                center.add(request) { (error : Error?) in
+//                    if let error = error {
+//                        print(error.localizedDescription)
+//                    }
+//                }
+//
+//            } else {
+//                print("Impossível mandar notificação - permissão negada")
+//            }
+//        }
+//    }
+//
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+//        let content = response.notification.request.content
+//        if content.categoryIdentifier == "DIARIO_NOTIFICACOES" {
+//            switch response.actionIdentifier {
+//            case "ADIAR":
+//                repeteNotificacao(tempo: 10)
+//                break
+//
+//            case "CONCLUIR":
+//                break
+//
+//            default:
+//                break
+//            }
+//        }
+//
+//        completionHandler()
+//    }
+//
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//        completionHandler([.alert,.sound,.badge])
+//    }
 
 }

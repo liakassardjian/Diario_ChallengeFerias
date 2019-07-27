@@ -1113,6 +1113,2157 @@
         "titulo": "II Crônicas 14",
         "lido": false,
         "dia": 60
+    },
+    {
+        "titulo": "Jó 25",
+        "lido": false,
+        "dia": 61
+    },
+    {
+        "titulo": "Salmo 61",
+        "lido": false,
+        "dia": 61
+    },
+    {
+        "titulo": "II Crônicas 15",
+        "lido": false,
+        "dia": 61
+    },
+    {
+        "titulo": "Jó 26",
+        "lido": false,
+        "dia": 62
+    },
+    {
+        "titulo": "Salmo 62",
+        "lido": false,
+        "dia": 62
+    },
+    {
+        "titulo": "I Reis 16",
+        "lido": false,
+        "dia": 62
+    },
+    {
+        "titulo": "II Crônicas 16",
+        "lido": false,
+        "dia": 62
+    },
+    {
+        "titulo": "Jó 27",
+        "lido": false,
+        "dia": 63
+    },
+    {
+        "titulo": "Salmo 63",
+        "lido": false,
+        "dia": 63
+    },
+    {
+        "titulo": "I Reis 17",
+        "lido": false,
+        "dia": 63
+    },
+    {
+        "titulo": "Jó 28",
+        "lido": false,
+        "dia": 64
+    },
+    {
+        "titulo": "Salmo 64",
+        "lido": false,
+        "dia": 64
+    },
+    {
+        "titulo": "I Reis 18",
+        "lido": false,
+        "dia": 64
+    },
+    {
+        "titulo": "I Reis 19",
+        "lido": false,
+        "dia": 64
+    },
+    {
+        "titulo": "Jó 29",
+        "lido": false,
+        "dia": 65
+    },
+    {
+        "titulo": "Salmo 65",
+        "lido": false,
+        "dia": 65
+    },
+    {
+        "titulo": "I Reis 20",
+        "lido": false,
+        "dia": 65
+    },
+    {
+        "titulo": "II Crônicas 17",
+        "lido": false,
+        "dia": 65
+    },
+    {
+        "titulo": "Jó 30",
+        "lido": false,
+        "dia": 66
+    },
+    {
+        "titulo": "Salmo 66",
+        "lido": false,
+        "dia": 66
+    },
+    {
+        "titulo": "I Reis 21",
+        "lido": false,
+        "dia": 66
+    },
+    {
+        "titulo": "II Crônicas 18",
+        "lido": false,
+        "dia": 66
+    },
+    {
+        "titulo": "Jó 31",
+        "lido": false,
+        "dia": 67
+    },
+    {
+        "titulo": "Salmo 67",
+        "lido": false,
+        "dia": 67
+    },
+    {
+        "titulo": "I Reis 22",
+        "lido": false,
+        "dia": 67
+    },
+    {
+        "titulo": "II Crônicas 19",
+        "lido": false,
+        "dia": 67
+    },
+    {
+        "titulo": "Jó 32",
+        "lido": false,
+        "dia": 68
+    },
+    {
+        "titulo": "Salmo 68",
+        "lido": false,
+        "dia": 68
+    },
+    {
+        "titulo": "II Crônicas 20",
+        "lido": false,
+        "dia": 68
+    },
+    {
+        "titulo": "I João 1",
+        "lido": false,
+        "dia": 68
+    },
+    {
+        "titulo": "Jó 33",
+        "lido": false,
+        "dia": 69
+    },
+    {
+        "titulo": "Salmo 69",
+        "lido": false,
+        "dia": 69
+    },
+    {
+        "titulo": "II Reis 1",
+        "lido": false,
+        "dia": 69
+    },
+    {
+        "titulo": "I João 2",
+        "lido": false,
+        "dia": 69
+    },
+    {
+        "titulo": "Jó 34",
+        "lido": false,
+        "dia": 70
+    },
+    {
+        "titulo": "Salmo 70",
+        "lido": false,
+        "dia": 70
+    },
+    {
+        "titulo": "II Reis 2",
+        "lido": false,
+        "dia": 70
+    },
+    {
+        "titulo": "I João 3",
+        "lido": false,
+        "dia": 70
+    },
+    {
+        "titulo": "Jó 35",
+        "lido": false,
+        "dia": 71
+    },
+    {
+        "titulo": "Salmo 71",
+        "lido": false,
+        "dia": 71
+    },
+    {
+        "titulo": "II Reis 3",
+        "lido": false,
+        "dia": 71
+    },
+    {
+        "titulo": "I João 4",
+        "lido": false,
+        "dia": 71
+    },
+    {
+        "titulo": "Jó 36",
+        "lido": false,
+        "dia": 72
+    },
+    {
+        "titulo": "Salmo 72",
+        "lido": false,
+        "dia": 72
+    },
+    {
+        "titulo": "II Reis 4",
+        "lido": false,
+        "dia": 72
+    },
+    {
+        "titulo": "I João 5",
+        "lido": false,
+        "dia": 72
+    },
+    {
+        "titulo": "Jó 37",
+        "lido": false,
+        "dia": 73
+    },
+    {
+        "titulo": "Salmo 73",
+        "lido": false,
+        "dia": 73
+    },
+    {
+        "titulo": "II Reis 5",
+        "lido": false,
+        "dia": 73
+    },
+    {
+        "titulo": "II João",
+        "lido": false,
+        "dia": 73
+    },
+    {
+        "titulo": "Jó 38",
+        "lido": false,
+        "dia": 74
+    },
+    {
+        "titulo": "Salmo 74",
+        "lido": false,
+        "dia": 74
+    },
+    {
+        "titulo": "II Reis 6",
+        "lido": false,
+        "dia": 74
+    },
+    {
+        "titulo": "III João",
+        "lido": false,
+        "dia": 74
+    },
+    {
+        "titulo": "Jó 39",
+        "lido": false,
+        "dia": 75
+    },
+    {
+        "titulo": "Salmo 75",
+        "lido": false,
+        "dia": 75
+    },
+    {
+        "titulo": "II Reis 7",
+        "lido": false,
+        "dia": 75
+    },
+    {
+        "titulo": "Jó 40",
+        "lido": false,
+        "dia": 76
+    },
+    {
+        "titulo": "Salmo 76",
+        "lido": false,
+        "dia": 76
+    },
+    {
+        "titulo": "II Reis 8",
+        "lido": false,
+        "dia": 76
+    },
+    {
+        "titulo": "II Crônicas 21",
+        "lido": false,
+        "dia": 76
+    },
+    {
+        "titulo": "Jó 41",
+        "lido": false,
+        "dia": 77
+    },
+    {
+        "titulo": "Salmo 77",
+        "lido": false,
+        "dia": 77
+    },
+    {
+        "titulo": "II Reis 9",
+        "lido": false,
+        "dia": 77
+    },
+    {
+        "titulo": "II Crônicas 22",
+        "lido": false,
+        "dia": 77
+    },
+    {
+        "titulo": "Jó 42",
+        "lido": false,
+        "dia": 78
+    },
+    {
+        "titulo": "Salmo 78",
+        "lido": false,
+        "dia": 78
+    },
+    {
+        "titulo": "II Reis 10",
+        "lido": false,
+        "dia": 78
+    },
+    {
+        "titulo": "Gênesis 37",
+        "lido": false,
+        "dia": 79
+    },
+    {
+        "titulo": "Salmo 79",
+        "lido": false,
+        "dia": 79
+    },
+    {
+        "titulo": "II Reis 11",
+        "lido": false,
+        "dia": 79
+    },
+    {
+        "titulo": "Gênesis 38",
+        "lido": false,
+        "dia": 80
+    },
+    {
+        "titulo": "Salmo 80",
+        "lido": false,
+        "dia": 80
+    },
+    {
+        "titulo": "II Reis 12",
+        "lido": false,
+        "dia": 80
+    },
+    {
+        "titulo": "Gênesis 39",
+        "lido": false,
+        "dia": 81
+    },
+    {
+        "titulo": "Salmo 81",
+        "lido": false,
+        "dia": 81
+    },
+    {
+        "titulo": "II Reis 13",
+        "lido": false,
+        "dia": 81
+    },
+    {
+        "titulo": "II Crônicas 23",
+        "lido": false,
+        "dia": 81
+    },
+    {
+        "titulo": "Gênesis 40",
+        "lido": false,
+        "dia": 82
+    },
+    {
+        "titulo": "Salmo 82",
+        "lido": false,
+        "dia": 82
+    },
+    {
+        "titulo": "II Reis 14",
+        "lido": false,
+        "dia": 82
+    },
+    {
+        "titulo": "II Crônicas 24",
+        "lido": false,
+        "dia": 82
+    },
+    {
+        "titulo": "Gênesis 41",
+        "lido": false,
+        "dia": 83
+    },
+    {
+        "titulo": "Salmo 83",
+        "lido": false,
+        "dia": 83
+    },
+    {
+        "titulo": "II Reis 15",
+        "lido": false,
+        "dia": 83
+    },
+    {
+        "titulo": "II Crônicas 25",
+        "lido": false,
+        "dia": 83
+    },
+    {
+        "titulo": "Gênesis 42",
+        "lido": false,
+        "dia": 84
+    },
+    {
+        "titulo": "Salmo 84",
+        "lido": false,
+        "dia": 84
+    },
+    {
+        "titulo": "Isaías 1",
+        "lido": false,
+        "dia": 84
+    },
+    {
+        "titulo": "Gênesis 43",
+        "lido": false,
+        "dia": 85
+    },
+    {
+        "titulo": "Salmo 85",
+        "lido": false,
+        "dia": 85
+    },
+    {
+        "titulo": "Isaías 2",
+        "lido": false,
+        "dia": 85
+    },
+    {
+        "titulo": "Gênesis 44",
+        "lido": false,
+        "dia": 86
+    },
+    {
+        "titulo": "Salmo 86",
+        "lido": false,
+        "dia": 86
+    },
+    {
+        "titulo": "Isaías 3",
+        "lido": false,
+        "dia": 86
+    },
+    {
+        "titulo": "Gênesis 45",
+        "lido": false,
+        "dia": 87
+    },
+    {
+        "titulo": "Salmo 87",
+        "lido": false,
+        "dia": 87
+    },
+    {
+        "titulo": "Isaías 4",
+        "lido": false,
+        "dia": 87
+    },
+    {
+        "titulo": "Gênesis 46",
+        "lido": false,
+        "dia": 88
+    },
+    {
+        "titulo": "Salmo 88",
+        "lido": false,
+        "dia": 88
+    },
+    {
+        "titulo": "Isaías 5",
+        "lido": false,
+        "dia": 88
+    },
+    {
+        "titulo": "Gênesis 47",
+        "lido": false,
+        "dia": 89
+    },
+    {
+        "titulo": "Salmo 89",
+        "lido": false,
+        "dia": 89
+    },
+    {
+        "titulo": "Isaías 6",
+        "lido": false,
+        "dia": 89
+    },
+    {
+        "titulo": "II Crônicas 26",
+        "lido": false,
+        "dia": 89
+    },
+    {
+        "titulo": "Gênesis 48",
+        "lido": false,
+        "dia": 90
+    },
+    {
+        "titulo": "Salmo 90",
+        "lido": false,
+        "dia": 90
+    },
+    {
+        "titulo": "Oséias 1",
+        "lido": false,
+        "dia": 90
+    },
+    {
+        "titulo": "Gênesis 49",
+        "lido": false,
+        "dia": 91
+    },
+    {
+        "titulo": "Salmo 91",
+        "lido": false,
+        "dia": 91
+    },
+    {
+        "titulo": "Oséias 2",
+        "lido": false,
+        "dia": 91
+    },
+    {
+        "titulo": "Gênesis 50",
+        "lido": false,
+        "dia": 92
+    },
+    {
+        "titulo": "Salmo 92",
+        "lido": false,
+        "dia": 92
+    },
+    {
+        "titulo": "Oséias 3",
+        "lido": false,
+        "dia": 92
+    },
+    {
+        "titulo": "Êxodo 1",
+        "lido": false,
+        "dia": 93
+    },
+    {
+        "titulo": "Salmo 93",
+        "lido": false,
+        "dia": 93
+    },
+    {
+        "titulo": "Oséias 4",
+        "lido": false,
+        "dia": 93
+    },
+    {
+        "titulo": "Êxodo 2",
+        "lido": false,
+        "dia": 94
+    },
+    {
+        "titulo": "Salmo 94",
+        "lido": false,
+        "dia": 94
+    },
+    {
+        "titulo": "Oséias 5",
+        "lido": false,
+        "dia": 94
+    },
+    {
+        "titulo": "Êxodo 3",
+        "lido": false,
+        "dia": 95
+    },
+    {
+        "titulo": "Salmo 95",
+        "lido": false,
+        "dia": 95
+    },
+    {
+        "titulo": "Oséias 6",
+        "lido": false,
+        "dia": 95
+    },
+    {
+        "titulo": "Êxodo 4",
+        "lido": false,
+        "dia": 96
+    },
+    {
+        "titulo": "Salmo 96",
+        "lido": false,
+        "dia": 96
+    },
+    {
+        "titulo": "Oséias 7",
+        "lido": false,
+        "dia": 96
+    },
+    {
+        "titulo": "Êxodo 5",
+        "lido": false,
+        "dia": 97
+    },
+    {
+        "titulo": "Salmo 97",
+        "lido": false,
+        "dia": 97
+    },
+    {
+        "titulo": "Oséias 8",
+        "lido": false,
+        "dia": 97
+    },
+    {
+        "titulo": "Êxodo 6",
+        "lido": false,
+        "dia": 98
+    },
+    {
+        "titulo": "Salmo 98",
+        "lido": false,
+        "dia": 98
+    },
+    {
+        "titulo": "Oséias 9",
+        "lido": false,
+        "dia": 98
+    },
+    {
+        "titulo": "Amós 1",
+        "lido": false,
+        "dia": 98
+    },
+    {
+        "titulo": "Êxodo 7",
+        "lido": false,
+        "dia": 99
+    },
+    {
+        "titulo": "Salmo 99",
+        "lido": false,
+        "dia": 99
+    },
+    {
+        "titulo": "Oséias 10",
+        "lido": false,
+        "dia": 99
+    },
+    {
+        "titulo": "Amós 2",
+        "lido": false,
+        "dia": 99
+    },
+    {
+        "titulo": "Êxodo 8",
+        "lido": false,
+        "dia": 100
+    },
+    {
+        "titulo": "Salmo 100",
+        "lido": false,
+        "dia": 100
+    },
+    {
+        "titulo": "Oséias 11",
+        "lido": false,
+        "dia": 100
+    },
+    {
+        "titulo": "Amós 3",
+        "lido": false,
+        "dia": 100
+    },
+    {
+        "titulo": "Êxodo 9",
+        "lido": false,
+        "dia": 101
+    },
+    {
+        "titulo": "Salmo 101",
+        "lido": false,
+        "dia": 101
+    },
+    {
+        "titulo": "Oséias 12",
+        "lido": false,
+        "dia": 101
+    },
+    {
+        "titulo": "Amós 4",
+        "lido": false,
+        "dia": 101
+    },
+    {
+        "titulo": "Êxodo 10",
+        "lido": false,
+        "dia": 102
+    },
+    {
+        "titulo": "Salmo 102",
+        "lido": false,
+        "dia": 102
+    },
+    {
+        "titulo": "Oséias 13",
+        "lido": false,
+        "dia": 102
+    },
+    {
+        "titulo": "Amós 5",
+        "lido": false,
+        "dia": 102
+    },
+    {
+        "titulo": "Êxodo 11",
+        "lido": false,
+        "dia": 103
+    },
+    {
+        "titulo": "Salmo 103",
+        "lido": false,
+        "dia": 103
+    },
+    {
+        "titulo": "Oséias 14",
+        "lido": false,
+        "dia": 103
+    },
+    {
+        "titulo": "Amós 6",
+        "lido": false,
+        "dia": 103
+    },
+    {
+        "titulo": "Êxodo 12",
+        "lido": false,
+        "dia": 104
+    },
+    {
+        "titulo": "Salmo 104",
+        "lido": false,
+        "dia": 104
+    },
+    {
+        "titulo": "Joel 1",
+        "lido": false,
+        "dia": 104
+    },
+    {
+        "titulo": "Amós 7",
+        "lido": false,
+        "dia": 104
+    },
+    {
+        "titulo": "Êxodo 13",
+        "lido": false,
+        "dia": 105
+    },
+    {
+        "titulo": "Salmo 105",
+        "lido": false,
+        "dia": 105
+    },
+    {
+        "titulo": "Joel 2",
+        "lido": false,
+        "dia": 105
+    },
+    {
+        "titulo": "Amós 8",
+        "lido": false,
+        "dia": 105
+    },
+    {
+        "titulo": "Êxodo 14",
+        "lido": false,
+        "dia": 106
+    },
+    {
+        "titulo": "Salmo 106",
+        "lido": false,
+        "dia": 106
+    },
+    {
+        "titulo": "Joel 3",
+        "lido": false,
+        "dia": 106
+    },
+    {
+        "titulo": "Amós 9",
+        "lido": false,
+        "dia": 106
+    },
+    {
+        "titulo": "Êxodo 15",
+        "lido": false,
+        "dia": 107
+    },
+    {
+        "titulo": "Salmo 107",
+        "lido": false,
+        "dia": 107
+    },
+    {
+        "titulo": "II Reis 16",
+        "lido": false,
+        "dia": 107
+    },
+    {
+        "titulo": "Êxodo 16",
+        "lido": false,
+        "dia": 108
+    },
+    {
+        "titulo": "Salmo 108",
+        "lido": false,
+        "dia": 108
+    },
+    {
+        "titulo": "II Crônicas 27",
+        "lido": false,
+        "dia": 108
+    },
+    {
+        "titulo": "Êxodo 17",
+        "lido": false,
+        "dia": 109
+    },
+    {
+        "titulo": "Salmo 109",
+        "lido": false,
+        "dia": 109
+    },
+    {
+        "titulo": "II Crônicas 28",
+        "lido": false,
+        "dia": 109
+    },
+    {
+        "titulo": "Êxodo 18",
+        "lido": false,
+        "dia": 110
+    },
+    {
+        "titulo": "Salmo 110",
+        "lido": false,
+        "dia": 110
+    },
+    {
+        "titulo": "II Reis 17",
+        "lido": false,
+        "dia": 110
+    },
+    {
+        "titulo": "Êxodo 19",
+        "lido": false,
+        "dia": 111
+    },
+    {
+        "titulo": "Salmo 111",
+        "lido": false,
+        "dia": 111
+    },
+    {
+        "titulo": "Obadias",
+        "lido": false,
+        "dia": 111
+    },
+    {
+        "titulo": "Êxodo 20",
+        "lido": false,
+        "dia": 112
+    },
+    {
+        "titulo": "Salmo 112",
+        "lido": false,
+        "dia": 112
+    },
+    {
+        "titulo": "Jonas 1",
+        "lido": false,
+        "dia": 112
+    },
+    {
+        "titulo": "Êxodo 21",
+        "lido": false,
+        "dia": 113
+    },
+    {
+        "titulo": "Salmo 113",
+        "lido": false,
+        "dia": 113
+    },
+    {
+        "titulo": "Jonas 2",
+        "lido": false,
+        "dia": 113
+    },
+    {
+        "titulo": "Êxodo 22",
+        "lido": false,
+        "dia": 114
+    },
+    {
+        "titulo": "Salmo 114",
+        "lido": false,
+        "dia": 114
+    },
+    {
+        "titulo": "Jonas 3",
+        "lido": false,
+        "dia": 114
+    },
+    {
+        "titulo": "Êxodo 23",
+        "lido": false,
+        "dia": 115
+    },
+    {
+        "titulo": "Salmo 115",
+        "lido": false,
+        "dia": 115
+    },
+    {
+        "titulo": "Jonas 4",
+        "lido": false,
+        "dia": 115
+    },
+    {
+        "titulo": "Êxodo 24",
+        "lido": false,
+        "dia": 116
+    },
+    {
+        "titulo": "Salmo 116",
+        "lido": false,
+        "dia": 116
+    },
+    {
+        "titulo": "Isaías 7",
+        "lido": false,
+        "dia": 116
+    },
+    {
+        "titulo": "Êxodo 25",
+        "lido": false,
+        "dia": 117
+    },
+    {
+        "titulo": "Salmo 117",
+        "lido": false,
+        "dia": 117
+    },
+    {
+        "titulo": "Isaías 8",
+        "lido": false,
+        "dia": 117
+    },
+    {
+        "titulo": "Êxodo 26",
+        "lido": false,
+        "dia": 118
+    },
+    {
+        "titulo": "Salmo 118",
+        "lido": false,
+        "dia": 118
+    },
+    {
+        "titulo": "Isaías 9",
+        "lido": false,
+        "dia": 118
+    },
+    {
+        "titulo": "Marcos 1",
+        "lido": false,
+        "dia": 118
+    },
+    {
+        "titulo": "Êxodo 27",
+        "lido": false,
+        "dia": 119
+    },
+    {
+        "titulo": "Salmo 119:1-24",
+        "lido": false,
+        "dia": 119
+    },
+    {
+        "titulo": "Isaías 10",
+        "lido": false,
+        "dia": 119
+    },
+    {
+        "titulo": "Marcos 2",
+        "lido": false,
+        "dia": 119
+    },
+    {
+        "titulo": "Êxodo 28",
+        "lido": false,
+        "dia": 120
+    },
+    {
+        "titulo": "Salmo 119:25-48",
+        "lido": false,
+        "dia": 120
+    },
+    {
+        "titulo": "Isaías 11",
+        "lido": false,
+        "dia": 120
+    },
+    {
+        "titulo": "Marcos 3",
+        "lido": false,
+        "dia": 120
+    },
+    {
+        "titulo": "Êxodo 29",
+        "lido": false,
+        "dia": 121
+    },
+    {
+        "titulo": "Salmo 119:49-72",
+        "lido": false,
+        "dia": 121
+    },
+    {
+        "titulo": "Isaías 12",
+        "lido": false,
+        "dia": 121
+    },
+    {
+        "titulo": "Marcos 4",
+        "lido": false,
+        "dia": 121
+    },
+    {
+        "titulo": "Êxodo 30",
+        "lido": false,
+        "dia": 122
+    },
+    {
+        "titulo": "Salmo 119:73-96",
+        "lido": false,
+        "dia": 122
+    },
+    {
+        "titulo": "Isaías 13",
+        "lido": false,
+        "dia": 122
+    },
+    {
+        "titulo": "Marcos 5",
+        "lido": false,
+        "dia": 122
+    },
+    {
+        "titulo": "Êxodo 31",
+        "lido": false,
+        "dia": 123
+    },
+    {
+        "titulo": "Salmo 119:97-120",
+        "lido": false,
+        "dia": 123
+    },
+    {
+        "titulo": "Isaías 14",
+        "lido": false,
+        "dia": 123
+    },
+    {
+        "titulo": "Marcos 6",
+        "lido": false,
+        "dia": 123
+    },
+    {
+        "titulo": "Êxodo 32",
+        "lido": false,
+        "dia": 124
+    },
+    {
+        "titulo": "Salmo 119:121-144",
+        "lido": false,
+        "dia": 124
+    },
+    {
+        "titulo": "Isaías 15",
+        "lido": false,
+        "dia": 124
+    },
+    {
+        "titulo": "Marcos 7",
+        "lido": false,
+        "dia": 124
+    },
+    {
+        "titulo": "Êxodo 33",
+        "lido": false,
+        "dia": 125
+    },
+    {
+        "titulo": "Salmo 119:145-168",
+        "lido": false,
+        "dia": 125
+    },
+    {
+        "titulo": "Isaías 16",
+        "lido": false,
+        "dia": 125
+    },
+    {
+        "titulo": "Marcos 8",
+        "lido": false,
+        "dia": 125
+    },
+    {
+        "titulo": "Êxodo 34",
+        "lido": false,
+        "dia": 126
+    },
+    {
+        "titulo": "Salmo 119:169-176",
+        "lido": false,
+        "dia": 126
+    },
+    {
+        "titulo": "Isaías 17",
+        "lido": false,
+        "dia": 126
+    },
+    {
+        "titulo": "Marcos 9",
+        "lido": false,
+        "dia": 126
+    },
+    {
+        "titulo": "Êxodo 35",
+        "lido": false,
+        "dia": 127
+    },
+    {
+        "titulo": "Salmo 120",
+        "lido": false,
+        "dia": 127
+    },
+    {
+        "titulo": "Isaías 18",
+        "lido": false,
+        "dia": 127
+    },
+    {
+        "titulo": "Marcos 10",
+        "lido": false,
+        "dia": 127
+    },
+    {
+        "titulo": "Êxodo 36",
+        "lido": false,
+        "dia": 128
+    },
+    {
+        "titulo": "Salmo 121",
+        "lido": false,
+        "dia": 128
+    },
+    {
+        "titulo": "Isaías 19",
+        "lido": false,
+        "dia": 128
+    },
+    {
+        "titulo": "Marcos 11",
+        "lido": false,
+        "dia": 128
+    },
+    {
+        "titulo": "Êxodo 37",
+        "lido": false,
+        "dia": 129
+    },
+    {
+        "titulo": "Salmo 122",
+        "lido": false,
+        "dia": 129
+    },
+    {
+        "titulo": "Isaías 20",
+        "lido": false,
+        "dia": 129
+    },
+    {
+        "titulo": "Marcos 12",
+        "lido": false,
+        "dia": 129
+    },
+    {
+        "titulo": "Êxodo 38",
+        "lido": false,
+        "dia": 130
+    },
+    {
+        "titulo": "Salmo 123",
+        "lido": false,
+        "dia": 130
+    },
+    {
+        "titulo": "Isaías 21",
+        "lido": false,
+        "dia": 130
+    },
+    {
+        "titulo": "Marcos 13",
+        "lido": false,
+        "dia": 130
+    },
+    {
+        "titulo": "Êxodo 39",
+        "lido": false,
+        "dia": 131
+    },
+    {
+        "titulo": "Salmo 124",
+        "lido": false,
+        "dia": 131
+    },
+    {
+        "titulo": "Isaías 22",
+        "lido": false,
+        "dia": 131
+    },
+    {
+        "titulo": "Marcos 14",
+        "lido": false,
+        "dia": 131
+    },
+    {
+        "titulo": "Êxodo 40",
+        "lido": false,
+        "dia": 132
+    },
+    {
+        "titulo": "Salmo 125",
+        "lido": false,
+        "dia": 132
+    },
+    {
+        "titulo": "Isaías 23",
+        "lido": false,
+        "dia": 132
+    },
+    {
+        "titulo": "Marcos 15",
+        "lido": false,
+        "dia": 132
+    },
+    {
+        "titulo": "Levítico 1",
+        "lido": false,
+        "dia": 133
+    },
+    {
+        "titulo": "Salmo 126",
+        "lido": false,
+        "dia": 133
+    },
+    {
+        "titulo": "Isaías 24",
+        "lido": false,
+        "dia": 133
+    },
+    {
+        "titulo": "Marcos 16",
+        "lido": false,
+        "dia": 133
+    },
+    {
+        "titulo": "Levítico 2",
+        "lido": false,
+        "dia": 134
+    },
+    {
+        "titulo": "Salmo 127",
+        "lido": false,
+        "dia": 134
+    },
+    {
+        "titulo": "Isaías 25",
+        "lido": false,
+        "dia": 134
+    },
+    {
+        "titulo": "Mateus 1",
+        "lido": false,
+        "dia": 134
+    },
+    {
+        "titulo": "Levítico 3",
+        "lido": false,
+        "dia": 135
+    },
+    {
+        "titulo": "Salmo 128",
+        "lido": false,
+        "dia": 135
+    },
+    {
+        "titulo": "Isaías 26",
+        "lido": false,
+        "dia": 135
+    },
+    {
+        "titulo": "Mateus 2",
+        "lido": false,
+        "dia": 135
+    },
+    {
+        "titulo": "Levítico 4",
+        "lido": false,
+        "dia": 136
+    },
+    {
+        "titulo": "Salmo 129",
+        "lido": false,
+        "dia": 136
+    },
+    {
+        "titulo": "Isaías 27",
+        "lido": false,
+        "dia": 136
+    },
+    {
+        "titulo": "Mateus 3",
+        "lido": false,
+        "dia": 136
+    },
+    {
+        "titulo": "Levítico 5",
+        "lido": false,
+        "dia": 137
+    },
+    {
+        "titulo": "Salmo 130",
+        "lido": false,
+        "dia": 137
+    },
+    {
+        "titulo": "Isaías 28",
+        "lido": false,
+        "dia": 137
+    },
+    {
+        "titulo": "Mateus 4",
+        "lido": false,
+        "dia": 137
+    },
+    {
+        "titulo": "Levítico 6",
+        "lido": false,
+        "dia": 138
+    },
+    {
+        "titulo": "Salmo 131",
+        "lido": false,
+        "dia": 138
+    },
+    {
+        "titulo": "Isaías 29",
+        "lido": false,
+        "dia": 138
+    },
+    {
+        "titulo": "Mateus 5",
+        "lido": false,
+        "dia": 138
+    },
+    {
+        "titulo": "Levítico 7",
+        "lido": false,
+        "dia": 139
+    },
+    {
+        "titulo": "Salmo 132",
+        "lido": false,
+        "dia": 139
+    },
+    {
+        "titulo": "Isaías 30",
+        "lido": false,
+        "dia": 139
+    },
+    {
+        "titulo": "Mateus 6",
+        "lido": false,
+        "dia": 139
+    },
+    {
+        "titulo": "Levítico 8",
+        "lido": false,
+        "dia": 140
+    },
+    {
+        "titulo": "Salmo 133",
+        "lido": false,
+        "dia": 140
+    },
+    {
+        "titulo": "Isaías 31",
+        "lido": false,
+        "dia": 140
+    },
+    {
+        "titulo": "Mateus 7",
+        "lido": false,
+        "dia": 140
+    },
+    {
+        "titulo": "Levítico 9",
+        "lido": false,
+        "dia": 141
+    },
+    {
+        "titulo": "Salmo 134",
+        "lido": false,
+        "dia": 141
+    },
+    {
+        "titulo": "Isaías 32",
+        "lido": false,
+        "dia": 141
+    },
+    {
+        "titulo": "Mateus 8",
+        "lido": false,
+        "dia": 141
+    },
+    {
+        "titulo": "Levítico 10",
+        "lido": false,
+        "dia": 142
+    },
+    {
+        "titulo": "Salmo 135",
+        "lido": false,
+        "dia": 142
+    },
+    {
+        "titulo": "Isaías 33",
+        "lido": false,
+        "dia": 142
+    },
+    {
+        "titulo": "Mateus 9",
+        "lido": false,
+        "dia": 142
+    },
+    {
+        "titulo": "Levítico 11",
+        "lido": false,
+        "dia": 143
+    },
+    {
+        "titulo": "Salmo 136",
+        "lido": false,
+        "dia": 143
+    },
+    {
+        "titulo": "Isaías 34",
+        "lido": false,
+        "dia": 143
+    },
+    {
+        "titulo": "Mateus 10",
+        "lido": false,
+        "dia": 143
+    },
+    {
+        "titulo": "Levítico 12",
+        "lido": false,
+        "dia": 144
+    },
+    {
+        "titulo": "Salmo 137",
+        "lido": false,
+        "dia": 144
+    },
+    {
+        "titulo": "Isaías 35",
+        "lido": false,
+        "dia": 144
+    },
+    {
+        "titulo": "Mateus 11",
+        "lido": false,
+        "dia": 144
+    },
+    {
+        "titulo": "Levítico 13",
+        "lido": false,
+        "dia": 145
+    },
+    {
+        "titulo": "Salmo 138",
+        "lido": false,
+        "dia": 145
+    },
+    {
+        "titulo": "Miquéias 1",
+        "lido": false,
+        "dia": 145
+    },
+    {
+        "titulo": "Mateus 12",
+        "lido": false,
+        "dia": 145
+    },
+    {
+        "titulo": "Levítico 14",
+        "lido": false,
+        "dia": 146
+    },
+    {
+        "titulo": "Salmo 139",
+        "lido": false,
+        "dia": 146
+    },
+    {
+        "titulo": "Miquéias 2",
+        "lido": false,
+        "dia": 146
+    },
+    {
+        "titulo": "Mateus 13",
+        "lido": false,
+        "dia": 146
+    },
+    {
+        "titulo": "Levítico 15",
+        "lido": false,
+        "dia": 147
+    },
+    {
+        "titulo": "Salmo 140",
+        "lido": false,
+        "dia": 147
+    },
+    {
+        "titulo": "Miquéias 3",
+        "lido": false,
+        "dia": 147
+    },
+    {
+        "titulo": "Mateus 14",
+        "lido": false,
+        "dia": 147
+    },
+    {
+        "titulo": "Levítico 16",
+        "lido": false,
+        "dia": 148
+    },
+    {
+        "titulo": "Salmo 141",
+        "lido": false,
+        "dia": 148
+    },
+    {
+        "titulo": "Miquéias 4",
+        "lido": false,
+        "dia": 148
+    },
+    {
+        "titulo": "Mateus 15",
+        "lido": false,
+        "dia": 148
+    },
+    {
+        "titulo": "Levítico 17",
+        "lido": false,
+        "dia": 149
+    },
+    {
+        "titulo": "Salmo 142",
+        "lido": false,
+        "dia": 149
+    },
+    {
+        "titulo": "Miquéias 5",
+        "lido": false,
+        "dia": 149
+    },
+    {
+        "titulo": "Mateus 16",
+        "lido": false,
+        "dia": 149
+    },
+    {
+        "titulo": "Levítico 18",
+        "lido": false,
+        "dia": 150
+    },
+    {
+        "titulo": "Salmo 143",
+        "lido": false,
+        "dia": 150
+    },
+    {
+        "titulo": "Miquéias 6",
+        "lido": false,
+        "dia": 150
+    },
+    {
+        "titulo": "Mateus 17",
+        "lido": false,
+        "dia": 150
+    },
+    {
+        "titulo": "Levítico 19",
+        "lido": false,
+        "dia": 151
+    },
+    {
+        "titulo": "Salmo 144",
+        "lido": false,
+        "dia": 151
+    },
+    {
+        "titulo": "Miquéias 7",
+        "lido": false,
+        "dia": 151
+    },
+    {
+        "titulo": "Mateus 18",
+        "lido": false,
+        "dia": 151
+    },
+    {
+        "titulo": "Levítico 20",
+        "lido": false,
+        "dia": 152
+    },
+    {
+        "titulo": "Salmo 145",
+        "lido": false,
+        "dia": 152
+    },
+    {
+        "titulo": "II Crônicas 29",
+        "lido": false,
+        "dia": 152
+    },
+    {
+        "titulo": "Mateus 19",
+        "lido": false,
+        "dia": 152
+    },
+    {
+        "titulo": "Levítico 21",
+        "lido": false,
+        "dia": 153
+    },
+    {
+        "titulo": "Salmo 146",
+        "lido": false,
+        "dia": 153
+    },
+    {
+        "titulo": "II Crônicas 30",
+        "lido": false,
+        "dia": 153
+    },
+    {
+        "titulo": "Mateus 20",
+        "lido": false,
+        "dia": 153
+    },
+    {
+        "titulo": "Levítico 22",
+        "lido": false,
+        "dia": 154
+    },
+    {
+        "titulo": "Salmo 147",
+        "lido": false,
+        "dia": 154
+    },
+    {
+        "titulo": "II Crônicas 31",
+        "lido": false,
+        "dia": 154
+    },
+    {
+        "titulo": "Mateus 21",
+        "lido": false,
+        "dia": 154
+    },
+    {
+        "titulo": "Levítico 23",
+        "lido": false,
+        "dia": 155
+    },
+    {
+        "titulo": "Isaías 36",
+        "lido": false,
+        "dia": 155
+    },
+    {
+        "titulo": "II Reis 18",
+        "lido": false,
+        "dia": 155
+    },
+    {
+        "titulo": "II Crônicas 32:1-20",
+        "lido": false,
+        "dia": 155
+    },
+    {
+        "titulo": "Levítico 24",
+        "lido": false,
+        "dia": 156
+    },
+    {
+        "titulo": "Isaías 37",
+        "lido": false,
+        "dia": 156
+    },
+    {
+        "titulo": "II Reis 19",
+        "lido": false,
+        "dia": 156
+    },
+    {
+        "titulo": "II Crônicas 32:21-23",
+        "lido": false,
+        "dia": 156
+    },
+    {
+        "titulo": "Levítico 25",
+        "lido": false,
+        "dia": 157
+    },
+    {
+        "titulo": "Isaías 38",
+        "lido": false,
+        "dia": 157
+    },
+    {
+        "titulo": "II Reis 20",
+        "lido": false,
+        "dia": 157
+    },
+    {
+        "titulo": "II Crônicas 32:24-33",
+        "lido": false,
+        "dia": 157
+    },
+    {
+        "titulo": "Levítico 26",
+        "lido": false,
+        "dia": 158
+    },
+    {
+        "titulo": "Salmo 148",
+        "lido": false,
+        "dia": 158
+    },
+    {
+        "titulo": "Isaías 39",
+        "lido": false,
+        "dia": 158
+    },
+    {
+        "titulo": "Mateus 22",
+        "lido": false,
+        "dia": 158
+    },
+    {
+        "titulo": "Levítico 27",
+        "lido": false,
+        "dia": 159
+    },
+    {
+        "titulo": "Salmo 149",
+        "lido": false,
+        "dia": 159
+    },
+    {
+        "titulo": "Isaías 40",
+        "lido": false,
+        "dia": 159
+    },
+    {
+        "titulo": "Mateus 23",
+        "lido": false,
+        "dia": 159
+    },
+    {
+        "titulo": "Números 1",
+        "lido": false,
+        "dia": 160
+    },
+    {
+        "titulo": "Salmo 150",
+        "lido": false,
+        "dia": 160
+    },
+    {
+        "titulo": "Isaías 41",
+        "lido": false,
+        "dia": 160
+    },
+    {
+        "titulo": "Mateus 24",
+        "lido": false,
+        "dia": 160
+    },
+    {
+        "titulo": "Números 2",
+        "lido": false,
+        "dia": 161
+    },
+    {
+        "titulo": "Isaías 42",
+        "lido": false,
+        "dia": 161
+    },
+    {
+        "titulo": "Mateus 25",
+        "lido": false,
+        "dia": 161
+    },
+    {
+        "titulo": "Números 3",
+        "lido": false,
+        "dia": 162
+    },
+    {
+        "titulo": "Isaías 43",
+        "lido": false,
+        "dia": 162
+    },
+    {
+        "titulo": "Mateus 26",
+        "lido": false,
+        "dia": 162
+    },
+    {
+        "titulo": "Números 4",
+        "lido": false,
+        "dia": 163
+    },
+    {
+        "titulo": "Isaías 44",
+        "lido": false,
+        "dia": 163
+    },
+    {
+        "titulo": "Mateus 27",
+        "lido": false,
+        "dia": 163
+    },
+    {
+        "titulo": "Números 5",
+        "lido": false,
+        "dia": 164
+    },
+    {
+        "titulo": "Isaías 45",
+        "lido": false,
+        "dia": 164
+    },
+    {
+        "titulo": "Mateus 28",
+        "lido": false,
+        "dia": 164
+    },
+    {
+        "titulo": "Números 6",
+        "lido": false,
+        "dia": 165
+    },
+    {
+        "titulo": "Isaías 46",
+        "lido": false,
+        "dia": 165
+    },
+    {
+        "titulo": "Lucas 1",
+        "lido": false,
+        "dia": 165
+    },
+    {
+        "titulo": "Números 7",
+        "lido": false,
+        "dia": 166
+    },
+    {
+        "titulo": "Isaías 47",
+        "lido": false,
+        "dia": 166
+    },
+    {
+        "titulo": "Lucas 2",
+        "lido": false,
+        "dia": 166
+    },
+    {
+        "titulo": "Números 8",
+        "lido": false,
+        "dia": 167
+    },
+    {
+        "titulo": "Isaías 48",
+        "lido": false,
+        "dia": 167
+    },
+    {
+        "titulo": "Lucas 3",
+        "lido": false,
+        "dia": 167
+    },
+    {
+        "titulo": "Números 9",
+        "lido": false,
+        "dia": 168
+    },
+    {
+        "titulo": "Isaías 49",
+        "lido": false,
+        "dia": 168
+    },
+    {
+        "titulo": "Lucas 4",
+        "lido": false,
+        "dia": 168
+    },
+    {
+        "titulo": "Números 10",
+        "lido": false,
+        "dia": 169
+    },
+    {
+        "titulo": "Isaías 50",
+        "lido": false,
+        "dia": 169
+    },
+    {
+        "titulo": "Lucas 5",
+        "lido": false,
+        "dia": 169
+    },
+    {
+        "titulo": "Números 11",
+        "lido": false,
+        "dia": 170
+    },
+    {
+        "titulo": "Isaías 51",
+        "lido": false,
+        "dia": 170
+    },
+    {
+        "titulo": "Lucas 6",
+        "lido": false,
+        "dia": 170
+    },
+    {
+        "titulo": "Números 12",
+        "lido": false,
+        "dia": 171
+    },
+    {
+        "titulo": "Isaías 52",
+        "lido": false,
+        "dia": 171
+    },
+    {
+        "titulo": "Lucas 7",
+        "lido": false,
+        "dia": 171
+    },
+    {
+        "titulo": "Números 13",
+        "lido": false,
+        "dia": 172
+    },
+    {
+        "titulo": "Isaías 53",
+        "lido": false,
+        "dia": 172
+    },
+    {
+        "titulo": "Lucas 8",
+        "lido": false,
+        "dia": 172
+    },
+    {
+        "titulo": "Números 14",
+        "lido": false,
+        "dia": 173
+    },
+    {
+        "titulo": "Isaías 54",
+        "lido": false,
+        "dia": 173
+    },
+    {
+        "titulo": "Lucas 9",
+        "lido": false,
+        "dia": 173
+    },
+    {
+        "titulo": "Números 15",
+        "lido": false,
+        "dia": 174
+    },
+    {
+        "titulo": "Isaías 55",
+        "lido": false,
+        "dia": 174
+    },
+    {
+        "titulo": "Lucas 10",
+        "lido": false,
+        "dia": 174
+    },
+    {
+        "titulo": "Números 16",
+        "lido": false,
+        "dia": 175
+    },
+    {
+        "titulo": "Isaías 56",
+        "lido": false,
+        "dia": 175
+    },
+    {
+        "titulo": "Lucas 11",
+        "lido": false,
+        "dia": 175
+    },
+    {
+        "titulo": "Números 17",
+        "lido": false,
+        "dia": 176
+    },
+    {
+        "titulo": "Isaías 57",
+        "lido": false,
+        "dia": 176
+    },
+    {
+        "titulo": "Lucas 12",
+        "lido": false,
+        "dia": 176
+    },
+    {
+        "titulo": "Números 18",
+        "lido": false,
+        "dia": 177
+    },
+    {
+        "titulo": "Isaías 58",
+        "lido": false,
+        "dia": 177
+    },
+    {
+        "titulo": "Lucas 13",
+        "lido": false,
+        "dia": 177
+    },
+    {
+        "titulo": "Números 19",
+        "lido": false,
+        "dia": 178
+    },
+    {
+        "titulo": "Isaías 59",
+        "lido": false,
+        "dia": 178
+    },
+    {
+        "titulo": "Lucas 14",
+        "lido": false,
+        "dia": 178
+    },
+    {
+        "titulo": "Números 20",
+        "lido": false,
+        "dia": 179
+    },
+    {
+        "titulo": "Isaías 60",
+        "lido": false,
+        "dia": 179
+    },
+    {
+        "titulo": "Lucas 15",
+        "lido": false,
+        "dia": 179
+    },
+    {
+        "titulo": "Números 21",
+        "lido": false,
+        "dia": 180
+    },
+    {
+        "titulo": "Isaías 61",
+        "lido": false,
+        "dia": 180
+    },
+    {
+        "titulo": "Lucas 16",
+        "lido": false,
+        "dia": 180
     }
+
     
 ]

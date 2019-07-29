@@ -8,11 +8,13 @@
 import UIKit
 import CoreData
 
-class NovaNotaTVController: UITableViewController {
+class NovaNotaTVController: UITableViewController, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var tituloTextField: UITextField!
     
     @IBOutlet weak var corpoTextView: UITextView!
+    
+    @IBOutlet weak var salvarButton: UIBarButtonItem!
     
     let modeloNota = ["Nova nota","Escreva aqui sua nota"]
     var conteudo:[String] = []
@@ -24,11 +26,23 @@ class NovaNotaTVController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        tituloTextField.delegate = self
+        corpoTextView.delegate = self
+        
+        salvarButton.isEnabled = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        tituloTextField.text = conteudo[0]
-        corpoTextView.text = conteudo[1]
+        if modoEdicao {
+            tituloTextField.text = conteudo[0]
+            corpoTextView.text = conteudo[1]
+        } else {
+            tituloTextField.text = modeloNota[0]
+            corpoTextView.text = modeloNota[1]
+            conteudo = ["",""]
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -70,6 +84,58 @@ class NovaNotaTVController: UITableViewController {
             texto = textView.text!
         }
         return texto
+    }
+    
+    @IBAction func textFieldDidChange(_ sender: Any) {
+        if let titulo = tituloTextField.text {
+            if let corpo = tituloTextField.text {
+                validaTexto(titulo: titulo, corpo: corpo)
+            }
+        } else {
+            salvarButton.isEnabled = false
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if let corpo = corpoTextView.text {
+            if let titulo = tituloTextField.text {
+                validaTexto(titulo: titulo, corpo: corpo)
+            }
+        } else {
+            salvarButton.isEnabled = false
+        }
+    }
+    
+    func validaTexto(titulo: String, corpo: String) {
+        if titulo != "" && corpo != "" && titulo != modeloNota[0] && corpo != modeloNota[1] {
+            salvarButton.isEnabled = true
+        } else {
+            salvarButton.isEnabled = false
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text == modeloNota[0] {
+            textField.text = ""
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == modeloNota[1] {
+            textView.text = ""
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text == "" {
+            textField.text = modeloNota[0]
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == ""{
+            textView.text = modeloNota[1]
+        }
     }
 
 }

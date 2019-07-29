@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!
@@ -21,7 +21,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     var contagemDias:Int = 0
     var anosPassados:Int = 0
     
-    let totalDias:Int = 180
+    let totalDias:Int = 270
     
     let titulos = ["Leitura bíblica diária","Lista de oração diária"]
     
@@ -40,7 +40,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         diaLabel.text = Calendario.shared.retornaDiaAtual()
         
         if let flowLayout = collectionLayout {
-            let w = collectionView.frame.width - 20
+            let w = collectionView.frame.size.width - 20
             flowLayout.estimatedItemSize = CGSize(width: w, height: 220)
         }
         
@@ -233,6 +233,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 desmarcarConcluido(celula: cell)
             }
             
+            cell.urgenciaLabel.isHidden = true
+            
         } else {
             cell.tituloLabel.text = pedidos[indexPath.row].nome
             
@@ -243,6 +245,20 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                     desmarcarConcluido(celula: cell)
                 }                
             }
+            
+            cell.urgenciaLabel.isHidden = false
+            
+            switch pedidos[indexPath.row].urgencia {
+            case 1:
+                cell.urgenciaLabel.text = "!"
+            case 2:
+                cell.urgenciaLabel.text = "!!"
+            case 3:
+                cell.urgenciaLabel.text = "!!!"
+            default:
+                cell.urgenciaLabel.text = ""
+            }
+            
         }
         
 
@@ -352,6 +368,10 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         if indexPath.row > 1 {
             performSegue(withIdentifier: "editarNota", sender: self)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+         return CGSize(width: collectionView.frame.size.width - 20, height: 220)
     }
     
     

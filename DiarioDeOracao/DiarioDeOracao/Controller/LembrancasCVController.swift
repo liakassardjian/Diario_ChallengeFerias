@@ -11,7 +11,7 @@ import CoreData
 
 private let reuseIdentifier = "lembranca"
 
-class LembrancasCVController: UICollectionViewController {
+class LembrancasCVController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!
     
@@ -25,11 +25,9 @@ class LembrancasCVController: UICollectionViewController {
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         if let flowLayout = collectionLayout {
-            let w = self.collectionView.frame.width - 20
+            let w = collectionView.frame.size.width - 20
             flowLayout.estimatedItemSize = CGSize(width: w, height: 142)
         }
-        
-//        carregaLembrancas()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -123,40 +121,23 @@ class LembrancasCVController: UICollectionViewController {
             
         default:
             assert(false, "Invalid element type")
+            return UICollectionReusableView()
         }
     }
     
     
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
         return true
     }
 
-    /*
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if UIDevice.current.orientation == UIDeviceOrientation.portrait ||
+            UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
+            return CGSize(width: collectionView.frame.size.width - 20, height: 142)
+        } else {
+            return CGSize(width: collectionView.frame.size.width - 70, height: 142)
+        }
     }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 
 }

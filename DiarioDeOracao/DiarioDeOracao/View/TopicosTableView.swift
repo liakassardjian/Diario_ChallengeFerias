@@ -20,7 +20,7 @@ class TopicosTableView: UITableView {
     
     override var intrinsicContentSize: CGSize {
         let altura = min(contentSize.height, alturaMaxima)
-        return CGSize(width: contentSize.width, height: altura)
+        return CGSize(width: contentSize.width - 20, height: altura)
     }
 
 }

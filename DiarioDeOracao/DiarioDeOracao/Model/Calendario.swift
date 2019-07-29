@@ -133,7 +133,7 @@ class Calendario {
         let mesLembranca = calendario.component(.month, from: date)
         let diaLembranca = calendario.component(.day, from: date)
         
-        return "\(String(describing: diaLembranca))\n\(mesesAbrev[mesLembranca])"
+        return "\(String(describing: diaLembranca))\n\(mesesAbrev[mesLembranca-1])"
     }
     
     public func retornaAno(date: Date) -> Int {

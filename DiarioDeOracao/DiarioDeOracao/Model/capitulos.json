@@ -3263,6 +3263,1376 @@
         "titulo": "Lucas 16",
         "lido": false,
         "dia": 180
+    },
+    {
+        "titulo": "Números 22",
+        "lido": false,
+        "dia": 181
+    },
+    {
+        "titulo": "Isaías 62",
+        "lido": false,
+        "dia": 181
+    },
+    {
+        "titulo": "Lucas 17",
+        "lido": false,
+        "dia": 181
+    },
+    {
+        "titulo": "Números 23",
+        "lido": false,
+        "dia": 182
+    },
+    {
+        "titulo": "Isaías 63",
+        "lido": false,
+        "dia": 182
+    },
+    {
+        "titulo": "Lucas 18",
+        "lido": false,
+        "dia": 182
+    },
+    {
+        "titulo": "Números 24",
+        "lido": false,
+        "dia": 183
+    },
+    {
+        "titulo": "Isaías 64",
+        "lido": false,
+        "dia": 183
+    },
+    {
+        "titulo": "Lucas 19",
+        "lido": false,
+        "dia": 183
+    },
+    {
+        "titulo": "Números 25",
+        "lido": false,
+        "dia": 184
+    },
+    {
+        "titulo": "Isaías 65",
+        "lido": false,
+        "dia": 184
+    },
+    {
+        "titulo": "Lucas 20",
+        "lido": false,
+        "dia": 184
+    },
+    {
+        "titulo": "Números 26",
+        "lido": false,
+        "dia": 185
+    },
+    {
+        "titulo": "Isaías 66",
+        "lido": false,
+        "dia": 185
+    },
+    {
+        "titulo": "Lucas 21",
+        "lido": false,
+        "dia": 185
+    },
+    {
+        "titulo": "Números 27",
+        "lido": false,
+        "dia": 186
+    },
+    {
+        "titulo": "II Reis 21",
+        "lido": false,
+        "dia": 186
+    },
+    {
+        "titulo": "II Crônicas 33",
+        "lido": false,
+        "dia": 186
+    },
+    {
+        "titulo": "Lucas 22",
+        "lido": false,
+        "dia": 186
+    },
+    {
+        "titulo": "Números 28",
+        "lido": false,
+        "dia": 187
+    },
+    {
+        "titulo": "II Reis 22",
+        "lido": false,
+        "dia": 187
+    },
+    {
+        "titulo": "II Crônicas 34:1-28",
+        "lido": false,
+        "dia": 187
+    },
+    {
+        "titulo": "Lucas 23",
+        "lido": false,
+        "dia": 187
+    },
+    {
+        "titulo": "Números 29",
+        "lido": false,
+        "dia": 188
+    },
+    {
+        "titulo": "II Reis 23:1-20",
+        "lido": false,
+        "dia": 188
+    },
+    {
+        "titulo": "II Crônicas 34:29-33",
+        "lido": false,
+        "dia": 188
+    },
+    {
+        "titulo": "Lucas 24",
+        "lido": false,
+        "dia": 188
+    },
+    {
+        "titulo": "Números 30",
+        "lido": false,
+        "dia": 189
+    },
+    {
+        "titulo": "II Reis 23:21-20",
+        "lido": false,
+        "dia": 189
+    },
+    {
+        "titulo": "II Crônicas 35",
+        "lido": false,
+        "dia": 189
+    },
+    {
+        "titulo": "Atos 1",
+        "lido": false,
+        "dia": 189
+    },
+    {
+        "titulo": "Números 31",
+        "lido": false,
+        "dia": 190
+    },
+    {
+        "titulo": "Naum 1",
+        "lido": false,
+        "dia": 190
+    },
+    {
+        "titulo": "Atos 2",
+        "lido": false,
+        "dia": 190
+    },
+    {
+        "titulo": "Números 32",
+        "lido": false,
+        "dia": 191
+    },
+    {
+        "titulo": "Naum 2",
+        "lido": false,
+        "dia": 191
+    },
+    {
+        "titulo": "Atos 3",
+        "lido": false,
+        "dia": 191
+    },
+    {
+        "titulo": "Números 33",
+        "lido": false,
+        "dia": 192
+    },
+    {
+        "titulo": "Naum 3",
+        "lido": false,
+        "dia": 192
+    },
+    {
+        "titulo": "Atos 4",
+        "lido": false,
+        "dia": 192
+    },
+    {
+        "titulo": "Números 34",
+        "lido": false,
+        "dia": 193
+    },
+    {
+        "titulo": "Habacuque 1",
+        "lido": false,
+        "dia": 193
+    },
+    {
+        "titulo": "Atos 5",
+        "lido": false,
+        "dia": 193
+    },
+    {
+        "titulo": "Números 35",
+        "lido": false,
+        "dia": 194
+    },
+    {
+        "titulo": "Habacuque 2",
+        "lido": false,
+        "dia": 194
+    },
+    {
+        "titulo": "Atos 6",
+        "lido": false,
+        "dia": 194
+    },
+    {
+        "titulo": "Números 36",
+        "lido": false,
+        "dia": 195
+    },
+    {
+        "titulo": "Habacuque 3",
+        "lido": false,
+        "dia": 195
+    },
+    {
+        "titulo": "Atos 7",
+        "lido": false,
+        "dia": 195
+    },
+    {
+        "titulo": "Deuteronômio 1",
+        "lido": false,
+        "dia": 196
+    },
+    {
+        "titulo": "Sofonias 1",
+        "lido": false,
+        "dia": 196
+    },
+    {
+        "titulo": "Atos 8",
+        "lido": false,
+        "dia": 196
+    },
+    {
+        "titulo": "Deuteronômio 2",
+        "lido": false,
+        "dia": 197
+    },
+    {
+        "titulo": "Sofonias 2",
+        "lido": false,
+        "dia": 197
+    },
+    {
+        "titulo": "Atos 9",
+        "lido": false,
+        "dia": 197
+    },
+    {
+        "titulo": "Deuteronômio 3",
+        "lido": false,
+        "dia": 198
+    },
+    {
+        "titulo": "Sofonias 3",
+        "lido": false,
+        "dia": 198
+    },
+    {
+        "titulo": "Atos 10",
+        "lido": false,
+        "dia": 198
+    },
+    {
+        "titulo": "Deuteronômio 4",
+        "lido": false,
+        "dia": 199
+    },
+    {
+        "titulo": "Jeremias 1",
+        "lido": false,
+        "dia": 199
+    },
+    {
+        "titulo": "Atos 11",
+        "lido": false,
+        "dia": 199
+    },
+    {
+        "titulo": "Deuteronômio 5",
+        "lido": false,
+        "dia": 200
+    },
+    {
+        "titulo": "Jeremias 2",
+        "lido": false,
+        "dia": 200
+    },
+    {
+        "titulo": "Atos 12",
+        "lido": false,
+        "dia": 200
+    },
+    {
+        "titulo": "Deuteronômio 6",
+        "lido": false,
+        "dia": 201
+    },
+    {
+        "titulo": "Jeremias 3",
+        "lido": false,
+        "dia": 201
+    },
+    {
+        "titulo": "Atos 13",
+        "lido": false,
+        "dia": 201
+    },
+    {
+        "titulo": "Deuteronômio 7",
+        "lido": false,
+        "dia": 202
+    },
+    {
+        "titulo": "Jeremias 4",
+        "lido": false,
+        "dia": 202
+    },
+    {
+        "titulo": "Atos 14",
+        "lido": false,
+        "dia": 202
+    },
+    {
+        "titulo": "Deuteronômio 8",
+        "lido": false,
+        "dia": 203
+    },
+    {
+        "titulo": "Jeremias 5",
+        "lido": false,
+        "dia": 203
+    },
+    {
+        "titulo": "Atos 15",
+        "lido": false,
+        "dia": 203
+    },
+    {
+        "titulo": "Deuteronômio 9",
+        "lido": false,
+        "dia": 204
+    },
+    {
+        "titulo": "Jeremias 6",
+        "lido": false,
+        "dia": 204
+    },
+    {
+        "titulo": "Atos 16",
+        "lido": false,
+        "dia": 204
+    },
+    {
+        "titulo": "Deuteronômio 10",
+        "lido": false,
+        "dia": 205
+    },
+    {
+        "titulo": "Jeremias 7",
+        "lido": false,
+        "dia": 205
+    },
+    {
+        "titulo": "Atos 17",
+        "lido": false,
+        "dia": 205
+    },
+    {
+        "titulo": "Deuteronômio 11",
+        "lido": false,
+        "dia": 206
+    },
+    {
+        "titulo": "Jeremias 8",
+        "lido": false,
+        "dia": 206
+    },
+    {
+        "titulo": "Atos 18",
+        "lido": false,
+        "dia": 206
+    },
+    {
+        "titulo": "Deuteronômio 12",
+        "lido": false,
+        "dia": 207
+    },
+    {
+        "titulo": "Jeremias 9",
+        "lido": false,
+        "dia": 207
+    },
+    {
+        "titulo": "Atos 19",
+        "lido": false,
+        "dia": 207
+    },
+    {
+        "titulo": "Deuteronômio 13",
+        "lido": false,
+        "dia": 208
+    },
+    {
+        "titulo": "Jeremias 10",
+        "lido": false,
+        "dia": 208
+    },
+    {
+        "titulo": "Atos 20",
+        "lido": false,
+        "dia": 208
+    },
+    {
+        "titulo": "Deuteronômio 14",
+        "lido": false,
+        "dia": 209
+    },
+    {
+        "titulo": "Jeremias 11",
+        "lido": false,
+        "dia": 209
+    },
+    {
+        "titulo": "Atos 21",
+        "lido": false,
+        "dia": 209
+    },
+    {
+        "titulo": "Deuteronômio 15",
+        "lido": false,
+        "dia": 210
+    },
+    {
+        "titulo": "Jeremias 12",
+        "lido": false,
+        "dia": 210
+    },
+    {
+        "titulo": "Atos 22",
+        "lido": false,
+        "dia": 210
+    },
+    {
+        "titulo": "Deuteronômio 16",
+        "lido": false,
+        "dia": 211
+    },
+    {
+        "titulo": "Jeremias 13",
+        "lido": false,
+        "dia": 211
+    },
+    {
+        "titulo": "Atos 23",
+        "lido": false,
+        "dia": 211
+    },
+    {
+        "titulo": "Deuteronômio 17",
+        "lido": false,
+        "dia": 212
+    },
+    {
+        "titulo": "Jeremias 14",
+        "lido": false,
+        "dia": 212
+    },
+    {
+        "titulo": "Atos 24",
+        "lido": false,
+        "dia": 212
+    },
+    {
+        "titulo": "Deuteronômio 18",
+        "lido": false,
+        "dia": 213
+    },
+    {
+        "titulo": "Jeremias 15",
+        "lido": false,
+        "dia": 213
+    },
+    {
+        "titulo": "Atos 25",
+        "lido": false,
+        "dia": 213
+    },
+    {
+        "titulo": "Deuteronômio 19",
+        "lido": false,
+        "dia": 214
+    },
+    {
+        "titulo": "Jeremias 16",
+        "lido": false,
+        "dia": 214
+    },
+    {
+        "titulo": "Atos 26",
+        "lido": false,
+        "dia": 214
+    },
+    {
+        "titulo": "Deuteronômio 20",
+        "lido": false,
+        "dia": 215
+    },
+    {
+        "titulo": "Jeremias 17",
+        "lido": false,
+        "dia": 215
+    },
+    {
+        "titulo": "Atos 27",
+        "lido": false,
+        "dia": 215
+    },
+    {
+        "titulo": "Deuteronômio 21",
+        "lido": false,
+        "dia": 216
+    },
+    {
+        "titulo": "Jeremias 18",
+        "lido": false,
+        "dia": 216
+    },
+    {
+        "titulo": "Atos 28",
+        "lido": false,
+        "dia": 216
+    },
+    {
+        "titulo": "Deuteronômio 22",
+        "lido": false,
+        "dia": 217
+    },
+    {
+        "titulo": "Jeremias 19",
+        "lido": false,
+        "dia": 217
+    },
+    {
+        "titulo": "Hebreus 1",
+        "lido": false,
+        "dia": 217
+    },
+    {
+        "titulo": "Deuteronômio 23",
+        "lido": false,
+        "dia": 218
+    },
+    {
+        "titulo": "Jeremias 20",
+        "lido": false,
+        "dia": 218
+    },
+    {
+        "titulo": "Hebreus 2",
+        "lido": false,
+        "dia": 218
+    },
+    {
+        "titulo": "Deuteronômio 24",
+        "lido": false,
+        "dia": 219
+    },
+    {
+        "titulo": "Jeremias 21",
+        "lido": false,
+        "dia": 219
+    },
+    {
+        "titulo": "Hebreus 3",
+        "lido": false,
+        "dia": 219
+    },
+    {
+        "titulo": "Deuteronômio 25",
+        "lido": false,
+        "dia": 220
+    },
+    {
+        "titulo": "Jeremias 22",
+        "lido": false,
+        "dia": 220
+    },
+    {
+        "titulo": "Hebreus 4",
+        "lido": false,
+        "dia": 220
+    },
+    {
+        "titulo": "Deuteronômio 26",
+        "lido": false,
+        "dia": 221
+    },
+    {
+        "titulo": "Jeremias 23",
+        "lido": false,
+        "dia": 221
+    },
+    {
+        "titulo": "Hebreus 5",
+        "lido": false,
+        "dia": 221
+    },
+    {
+        "titulo": "Deuteronômio 27",
+        "lido": false,
+        "dia": 222
+    },
+    {
+        "titulo": "Jeremias 24",
+        "lido": false,
+        "dia": 222
+    },
+    {
+        "titulo": "Hebreus 6",
+        "lido": false,
+        "dia": 222
+    },
+    {
+        "titulo": "Deuteronômio 28",
+        "lido": false,
+        "dia": 223
+    },
+    {
+        "titulo": "Jeremias 25",
+        "lido": false,
+        "dia": 223
+    },
+    {
+        "titulo": "Hebreus 7",
+        "lido": false,
+        "dia": 223
+    },
+    {
+        "titulo": "Deuteronômio 29",
+        "lido": false,
+        "dia": 224
+    },
+    {
+        "titulo": "Jeremias 26",
+        "lido": false,
+        "dia": 224
+    },
+    {
+        "titulo": "Hebreus 8",
+        "lido": false,
+        "dia": 224
+    },
+    {
+        "titulo": "Deuteronômio 30",
+        "lido": false,
+        "dia": 225
+    },
+    {
+        "titulo": "Jeremias 27",
+        "lido": false,
+        "dia": 225
+    },
+    {
+        "titulo": "Hebreus 9",
+        "lido": false,
+        "dia": 225
+    },
+    {
+        "titulo": "Deuteronômio 31",
+        "lido": false,
+        "dia": 226
+    },
+    {
+        "titulo": "Jeremias 28",
+        "lido": false,
+        "dia": 226
+    },
+    {
+        "titulo": "Hebreus 10",
+        "lido": false,
+        "dia": 226
+    },
+    {
+        "titulo": "Deuteronômio 32",
+        "lido": false,
+        "dia": 227
+    },
+    {
+        "titulo": "Jeremias 29",
+        "lido": false,
+        "dia": 227
+    },
+    {
+        "titulo": "Hebreus 11",
+        "lido": false,
+        "dia": 227
+    },
+    {
+        "titulo": "Deuteronômio 33",
+        "lido": false,
+        "dia": 228
+    },
+    {
+        "titulo": "Jeremias 30",
+        "lido": false,
+        "dia": 228
+    },
+    {
+        "titulo": "Hebreus 12",
+        "lido": false,
+        "dia": 228
+    },
+    {
+        "titulo": "Deuteronômio 34",
+        "lido": false,
+        "dia": 229
+    },
+    {
+        "titulo": "Jeremias 31",
+        "lido": false,
+        "dia": 229
+    },
+    {
+        "titulo": "Hebreus 13",
+        "lido": false,
+        "dia": 229
+    },
+    {
+        "titulo": "Josué 1",
+        "lido": false,
+        "dia": 230
+    },
+    {
+        "titulo": "Jeremias 32",
+        "lido": false,
+        "dia": 230
+    },
+    {
+        "titulo": "Tiago 1",
+        "lido": false,
+        "dia": 230
+    },
+    {
+        "titulo": "Josué 2",
+        "lido": false,
+        "dia": 231
+    },
+    {
+        "titulo": "Jeremias 33",
+        "lido": false,
+        "dia": 231
+    },
+    {
+        "titulo": "Tiago 2",
+        "lido": false,
+        "dia": 231
+    },
+    {
+        "titulo": "Josué 3",
+        "lido": false,
+        "dia": 232
+    },
+    {
+        "titulo": "II Reis 23:31-37; 24",
+        "lido": false,
+        "dia": 232
+    },
+    {
+        "titulo": "Tiago 3",
+        "lido": false,
+        "dia": 232
+    },
+    {
+        "titulo": "Josué 4",
+        "lido": false,
+        "dia": 233
+    },
+    {
+        "titulo": "II Reis 25",
+        "lido": false,
+        "dia": 233
+    },
+    {
+        "titulo": "II Crônicas 36",
+        "lido": false,
+        "dia": 233
+    },
+    {
+        "titulo": "Josué 5",
+        "lido": false,
+        "dia": 234
+    },
+    {
+        "titulo": "Jeremias 34",
+        "lido": false,
+        "dia": 234
+    },
+    {
+        "titulo": "Tiago 4",
+        "lido": false,
+        "dia": 234
+    },
+    {
+        "titulo": "Josué 6",
+        "lido": false,
+        "dia": 235
+    },
+    {
+        "titulo": "Jeremias 35",
+        "lido": false,
+        "dia": 235
+    },
+    {
+        "titulo": "Tiago 5",
+        "lido": false,
+        "dia": 235
+    },
+    {
+        "titulo": "Josué 7",
+        "lido": false,
+        "dia": 236
+    },
+    {
+        "titulo": "Jeremias 36",
+        "lido": false,
+        "dia": 236
+    },
+    {
+        "titulo": "I Pedro 1",
+        "lido": false,
+        "dia": 236
+    },
+    {
+        "titulo": "Josué 8",
+        "lido": false,
+        "dia": 237
+    },
+    {
+        "titulo": "Jeremias 37",
+        "lido": false,
+        "dia": 237
+    },
+    {
+        "titulo": "I Pedro 2",
+        "lido": false,
+        "dia": 237
+    },
+    {
+        "titulo": "Josué 9",
+        "lido": false,
+        "dia": 238
+    },
+    {
+        "titulo": "Jeremias 38",
+        "lido": false,
+        "dia": 238
+    },
+    {
+        "titulo": "I Pedro 3",
+        "lido": false,
+        "dia": 238
+    },
+    {
+        "titulo": "Josué 10",
+        "lido": false,
+        "dia": 239
+    },
+    {
+        "titulo": "Jeremias 39",
+        "lido": false,
+        "dia": 239
+    },
+    {
+        "titulo": "I Pedro 4",
+        "lido": false,
+        "dia": 239
+    },
+    {
+        "titulo": "Josué 11",
+        "lido": false,
+        "dia": 240
+    },
+    {
+        "titulo": "Jeremias 40",
+        "lido": false,
+        "dia": 240
+    },
+    {
+        "titulo": "I Pedro 5",
+        "lido": false,
+        "dia": 240
+    },
+    {
+        "titulo": "Josué 12",
+        "lido": false,
+        "dia": 241
+    },
+    {
+        "titulo": "Jeremias 41",
+        "lido": false,
+        "dia": 241
+    },
+    {
+        "titulo": "II Pedro 1",
+        "lido": false,
+        "dia": 241
+    },
+    {
+        "titulo": "Josué 13",
+        "lido": false,
+        "dia": 242
+    },
+    {
+        "titulo": "Jeremias 42",
+        "lido": false,
+        "dia": 242
+    },
+    {
+        "titulo": "II Pedro 2",
+        "lido": false,
+        "dia": 242
+    },
+    {
+        "titulo": "Josué 14",
+        "lido": false,
+        "dia": 243
+    },
+    {
+        "titulo": "Jeremias 43",
+        "lido": false,
+        "dia": 243
+    },
+    {
+        "titulo": "II Pedro 3",
+        "lido": false,
+        "dia": 243
+    },
+    {
+        "titulo": "Josué 15",
+        "lido": false,
+        "dia": 244
+    },
+    {
+        "titulo": "Jeremias 44",
+        "lido": false,
+        "dia": 244
+    },
+    {
+        "titulo": "Judas",
+        "lido": false,
+        "dia": 244
+    },
+    {
+        "titulo": "Josué 16",
+        "lido": false,
+        "dia": 245
+    },
+    {
+        "titulo": "Jeremias 45",
+        "lido": false,
+        "dia": 245
+    },
+    {
+        "titulo": "Romanos 1",
+        "lido": false,
+        "dia": 245
+    },
+    {
+        "titulo": "Josué 17",
+        "lido": false,
+        "dia": 246
+    },
+    {
+        "titulo": "Jeremias 46",
+        "lido": false,
+        "dia": 246
+    },
+    {
+        "titulo": "Romanos 2",
+        "lido": false,
+        "dia": 246
+    },
+    {
+        "titulo": "Josué 18",
+        "lido": false,
+        "dia": 247
+    },
+    {
+        "titulo": "Jeremias 47",
+        "lido": false,
+        "dia": 247
+    },
+    {
+        "titulo": "Romanos 3",
+        "lido": false,
+        "dia": 247
+    },
+    {
+        "titulo": "Josué 19",
+        "lido": false,
+        "dia": 248
+    },
+    {
+        "titulo": "Jeremias 48",
+        "lido": false,
+        "dia": 248
+    },
+    {
+        "titulo": "Romanos 4",
+        "lido": false,
+        "dia": 248
+    },
+    {
+        "titulo": "Josué 20",
+        "lido": false,
+        "dia": 249
+    },
+    {
+        "titulo": "Jeremias 49",
+        "lido": false,
+        "dia": 249
+    },
+    {
+        "titulo": "Romanos 5",
+        "lido": false,
+        "dia": 249
+    },
+    {
+        "titulo": "Josué 21",
+        "lido": false,
+        "dia": 250
+    },
+    {
+        "titulo": "Jeremias 50",
+        "lido": false,
+        "dia": 250
+    },
+    {
+        "titulo": "Romanos 6",
+        "lido": false,
+        "dia": 250
+    },
+    {
+        "titulo": "Josué 22",
+        "lido": false,
+        "dia": 251
+    },
+    {
+        "titulo": "Jeremias 51",
+        "lido": false,
+        "dia": 251
+    },
+    {
+        "titulo": "Romanos 7",
+        "lido": false,
+        "dia": 251
+    },
+    {
+        "titulo": "Josué 23",
+        "lido": false,
+        "dia": 252
+    },
+    {
+        "titulo": "Jeremias 52",
+        "lido": false,
+        "dia": 252
+    },
+    {
+        "titulo": "Romanos 8",
+        "lido": false,
+        "dia": 252
+    },
+    {
+        "titulo": "Josué 24",
+        "lido": false,
+        "dia": 253
+    },
+    {
+        "titulo": "Lamentações 1",
+        "lido": false,
+        "dia": 253
+    },
+    {
+        "titulo": "Romanos 9",
+        "lido": false,
+        "dia": 253
+    },
+    {
+        "titulo": "Juízes 1",
+        "lido": false,
+        "dia": 254
+    },
+    {
+        "titulo": "Lamentações 2",
+        "lido": false,
+        "dia": 254
+    },
+    {
+        "titulo": "Romanos 10",
+        "lido": false,
+        "dia": 254
+    },
+    {
+        "titulo": "Juízes 2",
+        "lido": false,
+        "dia": 255
+    },
+    {
+        "titulo": "Lamentações 3",
+        "lido": false,
+        "dia": 255
+    },
+    {
+        "titulo": "Romanos 11",
+        "lido": false,
+        "dia": 255
+    },
+    {
+        "titulo": "Juízes 3",
+        "lido": false,
+        "dia": 256
+    },
+    {
+        "titulo": "Lamentações 4",
+        "lido": false,
+        "dia": 256
+    },
+    {
+        "titulo": "Romanos 12",
+        "lido": false,
+        "dia": 256
+    },
+    {
+        "titulo": "Juízes 4",
+        "lido": false,
+        "dia": 257
+    },
+    {
+        "titulo": "Lamentações 5",
+        "lido": false,
+        "dia": 257
+    },
+    {
+        "titulo": "Romanos 13",
+        "lido": false,
+        "dia": 257
+    },
+    {
+        "titulo": "Juízes 5",
+        "lido": false,
+        "dia": 258
+    },
+    {
+        "titulo": "Ezequiel 1",
+        "lido": false,
+        "dia": 258
+    },
+    {
+        "titulo": "Romanos 14",
+        "lido": false,
+        "dia": 258
+    },
+    {
+        "titulo": "Juízes 6",
+        "lido": false,
+        "dia": 259
+    },
+    {
+        "titulo": "Ezequiel 2",
+        "lido": false,
+        "dia": 259
+    },
+    {
+        "titulo": "Romanos 15",
+        "lido": false,
+        "dia": 259
+    },
+    {
+        "titulo": "Juízes 7",
+        "lido": false,
+        "dia": 260
+    },
+    {
+        "titulo": "Ezequiel 3",
+        "lido": false,
+        "dia": 260
+    },
+    {
+        "titulo": "Romanos 16",
+        "lido": false,
+        "dia": 260
+    },
+    {
+        "titulo": "Juízes 8",
+        "lido": false,
+        "dia": 261
+    },
+    {
+        "titulo": "Ezequiel 4",
+        "lido": false,
+        "dia": 261
+    },
+    {
+        "titulo": "I Coríntios 1",
+        "lido": false,
+        "dia": 261
+    },
+    {
+        "titulo": "Juízes 9",
+        "lido": false,
+        "dia": 262
+    },
+    {
+        "titulo": "Ezequiel 5",
+        "lido": false,
+        "dia": 262
+    },
+    {
+        "titulo": "I Coríntios 2",
+        "lido": false,
+        "dia": 262
+    },
+    {
+        "titulo": "Juízes 10",
+        "lido": false,
+        "dia": 263
+    },
+    {
+        "titulo": "Ezequiel 6",
+        "lido": false,
+        "dia": 263
+    },
+    {
+        "titulo": "I Coríntios 3",
+        "lido": false,
+        "dia": 263
+    },
+    {
+        "titulo": "Juízes 11",
+        "lido": false,
+        "dia": 264
+    },
+    {
+        "titulo": "Ezequiel 7",
+        "lido": false,
+        "dia": 264
+    },
+    {
+        "titulo": "I Coríntios 4",
+        "lido": false,
+        "dia": 264
+    },
+    {
+        "titulo": "Juízes 12",
+        "lido": false,
+        "dia": 265
+    },
+    {
+        "titulo": "Ezequiel 8",
+        "lido": false,
+        "dia": 265
+    },
+    {
+        "titulo": "I Coríntios 5",
+        "lido": false,
+        "dia": 265
+    },
+    {
+        "titulo": "Juízes 13",
+        "lido": false,
+        "dia": 266
+    },
+    {
+        "titulo": "Ezequiel 9",
+        "lido": false,
+        "dia": 266
+    },
+    {
+        "titulo": "I Coríntios 6",
+        "lido": false,
+        "dia": 266
+    },
+    {
+        "titulo": "Juízes 14",
+        "lido": false,
+        "dia": 267
+    },
+    {
+        "titulo": "Ezequiel 10",
+        "lido": false,
+        "dia": 267
+    },
+    {
+        "titulo": "I Coríntios 7",
+        "lido": false,
+        "dia": 267
+    },
+    {
+        "titulo": "Juízes 15",
+        "lido": false,
+        "dia": 268
+    },
+    {
+        "titulo": "Ezequiel 11",
+        "lido": false,
+        "dia": 268
+    },
+    {
+        "titulo": "I Coríntios 8",
+        "lido": false,
+        "dia": 268
+    },
+    {
+        "titulo": "Juízes 16",
+        "lido": false,
+        "dia": 269
+    },
+    {
+        "titulo": "Ezequiel 12",
+        "lido": false,
+        "dia": 269
+    },
+    {
+        "titulo": "I Coríntios 9",
+        "lido": false,
+        "dia": 269
+    },
+    {
+        "titulo": "Juízes 17",
+        "lido": false,
+        "dia": 270
+    },
+    {
+        "titulo": "Ezequiel 13",
+        "lido": false,
+        "dia": 270
+    },
+    {
+        "titulo": "I Coríntios 10",
+        "lido": false,
+        "dia": 270
     }
 
     

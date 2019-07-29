@@ -23,22 +23,13 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
     var pageViewController: TutorialPVController?
     var horario:DateComponents?
     
-//    let tituloNotificacao = "Hora da sua devocional"
-//    let descricaoNotificacao = "Lembre-se de reservar um tempo para meditar na Bíblia e orar"
-//
-//    let content = UNMutableNotificationContent()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.pularButton.isHidden = true
-        
-//        content.title = NSString.localizedUserNotificationString(forKey: self.tituloNotificacao, arguments: nil)
-//        content.body = NSString.localizedUserNotificationString(forKey: self.descricaoNotificacao, arguments: nil)
-//        content.sound = UNNotificationSound.default
-//        content.badge = 1
-//        content.categoryIdentifier = "DIARIO_NOTIFICACOES"
+
     }
     
     @IBAction func pularTutorial(_ sender: Any) {
@@ -57,9 +48,9 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
                 }
                 
                 pageViewController?.avancarPagina()
-            case 1...3:
+            case 1...4:
                 pageViewController?.avancarPagina()
-            case 4:
+            case 5:
                 dismiss(animated: true, completion: nil)
                 
             default:
@@ -76,11 +67,11 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
                 proximoButton.setTitle("Próximo", for: .normal)
                 pularButton.isHidden = true
                 
-            case 1...3:
+            case 1...4:
                 proximoButton.setTitle("Próximo", for: .normal)
                 pularButton.isHidden = false
                 
-            case 4:
+            case 5:
                 proximoButton.setTitle("Começar", for: .normal)
                 pularButton.isHidden = true
                 
@@ -98,98 +89,5 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
             pVC.tutorialViewController = self
         }
     }
-    
-//    func configuraAcoesNotificacao() -> UNNotificationCategory {
-//        let adiar = UNNotificationAction(identifier: "ADIAR",
-//                                         title: "Lembre-me em 5 minutos",
-//                                         options: UNNotificationActionOptions(rawValue: 0))
-//
-//        let concluir = UNNotificationAction(identifier: "CONCLUIR",
-//                                            title: "Ver agora",
-//                                            options: [.foreground])
-//
-//        let categoriaLembrete = UNNotificationCategory(identifier: "DIARIO_NOTIFICACOES",
-//                                                       actions: [adiar, concluir],
-//                                                       intentIdentifiers: [],
-//                                                       options: .customDismissAction)
-//
-//        return categoriaLembrete
-//    }
-//
-//    public func repeteNotificacao(tempo: Double) {
-//        let notificationCenter = UNUserNotificationCenter.current()
-//        notificationCenter.getNotificationSettings { (settings) in
-//            if settings.authorizationStatus == .authorized {
-//
-//                let categoria = self.configuraAcoesNotificacao()
-//
-//                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: tempo, repeats: false)
-//
-//                let request = UNNotificationRequest(identifier: "repeticao", content: self.content, trigger: trigger)
-//
-//                let center = UNUserNotificationCenter.current()
-//                center.delegate = self
-//                center.setNotificationCategories([categoria])
-//                center.add(request) { (error : Error?) in
-//                    if let error = error {
-//                        print(error.localizedDescription)
-//                    }
-//                }
-//
-//            } else {
-//                print("Impossível mandar notificação - permissão negada")
-//            }
-//        }
-//    }
-//
-//    public func enviaNotificacao(data: DateComponents) {
-//        let notificationCenter = UNUserNotificationCenter.current()
-//        notificationCenter.getNotificationSettings { (settings) in
-//            if settings.authorizationStatus == .authorized {
-//
-//                let categoria = self.configuraAcoesNotificacao()
-//
-//
-//                let trigger = UNCalendarNotificationTrigger(dateMatching: data, repeats: true)
-//
-//                let request = UNNotificationRequest(identifier: "lembrete", content: self.content, trigger: trigger)
-//
-//                let center = UNUserNotificationCenter.current()
-//                center.delegate = self
-//                center.setNotificationCategories([categoria])
-//                center.add(request) { (error : Error?) in
-//                    if let error = error {
-//                        print(error.localizedDescription)
-//                    }
-//                }
-//
-//            } else {
-//                print("Impossível mandar notificação - permissão negada")
-//            }
-//        }
-//    }
-//
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-//        let content = response.notification.request.content
-//        if content.categoryIdentifier == "DIARIO_NOTIFICACOES" {
-//            switch response.actionIdentifier {
-//            case "ADIAR":
-//                repeteNotificacao(tempo: 10)
-//                break
-//
-//            case "CONCLUIR":
-//                break
-//
-//            default:
-//                break
-//            }
-//        }
-//
-//        completionHandler()
-//    }
-//
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//        completionHandler([.alert,.sound,.badge])
-//    }
 
 }

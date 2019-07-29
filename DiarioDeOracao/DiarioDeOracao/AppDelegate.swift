@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         let registro = NSEntityDescription.insertNewObject(forEntityName: "Capitulo", into: self.persistentContainer.viewContext) as! Capitulo
                         
                         registro.titulo = aulas[i].titulo
-                        registro.lido = aulas[i].lido
+                        registro.lido = false
                         registro.dia = aulas[i].dia
                         
                         self.saveContext()

@@ -16,7 +16,8 @@ class TutorialPVController: UIPageViewController, UIPageViewControllerDelegate, 
                 self.novaVC(viewController: "tela2"),
                 self.novaVC(viewController: "tela3"),
                 self.novaVC(viewController: "tela4"),
-                self.novaVC(viewController: "tela5")]
+                self.novaVC(viewController: "tela5"),
+                self.novaVC(viewController: "tela6")]
     }()
     
     var indexAtual = 0

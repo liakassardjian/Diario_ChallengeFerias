@@ -21,7 +21,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     var contagemDias:Int = 0
     var anosPassados:Int = 0
     
-    let totalDias:Int = 270
+    let totalDias:Int = 360
     
     let titulos = ["Leitura bíblica diária","Lista de oração diária"]
     

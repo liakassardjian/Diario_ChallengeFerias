@@ -32,6 +32,12 @@ class NovaNotaTVController: UITableViewController, UITextViewDelegate, UITextFie
         corpoTextView.delegate = self
         
         salvarButton.isEnabled = false
+        
+        if modoEdicao {
+            self.navigationItem.title = "Editar nota"
+        } else {
+            self.navigationItem.title = "Nova nota"
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

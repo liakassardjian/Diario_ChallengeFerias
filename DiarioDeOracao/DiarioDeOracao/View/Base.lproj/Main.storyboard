@@ -289,7 +289,7 @@
                         <viewLayoutGuide key="safeArea" id="Y6m-d6-VPF"/>
                     </view>
                     <navigationItem key="navigationItem" title="Diário" id="lLV-18-3oc">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="144-Mb-vfv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="144-Mb-vfv">
                             <color key="tintColor" red="0.69019607839999997" green="0.74901960779999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="0rC-c6-fcf" kind="show" identifier="novaNota" id="k0R-aN-H8v"/>
@@ -394,10 +394,22 @@
                                                 <constraint firstItem="3OO-Xn-GHA" firstAttribute="top" secondItem="4qw-vA-9cB" secondAttribute="top" constant="20" id="lik-R3-2nz"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8N-nX-IJa">
+                                            <rect key="frame" x="334" y="-26" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="5qm-UX-NzW"/>
+                                                <constraint firstAttribute="height" constant="30" id="cae-IG-RSE"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="o8N-nX-IJa" secondAttribute="bottom" id="Bch-ku-pCB"/>
+                                    <constraint firstAttribute="trailing" secondItem="o8N-nX-IJa" secondAttribute="trailing" constant="20" id="CwN-7K-7pP"/>
                                     <constraint firstAttribute="bottom" secondItem="4qw-vA-9cB" secondAttribute="bottom" id="TdU-5h-mSc"/>
                                     <constraint firstAttribute="trailing" secondItem="4qw-vA-9cB" secondAttribute="trailing" constant="30" id="w8N-Ba-MWV"/>
                                     <constraint firstItem="4qw-vA-9cB" firstAttribute="top" secondItem="l2Y-4B-4IP" secondAttribute="top" id="yBx-ar-pMD"/>
@@ -405,6 +417,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="cardView" destination="4qw-vA-9cB" id="GbJ-FG-uH3"/>
+                                    <outlet property="checkMarkLabel" destination="o8N-nX-IJa" id="Kds-7k-kcQ"/>
                                     <outlet property="circuloView" destination="E0X-3A-wwb" id="10o-Zk-gAC"/>
                                     <outlet property="corpoLabel" destination="L68-j5-vfC" id="jA4-jc-oJR"/>
                                     <outlet property="dataLabel" destination="HwO-zn-TfE" id="IUi-36-pNs"/>
@@ -470,9 +483,16 @@
                             <outlet property="delegate" destination="pJd-Nz-nXq" id="CBl-HD-7YU"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Lembranças" id="qkR-9l-97r"/>
+                    <navigationItem key="navigationItem" title="Lembranças" id="qkR-9l-97r">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="trash" id="a1j-vC-kOU">
+                            <connections>
+                                <action selector="deletarLembranca:" destination="pJd-Nz-nXq" id="UWO-B1-fx9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionLayout" destination="hT4-AQ-vLW" id="CfC-7h-4sU"/>
+                        <outlet property="deletarButton" destination="a1j-vC-kOU" id="jzA-Hb-XgE"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aur-wI-OBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -489,6 +509,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.75686274509999996" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.2901960784" green="0.35285353660000002" blue="0.1741557121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.80000000000000004" green="0.75686274509999996" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <connections>
@@ -946,8 +967,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Oração respondida" largeTitleDisplayMode="never" id="i3P-lr-hF5">
-                        <barButtonItem key="backBarButtonItem" title="Cancelar" id="vgC-2X-bMM"/>
+                        <barButtonItem key="backBarButtonItem" title="Cancelar" id="vgC-2X-bMM">
+                            <color key="tintColor" red="0.2901960784" green="0.35285353660000002" blue="0.1741557121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0m3-d8-EjQ">
+                            <color key="tintColor" red="0.29019607843137252" green="0.35285353660000002" blue="0.1741557121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="nGa-IY-uxY" kind="unwind" unwindAction="salvarEntrada:" id="KhN-8F-dEz"/>
                             </connections>

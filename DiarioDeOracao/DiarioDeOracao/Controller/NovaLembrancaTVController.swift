@@ -34,7 +34,6 @@ class NovaLembrancaTVController: UITableViewController, UITextFieldDelegate, UIT
         tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tituloTextField.delegate = self
         corpoTextView.delegate = self
-        
         salvarButton.isEnabled = false
         
         if modoEdicao {

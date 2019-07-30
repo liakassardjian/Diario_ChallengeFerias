@@ -15,6 +15,8 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
     
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!
     
+    @IBOutlet weak var deletarButton: UIBarButtonItem!
+    
     var context:NSManagedObjectContext?
     
     var lembrancas:[[Lembranca]] = []
@@ -25,6 +27,7 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
 
         if let flowLayout = collectionLayout {
             let w = collectionView.frame.size.width - 20
@@ -46,9 +49,11 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         if let label = semLembrancaLabel {
             self.view.addSubview(label)
         }
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         carregaLembrancas()
         collectionView.reloadData()
         
@@ -57,6 +62,8 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         } else {
             semLembrancaLabel?.isHidden = true
         }
+        
+        
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
@@ -87,6 +94,7 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
             }
             anos.sort(by: >)
             
+            lembrancas = []
             for _ in anos {
                 let novoVetor:[Lembranca] = []
                 lembrancas.append(novoVetor)
@@ -177,7 +185,40 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
             return CGSize(width: collectionView.frame.size.width - 70, height: 142)
         }
     }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        collectionView.allowsMultipleSelection = editing
+        let indexPaths = collectionView.indexPathsForVisibleItems
+        for indexPath in indexPaths {
+            let cell = collectionView.cellForItem(at: indexPath) as! LembrancaCVCell
+            cell.isInEditingMode = editing
+        }
+    }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if !isEditing {
+            deletarButton.isEnabled = false
+        } else {
+            deletarButton.isEnabled = true
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let selectedItems = collectionView.indexPathsForSelectedItems, selectedItems.count == 0 {
+            deletarButton.isEnabled = false
+        }
+    }
+    
+    // Navegação
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if isEditing {
+            return false
+        }
+        return true
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let lembranca = segue.destination as? NovaLembrancaTVController {
@@ -196,10 +237,35 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
     @IBAction func salvarEntrada(_ sender: UIStoryboardSegue){
         if sender.source is NovaLembrancaTVController {
             if let senderAdd = sender.source as? NovaLembrancaTVController {
-                if let nota = senderAdd.novaLembranca {
+                if let lembranca = senderAdd.novaLembranca {
                     collectionView.reloadData()
                 }
             }
+        }
+    }
+    
+    
+    // Ações
+    
+    @IBAction func deletarLembranca(_ sender: Any) {
+        if let selectedCells = collectionView.indexPathsForSelectedItems {
+            
+            for item in selectedCells {
+                self.context?.delete(self.lembrancas[item.section][item.row])
+                self.lembrancas[item.section].remove(at: item.row)
+                
+            }
+            
+            collectionView.deleteItems(at: selectedCells)
+            
+            for s in 0..<collectionView.numberOfSections {
+                if collectionView.numberOfItems(inSection: s) == 0 {
+                    self.lembrancas.remove(at: s)
+                    anos.remove(at: s)
+                    collectionView.deleteSections([s])
+                }
+            }
+            deletarButton.isEnabled = false
         }
     }
 }

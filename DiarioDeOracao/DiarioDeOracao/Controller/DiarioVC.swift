@@ -74,6 +74,9 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print(pedidos)
+    }
     
     // Core Data
     
@@ -294,15 +297,20 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         if tableView.tag == 2 {
             let exluir = UITableViewRowAction(style: .destructive, title: "Excluir", handler: {(action,indexPath) in
+                self.dia?.removeFromLista(self.pedidos[indexPath.row])
                 self.context?.delete(self.pedidos[indexPath.row])
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 self.pedidos.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             })
             
             let concluir = UITableViewRowAction(style: .normal, title: "Marcar como respondido", handler: {(action, indexPath) in
+                self.dia?.removeFromLista(self.pedidos[indexPath.row])
                 self.context?.delete(self.pedidos[indexPath.row])
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 self.pedidos.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                print(self.pedidos)
                 self.performSegue(withIdentifier: "novaLembranca", sender: self)
             })
             

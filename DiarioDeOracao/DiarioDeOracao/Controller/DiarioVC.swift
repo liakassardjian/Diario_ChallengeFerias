@@ -398,6 +398,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         if let lembranca = segue.destination as? NovaLembrancaTVController {
             if segue.identifier == "novaLembranca" {
                 lembranca.data = dia
+                lembranca.modoEdicao = false
             }
         }
     }

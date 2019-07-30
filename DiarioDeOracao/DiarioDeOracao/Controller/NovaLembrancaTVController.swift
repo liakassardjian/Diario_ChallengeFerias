@@ -22,6 +22,10 @@ class NovaLembrancaTVController: UITableViewController, UITextFieldDelegate, UIT
     var data:Dia?
     
     let modeloLembranca = ["Título da sua lembrança","Descreva aqui o acontecimento"]
+    var conteudo:[String] = []
+    
+    var novaLembranca:Lembranca?
+    var modoEdicao:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,23 @@ class NovaLembrancaTVController: UITableViewController, UITextFieldDelegate, UIT
         corpoTextView.delegate = self
         
         salvarButton.isEnabled = false
+        
+        if modoEdicao {
+            self.navigationItem.title = "Editar lembrança"
+        } else {
+            self.navigationItem.title = "Oração respondida"
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if modoEdicao {
+            tituloTextField.text = conteudo[0]
+            corpoTextView.text = conteudo[1]
+        } else {
+            tituloTextField.text = modeloLembranca[0]
+            corpoTextView.text = modeloLembranca[1]
+            conteudo = ["",""]
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,12 +65,14 @@ class NovaLembrancaTVController: UITableViewController, UITextFieldDelegate, UIT
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let context = context {
-            let novaLembranca = NSEntityDescription.insertNewObject(forEntityName: "Lembranca", into: context) as! Lembranca
-            novaLembranca.titulo = leTextField(textField: tituloTextField)
-            novaLembranca.corpo = leTextView(textView: corpoTextView)
+            if !modoEdicao {
+                novaLembranca = NSEntityDescription.insertNewObject(forEntityName: "Lembranca", into: context) as! Lembranca
+            }
+            novaLembranca?.titulo = leTextField(textField: tituloTextField)
+            novaLembranca?.corpo = leTextView(textView: corpoTextView)
             
             if let data = data {
-                novaLembranca.data = data
+                novaLembranca?.data = data
             }
             
             (UIApplication.shared.delegate as! AppDelegate).saveContext()

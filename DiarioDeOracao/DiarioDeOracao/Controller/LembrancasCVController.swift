@@ -68,6 +68,9 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         semLembrancaLabel?.sizeToFit()
     }
     
+    
+    // Core Data
+    
     func carregaLembrancas() {
         do {
             var lem:[Lembranca] = []
@@ -104,6 +107,9 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         }
     }
 
+    
+    // Collection View
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return anos.count
     }
@@ -158,7 +164,6 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         }
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -173,4 +178,28 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         }
     }
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let lembranca = segue.destination as? NovaLembrancaTVController {
+            if segue.identifier == "editarLembranca" {
+                if let item = collectionView.indexPathsForSelectedItems?.first {
+                    let titulo = lembrancas[item.section][item.row].titulo
+                    let corpo = lembrancas[item.section][item.row].corpo
+                    lembranca.conteudo = [titulo,corpo] as! [String]
+                    lembranca.novaLembranca = lembrancas[item.section][item.row]
+                    lembranca.modoEdicao = true
+                }
+            }
+        }
+    }
+    
+    @IBAction func salvarEntrada(_ sender: UIStoryboardSegue){
+        if sender.source is NovaLembrancaTVController {
+            if let senderAdd = sender.source as? NovaLembrancaTVController {
+                if let nota = senderAdd.novaLembranca {
+                    collectionView.reloadData()
+                }
+            }
+        }
+    }
 }

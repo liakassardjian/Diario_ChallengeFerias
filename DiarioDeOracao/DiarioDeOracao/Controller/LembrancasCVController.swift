@@ -252,20 +252,27 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
             
             for item in selectedCells {
                 self.context?.delete(self.lembrancas[item.section][item.row])
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 self.lembrancas[item.section].remove(at: item.row)
                 
             }
             
             collectionView.deleteItems(at: selectedCells)
             
-            for s in 0..<collectionView.numberOfSections {
-                if collectionView.numberOfItems(inSection: s) == 0 {
-                    self.lembrancas.remove(at: s)
-                    anos.remove(at: s)
-                    collectionView.deleteSections([s])
+            for s in stride(from: collectionView.numberOfSections, to: 0, by: -1) {
+                if collectionView.numberOfItems(inSection: s-1) == 0 {
+                    self.lembrancas.remove(at: s-1)
+                    anos.remove(at: s-1)
+                    collectionView.deleteSections([s-1])
                 }
             }
             deletarButton.isEnabled = false
+            
+            if lembrancas.count == 0 {
+                semLembrancaLabel?.isHidden = false
+            } else {
+                semLembrancaLabel?.isHidden = true
+            }
         }
     }
 }

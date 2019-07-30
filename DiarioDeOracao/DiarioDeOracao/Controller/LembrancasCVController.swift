@@ -54,6 +54,8 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         
         if lembrancas.count == 0 {
             semLembrancaLabel?.isHidden = false
+        } else {
+            semLembrancaLabel?.isHidden = true
         }
     }
     

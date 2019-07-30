@@ -23,6 +23,7 @@ class TopicosTVCell: UITableViewCell {
     
     @IBOutlet weak var tituloLabel: UILabel!
     
+    @IBOutlet weak var urgenciaLabel: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()

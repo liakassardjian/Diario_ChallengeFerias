@@ -11,7 +11,7 @@ import CoreData
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         let registro = NSEntityDescription.insertNewObject(forEntityName: "Capitulo", into: self.persistentContainer.viewContext) as! Capitulo
                         
                         registro.titulo = aulas[i].titulo
-                        registro.lido = aulas[i].lido
+                        registro.lido = false
                         registro.dia = aulas[i].dia
                         
                         self.saveContext()
@@ -130,6 +130,115 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func configuraAcoesNotificacao() -> UNNotificationCategory {
+        let adiar = UNNotificationAction(identifier: "ADIAR",
+                                         title: "Lembre-me em 5 minutos",
+                                         options: UNNotificationActionOptions(rawValue: 0))
+        
+        let concluir = UNNotificationAction(identifier: "CONCLUIR",
+                                            title: "Ver agora",
+                                            options: [.foreground])
+        
+        let categoriaLembrete = UNNotificationCategory(identifier: "DIARIO_NOTIFICACOES",
+                                                       actions: [adiar, concluir],
+                                                       intentIdentifiers: [],
+                                                       options: .customDismissAction)
+        
+        return categoriaLembrete
+    }
+    
+    func criaConteudo() -> UNMutableNotificationContent {
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "Hora da sua devocional", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "Lembre-se de reservar um tempo para meditar na Bíblia e orar", arguments: nil)
+        content.sound = UNNotificationSound.default
+        content.badge = 1
+        content.categoryIdentifier = "DIARIO_NOTIFICACOES"
+        
+        return content
+    }
+    
+    func repeteNotificacao(tempo: Double) {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .authorized {
+                
+                let categoria = self.configuraAcoesNotificacao()
+                
+                let content = self.criaConteudo()
+                
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: tempo, repeats: false)
+                
+                let request = UNNotificationRequest(identifier: "repeticao", content: content, trigger: trigger)
+                
+                let center = UNUserNotificationCenter.current()
+                center.delegate = self
+                center.setNotificationCategories([categoria])
+                center.add(request) { (error : Error?) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
+                
+            } else {
+                print("Impossível mandar notificação - permissão negada")
+            }
+        }
+    }
+    
+    func enviaNotificacao(data: DateComponents) {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .authorized {
+                
+                let categoria = self.configuraAcoesNotificacao()
+                
+                let content = self.criaConteudo()
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: data, repeats: true)
+                
+                let request = UNNotificationRequest(identifier: "lembrete", content: content, trigger: trigger)
+                
+                let center = UNUserNotificationCenter.current()
+                center.delegate = self
+                center.setNotificationCategories([categoria])
+                center.add(request) { (error : Error?) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
+                
+            } else {
+                print("Impossível mandar notificação - permissão negada")
+            }
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let content = response.notification.request.content
+        if content.categoryIdentifier == "DIARIO_NOTIFICACOES" {
+            switch response.actionIdentifier {
+            case "ADIAR":
+                DispatchQueue.main.async(execute: {
+                    self.repeteNotificacao(tempo: 300)
+                    })
+                break
+                
+            case "CONCLUIR":
+                break
+                
+            default:
+                break
+            }
+        }
+        
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.sound,.badge])
     }
 
 }

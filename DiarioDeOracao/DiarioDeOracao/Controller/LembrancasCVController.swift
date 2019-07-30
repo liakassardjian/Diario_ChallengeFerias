@@ -11,7 +11,7 @@ import CoreData
 
 private let reuseIdentifier = "lembranca"
 
-class LembrancasCVController: UICollectionViewController {
+class LembrancasCVController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!
     
@@ -19,22 +19,53 @@ class LembrancasCVController: UICollectionViewController {
     
     var lembrancas:[[Lembranca]] = []
     var anos:[Int] = []
+    
+    var semLembrancaLabel:UILabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         if let flowLayout = collectionLayout {
-            let w = self.collectionView.frame.width - 20
+            let w = collectionView.frame.size.width - 20
             flowLayout.estimatedItemSize = CGSize(width: w, height: 142)
         }
         
-//        carregaLembrancas()
+        semLembrancaLabel = UILabel(frame: CGRect(x: 0,
+                                                  y: 0,
+                                                  width: collectionView.frame.size.width - 100,
+                                                  height: 300))
+        semLembrancaLabel?.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
+        semLembrancaLabel?.text = "Você não tem lembranças ainda. Lembranças são criadas quando pedidos de oração são respondidos."
+        semLembrancaLabel?.textColor = #colorLiteral(red: 0.2789252996, green: 0.1623651087, blue: 0.2221863866, alpha: 1)
+        semLembrancaLabel?.numberOfLines = 0
+        semLembrancaLabel?.textAlignment = .center
+        semLembrancaLabel?.sizeToFit()
+        semLembrancaLabel?.isHidden = true
+        
+        if let label = semLembrancaLabel {
+            self.view.addSubview(label)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         carregaLembrancas()
         collectionView.reloadData()
+        
+        if lembrancas.count == 0 {
+            semLembrancaLabel?.isHidden = false
+        } else {
+            semLembrancaLabel?.isHidden = true
+        }
+    }
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        semLembrancaLabel?.frame = CGRect(x: 0,
+                                          y: 0,
+                                          width: collectionView.frame.size.width - 100,
+                                          height: 300)
+        semLembrancaLabel?.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
+        semLembrancaLabel?.sizeToFit()
     }
     
     func carregaLembrancas() {
@@ -123,40 +154,23 @@ class LembrancasCVController: UICollectionViewController {
             
         default:
             assert(false, "Invalid element type")
+            return UICollectionReusableView()
         }
     }
     
     
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
         return true
     }
 
-    /*
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if UIDevice.current.orientation == UIDeviceOrientation.portrait ||
+            UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
+            return CGSize(width: collectionView.frame.size.width - 20, height: 142)
+        } else {
+            return CGSize(width: collectionView.frame.size.width - 70, height: 142)
+        }
     }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 
 }

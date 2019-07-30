@@ -9,19 +9,29 @@
 import UIKit
 import CoreData
 
-class NovaLembrancaTVController: UITableViewController {
+class NovaLembrancaTVController: UITableViewController, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var tituloTextField: UITextField!
     
     @IBOutlet weak var corpoTextView: UITextView!
     
+    @IBOutlet weak var salvarButton: UIBarButtonItem!
+    
     var context:NSManagedObjectContext?
     
     var data:Dia?
     
+    let modeloLembranca = ["Título da sua lembrança","Descreva aqui o acontecimento"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        tituloTextField.delegate = self
+        corpoTextView.delegate = self
+        
+        salvarButton.isEnabled = false
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,4 +77,55 @@ class NovaLembrancaTVController: UITableViewController {
         return texto
     }
 
+    @IBAction func textFieldDidChange(_ sender: Any) {
+        if let titulo = tituloTextField.text {
+            if let corpo = tituloTextField.text {
+                validaTexto(titulo: titulo, corpo: corpo)
+            }
+        } else {
+            salvarButton.isEnabled = false
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if let corpo = corpoTextView.text {
+            if let titulo = tituloTextField.text {
+                validaTexto(titulo: titulo, corpo: corpo)
+            }
+        } else {
+            salvarButton.isEnabled = false
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text == modeloLembranca[0] {
+            textField.text = ""
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == modeloLembranca[1] {
+            textView.text = ""
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text == "" {
+            textField.text = modeloLembranca[0]
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == ""{
+            textView.text = modeloLembranca[1]
+        }
+    }
+    
+    func validaTexto(titulo: String, corpo: String) {
+        if titulo != "" && corpo != "" && titulo != modeloLembranca[0] && corpo != modeloLembranca[1] {
+            salvarButton.isEnabled = true
+        } else {
+            salvarButton.isEnabled = false
+        }
+    }
 }

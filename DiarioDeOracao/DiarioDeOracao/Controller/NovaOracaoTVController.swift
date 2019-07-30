@@ -13,7 +13,6 @@ class NovaOracaoTVController: UITableViewController {
 
     @IBOutlet weak var tituloTextField: UITextField!
     @IBOutlet weak var urgenciaSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var notasTextField: UITextField!
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var dataDatePicker: UIDatePicker!
 

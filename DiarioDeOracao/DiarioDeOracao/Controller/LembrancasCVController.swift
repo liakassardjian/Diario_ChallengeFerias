@@ -19,6 +19,8 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
     
     var lembrancas:[[Lembranca]] = []
     var anos:[Int] = []
+    
+    var semLembrancaLabel:UILabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +30,40 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
             let w = collectionView.frame.size.width - 20
             flowLayout.estimatedItemSize = CGSize(width: w, height: 142)
         }
+        
+        semLembrancaLabel = UILabel(frame: CGRect(x: 0,
+                                                  y: 0,
+                                                  width: collectionView.frame.size.width - 100,
+                                                  height: 300))
+        semLembrancaLabel?.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
+        semLembrancaLabel?.text = "Você não tem lembranças ainda. Lembranças são criadas quando pedidos de oração são respondidos."
+        semLembrancaLabel?.textColor = #colorLiteral(red: 0.2789252996, green: 0.1623651087, blue: 0.2221863866, alpha: 1)
+        semLembrancaLabel?.numberOfLines = 0
+        semLembrancaLabel?.textAlignment = .center
+        semLembrancaLabel?.sizeToFit()
+        semLembrancaLabel?.isHidden = true
+        
+        if let label = semLembrancaLabel {
+            self.view.addSubview(label)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         carregaLembrancas()
         collectionView.reloadData()
+        
+        if lembrancas.count == 0 {
+            semLembrancaLabel?.isHidden = false
+        }
+    }
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        semLembrancaLabel?.frame = CGRect(x: 0,
+                                          y: 0,
+                                          width: collectionView.frame.size.width - 100,
+                                          height: 300)
+        semLembrancaLabel?.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
+        semLembrancaLabel?.sizeToFit()
     }
     
     func carregaLembrancas() {

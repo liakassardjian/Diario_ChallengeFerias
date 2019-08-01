@@ -43,6 +43,7 @@
 		E48E13B422E24B90001A4CA2 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48E13B322E24B90001A4CA2 /* Tutorial.storyboard */; };
 		E48EECF022F34AE300CFD1BF /* NovaNotaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48EECEF22F34AE300CFD1BF /* NovaNotaVC.swift */; };
 		E48EECF222F34EAA00CFD1BF /* NovaLembrancaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48EECF122F34EAA00CFD1BF /* NovaLembrancaVC.swift */; };
+		E4EC9A5622F379EB000625E7 /* PreferenciasTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC9A5522F379EB000625E7 /* PreferenciasTVController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		E48E13B322E24B90001A4CA2 /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		E48EECEF22F34AE300CFD1BF /* NovaNotaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaNotaVC.swift; sourceTree = "<group>"; };
 		E48EECF122F34EAA00CFD1BF /* NovaLembrancaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaLembrancaVC.swift; sourceTree = "<group>"; };
+		E4EC9A5522F379EB000625E7 /* PreferenciasTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenciasTVController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				E46A69F322E24FA9002B545A /* TutorialVC.swift */,
 				E46A69F122E24F7F002B545A /* TutorialPVController.swift */,
 				E41A582022E9E7B100C6272F /* TutorialTela1VC.swift */,
+				E4EC9A5522F379EB000625E7 /* PreferenciasTVController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				E48A047522E87F470039D847 /* Dia+CoreDataClass.swift in Sources */,
 				E4636A2C22E7EE8E00E455A1 /* Pedido+CoreDataClass.swift in Sources */,
 				E48A046D22E87D880039D847 /* Nota+CoreDataClass.swift in Sources */,
+				E4EC9A5622F379EB000625E7 /* PreferenciasTVController.swift in Sources */,
 				E48E138C22E10511001A4CA2 /* RodapeCollectionReusableView.swift in Sources */,
 				E48E138022E0A791001A4CA2 /* LembrancasCVController.swift in Sources */,
 				E46369F522E627C500E455A1 /* Capitulo.swift in Sources */,

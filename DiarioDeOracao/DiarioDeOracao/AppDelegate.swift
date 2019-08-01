@@ -210,6 +210,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     }
                 }
                 
+                let hora = UserDefaults().integer(forKey: "hora")
+                let minuto = UserDefaults().integer(forKey: "minuto")
+                
+                UserDefaults().set(data.hour, forKey: "hora")
+                UserDefaults().set(data.minute, forKey: "minuto")
+                
             } else {
                 print("Impossível mandar notificação - permissão negada")
             }

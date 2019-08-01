@@ -9,13 +9,14 @@
 import UIKit
 import CoreData
 
-class NovaOracaoTVController: UITableViewController {
+class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var tituloTextField: UITextField!
     @IBOutlet weak var urgenciaSegmentedControl: UISegmentedControl!
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var dataDatePicker: UIDatePicker!
-
+    @IBOutlet weak var salvarButton: UIBarButtonItem!
+    
     let formatoData = DateFormatter()
     
     var context:NSManagedObjectContext?
@@ -31,6 +32,11 @@ class NovaOracaoTVController: UITableViewController {
         
         let data = formatoData.string(from: Calendario.shared.retornaDataAtual())
         dataLabel.text = data
+        
+        tituloTextField.delegate = self
+        tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+        salvarButton.isEnabled = false
     }
 
     @IBAction func valorPickerAlterado(_ sender: Any) {
@@ -61,5 +67,22 @@ class NovaOracaoTVController: UITableViewController {
         }
         return texto
     }
+    
+    func validaTexto(texto: String) {
+        if texto != "" {
+            salvarButton.isEnabled = true
+        } else {
+            salvarButton.isEnabled = false
+        }
+    }
+    
+    @IBAction func textFieldDidChange(_ sender: Any) {
+        if let texto = tituloTextField.text {
+            validaTexto(texto: texto)
+        } else {
+            salvarButton.isEnabled = false
+        }
+    }
+    
 
 }

@@ -20,41 +20,78 @@ class TutorialPVController: UIPageViewController, UIPageViewControllerDelegate, 
                 self.novaVC(viewController: "tela6")]
     }()
     
+    lazy var ordemSegundaTela: [UIViewController] = {
+        return [self.novaVC(viewController: "tela2"),
+                self.novaVC(viewController: "tela3"),
+                self.novaVC(viewController: "tela4"),
+                self.novaVC(viewController: "tela5"),
+                self.novaVC(viewController: "tela6")]
+    }()
+    
     var indexAtual = 0
     var tutorialViewController: TutorialVC?
+    var primeiroTutorial:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.dataSource = self
-        if let primeiraViewController = ordemViewControllers.first {
-            setViewControllers([primeiraViewController],
-                               direction: .forward,
-                               animated: true,
-                               completion: nil)
+        
+        if primeiroTutorial {
+            if let primeiraViewController = ordemViewControllers.first {
+                setViewControllers([primeiraViewController],
+                                   direction: .forward,
+                                   animated: true,
+                                   completion: nil)
+            }
+        } else {
+            if let primeiraViewController = ordemSegundaTela.first {
+                setViewControllers([primeiraViewController],
+                                   direction: .forward,
+                                   animated: true,
+                                   completion: nil)
+            }
         }
         
         self.delegate = self
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        var index:Int
         
-        guard let indexViewController = ordemViewControllers.firstIndex(of: viewController) else {
-            return nil
+        if primeiroTutorial {
+            guard let indexViewController = ordemViewControllers.firstIndex(of: viewController) else {
+                return nil
+            }
+            index = indexViewController
+        } else {
+            guard let indexViewController = ordemSegundaTela.firstIndex(of: viewController) else {
+                return nil
+            }
+            index = indexViewController
         }
         
-        let indexAnterior = indexViewController - 1
+        let indexAnterior = index - 1
         
         return self.conteudoViewControler(at: indexAnterior)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        var index:Int
         
-        guard let indexViewController = ordemViewControllers.firstIndex(of: viewController) else {
-            return nil
+        if primeiroTutorial {
+            guard let indexViewController = ordemViewControllers.firstIndex(of: viewController) else {
+                return nil
+            }
+            index = indexViewController
+        } else {
+            guard let indexViewController = ordemSegundaTela.firstIndex(of: viewController) else {
+                return nil
+            }
+            index = indexViewController
         }
         
-        let indexPosterior = indexViewController + 1
+        let indexPosterior = index + 1
         
         return self.conteudoViewControler(at: indexPosterior)
     }
@@ -62,8 +99,15 @@ class TutorialPVController: UIPageViewController, UIPageViewControllerDelegate, 
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if let vC = pageViewController.viewControllers {
             let paginaAtualViewController = vC[0]
-            if let index = ordemViewControllers.firstIndex(of: paginaAtualViewController) {
-                self.indexAtual = index
+            
+            if primeiroTutorial {
+                if let index = ordemViewControllers.firstIndex(of: paginaAtualViewController) {
+                    self.indexAtual = index
+                }
+            } else {
+                if let index = ordemSegundaTela.firstIndex(of: paginaAtualViewController) {
+                    self.indexAtual = index
+                }
             }
         }
         
@@ -77,11 +121,20 @@ class TutorialPVController: UIPageViewController, UIPageViewControllerDelegate, 
     }
     
     func conteudoViewControler(at index: Int) -> UIViewController? {
-        if index < 0 || index >= ordemViewControllers.count {
-            return nil
+        if primeiroTutorial {
+            if index < 0 || index >= ordemViewControllers.count {
+                return nil
+            }
+            
+            return ordemViewControllers[index]
+        } else {
+            if index < 0 || index >= ordemSegundaTela.count {
+                return nil
+            }
+            
+            return ordemSegundaTela[index]
         }
         
-        return ordemViewControllers[index]
     }
     
     func avancarPagina() {

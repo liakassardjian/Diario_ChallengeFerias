@@ -75,6 +75,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         if !tutorial {
             let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
             if let tutorialViewController = storyboard.instantiateViewController(withIdentifier: "tutorialVC") as? TutorialVC {
+                tutorialViewController.primeiroTutorial = true
                 present(tutorialViewController, animated: true, completion: nil)
             }
             defaults.set(true, forKey: "tutorial")
@@ -500,6 +501,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             }
         }
     }
+    
     
 
 }

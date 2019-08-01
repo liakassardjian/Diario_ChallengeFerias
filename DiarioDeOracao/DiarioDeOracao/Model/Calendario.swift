@@ -152,4 +152,15 @@ class Calendario {
     public func retornaDiaNumero() -> Int {
         return calendario.component(.day, from: data)
     }
+    
+    public func retornaDataHoraMinuto(hora: Int, minuto: Int) -> Date {
+        var components = DateComponents()
+        components.hour = hora
+        components.minute = minuto
+        
+        if let date = calendario.date(from: components) {
+            return date
+        }
+        return data
+    }
 }

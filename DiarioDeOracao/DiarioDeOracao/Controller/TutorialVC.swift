@@ -22,20 +22,27 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
     
     var pageViewController: TutorialPVController?
     var horario:DateComponents?
-    
-    
+    var primeiroTutorial:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.pularButton.isHidden = true
+        
+        if primeiroTutorial {
+            pageControl.numberOfPages = 6
+        } else {
+            pageControl.numberOfPages = 5
+        }
 
     }
     
     @IBAction func pularTutorial(_ sender: Any) {
         dismiss(animated: true, completion: {
-            if let h = self.horario {
-                (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
+            if self.primeiroTutorial {
+                if let h = self.horario {
+                    (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
+                }
             }
         })
     }
@@ -45,14 +52,33 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
             switch index {
             case 0:
                 let tela1:TutorialTela1VC = pageViewController?.ordemViewControllers[0] as! TutorialTela1VC
-                horario = Calendario.shared.retornaDateComponents(date: tela1.datePicker.date)
+                if self.primeiroTutorial {
+                    horario = Calendario.shared.retornaDateComponents(date: tela1.datePicker.date)
+                }
                 pageViewController?.avancarPagina()
-            case 1...4:
+                
+            case 1...3:
                 pageViewController?.avancarPagina()
+                
+            case 4:
+                if primeiroTutorial {
+                    pageViewController?.avancarPagina()
+                } else {
+                    dismiss(animated: true, completion: {
+                        if self.primeiroTutorial {
+                            if let h = self.horario {
+                                (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
+                            }
+                        }
+                    })
+                }
+                
             case 5:
                 dismiss(animated: true, completion: {
-                    if let h = self.horario {
-                        (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
+                    if self.primeiroTutorial {
+                        if let h = self.horario {
+                            (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
+                        }
                     }
                 })
                 
@@ -70,10 +96,18 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
                 proximoButton.setTitle("Próximo", for: .normal)
                 pularButton.isHidden = true
                 
-            case 1...4:
+            case 1...3:
                 proximoButton.setTitle("Próximo", for: .normal)
                 pularButton.isHidden = false
                 
+            case 4:
+                if primeiroTutorial {
+                    proximoButton.setTitle("Próximo", for: .normal)
+                    pularButton.isHidden = false
+                } else {
+                    proximoButton.setTitle("Começar", for: .normal)
+                    pularButton.isHidden = true
+                }
             case 5:
                 proximoButton.setTitle("Começar", for: .normal)
                 pularButton.isHidden = true
@@ -90,6 +124,7 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
         if let pVC = destino as? TutorialPVController {
             pageViewController = pVC
             pVC.tutorialViewController = self
+            pVC.primeiroTutorial = primeiroTutorial
         }
     }
 

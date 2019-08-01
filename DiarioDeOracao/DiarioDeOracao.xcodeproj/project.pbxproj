@@ -16,7 +16,6 @@
 		E450331222DCE2C60016EA09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E450331022DCE2C60016EA09 /* LaunchScreen.storyboard */; };
 		E450334522DD11AE0016EA09 /* Calendario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450334422DD11AE0016EA09 /* Calendario.swift */; };
 		E450334722DD1ABE0016EA09 /* DiarioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450334622DD1ABE0016EA09 /* DiarioVC.swift */; };
-		E450335822DE61920016EA09 /* NovaNotaTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335722DE61920016EA09 /* NovaNotaTVController.swift */; };
 		E450335C22DE61CC0016EA09 /* lmroman10-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E450335B22DE61C20016EA09 /* lmroman10-regular.otf */; };
 		E450335E22DE69BB0016EA09 /* ListasTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335D22DE69BB0016EA09 /* ListasTVController.swift */; };
 		E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */; };
@@ -41,8 +40,9 @@
 		E48E138622E0D8B5001A4CA2 /* TopicosTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E138522E0D8B5001A4CA2 /* TopicosTableView.swift */; };
 		E48E138A22E10010001A4CA2 /* CabecalhoCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E138922E10010001A4CA2 /* CabecalhoCollectionReusableView.swift */; };
 		E48E138C22E10511001A4CA2 /* RodapeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E138B22E10511001A4CA2 /* RodapeCollectionReusableView.swift */; };
-		E48E138E22E10E16001A4CA2 /* NovaLembrancaTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E138D22E10E16001A4CA2 /* NovaLembrancaTVController.swift */; };
 		E48E13B422E24B90001A4CA2 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48E13B322E24B90001A4CA2 /* Tutorial.storyboard */; };
+		E48EECF022F34AE300CFD1BF /* NovaNotaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48EECEF22F34AE300CFD1BF /* NovaNotaVC.swift */; };
+		E48EECF222F34EAA00CFD1BF /* NovaLembrancaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48EECF122F34EAA00CFD1BF /* NovaLembrancaVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +59,6 @@
 		E450331322DCE2C60016EA09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E450334422DD11AE0016EA09 /* Calendario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendario.swift; sourceTree = "<group>"; };
 		E450334622DD1ABE0016EA09 /* DiarioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiarioVC.swift; sourceTree = "<group>"; };
-		E450335722DE61920016EA09 /* NovaNotaTVController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovaNotaTVController.swift; sourceTree = "<group>"; };
 		E450335B22DE61C20016EA09 /* lmroman10-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lmroman10-regular.otf"; sourceTree = "<group>"; };
 		E450335D22DE69BB0016EA09 /* ListasTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListasTVController.swift; sourceTree = "<group>"; };
 		E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicosTVCell.swift; sourceTree = "<group>"; };
@@ -84,8 +83,9 @@
 		E48E138522E0D8B5001A4CA2 /* TopicosTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicosTableView.swift; sourceTree = "<group>"; };
 		E48E138922E10010001A4CA2 /* CabecalhoCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabecalhoCollectionReusableView.swift; sourceTree = "<group>"; };
 		E48E138B22E10511001A4CA2 /* RodapeCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RodapeCollectionReusableView.swift; sourceTree = "<group>"; };
-		E48E138D22E10E16001A4CA2 /* NovaLembrancaTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaLembrancaTVController.swift; sourceTree = "<group>"; };
 		E48E13B322E24B90001A4CA2 /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
+		E48EECEF22F34AE300CFD1BF /* NovaNotaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaNotaVC.swift; sourceTree = "<group>"; };
+		E48EECF122F34EAA00CFD1BF /* NovaLembrancaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaLembrancaVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,11 +171,11 @@
 			isa = PBXGroup;
 			children = (
 				E450334622DD1ABE0016EA09 /* DiarioVC.swift */,
-				E450335722DE61920016EA09 /* NovaNotaTVController.swift */,
+				E48EECEF22F34AE300CFD1BF /* NovaNotaVC.swift */,
 				E450335D22DE69BB0016EA09 /* ListasTVController.swift */,
 				E413095D22DE9CE200D1BD4F /* NovaOracaoTVController.swift */,
 				E48E137F22E0A791001A4CA2 /* LembrancasCVController.swift */,
-				E48E138D22E10E16001A4CA2 /* NovaLembrancaTVController.swift */,
+				E48EECF122F34EAA00CFD1BF /* NovaLembrancaVC.swift */,
 				E46A69F322E24FA9002B545A /* TutorialVC.swift */,
 				E46A69F122E24F7F002B545A /* TutorialPVController.swift */,
 				E41A582022E9E7B100C6272F /* TutorialTela1VC.swift */,
@@ -258,14 +258,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48EECF022F34AE300CFD1BF /* NovaNotaVC.swift in Sources */,
 				E450335E22DE69BB0016EA09 /* ListasTVController.swift in Sources */,
-				E48E138E22E10E16001A4CA2 /* NovaLembrancaTVController.swift in Sources */,
 				E48E137E22DFAC98001A4CA2 /* NotasCVCell.swift in Sources */,
 				E48E138222E0A83B001A4CA2 /* LembrancaCVCell.swift in Sources */,
 				E4636A0322E6318D00E455A1 /* Capitulo+CoreDataProperties.swift in Sources */,
 				E413095E22DE9CE200D1BD4F /* NovaOracaoTVController.swift in Sources */,
 				E4636A2D22E7EE8E00E455A1 /* Pedido+CoreDataProperties.swift in Sources */,
-				E450335822DE61920016EA09 /* NovaNotaTVController.swift in Sources */,
 				E46A69F422E24FA9002B545A /* TutorialVC.swift in Sources */,
 				E450330D22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld in Sources */,
 				E48A047A22E89B0A0039D847 /* Lembranca+CoreDataProperties.swift in Sources */,
@@ -280,6 +279,7 @@
 				E46A69F222E24F7F002B545A /* TutorialPVController.swift in Sources */,
 				E48A047622E87F470039D847 /* Dia+CoreDataProperties.swift in Sources */,
 				E450330522DCE2C40016EA09 /* AppDelegate.swift in Sources */,
+				E48EECF222F34EAA00CFD1BF /* NovaLembrancaVC.swift in Sources */,
 				E48E138A22E10010001A4CA2 /* CabecalhoCollectionReusableView.swift in Sources */,
 				E4636A0222E6318D00E455A1 /* Capitulo+CoreDataClass.swift in Sources */,
 				E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */,

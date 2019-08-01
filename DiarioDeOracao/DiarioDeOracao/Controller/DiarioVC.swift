@@ -29,6 +29,9 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     var tableView:UITableView?
     var indiceDeletado:IndexPath?
     
+    var notaFoiDeletada:Bool = false
+    var notaDeletada:Nota?
+    
     var capitulos:[Capitulo] = []
     var pedidos:[Pedido] = []
     var notas:[Nota] = []
@@ -90,6 +93,20 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 }
             }
             lembrancaAdicionada.toggle()
+        }
+        
+        if notaFoiDeletada {
+            if let nota = notaDeletada {
+                dia?.removeFromTem(nota)
+                self.context?.delete(nota)
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+//                self.notas.remove(at: notas.firstIndex(of: nota)!)
+                if let dia = dia {
+                    notas = recuperaNotas(dia: dia)
+                }
+                collectionView.reloadData()
+            }
+            notaFoiDeletada.toggle()
         }
     }
     
@@ -383,12 +400,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row > 1 {
-            performSegue(withIdentifier: "editarNota", sender: self)
-        }
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
          return CGSize(width: collectionView.frame.size.width - 20, height: 220)
     }
@@ -397,7 +408,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     // Navegação
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nota = segue.destination as? NovaNotaTVController {
+        if let nota = segue.destination as? NovaNotaVC {
             if segue.identifier == "editarNota" {
                 if let item = collectionView.indexPathsForSelectedItems?.first {
                     let titulo = notas[item.row - 2].titulo
@@ -412,9 +423,11 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 nota.conteudo = nota.modeloNota
                 nota.modoEdicao = false
             }
+            
+            nota.diario = self
         }
         
-        if let lembranca = segue.destination as? NovaLembrancaTVController {
+        if let lembranca = segue.destination as? NovaLembrancaVC {
             if segue.identifier == "novaLembranca" {
                 lembranca.data = dia
                 lembranca.modoEdicao = false
@@ -459,8 +472,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     }
     
     @IBAction func salvarEntrada(_ sender: UIStoryboardSegue){
-        if sender.source is NovaNotaTVController {
-            if let senderAdd = sender.source as? NovaNotaTVController {
+        if sender.source is NovaNotaVC {
+            if let senderAdd = sender.source as? NovaNotaVC {
                 if let nota = senderAdd.novaNota {
                     dia?.addToTem(nota)
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -487,5 +500,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             }
         }
     }
+    
 
 }

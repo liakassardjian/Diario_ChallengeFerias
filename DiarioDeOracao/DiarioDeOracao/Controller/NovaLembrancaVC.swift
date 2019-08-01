@@ -1,14 +1,15 @@
 //
-//  NovaNotaTVController.swift
-//  
+//  NovaLembrancaVC.swift
+//  DiarioDeOracao
 //
-//  Created by Lia Kassardjian on 16/07/19.
+//  Created by Lia Kassardjian on 01/08/19.
+//  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class NovaNotaTVController: UITableViewController, UITextViewDelegate, UITextFieldDelegate {
+class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var tituloTextField: UITextField!
     
@@ -16,11 +17,18 @@ class NovaNotaTVController: UITableViewController, UITextViewDelegate, UITextFie
     
     @IBOutlet weak var salvarButton: UIBarButtonItem!
     
-    let modeloNota = ["Nova nota","Escreva aqui sua nota"]
-    var conteudo:[String] = []
+    @IBOutlet weak var excluirButton: UIBarButtonItem!
     
     var context:NSManagedObjectContext?
-    var novaNota:Nota?
+    
+    var data:Dia?
+    var diario:DiarioVC?
+    var lembrancaCVC:LembrancasCVController?
+    
+    let modeloLembranca = ["Título da sua lembrança","Descreva aqui o acontecimento"]
+    var conteudo:[String] = []
+    
+    var novaLembranca:Lembranca?
     var modoEdicao:Bool = false
     
     override func viewDidLoad() {
@@ -30,42 +38,43 @@ class NovaNotaTVController: UITableViewController, UITextViewDelegate, UITextFie
         tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tituloTextField.delegate = self
         corpoTextView.delegate = self
-        
         salvarButton.isEnabled = false
         
         if modoEdicao {
-            self.navigationItem.title = "Editar nota"
+            self.navigationItem.title = "Editar lembrança"
+            self.excluirButton.isEnabled = true
         } else {
-            self.navigationItem.title = "Nova nota"
+            self.navigationItem.title = "Oração respondida"
+            self.excluirButton.isEnabled = false
         }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         if modoEdicao {
             tituloTextField.text = conteudo[0]
             corpoTextView.text = conteudo[1]
         } else {
-            tituloTextField.text = modeloNota[0]
-            corpoTextView.text = modeloNota[1]
+            tituloTextField.text = modeloLembranca[0]
+            corpoTextView.text = modeloLembranca[1]
             conteudo = ["",""]
         }
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let context = context {
             if !modoEdicao {
-                novaNota = NSEntityDescription.insertNewObject(forEntityName: "Nota", into: context) as! Nota
+                novaLembranca = NSEntityDescription.insertNewObject(forEntityName: "Lembranca", into: context) as! Lembranca
+                
+                if let diario = diario {
+                    diario.lembrancaAdicionada = true
+                }
             }
-            novaNota?.titulo = leTextField(textField: tituloTextField)
-            novaNota?.corpo = leTextView(textView: corpoTextView)
+            novaLembranca?.titulo = leTextField(textField: tituloTextField)
+            novaLembranca?.corpo = leTextView(textView: corpoTextView)
+            
+            if let data = data {
+                novaLembranca?.data = data
+            }
             
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
@@ -112,36 +121,54 @@ class NovaNotaTVController: UITableViewController, UITextViewDelegate, UITextFie
         }
     }
     
-    func validaTexto(titulo: String, corpo: String) {
-        if titulo != "" && corpo != "" && titulo != modeloNota[0] && corpo != modeloNota[1] {
-            salvarButton.isEnabled = true
-        } else {
-            salvarButton.isEnabled = false
-        }
-    }
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.text == modeloNota[0] {
+        if textField.text == modeloLembranca[0] {
             textField.text = ""
         }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == modeloNota[1] {
+        if textView.text == modeloLembranca[1] {
             textView.text = ""
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text == "" {
-            textField.text = modeloNota[0]
+            textField.text = modeloLembranca[0]
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == ""{
-            textView.text = modeloNota[1]
+            textView.text = modeloLembranca[1]
+        }
+    }
+    
+    func validaTexto(titulo: String, corpo: String) {
+        if titulo != "" && corpo != "" && titulo != modeloLembranca[0] && corpo != modeloLembranca[1] {
+            salvarButton.isEnabled = true
+        } else {
+            salvarButton.isEnabled = false
         }
     }
 
+    @IBAction func excluirLembranca(_ sender: Any) {
+        let alert = UIAlertController(title: "Excluir lembrança", message: "Tem certeza de que deseja excluir essa lembrança?", preferredStyle: .alert)
+        
+        let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        let exluir = UIAlertAction(title: "Excluir", style: .destructive, handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
+            if let lem = self.lembrancaCVC {
+                lem.lembrancaFoiDeletada = true
+                lem.lembrancaDeletada = self.novaLembranca
+            }
+        })
+        
+        alert.addAction(cancelar)
+        alert.addAction(exluir)
+        present(alert, animated: true, completion: nil)
+    }
 }

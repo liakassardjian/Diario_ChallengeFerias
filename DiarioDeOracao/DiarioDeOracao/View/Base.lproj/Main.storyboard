@@ -258,6 +258,7 @@
                                             <outlet property="cardView" destination="mdO-Vc-31H" id="rE9-8E-alC"/>
                                             <outlet property="corpoLabel" destination="jCX-L5-idV" id="qBn-DG-TuI"/>
                                             <outlet property="tituloLabel" destination="Emd-Ro-yRm" id="rZZ-8N-CDK"/>
+                                            <segue destination="doA-jg-2UA" kind="show" identifier="editarNota" id="BcY-fW-0wN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -292,7 +293,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="144-Mb-vfv">
                             <color key="tintColor" red="0.69019607839999997" green="0.74901960779999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="0rC-c6-fcf" kind="show" identifier="novaNota" id="k0R-aN-H8v"/>
+                                <segue destination="doA-jg-2UA" kind="show" identifier="novaNota" id="aLf-CG-kDS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -301,8 +302,7 @@
                         <outlet property="collectionView" destination="dzY-yb-3iG" id="pky-DX-Rl6"/>
                         <outlet property="diaLabel" destination="1CH-R4-USH" id="Q1G-Sm-jFd"/>
                         <outlet property="voltarButton" destination="OWy-zG-axB" id="9G3-ro-WuC"/>
-                        <segue destination="0rC-c6-fcf" kind="show" identifier="editarNota" id="gFP-vq-nVL"/>
-                        <segue destination="rom-n0-ebQ" kind="show" identifier="novaLembranca" id="Apw-Hm-mTh"/>
+                        <segue destination="uqj-nn-BUJ" kind="show" identifier="novaLembranca" id="AHu-kj-iLV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9E-ew-arz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -422,7 +422,7 @@
                                     <outlet property="corpoLabel" destination="L68-j5-vfC" id="jA4-jc-oJR"/>
                                     <outlet property="dataLabel" destination="HwO-zn-TfE" id="IUi-36-pNs"/>
                                     <outlet property="tituloLabel" destination="3OO-Xn-GHA" id="cHy-uD-bCD"/>
-                                    <segue destination="idO-EX-cTl" kind="show" identifier="editarLembranca" id="8cz-Ku-tua"/>
+                                    <segue destination="NEW-CH-N2e" kind="show" identifier="editarLembranca" id="jDZ-Tu-LHe"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -483,16 +483,9 @@
                             <outlet property="delegate" destination="pJd-Nz-nXq" id="CBl-HD-7YU"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Lembranças" id="qkR-9l-97r">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="trash" id="a1j-vC-kOU">
-                            <connections>
-                                <action selector="deletarLembranca:" destination="pJd-Nz-nXq" id="UWO-B1-fx9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Lembranças" id="qkR-9l-97r"/>
                     <connections>
                         <outlet property="collectionLayout" destination="hT4-AQ-vLW" id="CfC-7h-4sU"/>
-                        <outlet property="deletarButton" destination="a1j-vC-kOU" id="jzA-Hb-XgE"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aur-wI-OBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -521,91 +514,67 @@
             <point key="canvasLocation" x="-2162" y="522"/>
         </scene>
         <!--Nova nota-->
-        <scene sceneID="Wud-1d-JEV">
+        <scene sceneID="53n-tw-5ks">
             <objects>
-                <tableViewController title="Nova nota" id="0rC-c6-fcf" customClass="NovaNotaTVController" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZEI-nz-V1A">
+                <viewController id="doA-jg-2UA" customClass="NovaNotaVC" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nYF-Y5-4iZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nova nota" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhb-th-KBe">
+                                <rect key="frame" x="20" y="7" width="374" height="33"/>
+                                <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldDidChange:" destination="doA-jg-2UA" eventType="editingChanged" id="pKV-j2-3rY"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Escreva aqui sua nota" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rtr-jn-2nM">
+                                <rect key="frame" x="15" y="47" width="384" height="663"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="0.92545074220000001" green="0.91364258529999998" blue="0.91764861350000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="sectionIndexBackgroundColor" red="0.92545074224472046" green="0.91364258527755737" blue="0.91764861345291138" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <sections>
-                            <tableViewSection id="FM2-34-SsE">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="np4-mS-w5o">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="np4-mS-w5o" id="aVV-QI-7jD">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nova nota" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rcR-bh-rj7">
-                                                    <rect key="frame" x="20" y="7" width="374" height="30"/>
-                                                    <color key="textColor" red="0.26242613790000002" green="0.1478836536" blue="0.20784831049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="textFieldDidChange:" destination="0rC-c6-fcf" eventType="editingDidEnd" id="3zn-E3-kOl"/>
-                                                    </connections>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="rcR-bh-rj7" secondAttribute="bottom" constant="7" id="3Ov-1o-Fbp"/>
-                                                <constraint firstItem="rcR-bh-rj7" firstAttribute="top" secondItem="aVV-QI-7jD" secondAttribute="top" constant="7" id="Jd5-SZ-Nf2"/>
-                                                <constraint firstAttribute="trailing" secondItem="rcR-bh-rj7" secondAttribute="trailing" constant="20" id="Z55-mG-GWM"/>
-                                                <constraint firstItem="rcR-bh-rj7" firstAttribute="leading" secondItem="aVV-QI-7jD" secondAttribute="leading" constant="20" id="cBp-iD-gd1"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="681" id="gLh-CQ-Upv">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="681"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gLh-CQ-Upv" id="4WY-QE-xPf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="681"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Escreva aqui sua nota" translatesAutoresizingMaskIntoConstraints="NO" id="6nL-lO-8gx">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="681"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="6nL-lO-8gx" firstAttribute="top" secondItem="4WY-QE-xPf" secondAttribute="top" id="o56-Pv-4vh"/>
-                                                <constraint firstAttribute="bottom" secondItem="6nL-lO-8gx" secondAttribute="bottom" id="rAy-Zq-PFb"/>
-                                                <constraint firstItem="6nL-lO-8gx" firstAttribute="leading" secondItem="4WY-QE-xPf" secondAttribute="leading" constant="15" id="rdu-Fb-rDY"/>
-                                                <constraint firstAttribute="trailing" secondItem="6nL-lO-8gx" secondAttribute="trailing" constant="15" id="tsn-KV-UvR"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="0rC-c6-fcf" id="xVX-6X-v79"/>
-                            <outlet property="delegate" destination="0rC-c6-fcf" id="rH2-Eu-iDp"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Nova nota" largeTitleDisplayMode="never" id="E5L-sX-lty">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="3jo-GX-YQ2">
-                            <connections>
-                                <segue destination="fbP-2D-AFn" kind="unwind" unwindAction="salvarEntrada:" id="x9t-Zs-yp8"/>
-                            </connections>
-                        </barButtonItem>
+                        <constraints>
+                            <constraint firstItem="lhb-th-KBe" firstAttribute="top" secondItem="phQ-Ut-EyF" secondAttribute="top" constant="7" id="ElO-GX-Yv1"/>
+                            <constraint firstItem="Rtr-jn-2nM" firstAttribute="top" secondItem="lhb-th-KBe" secondAttribute="bottom" constant="7" id="W2g-Ob-yTK"/>
+                            <constraint firstItem="phQ-Ut-EyF" firstAttribute="bottom" secondItem="Rtr-jn-2nM" secondAttribute="bottom" constant="15" id="cml-1C-Tvh"/>
+                            <constraint firstItem="phQ-Ut-EyF" firstAttribute="trailing" secondItem="Rtr-jn-2nM" secondAttribute="trailing" constant="15" id="dt9-wj-MHI"/>
+                            <constraint firstItem="phQ-Ut-EyF" firstAttribute="trailing" secondItem="lhb-th-KBe" secondAttribute="trailing" constant="20" id="h5C-sW-w5H"/>
+                            <constraint firstItem="lhb-th-KBe" firstAttribute="leading" secondItem="phQ-Ut-EyF" secondAttribute="leading" constant="20" id="hRz-vl-CBX"/>
+                            <constraint firstItem="Rtr-jn-2nM" firstAttribute="leading" secondItem="phQ-Ut-EyF" secondAttribute="leading" constant="15" id="k6c-Ok-Q6H"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="phQ-Ut-EyF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nova nota" largeTitleDisplayMode="never" id="Gwm-0Q-LCK">
+                        <rightBarButtonItems>
+                            <barButtonItem image="Salvar" id="yZo-nD-3Ez">
+                                <connections>
+                                    <segue destination="oAF-eX-V9d" kind="unwind" unwindAction="salvarEntrada:" id="mum-GS-OAp"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="jv8-47-V1t">
+                                <connections>
+                                    <action selector="excluirNota:" destination="doA-jg-2UA" id="c4w-EX-92u"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="corpoTextView" destination="6nL-lO-8gx" id="kIE-Me-Rzb"/>
-                        <outlet property="salvarButton" destination="3jo-GX-YQ2" id="1Mb-BZ-H6E"/>
-                        <outlet property="tituloTextField" destination="rcR-bh-rj7" id="MHu-EU-InC"/>
+                        <outlet property="corpoTextView" destination="Rtr-jn-2nM" id="EaQ-dQ-pdn"/>
+                        <outlet property="excluirButton" destination="jv8-47-V1t" id="jhy-IK-mhn"/>
+                        <outlet property="salvarButton" destination="yZo-nD-3Ez" id="i29-4A-g7h"/>
+                        <outlet property="tituloTextField" destination="lhb-th-KBe" id="pwk-vN-g4P"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fbx-Tx-tfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="fbP-2D-AFn" userLabel="Exit" sceneMemberID="exit"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4a8-eN-zeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="oAF-eX-V9d" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-4268" y="2087"/>
+            <point key="canvasLocation" x="-4342.0289855072469" y="2086.6071428571427"/>
         </scene>
         <!--Nova oração-->
         <scene sceneID="vnl-st-6eb">
@@ -746,7 +715,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Nova oração" largeTitleDisplayMode="never" id="dAt-aL-vBk">
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="p0N-hM-MNW"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="clu-sX-0xe">
+                        <barButtonItem key="rightBarButtonItem" image="Salvar" id="clu-sX-0xe">
                             <connections>
                                 <segue destination="47P-yU-ozz" kind="unwind" unwindAction="salvarEntrada:" id="CtC-jT-a7w"/>
                             </connections>
@@ -812,181 +781,126 @@
             <point key="canvasLocation" x="-2883" y="-277"/>
         </scene>
         <!--Nova nota-->
-        <scene sceneID="VUi-tY-K7q">
+        <scene sceneID="dbv-5Z-RWM">
             <objects>
-                <tableViewController title="Nova nota" id="rom-n0-ebQ" customClass="NovaLembrancaTVController" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RGK-og-haa">
+                <viewController id="uqj-nn-BUJ" customClass="NovaLembrancaVC" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KJO-nT-fvN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Título da sua lembrança" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NoI-cP-lWE">
+                                <rect key="frame" x="20" y="7" width="374" height="33"/>
+                                <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldDidChange:" destination="uqj-nn-BUJ" eventType="editingChanged" id="8eQ-dT-jj0"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Descreva aqui o acontecimento" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6vm-1J-HKa">
+                                <rect key="frame" x="15" y="47" width="384" height="628"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <sections>
-                            <tableViewSection id="QX4-YS-OcA">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Cv5-Y3-7p7">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cv5-Y3-7p7" id="lIw-WU-Nss">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Título da sua lembrança" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bjQ-fu-4Jt">
-                                                    <rect key="frame" x="20" y="7" width="374" height="33"/>
-                                                    <color key="textColor" red="0.26242613790000002" green="0.1478836536" blue="0.20784831049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="textFieldDidChange:" destination="rom-n0-ebQ" eventType="editingDidEnd" id="ZVH-9m-bA9"/>
-                                                    </connections>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="bjQ-fu-4Jt" secondAttribute="trailing" constant="20" id="2GC-SW-s1D"/>
-                                                <constraint firstAttribute="bottom" secondItem="bjQ-fu-4Jt" secondAttribute="bottom" constant="4" id="FPc-1H-foO"/>
-                                                <constraint firstItem="bjQ-fu-4Jt" firstAttribute="leading" secondItem="lIw-WU-Nss" secondAttribute="leading" constant="20" id="ePV-Pe-qgk"/>
-                                                <constraint firstItem="bjQ-fu-4Jt" firstAttribute="top" secondItem="lIw-WU-Nss" secondAttribute="top" constant="7" id="is3-mh-5MR"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="681" id="gv7-sk-m27">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="681"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gv7-sk-m27" id="DUb-KW-cuL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="681"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Descreva aqui o acontecimento" translatesAutoresizingMaskIntoConstraints="NO" id="F1e-6p-Ic0">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="681"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="F1e-6p-Ic0" firstAttribute="leading" secondItem="DUb-KW-cuL" secondAttribute="leading" constant="15" id="43y-CD-a9l"/>
-                                                <constraint firstAttribute="bottom" secondItem="F1e-6p-Ic0" secondAttribute="bottom" id="6nh-B9-PPp"/>
-                                                <constraint firstAttribute="trailing" secondItem="F1e-6p-Ic0" secondAttribute="trailing" constant="15" id="R4X-87-OSS"/>
-                                                <constraint firstItem="F1e-6p-Ic0" firstAttribute="top" secondItem="DUb-KW-cuL" secondAttribute="top" id="TAX-TW-KIn"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="rom-n0-ebQ" id="zaV-j4-Dyx"/>
-                            <outlet property="delegate" destination="rom-n0-ebQ" id="xAR-KQ-VlV"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Oração respondida" largeTitleDisplayMode="never" id="rtu-qo-D2k">
-                        <barButtonItem key="backBarButtonItem" title="Cancelar" id="5hP-Qx-Ymo"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="bdK-ut-0v7">
-                            <connections>
-                                <segue destination="W21-dB-xe8" kind="unwind" unwindAction="salvarEntrada:" id="Xkx-E9-Qcd"/>
-                            </connections>
-                        </barButtonItem>
+                        <constraints>
+                            <constraint firstItem="J8v-Rg-3cH" firstAttribute="bottom" secondItem="6vm-1J-HKa" secondAttribute="bottom" constant="50" id="FG2-t4-rsz"/>
+                            <constraint firstItem="NoI-cP-lWE" firstAttribute="leading" secondItem="J8v-Rg-3cH" secondAttribute="leading" constant="20" id="I2L-BD-UI4"/>
+                            <constraint firstItem="J8v-Rg-3cH" firstAttribute="trailing" secondItem="6vm-1J-HKa" secondAttribute="trailing" constant="15" id="af4-ZW-ykv"/>
+                            <constraint firstItem="NoI-cP-lWE" firstAttribute="top" secondItem="J8v-Rg-3cH" secondAttribute="top" constant="7" id="dEm-OR-D2G"/>
+                            <constraint firstItem="6vm-1J-HKa" firstAttribute="leading" secondItem="J8v-Rg-3cH" secondAttribute="leading" constant="15" id="i20-kI-02n"/>
+                            <constraint firstItem="J8v-Rg-3cH" firstAttribute="trailing" secondItem="NoI-cP-lWE" secondAttribute="trailing" constant="20" id="oeV-E5-5Hb"/>
+                            <constraint firstItem="6vm-1J-HKa" firstAttribute="top" secondItem="NoI-cP-lWE" secondAttribute="bottom" constant="7" id="rmn-fy-BkS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J8v-Rg-3cH"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nova nota" largeTitleDisplayMode="never" id="xDs-Kz-k98">
+                        <rightBarButtonItems>
+                            <barButtonItem image="Salvar" id="9Rr-2J-DuF">
+                                <connections>
+                                    <segue destination="H2N-g2-HC5" kind="unwind" unwindAction="salvarEntrada:" id="D0x-rg-D2r"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title=" " id="VYa-ml-Pat"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="corpoTextView" destination="F1e-6p-Ic0" id="0Zh-Io-u2w"/>
-                        <outlet property="salvarButton" destination="bdK-ut-0v7" id="o47-nL-6JG"/>
-                        <outlet property="tituloTextField" destination="bjQ-fu-4Jt" id="EE7-ZV-f9O"/>
+                        <outlet property="corpoTextView" destination="6vm-1J-HKa" id="vO7-7r-hrg"/>
+                        <outlet property="excluirButton" destination="VYa-ml-Pat" id="tRh-ep-2L2"/>
+                        <outlet property="salvarButton" destination="9Rr-2J-DuF" id="FoS-ld-0YQ"/>
+                        <outlet property="tituloTextField" destination="NoI-cP-lWE" id="3V4-Ej-lVf"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YrN-Ud-D3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="W21-dB-xe8" userLabel="Exit" sceneMemberID="exit"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9aE-lf-QMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="H2N-g2-HC5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-2884" y="2087"/>
         </scene>
         <!--Nova nota-->
-        <scene sceneID="rTJ-NJ-W7j">
+        <scene sceneID="Rl9-aw-f5p">
             <objects>
-                <tableViewController title="Nova nota" id="idO-EX-cTl" customClass="NovaLembrancaTVController" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8CZ-xe-a35">
+                <viewController id="NEW-CH-N2e" customClass="NovaLembrancaVC" customModule="DiarioDeOracao" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6KH-wh-tF2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Título da sua lembrança" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Xt-nH-LZX">
+                                <rect key="frame" x="20" y="7" width="374" height="33"/>
+                                <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldDidChange:" destination="NEW-CH-N2e" eventType="editingChanged" id="bq2-aq-1uw"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Descreva aqui o acontecimento" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Ms-UO-nhL">
+                                <rect key="frame" x="15" y="47" width="384" height="628"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <sections>
-                            <tableViewSection id="VM6-uf-6lk">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="De0-hR-fyD">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="De0-hR-fyD" id="59x-Gi-Mz0">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Título da sua lembrança" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lwz-vr-6iB">
-                                                    <rect key="frame" x="20" y="7" width="374" height="33"/>
-                                                    <color key="textColor" red="0.26242613790000002" green="0.1478836536" blue="0.20784831049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="textFieldDidChange:" destination="idO-EX-cTl" eventType="editingDidEnd" id="4mP-bt-iL7"/>
-                                                    </connections>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="lwz-vr-6iB" secondAttribute="trailing" constant="20" id="7H6-dS-TP4"/>
-                                                <constraint firstItem="lwz-vr-6iB" firstAttribute="leading" secondItem="59x-Gi-Mz0" secondAttribute="leading" constant="20" id="WHv-Dg-RRx"/>
-                                                <constraint firstAttribute="bottom" secondItem="lwz-vr-6iB" secondAttribute="bottom" constant="4" id="XV2-ia-LfJ"/>
-                                                <constraint firstItem="lwz-vr-6iB" firstAttribute="top" secondItem="59x-Gi-Mz0" secondAttribute="top" constant="7" id="ykK-aJ-Dj9"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="681" id="U6G-E5-iEp">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="681"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U6G-E5-iEp" id="cfQ-a7-yZR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="681"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Descreva aqui o acontecimento" translatesAutoresizingMaskIntoConstraints="NO" id="731-NH-VGi">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="681"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="731-NH-VGi" firstAttribute="leading" secondItem="cfQ-a7-yZR" secondAttribute="leading" constant="15" id="B78-Vx-dEA"/>
-                                                <constraint firstAttribute="bottom" secondItem="731-NH-VGi" secondAttribute="bottom" id="mzd-hG-TDj"/>
-                                                <constraint firstItem="731-NH-VGi" firstAttribute="top" secondItem="cfQ-a7-yZR" secondAttribute="top" id="p3D-QM-Cde"/>
-                                                <constraint firstAttribute="trailing" secondItem="731-NH-VGi" secondAttribute="trailing" constant="15" id="qVs-XR-6BA"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="idO-EX-cTl" id="m7s-YG-5Rl"/>
-                            <outlet property="delegate" destination="idO-EX-cTl" id="wse-FI-13Q"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Oração respondida" largeTitleDisplayMode="never" id="i3P-lr-hF5">
-                        <barButtonItem key="backBarButtonItem" title="Cancelar" id="vgC-2X-bMM">
-                            <color key="tintColor" red="0.2901960784" green="0.35285353660000002" blue="0.1741557121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0m3-d8-EjQ">
-                            <color key="tintColor" red="0.29019607843137252" green="0.35285353660000002" blue="0.1741557121" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="nGa-IY-uxY" kind="unwind" unwindAction="salvarEntrada:" id="KhN-8F-dEz"/>
-                            </connections>
-                        </barButtonItem>
+                        <constraints>
+                            <constraint firstItem="5Ms-UO-nhL" firstAttribute="leading" secondItem="xeF-zH-Ugo" secondAttribute="leading" constant="15" id="5Ry-k2-qXk"/>
+                            <constraint firstItem="xeF-zH-Ugo" firstAttribute="trailing" secondItem="7Xt-nH-LZX" secondAttribute="trailing" constant="20" id="7Z6-aw-AWK"/>
+                            <constraint firstItem="xeF-zH-Ugo" firstAttribute="trailing" secondItem="5Ms-UO-nhL" secondAttribute="trailing" constant="15" id="EqD-hf-4QV"/>
+                            <constraint firstItem="xeF-zH-Ugo" firstAttribute="bottom" secondItem="5Ms-UO-nhL" secondAttribute="bottom" constant="50" id="KsW-C2-wi2"/>
+                            <constraint firstItem="7Xt-nH-LZX" firstAttribute="top" secondItem="xeF-zH-Ugo" secondAttribute="top" constant="7" id="SRT-E3-sAt"/>
+                            <constraint firstItem="5Ms-UO-nhL" firstAttribute="top" secondItem="7Xt-nH-LZX" secondAttribute="bottom" constant="7" id="XNe-6t-MTR"/>
+                            <constraint firstItem="7Xt-nH-LZX" firstAttribute="leading" secondItem="xeF-zH-Ugo" secondAttribute="leading" constant="20" id="zjv-5b-8fx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xeF-zH-Ugo"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nova nota" largeTitleDisplayMode="never" id="7r3-Iw-l1a">
+                        <rightBarButtonItems>
+                            <barButtonItem image="Salvar" id="EeX-GY-9BS">
+                                <connections>
+                                    <segue destination="Hiw-V8-7yG" kind="unwind" unwindAction="salvarEntrada:" id="5Bw-0e-v7K"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="TAX-xm-IoD">
+                                <connections>
+                                    <action selector="excluirLembranca:" destination="NEW-CH-N2e" id="VkO-2O-JUd"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="corpoTextView" destination="731-NH-VGi" id="39A-o2-2JG"/>
-                        <outlet property="salvarButton" destination="0m3-d8-EjQ" id="WLW-dj-74o"/>
-                        <outlet property="tituloTextField" destination="lwz-vr-6iB" id="9VK-dM-ziw"/>
+                        <outlet property="corpoTextView" destination="5Ms-UO-nhL" id="nln-BN-2SE"/>
+                        <outlet property="excluirButton" destination="TAX-xm-IoD" id="hPI-Vn-m9a"/>
+                        <outlet property="salvarButton" destination="EeX-GY-9BS" id="J7g-Xz-LRx"/>
+                        <outlet property="tituloTextField" destination="7Xt-nH-LZX" id="as7-5M-e9A"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vdX-qN-gOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="nGa-IY-uxY" userLabel="Exit" sceneMemberID="exit"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i0Y-Fe-pvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Hiw-V8-7yG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2165" y="2087"/>
+            <point key="canvasLocation" x="-2162" y="2087"/>
         </scene>
     </scenes>
     <resources>
@@ -994,9 +908,10 @@
         <image name="Botao depois" width="297" height="297"/>
         <image name="Diario" width="51" height="51"/>
         <image name="Lembrancas" width="51" height="51"/>
+        <image name="Salvar" width="51" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="k0R-aN-H8v"/>
+        <segue reference="BcY-fW-0wN"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.69019607839999997" green="0.74901960779999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

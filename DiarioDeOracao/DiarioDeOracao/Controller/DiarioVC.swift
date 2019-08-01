@@ -25,6 +25,10 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
     let titulos = ["Leitura bíblica diária","Lista de oração diária"]
     
+    var lembrancaAdicionada:Bool = false
+    var tableView:UITableView?
+    var indiceDeletado:IndexPath?
+    
     var capitulos:[Capitulo] = []
     var pedidos:[Pedido] = []
     var notas:[Nota] = []
@@ -75,7 +79,18 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(pedidos)
+        if lembrancaAdicionada {
+            if let indice = indiceDeletado {
+                if let tableView = tableView {
+                    self.dia?.removeFromLista(self.pedidos[indice.row])
+                    self.context?.delete(self.pedidos[indice.row])
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    self.pedidos.remove(at: indice.row)
+                    tableView.deleteRows(at: [indice], with: .fade)
+                }
+            }
+            lembrancaAdicionada.toggle()
+        }
     }
     
     // Core Data
@@ -305,12 +320,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             })
             
             let concluir = UITableViewRowAction(style: .normal, title: "Marcar como respondido", handler: {(action, indexPath) in
-                self.dia?.removeFromLista(self.pedidos[indexPath.row])
-                self.context?.delete(self.pedidos[indexPath.row])
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
-                self.pedidos.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                print(self.pedidos)
+                self.indiceDeletado = indexPath
+                self.tableView = tableView
                 self.performSegue(withIdentifier: "novaLembranca", sender: self)
             })
             
@@ -407,6 +418,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             if segue.identifier == "novaLembranca" {
                 lembranca.data = dia
                 lembranca.modoEdicao = false
+                lembranca.diario = self
             }
         }
     }

@@ -33,7 +33,11 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     @IBAction func pularTutorial(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            if let h = self.horario {
+                (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
+            }
+        })
     }
     
     @IBAction func avancarPagina(_ sender: Any) {
@@ -42,16 +46,15 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
             case 0:
                 let tela1:TutorialTela1VC = pageViewController?.ordemViewControllers[0] as! TutorialTela1VC
                 horario = Calendario.shared.retornaDateComponents(date: tela1.datePicker.date)
-
-                if let h = horario {
-                     (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
-                }
-                
                 pageViewController?.avancarPagina()
             case 1...4:
                 pageViewController?.avancarPagina()
             case 5:
-                dismiss(animated: true, completion: nil)
+                dismiss(animated: true, completion: {
+                    if let h = self.horario {
+                        (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
+                    }
+                })
                 
             default:
                 break
@@ -90,4 +93,5 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
         }
     }
 
+    
 }

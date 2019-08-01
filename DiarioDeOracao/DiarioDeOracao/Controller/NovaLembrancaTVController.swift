@@ -20,6 +20,7 @@ class NovaLembrancaTVController: UITableViewController, UITextFieldDelegate, UIT
     var context:NSManagedObjectContext?
     
     var data:Dia?
+    var diario:DiarioVC?
     
     let modeloLembranca = ["Título da sua lembrança","Descreva aqui o acontecimento"]
     var conteudo:[String] = []
@@ -66,6 +67,10 @@ class NovaLembrancaTVController: UITableViewController, UITextFieldDelegate, UIT
         if let context = context {
             if !modoEdicao {
                 novaLembranca = NSEntityDescription.insertNewObject(forEntityName: "Lembranca", into: context) as! Lembranca
+                
+                if let diario = diario {
+                    diario.lembrancaAdicionada = true
+                }
             }
             novaLembranca?.titulo = leTextField(textField: tituloTextField)
             novaLembranca?.corpo = leTextView(textView: corpoTextView)

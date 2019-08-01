@@ -1,20 +1,25 @@
 //
-//  NovaNotaTVController.swift
-//  
+//  NovaNotaVC.swift
+//  DiarioDeOracao
 //
-//  Created by Lia Kassardjian on 16/07/19.
+//  Created by Lia Kassardjian on 01/08/19.
+//  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class NovaNotaTVController: UITableViewController, UITextViewDelegate, UITextFieldDelegate {
+class NovaNotaVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
-    @IBOutlet weak var tituloTextField: UITextField!
+   @IBOutlet weak var tituloTextField: UITextField!
     
     @IBOutlet weak var corpoTextView: UITextView!
     
     @IBOutlet weak var salvarButton: UIBarButtonItem!
+    
+    @IBOutlet weak var excluirButton: UIBarButtonItem!
+    
+    var diario:DiarioVC?
     
     let modeloNota = ["Nova nota","Escreva aqui sua nota"]
     var conteudo:[String] = []
@@ -32,8 +37,16 @@ class NovaNotaTVController: UITableViewController, UITextViewDelegate, UITextFie
         corpoTextView.delegate = self
         
         salvarButton.isEnabled = false
+        
+        if modoEdicao {
+            self.navigationItem.title = "Editar nota"
+            excluirButton.isEnabled = true
+        } else {
+            self.navigationItem.title = "Nova nota"
+            excluirButton.isEnabled = false
+        }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         if modoEdicao {
             tituloTextField.text = conteudo[0]
@@ -43,14 +56,6 @@ class NovaNotaTVController: UITableViewController, UITextViewDelegate, UITextFie
             corpoTextView.text = modeloNota[1]
             conteudo = ["",""]
         }
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -137,5 +142,26 @@ class NovaNotaTVController: UITableViewController, UITextViewDelegate, UITextFie
             textView.text = modeloNota[1]
         }
     }
+
+    @IBAction func excluirNota(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Excluir nota", message: "Tem certeza de que deseja excluir essa nota?", preferredStyle: .alert)
+        
+        let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        let exluir = UIAlertAction(title: "Excluir", style: .destructive, handler: { _ in
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
+                if let diario = self.diario {
+                    diario.notaFoiDeletada = true
+                    diario.notaDeletada = self.novaNota
+                }
+            })
+        
+        alert.addAction(cancelar)
+        alert.addAction(exluir)
+        present(alert, animated: true, completion: nil)
+    }
+    
 
 }

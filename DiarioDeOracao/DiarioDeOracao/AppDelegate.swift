@@ -241,5 +241,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler([.alert,.sound,.badge])
     }
 
+    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, completionHandler: @escaping () -> Void) {
+        switch identifier {
+        case "ADIAR":
+            notification.fireDate = NSDate().addingTimeInterval(300) as Date
+            application.scheduleLocalNotification(notification)
+            break
+        default:
+            break
+        }
+        completionHandler()
+    }
 }
 

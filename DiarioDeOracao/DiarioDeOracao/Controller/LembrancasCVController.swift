@@ -20,11 +20,15 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
     var lembrancas:[[Lembranca]] = []
     var anos:[Int] = []
     
+    var lembrancaFoiDeletada:Bool = false
+    var lembrancaDeletada:Lembranca?
+    
     var semLembrancaLabel:UILabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
 
         if let flowLayout = collectionLayout {
             let w = collectionView.frame.size.width - 20
@@ -48,15 +52,30 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         carregaLembrancas()
         collectionView.reloadData()
+
+        if lembrancaFoiDeletada {
+            if let lembranca = lembrancaDeletada {
+                let ano = Calendario.shared.retornaAno(date: lembrancaDeletada?.data?.data as! Date)
+                self.context?.delete(lembranca)
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                
+                carregaLembrancas()
+                collectionView.reloadData()
+            }
+            lembrancaFoiDeletada.toggle()
+        }
         
         if lembrancas.count == 0 {
             semLembrancaLabel?.isHidden = false
         } else {
             semLembrancaLabel?.isHidden = true
         }
+        
+        
+        
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
@@ -68,6 +87,9 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         semLembrancaLabel?.sizeToFit()
     }
     
+    
+    // Core Data
+    
     func carregaLembrancas() {
         do {
             var lem:[Lembranca] = []
@@ -75,15 +97,18 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
                 lem = try context.fetch(Lembranca.fetchRequest())
             }
             
+            var a:[Int] = []
             for l in lem {
                 let data = l.data?.data as! Date
                 let ano = Calendario.shared.retornaAno(date: data)
-                if !anos.contains(ano) {
-                    anos.append(ano)
+                if !a.contains(ano) {
+                    a.append(ano)
                 }
             }
-            anos.sort(by: >)
+            a.sort(by: >)
+            anos = a
             
+            lembrancas = []
             for _ in anos {
                 let novoVetor:[Lembranca] = []
                 lembrancas.append(novoVetor)
@@ -104,6 +129,9 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         }
     }
 
+    
+    // Collection View
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return anos.count
     }
@@ -158,7 +186,6 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         }
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -172,5 +199,42 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
             return CGSize(width: collectionView.frame.size.width - 70, height: 142)
         }
     }
-
+    
+    
+    // Navegação
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if isEditing {
+            return false
+        }
+        return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let lembranca = segue.destination as? NovaLembrancaVC {
+            if segue.identifier == "editarLembranca" {
+                if let item = collectionView.indexPathsForSelectedItems?.first {
+                    let titulo = lembrancas[item.section][item.row].titulo
+                    let corpo = lembrancas[item.section][item.row].corpo
+                    lembranca.conteudo = [titulo,corpo] as! [String]
+                    lembranca.novaLembranca = lembrancas[item.section][item.row]
+                    lembranca.modoEdicao = true
+                    lembranca.lembrancaCVC = self
+                }
+            }
+        }
+    }
+    
+    @IBAction func salvarEntrada(_ sender: UIStoryboardSegue){
+        if sender.source is NovaLembrancaVC {
+            if let senderAdd = sender.source as? NovaLembrancaVC {
+                if let lembranca = senderAdd.novaLembranca {
+                    collectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+    
+    
 }

@@ -37,6 +37,8 @@ class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
         tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         salvarButton.isEnabled = false
+        
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     @IBAction func valorPickerAlterado(_ sender: Any) {

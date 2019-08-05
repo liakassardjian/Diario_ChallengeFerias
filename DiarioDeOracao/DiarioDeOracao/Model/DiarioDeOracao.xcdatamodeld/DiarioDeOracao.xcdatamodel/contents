@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18G84" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Capitulo" representedClassName=".Capitulo" syncable="YES">
         <attribute name="dia" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lido" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -7,8 +7,8 @@
     </entity>
     <entity name="Dia" representedClassName=".Dia" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="leitura" optional="YES" toMany="YES" minCount="3" maxCount="4" deletionRule="Nullify" ordered="YES" destinationEntity="Capitulo" syncable="YES"/>
-        <relationship name="lista" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Pedido" syncable="YES"/>
+        <relationship name="leitura" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Capitulo" syncable="YES"/>
+        <relationship name="lista" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Pedido" inverseName="concluiu" inverseEntity="Pedido" syncable="YES"/>
         <relationship name="tem" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Nota" syncable="YES"/>
     </entity>
     <entity name="Lembranca" representedClassName=".Lembranca" syncable="YES">
@@ -24,13 +24,13 @@
         <attribute name="dataFinal" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urgencia" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="concluiu" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Dia" syncable="YES"/>
+        <relationship name="concluiu" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Dia" inverseName="lista" inverseEntity="Dia" syncable="YES"/>
     </entity>
     <elements>
         <element name="Capitulo" positionX="-39.640625" positionY="201.6796875" width="128" height="90"/>
         <element name="Dia" positionX="-36" positionY="27" width="128" height="103"/>
-        <element name="Pedido" positionX="258.58203125" positionY="39.02734375" width="128" height="103"/>
-        <element name="Nota" positionX="131.1328125" positionY="176.2890625" width="128" height="73"/>
-        <element name="Lembranca" positionX="117" positionY="144" width="128" height="90"/>
+        <element name="Lembranca" positionX="279.94921875" positionY="-0.4296875" width="128" height="90"/>
+        <element name="Nota" positionX="151.10546875" positionY="164.62109375" width="128" height="73"/>
+        <element name="Pedido" positionX="-20.9375" positionY="-247.05859375" width="128" height="103"/>
     </elements>
 </model>

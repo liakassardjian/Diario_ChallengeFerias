@@ -49,11 +49,11 @@ class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let context = context {
             novoPedido = NSEntityDescription.insertNewObject(forEntityName: "Pedido", into: context) as! Pedido
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
          
             novoPedido?.nome = leTextField(textField: tituloTextField)
             novoPedido?.urgencia = Int32(urgenciaSegmentedControl.selectedSegmentIndex)
             novoPedido?.dataFinal = dataDatePicker.date as NSDate
-            
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
             return true
@@ -86,5 +86,9 @@ class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 
 }

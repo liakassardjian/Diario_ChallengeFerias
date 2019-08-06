@@ -20,7 +20,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     var dia:Dia?
     var contagemDias:Int = 0
     var anosPassados:Int = 0
-    let totalDias:Int = 2 //360
+    let totalDias:Int = 360
     
     var capitulos:[Capitulo] = []
     var pedidos:[Pedido] = []
@@ -142,9 +142,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         capitulos = capitulosTemp
         
         recuperaPedidos(dia: dia!)
-//        for p in pedidos {
-//            print("PEDIDO: \(p.nome)")
-//        }
+        
+        notas = recuperaNotas(dia: dia!)
     }
     
     func recomecaLeitura() {

@@ -24,28 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let ultimoDia = defaults.integer(forKey: "ultimoDia")
         
         if !aberto{
-            do {
-                if let path = Bundle.main.path(forResource: "capitulos", ofType: "json", inDirectory: nil)
-                {
-                    let url = URL(fileURLWithPath: path)
-                    let jsonData = try Data(contentsOf: url)
-                    let aulas = try JSONDecoder().decode(Capitulos.self, from: jsonData)
-                    
-                    for i in 0...aulas.count-1{
-                        let registro = NSEntityDescription.insertNewObject(forEntityName: "Capitulo", into: self.persistentContainer.viewContext) as! Capitulo
-                        
-                        registro.titulo = aulas[i].titulo
-                        registro.lido = false
-                        registro.dia = aulas[i].dia
-                        
-                        self.saveContext()
-                    }
-                    
-                    print("Inserido com sucesso")
-                }
-            } catch {
-                print("Erro ao inserir os dados dos capitulos")
-            }
             defaults.set(true, forKey: "aberto")
             defaults.set(1, forKey: "dia")
             defaults.set(Calendario.shared.retornaDiaNumero(), forKey: "ultimoDia")
@@ -71,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        self.saveContext()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -209,6 +188,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         print(error.localizedDescription)
                     }
                 }
+                
+                let hora = UserDefaults().integer(forKey: "hora")
+                let minuto = UserDefaults().integer(forKey: "minuto")
+                
+                UserDefaults().set(data.hour, forKey: "hora")
+                UserDefaults().set(data.minute, forKey: "minuto")
                 
             } else {
                 print("Impossível mandar notificação - permissão negada")

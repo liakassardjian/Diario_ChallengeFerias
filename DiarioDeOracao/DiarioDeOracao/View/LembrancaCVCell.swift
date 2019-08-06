@@ -14,14 +14,11 @@ class LembrancaCVCell: UICollectionViewCell {
     @IBOutlet weak var tituloLabel: UILabel!
     @IBOutlet weak var corpoLabel: UILabel!
     
-    @IBOutlet weak var checkMarkLabel: UILabel!
-    
     @IBOutlet weak var circuloView: UIView! {
         didSet {
             self.circuloView.layer.cornerRadius = 0.5 * self.circuloView.frame.width
         }
     }
-    
     
     @IBOutlet weak var cardView: UIView! {
         didSet {
@@ -39,17 +36,4 @@ class LembrancaCVCell: UICollectionViewCell {
         return layoutAttributes
     }
     
-    var isInEditingMode: Bool = false {
-        didSet {
-            checkMarkLabel.isHidden = !isInEditingMode
-        }
-    }
-    
-    override var isSelected: Bool {
-        didSet {
-            if isInEditingMode {
-                checkMarkLabel.text = isSelected ? "✓" : ""
-            }
-        }
-    }
 }

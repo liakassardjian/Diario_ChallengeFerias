@@ -16,25 +16,23 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     @IBOutlet weak var diaLabel: UILabel!
     @IBOutlet weak var voltarButton: UIButton!
     
-    
+    var dias:[Dia] = []
     var dia:Dia?
     var contagemDias:Int = 0
     var anosPassados:Int = 0
-    
     let totalDias:Int = 360
+    
+    var capitulos:[Capitulo] = []
+    var pedidos:[Pedido] = []
+    var notas:[Nota] = []
     
     let titulos = ["Leitura bíblica diária","Lista de oração diária"]
     
     var lembrancaAdicionada:Bool = false
     var tableView:UITableView?
     var indiceDeletado:IndexPath?
-    
     var notaFoiDeletada:Bool = false
     var notaDeletada:Nota?
-    
-    var capitulos:[Capitulo] = []
-    var pedidos:[Pedido] = []
-    var notas:[Nota] = []
     
     var atributoString:NSMutableAttributedString?
     
@@ -60,8 +58,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             UserDefaults().set(num, forKey: "ultimoDia")
         }
         
-        dia = carregaDia()
-        
         if contagemDias <= 1 {
             voltarButton.isHidden = true
         }
@@ -69,23 +65,24 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         let defaults = UserDefaults()
         let tutorial = defaults.bool(forKey: "tutorial")
         if !tutorial {
             let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
             if let tutorialViewController = storyboard.instantiateViewController(withIdentifier: "tutorialVC") as? TutorialVC {
+                tutorialViewController.primeiroTutorial = true
                 present(tutorialViewController, animated: true, completion: nil)
             }
             defaults.set(true, forKey: "tutorial")
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
+        recuperaDias()
+        carregaDia()
+        
         if lembrancaAdicionada {
             if let indice = indiceDeletado {
                 if let tableView = tableView {
-                    self.dia?.removeFromLista(self.pedidos[indice.row])
                     self.context?.delete(self.pedidos[indice.row])
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     self.pedidos.remove(at: indice.row)
@@ -100,7 +97,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 dia?.removeFromTem(nota)
                 self.context?.delete(nota)
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
-//                self.notas.remove(at: notas.firstIndex(of: nota)!)
                 if let dia = dia {
                     notas = recuperaNotas(dia: dia)
                 }
@@ -109,45 +105,114 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             notaFoiDeletada.toggle()
         }
     }
+
     
     // Core Data
     
-    func recuperaCapitulos() -> [Capitulo]? {
+    func recuperaDias() {
+        do {
+            if let context = context {
+                dias = try context.fetch(Dia.fetchRequest())
+            }
+        } catch {
+            print("Erro ao carregar memorias")
+            return
+        }
+    }
+    
+    func carregaDia() {
+        if dias.count < contagemDias {
+            print("CRIANDO NOVO DIA")
+            if let context = context {
+                let diaObj = NSEntityDescription.insertNewObject(forEntityName: "Dia", into: context) as? Dia
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                
+                if let dia = diaObj {
+                    dia.data = Calendario.shared.retornaDataCalendario() as NSDate
+                    recuperaCapitulos(dia: dia)
+                    dias.append(dia)
+                }
+            }
+        }
+        dia = dias[contagemDias - 1]
+        print("DIA ID: \(dia!.objectID)")
+        
+        print("RECUPERANDO CAPITULOS")
+        let capitulosTemp:[Capitulo] = dia!.leitura?.array as! [Capitulo]
+        capitulos = capitulosTemp
+        
+        recuperaPedidos(dia: dia!)
+        
+        notas = recuperaNotas(dia: dia!)
+    }
+    
+    func recomecaLeitura() {
+        do {
+            if let path = Bundle.main.path(forResource: "capitulos", ofType: "json", inDirectory: nil)
+            {
+                let url = URL(fileURLWithPath: path)
+                let jsonData = try Data(contentsOf: url)
+                let cap = try JSONDecoder().decode(Capitulos.self, from: jsonData)
+                
+                for i in 0...cap.count-1 {
+                    if let context = context {
+                        let registro = NSEntityDescription.insertNewObject(forEntityName: "Capitulo", into: context) as? Capitulo
+                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                        
+                        if let registro = registro {
+                            registro.titulo = cap[i].titulo
+                            registro.lido = false
+                            registro.dia = cap[i].dia + Int32(anosPassados*totalDias)
+                            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                        }
+                    }
+                }
+                
+                print("Inserido com sucesso")
+            }
+        } catch {
+            print("Erro ao inserir os dados dos capitulos")
+        }
+    }
+    
+    func recuperaCapitulos(dia: Dia)  {
         do{
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Capitulo")
             fetchRequest.predicate = NSPredicate(format: "dia = %d", contagemDias)
-            
             if let context = context {
                 var capitulos = try context.fetch(fetchRequest) as! [Capitulo]
                 if capitulos.count <= 0 {
                     recomecaLeitura()
                     capitulos = try context.fetch(fetchRequest) as! [Capitulo]
                 }
-                return capitulos
+                for c in capitulos {
+                    dia.addToLeitura(c)
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                }
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
             }
             
         } catch {
             print("Erro ao carregar capitulo")
-            return nil
+            return
         }
-        return nil
     }
     
-    func recuperaPedidos() -> [Pedido]? {
+    func recuperaPedidos(dia: Dia)  {
         do{
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pedido")
             fetchRequest.predicate = NSPredicate(format: "dataFinal >= %@", Calendario.shared.retornaDataCalendario() as CVarArg)
             
             if let context = context {
                 let pedidos = try context.fetch(fetchRequest) as! [Pedido]
-                return pedidos
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                
+                self.pedidos = pedidos
             }
-            
         } catch {
             print("Erro ao carregar capitulo")
-            return nil
+            return
         }
-        return nil
     }
     
     func recuperaNotas(dia: Dia) -> [Nota] {
@@ -158,91 +223,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         }
         
         return notasTemp
-    }
-    
-    func recuperaDias(data: Date) -> Dia? {
-        do{
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Dia")
-            fetchRequest.predicate = NSPredicate(format: "data = %@", data as NSDate)
-            
-            if let context = context {
-                let dia = try context.fetch(fetchRequest) as! [Dia]
-                if dia.count > 0 {
-                    return dia.first
-                }
-            }
-            return nil
-            
-        } catch {
-            print("Erro ao carregar dia")
-            return nil
-        }
-    }
-    
-    func carregaDia() -> Dia? {
-       guard let diaObj = recuperaDias(data: Calendario.shared.retornaDataCalendario()) else {
-            if let context = context {
-                let diaObj = NSEntityDescription.insertNewObject(forEntityName: "Dia", into: context) as! Dia
-                diaObj.data = Calendario.shared.retornaDataCalendario() as NSDate
-                
-                if let cap = recuperaCapitulos() {
-                    for c in cap {
-                        diaObj.addToLeitura(c)
-                        
-                    }
-                    capitulos = cap
-                }
-                
-                if let ped = recuperaPedidos() {
-                    for p in ped {
-                        diaObj.addToLista(p)
-                    }
-                    pedidos = ped
-                }
-                
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
-                return diaObj
-            }
-            return nil
-        }
-        
-        if let cap = recuperaCapitulos() {
-            capitulos = cap
-        }
-        if let ped = recuperaPedidos() {
-            pedidos = ped
-        }
-        
-        notas = recuperaNotas(dia: diaObj)
-        
-        return diaObj
-    }
-    
-    func recomecaLeitura() {
-        do {
-            if let path = Bundle.main.path(forResource: "capitulos", ofType: "json", inDirectory: nil)
-            {
-                let url = URL(fileURLWithPath: path)
-                let jsonData = try Data(contentsOf: url)
-                let aulas = try JSONDecoder().decode(Capitulos.self, from: jsonData)
-                
-                for i in 0...aulas.count-1{
-                    if let context = context {
-                        let registro = NSEntityDescription.insertNewObject(forEntityName: "Capitulo", into: context) as! Capitulo
-                        
-                        registro.titulo = aulas[i].titulo
-                        registro.lido = false
-                        registro.dia = aulas[i].dia + Int32(anosPassados*totalDias)
-                        
-                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-                    }
-                }
-                
-                print("Inserido com sucesso")
-            }
-        } catch {
-            print("Erro ao inserir os dados dos capitulos")
-        }
     }
     
     
@@ -272,15 +252,13 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             
         } else {
             cell.tituloLabel.text = pedidos[indexPath.row].nome
-            
             if let dia = dia {
-                if (pedidos[indexPath.row].concluiu?.contains(dia))! {
+                if (pedidos[indexPath.row].concluiu!.contains(dia)) {
                     marcarConcluido(celula: cell)
                 } else {
                     desmarcarConcluido(celula: cell)
                 }                
             }
-            
             cell.urgenciaLabel.isHidden = false
             
             switch pedidos[indexPath.row].urgencia {
@@ -313,14 +291,15 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             
         } else {
             if let dia = dia {
-                if !(pedidos[indexPath.row].concluiu?.contains(dia))! {
-                    marcarConcluido(celula: cell)
+                if !(pedidos[indexPath.row].concluiu!.contains(dia)) {
                     pedidos[indexPath.row].addToConcluiu(dia)
+                    marcarConcluido(celula: cell)
                 } else {
-                    desmarcarConcluido(celula: cell)
                     pedidos[indexPath.row].removeFromConcluiu(dia)
+                    desmarcarConcluido(celula: cell)
                 }
             }
+            
         }
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -329,7 +308,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         if tableView.tag == 2 {
             let exluir = UITableViewRowAction(style: .destructive, title: "Excluir", handler: {(action,indexPath) in
-                self.dia?.removeFromLista(self.pedidos[indexPath.row])
                 self.context?.delete(self.pedidos[indexPath.row])
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 self.pedidos.remove(at: indexPath.row)
@@ -437,37 +415,40 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     }
 
     @IBAction func voltarDia(_ sender: Any) {
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         Calendario.shared.decrementaDia()
         diaLabel.text = Calendario.shared.retornaDiaAtual()
-        
-        contagemDias -= 1
-        if contagemDias <= 1 {
-            voltarButton.isHidden = true
-        }
         
         if contagemDias%totalDias == 0 {
             anosPassados -= 1
         }
         
-        dia = carregaDia()
+        contagemDias -= 1
+        
+        if contagemDias <= 1 {
+            voltarButton.isHidden = true
+        }
+        
+        carregaDia()
         collectionView.reloadData()
     }
     
     @IBAction func avancarDia(_ sender: Any) {
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
         Calendario.shared.incrementaDia()
         diaLabel.text = Calendario.shared.retornaDiaAtual()
-        
-        contagemDias += 1
         
         if contagemDias%totalDias == 0 {
             anosPassados += 1
         }
         
+        contagemDias += 1
+        
         if contagemDias > 1 {
             voltarButton.isHidden = false
         }
         
-        dia = carregaDia()
+        carregaDia()
         collectionView.reloadData()
     }
     
@@ -489,17 +470,16 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         if sender.source is NovaOracaoTVController {
             if let senderAdd = sender.source as? NovaOracaoTVController {
                 if let pedido = senderAdd.novoPedido {
-                    dia?.addToLista(pedido)
-                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     
-                    if let ped = recuperaPedidos() {
-                        pedidos = ped
+                    if let dia = dia {
+                        recuperaPedidos(dia: dia)
                     }
                     collectionView.reloadData()
                 }
             }
         }
     }
+    
     
 
 }

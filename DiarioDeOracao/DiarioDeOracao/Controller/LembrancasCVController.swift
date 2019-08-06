@@ -13,8 +13,6 @@ private let reuseIdentifier = "lembranca"
 
 class LembrancasCVController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout!
-    
     var context:NSManagedObjectContext?
     
     var lembrancas:[[Lembranca]] = []
@@ -30,7 +28,7 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
 
-        if let flowLayout = collectionLayout {
+        if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
             let w = collectionView.frame.size.width - 20
             flowLayout.estimatedItemSize = CGSize(width: w, height: 142)
         }
@@ -39,17 +37,20 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
                                                   y: 0,
                                                   width: collectionView.frame.size.width - 100,
                                                   height: 300))
-        semLembrancaLabel?.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
-        semLembrancaLabel?.text = "Você não tem lembranças ainda. Lembranças são criadas quando pedidos de oração são respondidos."
-        semLembrancaLabel?.textColor = #colorLiteral(red: 0.2789252996, green: 0.1623651087, blue: 0.2221863866, alpha: 1)
-        semLembrancaLabel?.numberOfLines = 0
-        semLembrancaLabel?.textAlignment = .center
-        semLembrancaLabel?.sizeToFit()
-        semLembrancaLabel?.isHidden = true
-        
         if let label = semLembrancaLabel {
             self.view.addSubview(label)
         }
+        semLembrancaLabel?.text = "Você não tem lembranças ainda. Lembranças são criadas quando pedidos de oração são respondidos."
+        semLembrancaLabel?.numberOfLines = 0
+        semLembrancaLabel?.textColor = #colorLiteral(red: 0.2789252996, green: 0.1623651087, blue: 0.2221863866, alpha: 1)
+        semLembrancaLabel?.textAlignment = .center
+        semLembrancaLabel?.translatesAutoresizingMaskIntoConstraints = false
+        semLembrancaLabel?.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50).isActive = true
+        semLembrancaLabel?.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50).isActive = true
+        semLembrancaLabel?.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        semLembrancaLabel?.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        semLembrancaLabel?.isHidden = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,15 +77,6 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         
         
         
-    }
-    
-    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        semLembrancaLabel?.frame = CGRect(x: 0,
-                                          y: 0,
-                                          width: collectionView.frame.size.width - 100,
-                                          height: 300)
-        semLembrancaLabel?.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
-        semLembrancaLabel?.sizeToFit()
     }
     
     
@@ -185,19 +177,16 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
             return UICollectionReusableView()
         }
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+        var width:Int = 0
         if UIDevice.current.orientation == UIDeviceOrientation.portrait ||
             UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
-            return CGSize(width: collectionView.frame.size.width - 20, height: 142)
+            width = Int(collectionView.frame.size.width - 20)
         } else {
-            return CGSize(width: collectionView.frame.size.width - 70, height: 142)
+            width = Int(collectionView.frame.size.width - 70)
         }
+        return CGSize(width: width, height: 142)
     }
     
     

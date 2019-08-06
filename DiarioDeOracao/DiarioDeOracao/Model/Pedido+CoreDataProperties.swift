@@ -2,7 +2,7 @@
 //  Pedido+CoreDataProperties.swift
 //  DiarioDeOracao
 //
-//  Created by Lia Kassardjian on 23/07/19.
+//  Created by Lia Kassardjian on 05/08/19.
 //  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 //
@@ -17,9 +17,9 @@ extension Pedido {
         return NSFetchRequest<Pedido>(entityName: "Pedido")
     }
 
+    @NSManaged public var dataFinal: NSDate?
     @NSManaged public var nome: String?
     @NSManaged public var urgencia: Int32
-    @NSManaged public var dataFinal: NSDate?
     @NSManaged public var concluiu: NSOrderedSet?
 
 }

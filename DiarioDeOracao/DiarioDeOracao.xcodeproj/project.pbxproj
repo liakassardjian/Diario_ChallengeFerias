@@ -73,10 +73,10 @@
 		E48A046C22E87D880039D847 /* Nota+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nota+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E48A047722E89B0A0039D847 /* Lembranca+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lembranca+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E48A047822E89B0A0039D847 /* Lembranca+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lembranca+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E48CB64822F88B4A00B9CF95 /* Pedido+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Pedido+CoreDataClass.swift"; path = "../../Pedido+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E48CB64D22F88E3400B9CF95 /* Dia+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Dia+CoreDataClass.swift"; path = "../../Dia+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E48CB65622F88F9500B9CF95 /* Dia+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Dia+CoreDataProperties.swift"; path = "../../Dia+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E48CB65722F88F9500B9CF95 /* Pedido+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Pedido+CoreDataProperties.swift"; path = "../../Pedido+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E48CB64822F88B4A00B9CF95 /* Pedido+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pedido+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E48CB64D22F88E3400B9CF95 /* Dia+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dia+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E48CB65622F88F9500B9CF95 /* Dia+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dia+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E48CB65722F88F9500B9CF95 /* Pedido+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pedido+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E48E137B22DFAABB001A4CA2 /* CardFixoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFixoCVCell.swift; sourceTree = "<group>"; };
 		E48E137D22DFAC98001A4CA2 /* NotasCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasCVCell.swift; sourceTree = "<group>"; };
 		E48E137F22E0A791001A4CA2 /* LembrancasCVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LembrancasCVController.swift; sourceTree = "<group>"; };

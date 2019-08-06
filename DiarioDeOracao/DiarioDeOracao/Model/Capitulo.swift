@@ -13,6 +13,6 @@ typealias Capitulos = [CapituloData]
 
 struct CapituloData: Codable {
     public var titulo: String?
-    public var lido: Bool
+//    public var lido: Bool
     public var dia: Int32
 }

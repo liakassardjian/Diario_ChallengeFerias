@@ -175,7 +175,7 @@
                                 <rect key="frame" x="0.0" y="223" width="414" height="450"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O Diário de Oração fornece um plano de leitura bíblica anual para você. Controle diariamente os capítulos já lidos." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJw-mK-lEK">
-                                        <rect key="frame" x="15" y="362" width="384" height="70"/>
+                                        <rect key="frame" x="24" y="362" width="366" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="gMa-dv-jEj"/>
                                         </constraints>
@@ -184,7 +184,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leitura bíblica diária" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYQ-hI-WoY">
-                                        <rect key="frame" x="15" y="329" width="213" height="33"/>
+                                        <rect key="frame" x="24" y="329" width="213" height="33"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="213" id="pHM-jW-Y5w"/>
                                         </constraints>
@@ -193,7 +193,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leitura" translatesAutoresizingMaskIntoConstraints="NO" id="YzY-OW-o83">
-                                        <rect key="frame" x="15" y="2" width="384" height="319"/>
+                                        <rect key="frame" x="24" y="2" width="366" height="319"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="384" id="aOY-ts-EPH"/>
@@ -206,8 +206,8 @@
                                     <constraint firstItem="YzY-OW-o83" firstAttribute="centerX" secondItem="7Dy-eV-7EZ" secondAttribute="centerX" id="4Ep-Ek-SZv"/>
                                     <constraint firstItem="YzY-OW-o83" firstAttribute="top" secondItem="7Dy-eV-7EZ" secondAttribute="top" constant="2" id="Dwa-dh-UNL"/>
                                     <constraint firstItem="yJw-mK-lEK" firstAttribute="trailing" secondItem="YzY-OW-o83" secondAttribute="trailing" id="NvZ-g0-gfG"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YzY-OW-o83" secondAttribute="trailing" constant="15" id="WTz-rr-xvl"/>
-                                    <constraint firstItem="YzY-OW-o83" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7Dy-eV-7EZ" secondAttribute="leading" constant="15" id="XBl-hL-ZF6"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YzY-OW-o83" secondAttribute="trailing" constant="24" id="WTz-rr-xvl"/>
+                                    <constraint firstItem="YzY-OW-o83" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7Dy-eV-7EZ" secondAttribute="leading" constant="24" id="XBl-hL-ZF6"/>
                                     <constraint firstItem="MYQ-hI-WoY" firstAttribute="leading" secondItem="YzY-OW-o83" secondAttribute="leading" id="ZM7-dw-fNC"/>
                                     <constraint firstItem="yJw-mK-lEK" firstAttribute="top" secondItem="MYQ-hI-WoY" secondAttribute="bottom" id="d8a-iU-akj"/>
                                     <constraint firstItem="yJw-mK-lEK" firstAttribute="leading" secondItem="YzY-OW-o83" secondAttribute="leading" id="erc-yH-r33"/>
@@ -241,7 +241,7 @@
                                 <rect key="frame" x="0.0" y="223" width="414" height="450"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oracoes" translatesAutoresizingMaskIntoConstraints="NO" id="Ign-z8-6AA">
-                                        <rect key="frame" x="15" y="2" width="384" height="319"/>
+                                        <rect key="frame" x="24" y="2" width="366" height="319"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="319" id="58X-A6-ueX"/>
@@ -249,13 +249,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lista de oração" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNh-aj-RWS">
-                                        <rect key="frame" x="15" y="329" width="154" height="33"/>
+                                        <rect key="frame" x="24" y="329" width="154" height="33"/>
                                         <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
                                         <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crie pedidos de oração para que o Diário de Oração te lembre todos os dias de orar por cada um deles. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVa-QU-SNN">
-                                        <rect key="frame" x="15" y="362" width="384" height="71"/>
+                                        <rect key="frame" x="24" y="362" width="366" height="71"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="71" id="t1q-E0-jjS"/>
                                         </constraints>
@@ -268,9 +268,9 @@
                                 <constraints>
                                     <constraint firstItem="fNh-aj-RWS" firstAttribute="leading" secondItem="Ign-z8-6AA" secondAttribute="leading" id="1gg-ML-qAQ"/>
                                     <constraint firstItem="Ign-z8-6AA" firstAttribute="top" secondItem="BjZ-Lt-f1x" secondAttribute="top" constant="2" id="9iy-Gd-LVb"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ign-z8-6AA" secondAttribute="trailing" constant="15" id="BFh-aY-SUd"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ign-z8-6AA" secondAttribute="trailing" constant="24" id="BFh-aY-SUd"/>
                                     <constraint firstItem="fNh-aj-RWS" firstAttribute="top" secondItem="Ign-z8-6AA" secondAttribute="bottom" constant="8" id="LUA-fr-8pb"/>
-                                    <constraint firstItem="Ign-z8-6AA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BjZ-Lt-f1x" secondAttribute="leading" constant="15" id="M8B-Ar-FTQ"/>
+                                    <constraint firstItem="Ign-z8-6AA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BjZ-Lt-f1x" secondAttribute="leading" constant="24" id="M8B-Ar-FTQ"/>
                                     <constraint firstItem="NVa-QU-SNN" firstAttribute="top" secondItem="fNh-aj-RWS" secondAttribute="bottom" id="TMj-Eh-2bh"/>
                                     <constraint firstItem="NVa-QU-SNN" firstAttribute="leading" secondItem="Ign-z8-6AA" secondAttribute="leading" id="mGw-W5-Okz"/>
                                     <constraint firstItem="Ign-z8-6AA" firstAttribute="centerX" secondItem="BjZ-Lt-f1x" secondAttribute="centerX" id="mx7-Xk-Cb5"/>
@@ -304,7 +304,7 @@
                                 <rect key="frame" x="0.0" y="223" width="414" height="450"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respondido" translatesAutoresizingMaskIntoConstraints="NO" id="VoU-ZQ-z82">
-                                        <rect key="frame" x="15" y="2" width="384" height="319"/>
+                                        <rect key="frame" x="24" y="2" width="366" height="319"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="319" id="3wu-Hr-EWo"/>
@@ -312,13 +312,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marque as orações respondidas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6da-Un-94p">
-                                        <rect key="frame" x="15" y="329" width="313" height="33"/>
+                                        <rect key="frame" x="24" y="329" width="313" height="33"/>
                                         <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
                                         <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arraste o pedido de oração para a esquerda para deletar ou marcar um pedido como respondido." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBw-MB-ICE">
-                                        <rect key="frame" x="15" y="362" width="384" height="41"/>
+                                        <rect key="frame" x="24" y="362" width="366" height="61"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -328,8 +328,8 @@
                                 <constraints>
                                     <constraint firstItem="VoU-ZQ-z82" firstAttribute="centerX" secondItem="YiL-yk-maI" secondAttribute="centerX" id="1w0-zL-t6l"/>
                                     <constraint firstItem="cBw-MB-ICE" firstAttribute="trailing" secondItem="VoU-ZQ-z82" secondAttribute="trailing" id="4xS-x1-aLy"/>
-                                    <constraint firstItem="VoU-ZQ-z82" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YiL-yk-maI" secondAttribute="leading" constant="15" id="ATc-VD-Slf"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VoU-ZQ-z82" secondAttribute="trailing" constant="15" id="HHa-qn-pU4"/>
+                                    <constraint firstItem="VoU-ZQ-z82" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YiL-yk-maI" secondAttribute="leading" constant="24" id="ATc-VD-Slf"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VoU-ZQ-z82" secondAttribute="trailing" constant="24" id="HHa-qn-pU4"/>
                                     <constraint firstItem="6da-Un-94p" firstAttribute="leading" secondItem="VoU-ZQ-z82" secondAttribute="leading" id="Ptf-dJ-40t"/>
                                     <constraint firstItem="cBw-MB-ICE" firstAttribute="leading" secondItem="VoU-ZQ-z82" secondAttribute="leading" id="SCs-x3-58N"/>
                                     <constraint firstItem="VoU-ZQ-z82" firstAttribute="top" secondItem="YiL-yk-maI" secondAttribute="top" constant="2" id="Vjw-LZ-pev"/>
@@ -364,7 +364,7 @@
                                 <rect key="frame" x="0.0" y="223" width="414" height="450"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lembranca" translatesAutoresizingMaskIntoConstraints="NO" id="kCa-RO-UZz">
-                                        <rect key="frame" x="21.5" y="2" width="371.5" height="16"/>
+                                        <rect key="frame" x="24" y="2" width="366.00000000000023" height="319"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="319" id="QRF-XI-Yms"/>
@@ -372,13 +372,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lembranças" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyA-Wl-2TS">
-                                        <rect key="frame" x="21.5" y="26" width="127.5" height="27"/>
+                                        <rect key="frame" x="24" y="329" width="120" height="33"/>
                                         <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
                                         <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="As orações respondidas são guardadas como lembranças para que você possa ter registradas as bênçãos recebidas. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZj-5A-aLc">
-                                        <rect key="frame" x="21.5" y="53" width="371.5" height="61"/>
+                                        <rect key="frame" x="24" y="362" width="366" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="LYG-N9-ljd"/>
                                         </constraints>
@@ -389,9 +389,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="kCa-RO-UZz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yTS-mo-TW2" secondAttribute="leading" constant="15" id="4qm-oT-ETp"/>
+                                    <constraint firstItem="kCa-RO-UZz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yTS-mo-TW2" secondAttribute="leading" constant="24" id="4qm-oT-ETp"/>
                                     <constraint firstItem="WZj-5A-aLc" firstAttribute="top" secondItem="OyA-Wl-2TS" secondAttribute="bottom" id="67q-0g-n8h"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kCa-RO-UZz" secondAttribute="trailing" constant="15" id="8nc-3Y-xxL"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kCa-RO-UZz" secondAttribute="trailing" constant="24" id="8nc-3Y-xxL"/>
                                     <constraint firstItem="kCa-RO-UZz" firstAttribute="top" secondItem="yTS-mo-TW2" secondAttribute="top" constant="2" id="IdO-KF-q8I"/>
                                     <constraint firstItem="WZj-5A-aLc" firstAttribute="trailing" secondItem="kCa-RO-UZz" secondAttribute="trailing" id="ZkF-nw-AhS"/>
                                     <constraint firstItem="OyA-Wl-2TS" firstAttribute="leading" secondItem="kCa-RO-UZz" secondAttribute="leading" id="jYm-XC-jMD"/>
@@ -427,7 +427,7 @@
                                 <rect key="frame" x="0.0" y="223" width="414" height="450"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nota" translatesAutoresizingMaskIntoConstraints="NO" id="oMs-Yc-eyg">
-                                        <rect key="frame" x="22.5" y="2" width="369" height="16"/>
+                                        <rect key="frame" x="24" y="2" width="366.00000000000023" height="319"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="384" id="YrZ-WK-1D5"/>
@@ -435,13 +435,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notas pessoais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBp-jE-kE3">
-                                        <rect key="frame" x="22.5" y="26" width="158.5" height="27"/>
+                                        <rect key="frame" x="24" y="329" width="146.5" height="33"/>
                                         <fontDescription key="fontDescription" name="LMRoman10-Regular" family="Latin Modern Roman" pointSize="23"/>
                                         <color key="textColor" red="0.26248797769999999" green="0.16767346859999999" blue="0.21961265799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registre suas anotações, orações e meditações ao criar notas diariamente.  " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKv-Xt-oek">
-                                        <rect key="frame" x="22.5" y="53" width="369" height="52"/>
+                                        <rect key="frame" x="24" y="362" width="366" height="52"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="dEt-v4-cXs"/>
                                         </constraints>
@@ -460,8 +460,8 @@
                                     <constraint firstItem="oMs-Yc-eyg" firstAttribute="centerX" secondItem="xDA-Ib-92h" secondAttribute="centerX" id="OsK-oS-4nm"/>
                                     <constraint firstItem="fKv-Xt-oek" firstAttribute="trailing" secondItem="oMs-Yc-eyg" secondAttribute="trailing" id="TTq-no-0P0"/>
                                     <constraint firstItem="oMs-Yc-eyg" firstAttribute="top" secondItem="xDA-Ib-92h" secondAttribute="top" constant="2" id="YJ2-yt-Wu0"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oMs-Yc-eyg" secondAttribute="trailing" constant="15" id="hFx-eB-QNV"/>
-                                    <constraint firstItem="oMs-Yc-eyg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xDA-Ib-92h" secondAttribute="leading" constant="15" id="rPt-gX-VON"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oMs-Yc-eyg" secondAttribute="trailing" constant="24" id="hFx-eB-QNV"/>
+                                    <constraint firstItem="oMs-Yc-eyg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xDA-Ib-92h" secondAttribute="leading" constant="24" id="rPt-gX-VON"/>
                                 </constraints>
                             </view>
                         </subviews>

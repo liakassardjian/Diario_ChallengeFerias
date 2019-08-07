@@ -27,7 +27,9 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.pularButton.isHidden = true
+        if primeiroTutorial {
+            self.pularButton.isHidden = true
+        } 
         
         if primeiroTutorial {
             pageControl.numberOfPages = 6
@@ -94,7 +96,11 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
             switch index {
             case 0:
                 proximoButton.setTitle("Próximo", for: .normal)
-                pularButton.isHidden = true
+                if primeiroTutorial {
+                    pularButton.isHidden = true
+                } else {
+                    pularButton.isHidden = false
+                }
                 
             case 1...3:
                 proximoButton.setTitle("Próximo", for: .normal)

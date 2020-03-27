@@ -48,7 +48,7 @@ class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
         let urgencia = urgenciaSegmentedControl.selectedSegmentIndex
         let data = dataDatePicker.date
         
-        CoreDataManager.shared.createPedido(nome: nome, urgencia: urgencia, data: data)
+        novoPedido = CoreDataManager.shared.createPedido(nome: nome, urgencia: urgencia, data: data)
         return true
     }
     

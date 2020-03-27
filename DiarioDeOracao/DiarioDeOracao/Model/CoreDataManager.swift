@@ -49,7 +49,7 @@ class CoreDataManager {
         }
         
         dia = dias[contagem - 1]
-
+        
         if let capitulosTemp = dia.leitura?.array as? [Capitulo] {
             capitulos = capitulosTemp
         }
@@ -149,8 +149,21 @@ class CoreDataManager {
         context?.delete(pedidos[index])
         pedidos.remove(at: index)
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-
     }
+    
+    func createPedido(nome: String, urgencia: Int, data: Date) -> Pedido? {
+        guard let context = self.context else { return nil }
+        
+        let novoPedido = NSEntityDescription.insertNewObject(forEntityName: "Pedido", into: context) as? Pedido
+        
+        novoPedido?.nome = nome
+        novoPedido?.urgencia = Int32(urgencia)
+        novoPedido?.dataFinal = data as NSDate
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        
+        return novoPedido
+    }
+    
     
     // MARK: - Notas
     

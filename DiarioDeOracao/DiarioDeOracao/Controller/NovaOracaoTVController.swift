@@ -19,13 +19,13 @@ class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
     
     let formatoData = DateFormatter()
     
-    var context:NSManagedObjectContext?
+    var context: NSManagedObjectContext?
     
-    var novoPedido:Pedido?
+    var novoPedido: Pedido?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
         formatoData.dateStyle = DateFormatter.Style.short
         formatoData.locale = Locale(identifier: "pt_BR")
@@ -48,13 +48,13 @@ class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let context = context {
-            novoPedido = NSEntityDescription.insertNewObject(forEntityName: "Pedido", into: context) as! Pedido
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            novoPedido = NSEntityDescription.insertNewObject(forEntityName: "Pedido", into: context) as? Pedido
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
          
             novoPedido?.nome = leTextField(textField: tituloTextField)
             novoPedido?.urgencia = Int32(urgenciaSegmentedControl.selectedSegmentIndex)
             novoPedido?.dataFinal = dataDatePicker.date as NSDate
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             
             return true
         }
@@ -62,10 +62,11 @@ class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
     }
 
     func leTextField(textField: UITextField) -> String {
-        var texto:String = ""
-        if textField.text != nil,
-            textField.text!.count > 0 {
-            texto = textField.text!
+        var texto: String = ""
+        
+        guard let entrada = textField.text else { return "" }
+        if entrada.count > 0 {
+            texto = entrada
         }
         return texto
     }

@@ -14,25 +14,23 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let defaults = UserDefaults()
         let aberto = defaults.bool(forKey: "aberto")
-        let dia = defaults.integer(forKey: "dia")
-        let ultimoDia = defaults.integer(forKey: "ultimoDia")
+        defaults.integer(forKey: "dia")
+        defaults.integer(forKey: "ultimoDia")
         
-        if !aberto{
+        if !aberto {
             defaults.set(true, forKey: "aberto")
             defaults.set(1, forKey: "dia")
             defaults.set(Calendario.shared.retornaDiaNumero(), forKey: "ultimoDia")
         }
         
-        let options: UNAuthorizationOptions = [.alert,.sound,.badge]
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.requestAuthorization(options: options) {
-            (didAllow, error) in
+        notificationCenter.requestAuthorization(options: options) { (didAllow, error) in
             if !didAllow {
                 print("Notifications not allowed by user")
             }
@@ -129,9 +127,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func criaConteudo() -> UNMutableNotificationContent {
+        let titulo = "Hora da sua devocional"
+        let corpo = "Lembre-se de reservar um tempo para meditar na Bíblia e orar"
+        
         let content = UNMutableNotificationContent()
-        content.title = NSString.localizedUserNotificationString(forKey: "Hora da sua devocional", arguments: nil)
-        content.body = NSString.localizedUserNotificationString(forKey: "Lembre-se de reservar um tempo para meditar na Bíblia e orar", arguments: nil)
+        content.title = NSString.localizedUserNotificationString(forKey: titulo, arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: corpo, arguments: nil)
         content.sound = UNNotificationSound.default
         content.badge = 1
         content.categoryIdentifier = "DIARIO_NOTIFICACOES"
@@ -155,7 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 let center = UNUserNotificationCenter.current()
                 center.delegate = self
                 center.setNotificationCategories([categoria])
-                center.add(request) { (error : Error?) in
+                center.add(request) { (error: Error?) in
                     if let error = error {
                         print(error.localizedDescription)
                     }
@@ -183,14 +184,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 let center = UNUserNotificationCenter.current()
                 center.delegate = self
                 center.setNotificationCategories([categoria])
-                center.add(request) { (error : Error?) in
+                center.add(request) { (error: Error?) in
                     if let error = error {
                         print(error.localizedDescription)
                     }
                 }
                 
-                let hora = UserDefaults().integer(forKey: "hora")
-                let minuto = UserDefaults().integer(forKey: "minuto")
+                UserDefaults().integer(forKey: "hora")
+                UserDefaults().integer(forKey: "minuto")
                 
                 UserDefaults().set(data.hour, forKey: "hora")
                 UserDefaults().set(data.minute, forKey: "minuto")
@@ -209,7 +210,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 DispatchQueue.main.async(execute: {
                     self.repeteNotificacao(tempo: 300)
                     })
-                break
                 
             case "CONCLUIR":
                 break
@@ -223,7 +223,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert,.sound,.badge])
+        completionHandler([.alert, .sound, .badge])
     }
 
     func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, completionHandler: @escaping () -> Void) {
@@ -231,11 +231,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         case "ADIAR":
             notification.fireDate = NSDate().addingTimeInterval(300) as Date
             application.scheduleLocalNotification(notification)
-            break
         default:
             break
         }
         completionHandler()
     }
 }
-

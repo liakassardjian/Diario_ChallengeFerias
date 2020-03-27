@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension Pedido {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Pedido> {

@@ -16,31 +16,31 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     @IBOutlet weak var diaLabel: UILabel!
     @IBOutlet weak var voltarButton: UIButton!
     
-    var dias:[Dia] = []
-    var dia:Dia?
-    var contagemDias:Int = 0
-    var anosPassados:Int = 0
-    let totalDias:Int = 360
+    var dias: [Dia] = []
+    var dia: Dia?
+    var contagemDias: Int = 0
+    var anosPassados: Int = 0
+    let totalDias: Int = 360
     
-    var capitulos:[Capitulo] = []
-    var pedidos:[Pedido] = []
-    var notas:[Nota] = []
+    var capitulos: [Capitulo] = []
+    var pedidos: [Pedido] = []
+    var notas: [Nota] = []
     
-    let titulos = ["Leitura bíblica diária","Lista de oração diária"]
+    let titulos = ["Leitura bíblica diária", "Lista de oração diária"]
     
-    var lembrancaAdicionada:Bool = false
-    var tableView:UITableView?
-    var indiceDeletado:IndexPath?
-    var notaFoiDeletada:Bool = false
-    var notaDeletada:Nota?
+    var lembrancaAdicionada: Bool = false
+    var tableView: UITableView?
+    var indiceDeletado: IndexPath?
+    var notaFoiDeletada: Bool = false
+    var notaDeletada: Nota?
     
-    var atributoString:NSMutableAttributedString?
+    var atributoString: NSMutableAttributedString?
     
-    var context:NSManagedObjectContext?
+    var context: NSManagedObjectContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
         diaLabel.text = Calendario.shared.retornaDiaAtual()
         
@@ -61,8 +61,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         if contagemDias <= 1 {
             voltarButton.isHidden = true
         }
-    
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +82,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             if let indice = indiceDeletado {
                 if let tableView = tableView {
                     self.context?.delete(self.pedidos[indice.row])
-                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                     self.pedidos.remove(at: indice.row)
                     tableView.deleteRows(at: [indice], with: .fade)
                 }
@@ -96,7 +94,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             if let nota = notaDeletada {
                 dia?.removeFromTem(nota)
                 self.context?.delete(nota)
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                 if let dia = dia {
                     notas = recuperaNotas(dia: dia)
                 }
@@ -105,7 +103,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             notaFoiDeletada.toggle()
         }
     }
-
     
     // Core Data
     
@@ -125,7 +122,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             print("CRIANDO NOVO DIA")
             if let context = context {
                 let diaObj = NSEntityDescription.insertNewObject(forEntityName: "Dia", into: context) as? Dia
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                 
                 if let dia = diaObj {
                     dia.data = Calendario.shared.retornaDataCalendario() as NSDate
@@ -134,22 +131,18 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 }
             }
         }
-        dia = dias[contagemDias - 1]
-        print("DIA ID: \(dia!.objectID)")
         
-        print("RECUPERANDO CAPITULOS")
-        let capitulosTemp:[Capitulo] = dia!.leitura?.array as! [Capitulo]
+        let dia = dias[contagemDias - 1]
+        
+        let capitulosTemp: [Capitulo] = dia.leitura?.array as? [Capitulo] ?? []
         capitulos = capitulosTemp
-        
-        recuperaPedidos(dia: dia!)
-        
-        notas = recuperaNotas(dia: dia!)
+        recuperaPedidos(dia: dia)
+        notas = recuperaNotas(dia: dia)
     }
     
     func recomecaLeitura() {
         do {
-            if let path = Bundle.main.path(forResource: "capitulos", ofType: "json", inDirectory: nil)
-            {
+            if let path = Bundle.main.path(forResource: "capitulos", ofType: "json", inDirectory: nil) {
                 let url = URL(fileURLWithPath: path)
                 let jsonData = try Data(contentsOf: url)
                 let cap = try JSONDecoder().decode(Capitulos.self, from: jsonData)
@@ -157,13 +150,13 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 for i in 0...cap.count-1 {
                     if let context = context {
                         let registro = NSEntityDescription.insertNewObject(forEntityName: "Capitulo", into: context) as? Capitulo
-                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                         
                         if let registro = registro {
                             registro.titulo = cap[i].titulo
                             registro.lido = false
                             registro.dia = cap[i].dia + Int32(anosPassados*totalDias)
-                            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                         }
                     }
                 }
@@ -175,21 +168,26 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         }
     }
     
-    func recuperaCapitulos(dia: Dia)  {
-        do{
+    func recuperaCapitulos(dia: Dia) {
+        do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Capitulo")
             fetchRequest.predicate = NSPredicate(format: "dia = %d", contagemDias)
             if let context = context {
-                var capitulos = try context.fetch(fetchRequest) as! [Capitulo]
+                var capitulosData = [Capitulo]()
+                guard let capitulos = try context.fetch(fetchRequest) as? [Capitulo] else { return }
                 if capitulos.count <= 0 {
                     recomecaLeitura()
-                    capitulos = try context.fetch(fetchRequest) as! [Capitulo]
+                    guard let novosCapitulos = try context.fetch(fetchRequest) as? [Capitulo] else { return }
+                    capitulosData = novosCapitulos
+                } else {
+                    capitulosData = capitulos
                 }
-                for c in capitulos {
+                
+                for c in capitulosData {
                     dia.addToLeitura(c)
-                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                 }
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             }
             
         } catch {
@@ -198,14 +196,14 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         }
     }
     
-    func recuperaPedidos(dia: Dia)  {
-        do{
+    func recuperaPedidos(dia: Dia) {
+        do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pedido")
             fetchRequest.predicate = NSPredicate(format: "dataFinal >= %@", Calendario.shared.retornaDataCalendario() as CVarArg)
             
             if let context = context {
-                let pedidos = try context.fetch(fetchRequest) as! [Pedido]
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                guard let pedidos = try context.fetch(fetchRequest) as? [Pedido] else { return }
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                 
                 self.pedidos = pedidos
             }
@@ -216,16 +214,16 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     }
     
     func recuperaNotas(dia: Dia) -> [Nota] {
-        var notasTemp:[Nota] = []
-        for i in 0..<(dia.tem!.count) {
-            let n = dia.tem![i]
-            notasTemp.append(n as! Nota)
+        var notasTemp = [Nota]()
+        guard let notas = dia.tem else { return notasTemp }
+        for i in 0..<(notas.count) {
+            guard let n = notas[i] as? Nota else { return notasTemp }
+            notasTemp.append(n)
         }
         
         return notasTemp
     }
-    
-    
+
     // Table View
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -237,7 +235,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TopicosTVCell") as! TopicosTVCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TopicosTVCell") as? TopicosTVCell else { return UITableViewCell() }
         
         if tableView.tag == 1 {
             cell.tituloLabel.text = capitulos[indexPath.row].titulo
@@ -253,7 +251,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         } else {
             cell.tituloLabel.text = pedidos[indexPath.row].nome
             if let dia = dia {
-                if (pedidos[indexPath.row].concluiu!.contains(dia)) {
+                if let concluiu = pedidos[indexPath.row].concluiu,
+                    concluiu.contains(dia) {
                     marcarConcluido(celula: cell)
                 } else {
                     desmarcarConcluido(celula: cell)
@@ -273,15 +272,14 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             }
             
         }
-        
-
+    
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! TopicosTVCell
+        guard let cell = tableView.cellForRow(at: indexPath) as? TopicosTVCell else { return }
         
-        if tableView.tag == 1{
+        if tableView.tag == 1 {
             if !capitulos[indexPath.row].lido {
                 marcarConcluido(celula: cell)
             } else {
@@ -291,7 +289,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             
         } else {
             if let dia = dia {
-                if !(pedidos[indexPath.row].concluiu!.contains(dia)) {
+                if let concluiu = pedidos[indexPath.row].concluiu,
+                    !concluiu.contains(dia) {
                     pedidos[indexPath.row].addToConcluiu(dia)
                     marcarConcluido(celula: cell)
                 } else {
@@ -302,14 +301,14 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             
         }
         
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         if tableView.tag == 2 {
-            let exluir = UITableViewRowAction(style: .destructive, title: "Excluir", handler: {(action,indexPath) in
+            let exluir = UITableViewRowAction(style: .destructive, title: "Excluir", handler: {(action, indexPath) in
                 self.context?.delete(self.pedidos[indexPath.row])
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                 self.pedidos.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             })
@@ -322,7 +321,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             
             concluir.backgroundColor = #colorLiteral(red: 0.2888143063, green: 0.3528535366, blue: 0.1741557121, alpha: 1)
             
-            return [exluir,concluir]
+            return [exluir, concluir]
         }
         return []
     }
@@ -330,19 +329,20 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     func desmarcarConcluido(celula: TopicosTVCell) {
         celula.checkImageView.image = nil
         
-        atributoString = NSMutableAttributedString(string: celula.tituloLabel.text!)
-        atributoString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, 0))
-        celula.tituloLabel.attributedText = atributoString!
+        guard let texto = celula.tituloLabel.text else { return }
+        atributoString = NSMutableAttributedString(string: texto)
+        atributoString?.addAttribute(.strikethroughStyle, value: 2, range: NSRange(location: 0, length: 0))
+        celula.tituloLabel.attributedText = atributoString
     }
     
     func marcarConcluido(celula: TopicosTVCell) {
         celula.checkImageView.image = UIImage(named: "Check")
         
-        atributoString = NSMutableAttributedString(string: celula.tituloLabel.text!)
-        atributoString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, atributoString!.length))
-        celula.tituloLabel.attributedText = atributoString!
+        guard let texto = celula.tituloLabel.text else { return }
+        atributoString = NSMutableAttributedString(string: texto)
+        atributoString?.addAttribute(.strikethroughStyle, value: 2, range: NSRange(location: 0, length: atributoString?.length ?? 0))
+        celula.tituloLabel.attributedText = atributoString
     }
-    
     
     // Collection View
     
@@ -352,7 +352,9 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardFixoCVCell", for: indexPath) as! CardFixoCVCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardFixoCVCell", for: indexPath) as? CardFixoCVCell else {
+                return UICollectionViewCell()
+            }
             cell.topicosTableView.tag = 1
             cell.topicosTableView.reloadData()
             cell.tituloLabel.text = titulos[0]
@@ -361,7 +363,9 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             return cell
             
         } else if indexPath.row == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardFixoCVCell", for: indexPath) as! CardFixoCVCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardFixoCVCell", for: indexPath) as? CardFixoCVCell else {
+                return UICollectionViewCell()
+            }
             cell.topicosTableView.tag = 2
             cell.topicosTableView.reloadData()
             cell.tituloLabel.text = titulos[1]
@@ -370,7 +374,9 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             return cell
             
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotasCVCell", for: indexPath) as! NotasCVCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotasCVCell", for: indexPath) as? NotasCVCell else {
+                return UICollectionViewCell()
+            }
             cell.tituloLabel.text = notas[indexPath.row - 2].titulo
             cell.corpoLabel.text = notas[indexPath.row - 2].corpo
             
@@ -382,7 +388,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
          return CGSize(width: collectionView.frame.size.width - 20, height: 220)
     }
     
-    
     // Navegação
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -391,7 +396,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 if let item = collectionView.indexPathsForSelectedItems?.first {
                     let titulo = notas[item.row - 2].titulo
                     let corpo = notas[item.row - 2].corpo
-                    nota.conteudo = [titulo,corpo] as! [String]
+                    nota.conteudo = [titulo, corpo] as? [String] ?? ["", ""]
                     nota.novaNota = notas[item.row - 2]
                     nota.modoEdicao = true
                 }
@@ -415,7 +420,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     }
 
     @IBAction func voltarDia(_ sender: Any) {
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         Calendario.shared.decrementaDia()
         diaLabel.text = Calendario.shared.retornaDiaAtual()
         
@@ -434,7 +439,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     }
     
     @IBAction func avancarDia(_ sender: Any) {
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         Calendario.shared.incrementaDia()
         diaLabel.text = Calendario.shared.retornaDiaAtual()
         
@@ -452,12 +457,12 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         collectionView.reloadData()
     }
     
-    @IBAction func salvarEntrada(_ sender: UIStoryboardSegue){
+    @IBAction func salvarEntrada(_ sender: UIStoryboardSegue) {
         if sender.source is NovaNotaVC {
             if let senderAdd = sender.source as? NovaNotaVC {
                 if let nota = senderAdd.novaNota {
                     dia?.addToTem(nota)
-                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                     
                     if let dia = dia {
                         notas = recuperaNotas(dia: dia)
@@ -469,8 +474,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         
         if sender.source is NovaOracaoTVController {
             if let senderAdd = sender.source as? NovaOracaoTVController {
-                if let pedido = senderAdd.novoPedido {
-                    
+                if senderAdd.novoPedido != nil {
                     if let dia = dia {
                         recuperaPedidos(dia: dia)
                     }
@@ -479,7 +483,4 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             }
         }
     }
-    
-    
-
 }

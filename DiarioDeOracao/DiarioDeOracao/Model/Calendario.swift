@@ -11,23 +11,40 @@ import Foundation
 class Calendario {
     static let shared = Calendario()
     
-    private var data:Date
-    private var calendario:Calendar
+    private var data: Date
+    private var calendario: Calendar
     
-    public var dia:Int
-    public var diaDaSemana:Int
-    public var mes:Int
-    public var ano:Int
+    public var dia: Int
+    public var diaDaSemana: Int
+    public var mes: Int
+    public var ano: Int
     
-    public var anosPassados:Int
+    public var anosPassados: Int
     
-    public let meses = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"]
+    public let meses = ["janeiro",
+                        "fevereiro",
+                        "março",
+                        "abril",
+                        "maio",
+                        "junho",
+                        "julho",
+                        "agosto",
+                        "setembro",
+                        "outubro",
+                        "novembro",
+                        "dezembro"]
     
-    public let mesesAbrev = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"]
+    public let mesesAbrev = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
     
-    public let diasDaSemana = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"]
+    public let diasDaSemana = ["Domingo",
+                               "Segunda-feira",
+                               "Terça-feira",
+                               "Quarta-feira",
+                               "Quinta-feira",
+                               "Sexta-feira",
+                               "Sábado"]
     
-    public var diasNoMes = [31,28,31,30,31,30,31,31,30,31,30,31]
+    public var diasNoMes = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
     private init() {
         data = Date()
@@ -51,8 +68,7 @@ class Calendario {
                 mes += 1
             }
             dia = 1
-        }
-        else {
+        } else {
             dia += 1
         }
         
@@ -77,8 +93,7 @@ class Calendario {
                 mes -= 1
             }
             dia = diasNoMes[mes - 1]
-        }
-        else {
+        } else {
             dia -= 1
         }
         

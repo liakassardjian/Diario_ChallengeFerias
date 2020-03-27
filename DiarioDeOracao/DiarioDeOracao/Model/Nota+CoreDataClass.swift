@@ -10,7 +10,4 @@
 import Foundation
 import CoreData
 
-
-public class Nota: NSManagedObject {
-
-}
+public class Nota: NSManagedObject {}

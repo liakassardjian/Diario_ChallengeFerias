@@ -36,13 +36,10 @@ class CardFixoCVCell: UICollectionViewCell {
     }
 }
 
-
-
 extension CardFixoCVCell {
     func setTableViewDataSourceDelegate
         <D: UITableViewDelegate & UITableViewDataSource>
-        (_ dataSourceDelegate: D, forRow row: Int)
-    {
+        (_ dataSourceDelegate: D, forRow row: Int) {
         topicosTableView.delegate = dataSourceDelegate
         topicosTableView.dataSource = dataSourceDelegate
         

@@ -11,7 +11,7 @@ import UserNotifications
 
 class PreferenciasTVController: UITableViewController {
 
-    var horarioAlterado:Bool = false
+    var horarioAlterado: Bool = false
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -55,8 +55,8 @@ class PreferenciasTVController: UITableViewController {
     @IBAction func concluir(_ sender: Any) {
         if notificacaoSwitch.isOn && horarioAlterado {
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            var horario = Calendario.shared.retornaDateComponents(date: datePicker.date)
-            (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: horario)
+            let horario = Calendario.shared.retornaDateComponents(date: datePicker.date)
+            (UIApplication.shared.delegate as? AppDelegate)?.enviaNotificacao(data: horario)
         } else if !notificacaoSwitch.isOn {
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         }

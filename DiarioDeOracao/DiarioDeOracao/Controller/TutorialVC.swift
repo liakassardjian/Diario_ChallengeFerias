@@ -21,8 +21,8 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     var pageViewController: TutorialPVController?
-    var horario:DateComponents?
-    var primeiroTutorial:Bool = false
+    var horario: DateComponents?
+    var primeiroTutorial: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
         dismiss(animated: true, completion: {
             if self.primeiroTutorial {
                 if let h = self.horario {
-                    (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
+                    (UIApplication.shared.delegate as? AppDelegate)?.enviaNotificacao(data: h)
                 }
             }
         })
@@ -51,9 +51,9 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
         if let index = pageViewController?.indexAtual {
             switch index {
             case 0:
-                let tela1:TutorialTela1VC = pageViewController?.ordemViewControllers[0] as! TutorialTela1VC
+                let tela1 = pageViewController?.ordemViewControllers[0] as? TutorialTela1VC
                 if self.primeiroTutorial {
-                    horario = Calendario.shared.retornaDateComponents(date: tela1.datePicker.date)
+                    horario = Calendario.shared.retornaDateComponents(date: tela1?.datePicker.date ?? Date())
                 }
                 pageViewController?.avancarPagina()
                 
@@ -67,7 +67,7 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
                     dismiss(animated: true, completion: {
                         if self.primeiroTutorial {
                             if let h = self.horario {
-                                (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
+                                (UIApplication.shared.delegate as? AppDelegate)?.enviaNotificacao(data: h)
                             }
                         }
                     })
@@ -77,7 +77,7 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
                 dismiss(animated: true, completion: {
                     if self.primeiroTutorial {
                         if let h = self.horario {
-                            (UIApplication.shared.delegate as! AppDelegate).enviaNotificacao(data: h)
+                            (UIApplication.shared.delegate as? AppDelegate)?.enviaNotificacao(data: h)
                         }
                     }
                 })
@@ -127,6 +127,4 @@ class TutorialVC: UIViewController, UNUserNotificationCenterDelegate {
             pVC.primeiroTutorial = primeiroTutorial
         }
     }
-
-    
 }

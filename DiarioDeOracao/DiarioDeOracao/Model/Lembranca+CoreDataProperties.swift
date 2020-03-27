@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension Lembranca {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Lembranca> {

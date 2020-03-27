@@ -10,7 +10,6 @@ import UIKit
 
 class TutorialPVController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
-
     lazy var ordemViewControllers: [UIViewController] = {
         return [self.novaVC(viewController: "tela1"),
                 self.novaVC(viewController: "tela2"),
@@ -30,7 +29,7 @@ class TutorialPVController: UIPageViewController, UIPageViewControllerDelegate, 
     
     var indexAtual = 0
     var tutorialViewController: TutorialVC?
-    var primeiroTutorial:Bool = false
+    var primeiroTutorial: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +56,7 @@ class TutorialPVController: UIPageViewController, UIPageViewControllerDelegate, 
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        var index:Int
+        var index: Int
         
         if primeiroTutorial {
             guard let indexViewController = ordemViewControllers.firstIndex(of: viewController) else {
@@ -77,7 +76,7 @@ class TutorialPVController: UIPageViewController, UIPageViewControllerDelegate, 
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        var index:Int
+        var index: Int
         
         if primeiroTutorial {
             guard let indexViewController = ordemViewControllers.firstIndex(of: viewController) else {

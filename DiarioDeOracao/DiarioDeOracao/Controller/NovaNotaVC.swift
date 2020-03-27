@@ -19,18 +19,18 @@ class NovaNotaVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var excluirButton: UIBarButtonItem!
     
-    var diario:DiarioVC?
+    var diario: DiarioVC?
     
-    let modeloNota = ["Nova nota","Escreva aqui sua nota"]
-    var conteudo:[String] = []
+    let modeloNota = ["Nova nota", "Escreva aqui sua nota"]
+    var conteudo = [String]()
     
-    var context:NSManagedObjectContext?
-    var novaNota:Nota?
-    var modoEdicao:Bool = false
+    var context: NSManagedObjectContext?
+    var novaNota: Nota?
+    var modoEdicao: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
         tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tituloTextField.delegate = self
@@ -54,19 +54,19 @@ class NovaNotaVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         } else {
             tituloTextField.text = modeloNota[0]
             corpoTextView.text = modeloNota[1]
-            conteudo = ["",""]
+            conteudo = ["", ""]
         }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let context = context {
             if !modoEdicao {
-                novaNota = NSEntityDescription.insertNewObject(forEntityName: "Nota", into: context) as! Nota
+                novaNota = NSEntityDescription.insertNewObject(forEntityName: "Nota", into: context) as? Nota
             }
             novaNota?.titulo = leTextField(textField: tituloTextField)
             novaNota?.corpo = leTextView(textView: corpoTextView)
             
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             
             return true
         }
@@ -74,19 +74,21 @@ class NovaNotaVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     }
     
     func leTextField(textField: UITextField) -> String {
-        var texto:String = ""
-        if textField.text != nil,
-            textField.text!.count > 0 {
-            texto = textField.text!
+        var texto: String = ""
+        
+        guard let entrada = textField.text else { return "" }
+        if entrada.count > 0 {
+            texto = entrada
         }
         return texto
     }
     
     func leTextView(textView: UITextView) -> String {
-        var texto:String = ""
-        if textView.text != nil,
-            textView.text!.count > 0 {
-            texto = textView.text!
+        var texto: String = ""
+        
+        guard let entrada = textView.text else { return "" }
+        if entrada.count > 0 {
+            texto = entrada
         }
         return texto
     }
@@ -163,5 +165,4 @@ class NovaNotaVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-
 }

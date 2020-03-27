@@ -19,21 +19,21 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
     
     @IBOutlet weak var excluirButton: UIBarButtonItem!
     
-    var context:NSManagedObjectContext?
+    var context: NSManagedObjectContext?
     
-    var data:Dia?
-    var diario:DiarioVC?
-    var lembrancaCVC:LembrancasCVController?
+    var data: Dia?
+    var diario: DiarioVC?
+    var lembrancaCVC: LembrancasCVController?
     
-    let modeloLembranca = ["Título da sua lembrança","Descreva aqui o acontecimento"]
-    var conteudo:[String] = []
+    let modeloLembranca = ["Título da sua lembrança", "Descreva aqui o acontecimento"]
+    var conteudo: [String] = []
     
-    var novaLembranca:Lembranca?
-    var modoEdicao:Bool = false
+    var novaLembranca: Lembranca?
+    var modoEdicao: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
         tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tituloTextField.delegate = self
@@ -56,14 +56,14 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
         } else {
             tituloTextField.text = modeloLembranca[0]
             corpoTextView.text = modeloLembranca[1]
-            conteudo = ["",""]
+            conteudo = ["", ""]
         }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let context = context {
             if !modoEdicao {
-                novaLembranca = NSEntityDescription.insertNewObject(forEntityName: "Lembranca", into: context) as! Lembranca
+                novaLembranca = NSEntityDescription.insertNewObject(forEntityName: "Lembranca", into: context) as? Lembranca
                 
                 if let diario = diario {
                     diario.lembrancaAdicionada = true
@@ -76,7 +76,7 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
                 novaLembranca?.data = data
             }
             
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             
             return true
         }
@@ -84,19 +84,21 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
     }
     
     func leTextField(textField: UITextField) -> String {
-        var texto:String = ""
-        if textField.text != nil,
-            textField.text!.count > 0 {
-            texto = textField.text!
+        var texto: String = ""
+        
+        guard let entrada = textField.text else { return "" }
+        if entrada.count > 0 {
+            texto = entrada
         }
         return texto
     }
     
     func leTextView(textView: UITextView) -> String {
-        var texto:String = ""
-        if textView.text != nil,
-            textView.text!.count > 0 {
-            texto = textView.text!
+        var texto: String = ""
+        
+        guard let entrada = textView.text else { return "" }
+        if entrada.count > 0 {
+            texto = entrada
         }
         return texto
     }
@@ -154,7 +156,9 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
     }
 
     @IBAction func excluirLembranca(_ sender: Any) {
-        let alert = UIAlertController(title: "Excluir lembrança", message: "Tem certeza de que deseja excluir essa lembrança?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Excluir lembrança",
+                                      message: "Tem certeza de que deseja excluir essa lembrança?",
+                                      preferredStyle: .alert)
         
         let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         

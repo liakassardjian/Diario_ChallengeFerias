@@ -10,7 +10,4 @@
 import Foundation
 import CoreData
 
-
-public class Lembranca: NSManagedObject {
-
-}
+public class Lembranca: NSManagedObject {}

@@ -10,7 +10,4 @@
 import Foundation
 import CoreData
 
-
-public class Capitulo: NSManagedObject {
-
-}
+public class Capitulo: NSManagedObject {}

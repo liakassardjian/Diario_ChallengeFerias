@@ -10,7 +10,4 @@
 import Foundation
 import CoreData
 
-
-public class Dia: NSManagedObject {
-
-}
+public class Dia: NSManagedObject {}

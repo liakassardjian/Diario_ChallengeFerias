@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension Dia {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Dia> {

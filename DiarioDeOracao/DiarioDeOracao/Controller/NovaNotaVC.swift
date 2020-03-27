@@ -10,8 +10,8 @@ import UIKit
 import CoreData
 
 class NovaNotaVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
-
-   @IBOutlet weak var tituloTextField: UITextField!
+    
+    @IBOutlet weak var tituloTextField: UITextField!
     
     @IBOutlet weak var corpoTextView: UITextView!
     
@@ -19,18 +19,16 @@ class NovaNotaVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var excluirButton: UIBarButtonItem!
     
-    var diario:DiarioVC?
+    var diario: DiarioVC?
     
-    let modeloNota = ["Nova nota","Escreva aqui sua nota"]
-    var conteudo:[String] = []
+    let modeloNota = ["Nova nota", "Escreva aqui sua nota"]
+    var conteudo = [String]()
     
-    var context:NSManagedObjectContext?
-    var novaNota:Nota?
-    var modoEdicao:Bool = false
+    var novaNota: Nota?
+    var modoEdicao: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tituloTextField.delegate = self
@@ -54,39 +52,41 @@ class NovaNotaVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         } else {
             tituloTextField.text = modeloNota[0]
             corpoTextView.text = modeloNota[1]
-            conteudo = ["",""]
+            conteudo = ["", ""]
         }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if let context = context {
-            if !modoEdicao {
-                novaNota = NSEntityDescription.insertNewObject(forEntityName: "Nota", into: context) as! Nota
-            }
-            novaNota?.titulo = leTextField(textField: tituloTextField)
-            novaNota?.corpo = leTextView(textView: corpoTextView)
-            
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            
-            return true
+        let titulo = leTextField(textField: tituloTextField)
+        let corpo = leTextView(textView: corpoTextView)
+        
+        if !modoEdicao {
+            novaNota = CoreDataManager.shared.createNota()
         }
-        return false
+        novaNota?.titulo = titulo
+        novaNota?.corpo = corpo
+        
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        
+        return true
     }
     
     func leTextField(textField: UITextField) -> String {
-        var texto:String = ""
-        if textField.text != nil,
-            textField.text!.count > 0 {
-            texto = textField.text!
+        var texto: String = ""
+        
+        guard let entrada = textField.text else { return "" }
+        if entrada.count > 0 {
+            texto = entrada
         }
         return texto
     }
     
     func leTextView(textView: UITextView) -> String {
-        var texto:String = ""
-        if textView.text != nil,
-            textView.text!.count > 0 {
-            texto = textView.text!
+        var texto: String = ""
+        
+        guard let entrada = textView.text else { return "" }
+        if entrada.count > 0 {
+            texto = entrada
         }
         return texto
     }
@@ -142,7 +142,7 @@ class NovaNotaVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
             textView.text = modeloNota[1]
         }
     }
-
+    
     @IBAction func excluirNota(_ sender: Any) {
         
         let alert = UIAlertController(title: "Excluir nota", message: "Tem certeza de que deseja excluir essa nota?", preferredStyle: .alert)
@@ -150,18 +150,17 @@ class NovaNotaVC: UIViewController, UITextViewDelegate, UITextFieldDelegate {
         let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         
         let exluir = UIAlertAction(title: "Excluir", style: .destructive, handler: { _ in
-                self.navigationController?.popViewController(animated: true)
-                self.dismiss(animated: true, completion: nil)
-                if let diario = self.diario {
-                    diario.notaFoiDeletada = true
-                    diario.notaDeletada = self.novaNota
-                }
-            })
+            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
+            if let diario = self.diario {
+                diario.notaFoiDeletada = true
+                diario.notaDeletada = self.novaNota
+            }
+        })
         
         alert.addAction(cancelar)
         alert.addAction(exluir)
         present(alert, animated: true, completion: nil)
     }
     
-
 }

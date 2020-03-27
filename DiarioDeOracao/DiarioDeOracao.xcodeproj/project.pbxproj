@@ -19,6 +19,7 @@
 		E450335C22DE61CC0016EA09 /* lmroman10-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E450335B22DE61C20016EA09 /* lmroman10-regular.otf */; };
 		E450335E22DE69BB0016EA09 /* ListasTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335D22DE69BB0016EA09 /* ListasTVController.swift */; };
 		E450336022DE6AAD0016EA09 /* TopicosTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */; };
+		E45356F8242E776F00B04674 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45356F7242E776F00B04674 /* CoreDataManager.swift */; };
 		E46369F522E627C500E455A1 /* Capitulo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46369F422E627C500E455A1 /* Capitulo.swift */; };
 		E46369FF22E62C7600E455A1 /* capitulos.json in Resources */ = {isa = PBXBuildFile; fileRef = E46369FE22E62C7600E455A1 /* capitulos.json */; };
 		E4636A0222E6318D00E455A1 /* Capitulo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4636A0022E6318D00E455A1 /* Capitulo+CoreDataClass.swift */; };
@@ -63,6 +64,7 @@
 		E450335B22DE61C20016EA09 /* lmroman10-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lmroman10-regular.otf"; sourceTree = "<group>"; };
 		E450335D22DE69BB0016EA09 /* ListasTVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListasTVController.swift; sourceTree = "<group>"; };
 		E450335F22DE6AAD0016EA09 /* TopicosTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicosTVCell.swift; sourceTree = "<group>"; };
+		E45356F7242E776F00B04674 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E46369F422E627C500E455A1 /* Capitulo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capitulo.swift; sourceTree = "<group>"; };
 		E46369FE22E62C7600E455A1 /* capitulos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = capitulos.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		E4636A0022E6318D00E455A1 /* Capitulo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Capitulo+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				E450334422DD11AE0016EA09 /* Calendario.swift */,
 				E450330B22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld */,
 				E46369FE22E62C7600E455A1 /* capitulos.json */,
+				E45356F7242E776F00B04674 /* CoreDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				E45032FD22DCE2C40016EA09 /* Sources */,
 				E45032FE22DCE2C40016EA09 /* Frameworks */,
 				E45032FF22DCE2C40016EA09 /* Resources */,
+				E45356F6242E641600B04674 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -256,6 +260,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E45356F6242E641600B04674 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E45032FD22DCE2C40016EA09 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -279,6 +303,7 @@
 				E48E138C22E10511001A4CA2 /* RodapeCollectionReusableView.swift in Sources */,
 				E48E138022E0A791001A4CA2 /* LembrancasCVController.swift in Sources */,
 				E46369F522E627C500E455A1 /* Capitulo.swift in Sources */,
+				E45356F8242E776F00B04674 /* CoreDataManager.swift in Sources */,
 				E450334522DD11AE0016EA09 /* Calendario.swift in Sources */,
 				E46A69F222E24F7F002B545A /* TutorialPVController.swift in Sources */,
 				E450330522DCE2C40016EA09 /* AppDelegate.swift in Sources */,

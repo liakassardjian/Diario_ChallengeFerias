@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 typealias Capitulos = [CapituloData]
 
 struct CapituloData: Codable {

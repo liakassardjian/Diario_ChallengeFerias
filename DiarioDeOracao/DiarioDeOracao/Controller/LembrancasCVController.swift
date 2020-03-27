@@ -13,21 +13,20 @@ private let reuseIdentifier = "lembranca"
 
 class LembrancasCVController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var context:NSManagedObjectContext?
+    var context: NSManagedObjectContext?
     
-    var lembrancas:[[Lembranca]] = []
-    var anos:[Int] = []
+    var lembrancas = [[Lembranca]]()
+    var anos = [Int]()
     
-    var lembrancaFoiDeletada:Bool = false
-    var lembrancaDeletada:Lembranca?
+    var lembrancaFoiDeletada: Bool = false
+    var lembrancaDeletada: Lembranca?
     
-    var semLembrancaLabel:UILabel?
+    var semLembrancaLabel: UILabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-
+        context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    
         if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
             let w = collectionView.frame.size.width - 20
             flowLayout.estimatedItemSize = CGSize(width: w, height: 142)
@@ -59,9 +58,8 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
 
         if lembrancaFoiDeletada {
             if let lembranca = lembrancaDeletada {
-                let ano = Calendario.shared.retornaAno(date: lembrancaDeletada?.data?.data as! Date)
                 self.context?.delete(lembranca)
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                 
                 carregaLembrancas()
                 collectionView.reloadData()
@@ -74,27 +72,24 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         } else {
             semLembrancaLabel?.isHidden = true
         }
-        
-        
-        
     }
-    
     
     // Core Data
     
     func carregaLembrancas() {
         do {
-            var lem:[Lembranca] = []
+            var lem = [Lembranca]()
             if let context = context {
                 lem = try context.fetch(Lembranca.fetchRequest())
             }
             
-            var a:[Int] = []
+            var a = [Int]()
             for l in lem {
-                let data = l.data?.data as! Date
-                let ano = Calendario.shared.retornaAno(date: data)
-                if !a.contains(ano) {
-                    a.append(ano)
+                if let data = l.data?.data as Date? {
+                    let ano = Calendario.shared.retornaAno(date: data)
+                    if !a.contains(ano) {
+                        a.append(ano)
+                    }
                 }
             }
             a.sort(by: >)
@@ -102,16 +97,17 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
             
             lembrancas = []
             for _ in anos {
-                let novoVetor:[Lembranca] = []
+                let novoVetor = [Lembranca]()
                 lembrancas.append(novoVetor)
             }
             
             for l in lem {
-                let data = l.data?.data as! Date
-                let ano = Calendario.shared.retornaAno(date: data)
-                if let i = anos.firstIndex(of: ano) {
-                    if !lembrancas[i].contains(l) {
-                        lembrancas[i].insert(l, at: 0)
+                if let data = l.data?.data as Date? {
+                    let ano = Calendario.shared.retornaAno(date: data)
+                    if let i = anos.firstIndex(of: ano) {
+                        if !lembrancas[i].contains(l) {
+                            lembrancas[i].insert(l, at: 0)
+                        }
                     }
                 }
             }
@@ -121,7 +117,6 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         }
     }
 
-    
     // Collection View
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -133,10 +128,11 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! LembrancaCVCell
-        
-        let data = lembrancas[indexPath.section][indexPath.row].data?.data as! Date
-
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? LembrancaCVCell,
+            let data = lembrancas[indexPath.section][indexPath.row].data?.data as Date?
+            else {
+                return UICollectionViewCell()
+        }
         cell.dataLabel.text = Calendario.shared.retornaDiaMesString(date: data)
         cell.tituloLabel.text = lembrancas[indexPath.section][indexPath.row].titulo
         cell.corpoLabel.text = lembrancas[indexPath.section][indexPath.row].corpo
@@ -179,7 +175,7 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var width:Int = 0
+        var width: Int = 0
         if UIDevice.current.orientation == UIDeviceOrientation.portrait ||
             UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
             width = Int(collectionView.frame.size.width - 20)
@@ -188,7 +184,6 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         }
         return CGSize(width: width, height: 142)
     }
-    
     
     // Navegação
     
@@ -205,7 +200,7 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
                 if let item = collectionView.indexPathsForSelectedItems?.first {
                     let titulo = lembrancas[item.section][item.row].titulo
                     let corpo = lembrancas[item.section][item.row].corpo
-                    lembranca.conteudo = [titulo,corpo] as! [String]
+                    lembranca.conteudo = [titulo, corpo] as? [String] ?? ["", ""]
                     lembranca.novaLembranca = lembrancas[item.section][item.row]
                     lembranca.modoEdicao = true
                     lembranca.lembrancaCVC = self
@@ -214,16 +209,13 @@ class LembrancasCVController: UICollectionViewController, UICollectionViewDelega
         }
     }
     
-    @IBAction func salvarEntrada(_ sender: UIStoryboardSegue){
+    @IBAction func salvarEntrada(_ sender: UIStoryboardSegue) {
         if sender.source is NovaLembrancaVC {
             if let senderAdd = sender.source as? NovaLembrancaVC {
-                if let lembranca = senderAdd.novaLembranca {
+                if senderAdd.novaLembranca != nil {
                     collectionView.reloadData()
                 }
             }
         }
     }
-    
-    
-    
 }

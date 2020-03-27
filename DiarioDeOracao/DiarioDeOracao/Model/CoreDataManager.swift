@@ -164,7 +164,6 @@ class CoreDataManager {
         return novoPedido
     }
     
-    
     // MARK: - Notas
     
     func fetchNotas() {

@@ -176,7 +176,15 @@ class CoreDataManager {
         fetchNotas()
         
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-
+    }
+    
+    func createNota() -> Nota? {
+        guard let context = self.context else { return nil }
+        
+        let novaNota = NSEntityDescription.insertNewObject(forEntityName: "Nota", into: context) as? Nota
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        
+        return novaNota
     }
     
 }

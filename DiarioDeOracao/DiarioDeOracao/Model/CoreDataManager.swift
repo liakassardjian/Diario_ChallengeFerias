@@ -18,6 +18,8 @@ class CoreDataManager {
     var capitulos: [Capitulo]
     var pedidos: [Pedido]
     var notas: [Nota]
+    var lembrancas: [[Lembranca]]
+    var anos: [Int]
     
     static let shared = CoreDataManager()
     
@@ -27,6 +29,8 @@ class CoreDataManager {
         capitulos = []
         pedidos = []
         notas = []
+        lembrancas = []
+        anos = []
         dia = Dia()
     }
     
@@ -197,6 +201,63 @@ class CoreDataManager {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         
         return novaNota
+    }
+    
+    // MARK: - Lembranças
+    
+    func fetchLembrancas() {
+        guard let context = self.context else { return }
+        
+        do {
+            var lem = [Lembranca]()
+            lem = try context.fetch(Lembranca.fetchRequest())
+            
+            var a = [Int]()
+            for l in lem {
+                if let data = l.data?.data as Date? {
+                    let ano = Calendario.shared.retornaAno(date: data)
+                    if !a.contains(ano) {
+                        a.append(ano)
+                    }
+                }
+            }
+            a.sort(by: >)
+            anos = a
+            
+            lembrancas = []
+            for _ in anos {
+                let novoVetor = [Lembranca]()
+                lembrancas.append(novoVetor)
+            }
+            
+            for l in lem {
+                if let data = l.data?.data as Date? {
+                    let ano = Calendario.shared.retornaAno(date: data)
+                    if let i = anos.firstIndex(of: ano) {
+                        if !lembrancas[i].contains(l) {
+                            lembrancas[i].insert(l, at: 0)
+                        }
+                    }
+                }
+            }
+        } catch {
+            print("Erro ao carregar lembranças")
+            return
+        }
+    }
+    
+    func deleteLembranca(lembranca: Lembranca) {
+        self.context?.delete(lembranca)
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        
+        CoreDataManager.shared.fetchLembrancas()
+    }
+    
+    func createLembranca() -> Lembranca? {
+        guard let context = self.context else { return nil }
+
+        let novaLembranca = NSEntityDescription.insertNewObject(forEntityName: "Lembranca", into: context) as? Lembranca
+        return novaLembranca
     }
     
 }

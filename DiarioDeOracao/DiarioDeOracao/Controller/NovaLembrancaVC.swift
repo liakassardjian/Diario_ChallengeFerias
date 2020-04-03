@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-
+    
     @IBOutlet weak var tituloTextField: UITextField!
     
     @IBOutlet weak var corpoTextView: UITextView!
@@ -18,9 +18,7 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
     @IBOutlet weak var salvarButton: UIBarButtonItem!
     
     @IBOutlet weak var excluirButton: UIBarButtonItem!
-    
-    var context: NSManagedObjectContext?
-    
+        
     var data: Dia?
     var diario: DiarioVC?
     var lembrancaCVC: LembrancasCVController?
@@ -33,7 +31,6 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
         tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tituloTextField.delegate = self
@@ -61,26 +58,23 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if let context = context {
-            if !modoEdicao {
-                novaLembranca = NSEntityDescription.insertNewObject(forEntityName: "Lembranca", into: context) as? Lembranca
-                
-                if let diario = diario {
-                    diario.lembrancaAdicionada = true
-                }
+        if !modoEdicao {
+            novaLembranca = CoreDataManager.shared.createLembranca()
+            
+            if let diario = diario {
+                diario.lembrancaAdicionada = true
             }
-            novaLembranca?.titulo = leTextField(textField: tituloTextField)
-            novaLembranca?.corpo = leTextView(textView: corpoTextView)
-            
-            if let data = data {
-                novaLembranca?.data = data
-            }
-            
-            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-            
-            return true
         }
-        return false
+        novaLembranca?.titulo = leTextField(textField: tituloTextField)
+        novaLembranca?.corpo = leTextView(textView: corpoTextView)
+        
+        if let data = data {
+            novaLembranca?.data = data
+        }
+        
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        
+        return true
     }
     
     func leTextField(textField: UITextField) -> String {
@@ -154,7 +148,7 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
             salvarButton.isEnabled = false
         }
     }
-
+    
     @IBAction func excluirLembranca(_ sender: Any) {
         let alert = UIAlertController(title: "Excluir lembrança",
                                       message: "Tem certeza de que deseja excluir essa lembrança?",

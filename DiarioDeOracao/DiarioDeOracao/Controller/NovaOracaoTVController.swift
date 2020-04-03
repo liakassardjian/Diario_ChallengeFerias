@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
+class NovaOracaoTVController: UITableViewController {
     
     @IBOutlet weak var tituloTextField: UITextField!
     @IBOutlet weak var urgenciaSegmentedControl: UISegmentedControl!
@@ -18,6 +18,8 @@ class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var salvarButton: UIBarButtonItem!
     
     let formatoData = DateFormatter()
+    
+    var textFieldDelegate: TextFieldDelegate?
     
     var novoPedido: Pedido?
     
@@ -30,7 +32,8 @@ class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
         let data = formatoData.string(from: Calendario.shared.retornaDataAtual())
         dataLabel.text = data
         
-        tituloTextField.delegate = self
+        textFieldDelegate = TextFieldDelegate()
+        tituloTextField.delegate = textFieldDelegate
         tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         salvarButton.isEnabled = false
@@ -44,7 +47,7 @@ class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        let nome = leTextField(textField: tituloTextField)
+        guard let nome = textFieldDelegate?.leTextField(textField: tituloTextField) else { return false }
         let urgencia = urgenciaSegmentedControl.selectedSegmentIndex
         let data = dataDatePicker.date
         
@@ -52,35 +55,12 @@ class NovaOracaoTVController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
-    func leTextField(textField: UITextField) -> String {
-        var texto: String = ""
-        
-        guard let entrada = textField.text else { return "" }
-        if entrada.count > 0 {
-            texto = entrada
-        }
-        return texto
-    }
-    
-    func validaTexto(texto: String) {
-        if texto != "" {
-            salvarButton.isEnabled = true
-        } else {
-            salvarButton.isEnabled = false
-        }
-    }
-    
     @IBAction func textFieldDidChange(_ sender: Any) {
         if let texto = tituloTextField.text {
-            validaTexto(texto: texto)
+            guard let enabled = textFieldDelegate?.validaTexto(texto: texto) else { return }
+            salvarButton.isEnabled = enabled
         } else {
             salvarButton.isEnabled = false
         }
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    
 }

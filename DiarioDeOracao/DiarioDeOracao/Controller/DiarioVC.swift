@@ -17,7 +17,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     @IBOutlet weak var voltarButton: UIButton!
     
     var dias: [Dia] = []
-    var dia: Dia?
     var contagemDias: Int = 0
     var anosPassados: Int = 0
     let totalDias: Int = 360
@@ -119,13 +118,12 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
             let pedidos = CoreDataManager.shared.pedidos
 
             cell.tituloLabel.text = pedidos[indexPath.row].nome
-            if let dia = dia {
-                if let concluiu = pedidos[indexPath.row].concluiu,
-                    concluiu.contains(dia) {
-                    marcarConcluido(celula: cell)
-                } else {
-                    desmarcarConcluido(celula: cell)
-                }                
+            let dia = CoreDataManager.shared.dia
+            if let concluiu = pedidos[indexPath.row].concluiu,
+                concluiu.contains(dia) {
+                marcarConcluido(celula: cell)
+            } else {
+                desmarcarConcluido(celula: cell)
             }
             cell.urgenciaLabel.isHidden = false
             
@@ -161,16 +159,16 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         } else {
             let pedidos = CoreDataManager.shared.pedidos
             
-            if let dia = dia {
-                if let concluiu = pedidos[indexPath.row].concluiu,
-                    !concluiu.contains(dia) {
-                    pedidos[indexPath.row].addToConcluiu(dia)
-                    marcarConcluido(celula: cell)
-                } else {
-                    pedidos[indexPath.row].removeFromConcluiu(dia)
-                    desmarcarConcluido(celula: cell)
-                }
+            let dia = CoreDataManager.shared.dia
+            if let concluiu = pedidos[indexPath.row].concluiu,
+                !concluiu.contains(dia) {
+                pedidos[indexPath.row].addToConcluiu(dia)
+                marcarConcluido(celula: cell)
+            } else {
+                pedidos[indexPath.row].removeFromConcluiu(dia)
+                desmarcarConcluido(celula: cell)
             }
+
             
         }
         
@@ -288,7 +286,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         
         if let lembranca = segue.destination as? NovaLembrancaVC {
             if segue.identifier == "novaLembranca" {
-                lembranca.data = dia
                 lembranca.modoEdicao = false
                 lembranca.diario = self
             }

@@ -65,11 +65,13 @@ class CoreDataManager {
         guard let context = self.context,
             let dia = NSEntityDescription.insertNewObject(forEntityName: "Dia", into: context) as? Dia
             else { return nil }
-        
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         
         dia.data = Calendario.shared.retornaDataCalendario() as NSDate
         fetchCapitulos(dia: dia, contagem: contagem)
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+
+        
         return dia
     }
     
@@ -89,13 +91,13 @@ class CoreDataManager {
                 guard let novosCapitulos = try context.fetch(fetchRequest) as? [Capitulo] else { return }
                 capitulosData = novosCapitulos
             } else {
-                capitulosData = capitulos
+                capitulosData = cap
             }
             
             for c in capitulosData {
                 dia.addToLeitura(c)
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             }
-            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             
         } catch {
             print("Erro ao carregar capitulo")
@@ -173,6 +175,7 @@ class CoreDataManager {
     func fetchNotas() {
         guard let notasTemp = dia.tem else { return }
         
+        notas = []
         for i in 0..<(notasTemp.count) {
             guard let n = notasTemp[i] as? Nota else { return }
             notas.append(n)
@@ -257,6 +260,8 @@ class CoreDataManager {
         guard let context = self.context else { return nil }
 
         let novaLembranca = NSEntityDescription.insertNewObject(forEntityName: "Lembranca", into: context) as? Lembranca
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+
         return novaLembranca
     }
     

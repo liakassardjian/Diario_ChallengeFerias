@@ -19,7 +19,6 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
     
     @IBOutlet weak var excluirButton: UIBarButtonItem!
         
-    var data: Dia?
     var diario: DiarioVC?
     var lembrancaCVC: LembrancasCVController?
     
@@ -67,12 +66,10 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
         }
         novaLembranca?.titulo = leTextField(textField: tituloTextField)
         novaLembranca?.corpo = leTextView(textView: corpoTextView)
-        
-        if let data = data {
-            novaLembranca?.data = data
-        }
+        novaLembranca?.data = CoreDataManager.shared.dia
         
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        CoreDataManager.shared.fetchLembrancas()
         
         return true
     }

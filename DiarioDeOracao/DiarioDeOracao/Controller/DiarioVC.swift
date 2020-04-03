@@ -28,9 +28,7 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
     var indiceDeletado: IndexPath?
     var notaFoiDeletada: Bool = false
     var notaDeletada: Nota?
-    
-    var atributoString: NSMutableAttributedString?
-        
+            
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -168,8 +166,6 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
                 pedidos[indexPath.row].removeFromConcluiu(dia)
                 desmarcarConcluido(celula: cell)
             }
-
-            
         }
         
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
@@ -199,8 +195,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         celula.checkImageView.image = nil
         
         guard let texto = celula.tituloLabel.text else { return }
-        atributoString = NSMutableAttributedString(string: texto)
-        atributoString?.addAttribute(.strikethroughStyle, value: 2, range: NSRange(location: 0, length: 0))
+        let atributoString = NSMutableAttributedString(string: texto)
+        atributoString.addAttribute(.strikethroughStyle, value: 2, range: NSRange(location: 0, length: 0))
         celula.tituloLabel.attributedText = atributoString
     }
     
@@ -208,8 +204,8 @@ class DiarioVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UI
         celula.checkImageView.image = UIImage(named: "Check")
         
         guard let texto = celula.tituloLabel.text else { return }
-        atributoString = NSMutableAttributedString(string: texto)
-        atributoString?.addAttribute(.strikethroughStyle, value: 2, range: NSRange(location: 0, length: atributoString?.length ?? 0))
+        let atributoString = NSMutableAttributedString(string: texto)
+        atributoString.addAttribute(.strikethroughStyle, value: 2, range: NSRange(location: 0, length: atributoString.length))
         celula.tituloLabel.attributedText = atributoString
     }
     

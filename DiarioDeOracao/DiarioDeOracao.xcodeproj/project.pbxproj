@@ -10,6 +10,7 @@
 		E413095E22DE9CE200D1BD4F /* NovaOracaoTVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413095D22DE9CE200D1BD4F /* NovaOracaoTVController.swift */; };
 		E41A582122E9E7B100C6272F /* TutorialTela1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41A582022E9E7B100C6272F /* TutorialTela1VC.swift */; };
 		E41BACB52437D74500785452 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41BACB42437D74500785452 /* TextFieldDelegate.swift */; };
+		E41BACB72437DB5A00785452 /* TextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41BACB62437DB5A00785452 /* TextViewDelegate.swift */; };
 		E450330522DCE2C40016EA09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E450330422DCE2C40016EA09 /* AppDelegate.swift */; };
 		E450330A22DCE2C40016EA09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E450330822DCE2C40016EA09 /* Main.storyboard */; };
 		E450330D22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E450330B22DCE2C40016EA09 /* DiarioDeOracao.xcdatamodeld */; };
@@ -54,6 +55,7 @@
 		E413096022DE9ED700D1BD4F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		E41A582022E9E7B100C6272F /* TutorialTela1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTela1VC.swift; sourceTree = "<group>"; };
 		E41BACB42437D74500785452 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		E41BACB62437DB5A00785452 /* TextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewDelegate.swift; sourceTree = "<group>"; };
 		E450330122DCE2C40016EA09 /* DiarioDeOracao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiarioDeOracao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E450330422DCE2C40016EA09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E450330922DCE2C40016EA09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				E41A582022E9E7B100C6272F /* TutorialTela1VC.swift */,
 				E4EC9A5522F379EB000625E7 /* PreferenciasTVController.swift */,
 				E41BACB42437D74500785452 /* TextFieldDelegate.swift */,
+				E41BACB62437DB5A00785452 /* TextViewDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				E48E138C22E10511001A4CA2 /* RodapeCollectionReusableView.swift in Sources */,
 				E48E138022E0A791001A4CA2 /* LembrancasCVController.swift in Sources */,
 				E46369F522E627C500E455A1 /* Capitulo.swift in Sources */,
+				E41BACB72437DB5A00785452 /* TextViewDelegate.swift in Sources */,
 				E45356F8242E776F00B04674 /* CoreDataManager.swift in Sources */,
 				E450334522DD11AE0016EA09 /* Calendario.swift in Sources */,
 				E46A69F222E24F7F002B545A /* TutorialPVController.swift in Sources */,

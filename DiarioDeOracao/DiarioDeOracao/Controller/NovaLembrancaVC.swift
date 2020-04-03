@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class NovaLembrancaVC: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var tituloTextField: UITextField!
     
@@ -22,6 +22,8 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
     var diario: DiarioVC?
     var lembrancaCVC: LembrancasCVController?
     
+    var textFieldDelegate: TextFieldDelegate?
+    
     let modeloLembranca = ["Título da sua lembrança", "Descreva aqui o acontecimento"]
     var conteudo: [String] = []
     
@@ -31,8 +33,9 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textFieldDelegate = TextFieldDelegate(modelo: modeloLembranca)
         tituloTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        tituloTextField.delegate = self
+        tituloTextField.delegate = textFieldDelegate
         corpoTextView.delegate = self
         salvarButton.isEnabled = false
         
@@ -64,7 +67,7 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
                 diario.lembrancaAdicionada = true
             }
         }
-        novaLembranca?.titulo = leTextField(textField: tituloTextField)
+        novaLembranca?.titulo = textFieldDelegate?.leTextField(textField: tituloTextField)
         novaLembranca?.corpo = leTextView(textView: corpoTextView)
         novaLembranca?.data = CoreDataManager.shared.dia
         
@@ -72,16 +75,6 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
         CoreDataManager.shared.fetchLembrancas()
         
         return true
-    }
-    
-    func leTextField(textField: UITextField) -> String {
-        var texto: String = ""
-        
-        guard let entrada = textField.text else { return "" }
-        if entrada.count > 0 {
-            texto = entrada
-        }
-        return texto
     }
     
     func leTextView(textView: UITextView) -> String {
@@ -95,52 +88,11 @@ class NovaLembrancaVC: UIViewController, UITextFieldDelegate, UITextViewDelegate
     }
     
     @IBAction func textFieldDidChange(_ sender: Any) {
-        if let titulo = tituloTextField.text {
-            if let corpo = tituloTextField.text {
-                validaTexto(titulo: titulo, corpo: corpo)
-            }
-        } else {
-            salvarButton.isEnabled = false
-        }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        if let corpo = corpoTextView.text {
-            if let titulo = tituloTextField.text {
-                validaTexto(titulo: titulo, corpo: corpo)
-            }
-        } else {
-            salvarButton.isEnabled = false
-        }
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.text == modeloLembranca[0] {
-            textField.text = ""
-        }
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == modeloLembranca[1] {
-            textView.text = ""
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.text == "" {
-            textField.text = modeloLembranca[0]
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text == ""{
-            textView.text = modeloLembranca[1]
-        }
-    }
-    
-    func validaTexto(titulo: String, corpo: String) {
-        if titulo != "" && corpo != "" && titulo != modeloLembranca[0] && corpo != modeloLembranca[1] {
-            salvarButton.isEnabled = true
+        if
+            let titulo = tituloTextField.text,
+            let corpo = tituloTextField.text,
+            let enabled = textFieldDelegate?.validaTexto(titulo: titulo, corpo: corpo) {
+                salvarButton.isEnabled = enabled
         } else {
             salvarButton.isEnabled = false
         }
